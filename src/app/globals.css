@@ -1,0 +1,203 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: #edf1f8;
+  --foreground: #1f2735;
+  --card: #ffffff;
+  --card-foreground: #1f2735;
+  --popover: #ffffff;
+  --popover-foreground: #1f2735;
+  --primary: #316dff;
+  --primary-foreground: #f8faff;
+  --secondary: #e6ebf4;
+  --secondary-foreground: #1f2735;
+  --muted: #e6ebf4;
+  --muted-foreground: #697892;
+  --accent: #d8e4f7;
+  --accent-foreground: #1f2735;
+  --destructive: #cf4d4d;
+  --border: #cdd6e5;
+  --input: #d6deeb;
+  --ring: #4f83ff;
+  --chart-1: #316dff;
+  --chart-2: #1f9f6a;
+  --chart-3: #cf8a1f;
+  --chart-4: #149ac7;
+  --chart-5: #cf5175;
+  --sidebar: #f3f0f8;
+  --sidebar-foreground: #2f2a3a;
+  --sidebar-primary: #316dff;
+  --sidebar-primary-foreground: #f8faff;
+  --sidebar-accent: #e5dff0;
+  --sidebar-accent-foreground: #2f2a3a;
+  --sidebar-border: #d8d1e3;
+  --sidebar-ring: #4f83ff;
+  --page-glow-1: rgba(49, 109, 255, 0.2);
+  --page-glow-2: rgba(121, 84, 183, 0.12);
+  --page-gradient-start: #f6f8fd;
+  --page-gradient-mid: #edf1f8;
+  --page-gradient-end: #e8edf7;
+  --selection-bg: rgba(49, 109, 255, 0.3);
+  --scrollbar-thumb: rgba(97, 116, 147, 0.45);
+  --scrollbar-thumb-hover: rgba(97, 116, 147, 0.65);
+  color-scheme: light;
+}
+
+.dark {
+  --background: #13161d;
+  --foreground: #eff2fa;
+  --card: #1a1f29;
+  --card-foreground: #eff2fa;
+  --popover: #1a1f29;
+  --popover-foreground: #eff2fa;
+  --primary: #4f8dff;
+  --primary-foreground: #f7f9ff;
+  --secondary: #242b38;
+  --secondary-foreground: #eff2fa;
+  --muted: #171d27;
+  --muted-foreground: #9da9bf;
+  --accent: #283446;
+  --accent-foreground: #dce8ff;
+  --destructive: #ff7070;
+  --border: #2f3646;
+  --input: #252d3a;
+  --ring: #73a3ff;
+  --chart-1: #4f8dff;
+  --chart-2: #35c37b;
+  --chart-3: #f4b453;
+  --chart-4: #68d6ff;
+  --chart-5: #ff7f9e;
+  --sidebar: #211a29;
+  --sidebar-foreground: #e4e7ef;
+  --sidebar-primary: #5f9cff;
+  --sidebar-primary-foreground: #f7f9ff;
+  --sidebar-accent: #30253a;
+  --sidebar-accent-foreground: #f5f6fb;
+  --sidebar-border: #3b3046;
+  --sidebar-ring: #7fb2ff;
+  --page-glow-1: rgba(79, 141, 255, 0.2);
+  --page-glow-2: rgba(105, 76, 145, 0.16);
+  --page-gradient-start: #101319;
+  --page-gradient-mid: #13161d;
+  --page-gradient-end: #121720;
+  --selection-bg: rgba(79, 141, 255, 0.4);
+  --scrollbar-thumb: rgba(157, 169, 191, 0.35);
+  --scrollbar-thumb-hover: rgba(157, 169, 191, 0.5);
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html,
+  body {
+    min-height: 100%;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter), sans-serif;
+    background-image:
+      radial-gradient(circle at 0% 0%, var(--page-glow-1), transparent 45%),
+      radial-gradient(circle at 100% 0%, var(--page-glow-2), transparent 40%),
+      linear-gradient(
+        180deg,
+        var(--page-gradient-start) 0%,
+        var(--page-gradient-mid) 36%,
+        var(--page-gradient-end) 100%
+      );
+    background-attachment: fixed;
+  }
+  ::selection {
+    background: var(--selection-bg);
+    color: var(--foreground);
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background: var(--scrollbar-thumb);
+    background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+    background-clip: padding-box;
+  }
+  select,
+  input[type="date"],
+  input[type="datetime-local"] {
+    color-scheme: light;
+  }
+  .dark select,
+  .dark input[type="date"],
+  .dark input[type="datetime-local"] {
+    color-scheme: dark;
+  }
+  select {
+    @apply border-input/90 bg-input/55 text-foreground rounded-lg border shadow-[0_1px_0_rgba(255,255,255,0.03)_inset] transition-[border-color,box-shadow,background-color] outline-none;
+  }
+  select:focus-visible {
+    @apply border-ring ring-ring/35 ring-[3px];
+  }
+  option {
+    background: var(--card);
+    color: var(--foreground);
+  }
+  input[type="checkbox"] {
+    accent-color: var(--primary);
+  }
+}

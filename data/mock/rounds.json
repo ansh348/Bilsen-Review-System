@@ -1,0 +1,68 @@
+[
+  {
+    "id": "mock_round_1a",
+    "paperId": "mock_paper_1",
+    "roundNumber": 1,
+    "createdAt": "2026-01-22T10:00:00.000Z"
+  },
+  {
+    "id": "mock_round_1b",
+    "paperId": "mock_paper_1",
+    "roundNumber": 2,
+    "createdAt": "2026-02-15T10:00:00.000Z"
+  },
+  {
+    "id": "mock_round_2a",
+    "paperId": "mock_paper_2",
+    "roundNumber": 1,
+    "createdAt": "2026-02-16T10:00:00.000Z"
+  },
+  {
+    "id": "mock_round_3a",
+    "paperId": "mock_paper_3",
+    "roundNumber": 1,
+    "createdAt": "2026-01-28T10:00:00.000Z"
+  },
+  {
+    "id": "mock_round_3b",
+    "paperId": "mock_paper_3",
+    "roundNumber": 2,
+    "createdAt": "2026-02-20T10:00:00.000Z"
+  },
+  {
+    "id": "mock_round_4a",
+    "paperId": "mock_paper_4",
+    "roundNumber": 1,
+    "createdAt": "2026-02-21T10:00:00.000Z"
+  },
+  {
+    "id": "mock_round_6a",
+    "paperId": "mock_paper_6",
+    "roundNumber": 1,
+    "createdAt": "2026-01-22T10:00:00.000Z"
+  },
+  {
+    "id": "mock_round_7a",
+    "paperId": "mock_paper_7",
+    "roundNumber": 1,
+    "createdAt": "2026-02-23T10:00:00.000Z"
+  },
+  {
+    "id": "mock_round_9a",
+    "paperId": "mock_paper_9",
+    "roundNumber": 1,
+    "createdAt": "2026-02-19T10:00:00.000Z"
+  },
+  {
+    "id": "mock_round_10a",
+    "paperId": "mock_paper_10",
+    "roundNumber": 1,
+    "createdAt": "2026-01-25T10:00:00.000Z"
+  },
+  {
+    "id": "mock_round_10b",
+    "paperId": "mock_paper_10",
+    "roundNumber": 2,
+    "createdAt": "2026-02-18T10:00:00.000Z"
+  }
+]

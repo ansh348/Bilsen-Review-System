@@ -1,0 +1,63 @@
+[
+  {
+    "id": "d064eaa9-232d-4edc-853f-41edb63d5449",
+    "paperId": "eee70ef1-b19f-4915-9b4c-8695d5fb3292",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "pageCount": 9,
+      "pageLimit": 10
+    },
+    "checkedAt": "2026-02-14T11:09:17.407Z"
+  },
+  {
+    "id": "b103197d-6f0f-4561-917b-2ce3b7885917",
+    "paperId": "eee70ef1-b19f-4915-9b4c-8695d5fb3292",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "abstractWordCount": 8,
+      "abstractWordLimit": 250
+    },
+    "checkedAt": "2026-02-14T11:09:17.407Z"
+  },
+  {
+    "id": "14db88ae-d475-4169-b949-0e744b1a286a",
+    "paperId": "eee70ef1-b19f-4915-9b4c-8695d5fb3292",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": true,
+    "details": {
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Conclusion"
+      ],
+      "missingSections": []
+    },
+    "checkedAt": "2026-02-14T11:09:17.407Z"
+  },
+  {
+    "id": "df426aec-e279-42a9-a74d-808ffd0827a1",
+    "paperId": "eee70ef1-b19f-4915-9b4c-8695d5fb3292",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-02-14T11:09:17.407Z"
+  },
+  {
+    "id": "19085f94-72cf-4ec5-a525-ad16c8613010",
+    "paperId": "eee70ef1-b19f-4915-9b4c-8695d5fb3292",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "anonymityRequired": true,
+      "flags": []
+    },
+    "checkedAt": "2026-02-14T11:09:17.407Z"
+  }
+]

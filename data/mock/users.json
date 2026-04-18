@@ -1,0 +1,92 @@
+[
+  {
+    "id": "cba1a659-ba9e-4b4c-9536-e26cd62885cb",
+    "name": "Ansuman Mullick",
+    "email": "anshumanmullick7@gmail.com",
+    "password": "$2b$10$OyrTsUJ4Ln2vbmdlbOayUum4DZ.e.brD50IL0QiJ6A0dn1Ed8rnkG",
+    "role": "COORDINATOR",
+    "slackId": null,
+    "createdAt": "2026-02-14T10:15:17.789Z",
+    "updatedAt": "2026-02-14T10:15:17.789Z"
+  },
+  {
+    "id": "mock_user_1",
+    "name": "Dr. Sarah Chen",
+    "email": "sarah.chen@university.edu",
+    "password": "$2b$10$dummyhashnotusedforlogin000000000000000001",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-01-10T08:00:00.000Z",
+    "updatedAt": "2026-01-10T08:00:00.000Z"
+  },
+  {
+    "id": "mock_user_2",
+    "name": "Prof. James Okafor",
+    "email": "j.okafor@techuni.ac.uk",
+    "password": "$2b$10$dummyhashnotusedforlogin000000000000000002",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-01-11T09:30:00.000Z",
+    "updatedAt": "2026-01-11T09:30:00.000Z"
+  },
+  {
+    "id": "mock_user_3",
+    "name": "Dr. Priya Sharma",
+    "email": "priya.sharma@iit.ac.in",
+    "password": "$2b$10$dummyhashnotusedforlogin000000000000000003",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-01-12T11:00:00.000Z",
+    "updatedAt": "2026-01-12T11:00:00.000Z"
+  },
+  {
+    "id": "mock_user_4",
+    "name": "Dr. Marcus Weber",
+    "email": "m.weber@tum.de",
+    "password": "$2b$10$dummyhashnotusedforlogin000000000000000004",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-01-13T14:00:00.000Z",
+    "updatedAt": "2026-01-13T14:00:00.000Z"
+  },
+  {
+    "id": "mock_user_5",
+    "name": "Dr. Yuki Tanaka",
+    "email": "yuki.tanaka@keio.jp",
+    "password": "$2b$10$dummyhashnotusedforlogin000000000000000005",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-01-14T07:00:00.000Z",
+    "updatedAt": "2026-01-14T07:00:00.000Z"
+  },
+  {
+    "id": "mock_user_6",
+    "name": "Dr. Elena Rossi",
+    "email": "elena.rossi@polimi.it",
+    "password": "$2b$10$dummyhashnotusedforlogin000000000000000006",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-01-15T10:30:00.000Z",
+    "updatedAt": "2026-01-15T10:30:00.000Z"
+  },
+  {
+    "id": "mock_user_7",
+    "name": "Dr. David Kim",
+    "email": "david.kim@kaist.kr",
+    "password": "$2b$10$dummyhashnotusedforlogin000000000000000007",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-01-16T13:00:00.000Z",
+    "updatedAt": "2026-01-16T13:00:00.000Z"
+  },
+  {
+    "id": "mock_user_8",
+    "name": "Dr. Ana Costa",
+    "email": "ana.costa@usp.br",
+    "password": "$2b$10$dummyhashnotusedforlogin000000000000000008",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-01-17T15:30:00.000Z",
+    "updatedAt": "2026-01-17T15:30:00.000Z"
+  }
+]

@@ -1,0 +1,234 @@
+[
+  {
+    "id": "mock_cc_1",
+    "paperId": "mock_paper_1",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": { "pages": 10, "limit": 10 },
+    "checkedAt": "2026-01-20T09:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_2",
+    "paperId": "mock_paper_1",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": { "wordCount": 98, "limit": 250 },
+    "checkedAt": "2026-01-20T09:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_3",
+    "paperId": "mock_paper_1",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": true,
+    "details": { "found": ["Abstract", "Introduction", "Method", "Conclusion"], "required": ["Abstract", "Introduction", "Method", "Conclusion"] },
+    "checkedAt": "2026-01-20T09:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_4",
+    "paperId": "mock_paper_1",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": { "message": "No author-identifying information found." },
+    "checkedAt": "2026-01-20T09:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_5",
+    "paperId": "mock_paper_1",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": { "message": "All required metadata fields present." },
+    "checkedAt": "2026-01-20T09:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_6",
+    "paperId": "mock_paper_2",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": { "pages": 11, "limit": 12 },
+    "checkedAt": "2026-02-01T10:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_7",
+    "paperId": "mock_paper_2",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": { "wordCount": 87, "limit": 300 },
+    "checkedAt": "2026-02-01T10:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_8",
+    "paperId": "mock_paper_2",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": true,
+    "details": { "found": ["Abstract", "Introduction", "Approach", "Evaluation"], "required": ["Abstract", "Introduction", "Approach", "Evaluation"] },
+    "checkedAt": "2026-02-01T10:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_9",
+    "paperId": "mock_paper_2",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": { "message": "All required metadata fields present." },
+    "checkedAt": "2026-02-01T10:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_10",
+    "paperId": "mock_paper_3",
+    "checkType": "PAGE_LIMIT",
+    "passed": false,
+    "details": { "pages": 13, "limit": 10, "message": "Paper exceeds page limit by 3 pages." },
+    "checkedAt": "2026-01-25T14:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_11",
+    "paperId": "mock_paper_3",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": { "wordCount": 102, "limit": 250 },
+    "checkedAt": "2026-01-25T14:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_12",
+    "paperId": "mock_paper_3",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": true,
+    "details": { "found": ["Abstract", "Introduction", "Method", "Conclusion"], "required": ["Abstract", "Introduction", "Method", "Conclusion"] },
+    "checkedAt": "2026-01-25T14:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_13",
+    "paperId": "mock_paper_3",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": false,
+    "details": { "message": "Potential author-identifying information found in acknowledgements section." },
+    "checkedAt": "2026-01-25T14:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_14",
+    "paperId": "mock_paper_3",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": { "message": "All required metadata fields present." },
+    "checkedAt": "2026-01-25T14:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_15",
+    "paperId": "mock_paper_4",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": { "pages": 9, "limit": 10 },
+    "checkedAt": "2026-02-05T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_16",
+    "paperId": "mock_paper_4",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": { "wordCount": 89, "limit": 250 },
+    "checkedAt": "2026-02-05T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_17",
+    "paperId": "mock_paper_4",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": { "found": ["Abstract", "Introduction", "Conclusion"], "missing": ["Method"], "required": ["Abstract", "Introduction", "Method", "Conclusion"] },
+    "checkedAt": "2026-02-05T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_18",
+    "paperId": "mock_paper_4",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": { "message": "No author-identifying information found." },
+    "checkedAt": "2026-02-05T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_19",
+    "paperId": "mock_paper_4",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": { "message": "All required metadata fields present." },
+    "checkedAt": "2026-02-05T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_20",
+    "paperId": "mock_paper_6",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": { "pages": 10, "limit": 10 },
+    "checkedAt": "2026-01-18T16:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_21",
+    "paperId": "mock_paper_6",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": { "wordCount": 95, "limit": 250 },
+    "checkedAt": "2026-01-18T16:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_22",
+    "paperId": "mock_paper_6",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": true,
+    "details": { "found": ["Abstract", "Introduction", "Method", "Conclusion"], "required": ["Abstract", "Introduction", "Method", "Conclusion"] },
+    "checkedAt": "2026-01-18T16:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_23",
+    "paperId": "mock_paper_6",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": { "message": "No author-identifying information found." },
+    "checkedAt": "2026-01-18T16:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_24",
+    "paperId": "mock_paper_6",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": { "message": "All required metadata fields present." },
+    "checkedAt": "2026-01-18T16:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_25",
+    "paperId": "mock_paper_10",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": { "pages": 10, "limit": 10 },
+    "checkedAt": "2026-01-22T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_26",
+    "paperId": "mock_paper_10",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": { "wordCount": 108, "limit": 250 },
+    "checkedAt": "2026-01-22T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_27",
+    "paperId": "mock_paper_10",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": true,
+    "details": { "found": ["Abstract", "Introduction", "Method", "Conclusion"], "required": ["Abstract", "Introduction", "Method", "Conclusion"] },
+    "checkedAt": "2026-01-22T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_28",
+    "paperId": "mock_paper_10",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": { "message": "No author-identifying information found." },
+    "checkedAt": "2026-01-22T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_29",
+    "paperId": "mock_paper_10",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": { "message": "All required metadata fields present." },
+    "checkedAt": "2026-01-22T11:30:00.000Z"
+  }
+]
