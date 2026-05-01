@@ -1,45 +1,601 @@
 [
   {
-    "id": "d064eaa9-232d-4edc-853f-41edb63d5449",
-    "paperId": "eee70ef1-b19f-4915-9b4c-8695d5fb3292",
+    "id": "mock_cc_1",
+    "paperId": "mock_paper_1",
     "checkType": "PAGE_LIMIT",
     "passed": true,
     "details": {
-      "pageCount": 9,
-      "pageLimit": 10
+      "pages": 10,
+      "limit": 10
     },
-    "checkedAt": "2026-02-14T11:09:17.407Z"
+    "checkedAt": "2026-01-20T09:30:00.000Z"
   },
   {
-    "id": "b103197d-6f0f-4561-917b-2ce3b7885917",
-    "paperId": "eee70ef1-b19f-4915-9b4c-8695d5fb3292",
+    "id": "mock_cc_2",
+    "paperId": "mock_paper_1",
     "checkType": "ABSTRACT_WORD_COUNT",
     "passed": true,
     "details": {
-      "abstractWordCount": 8,
-      "abstractWordLimit": 250
+      "wordCount": 98,
+      "limit": 250
     },
-    "checkedAt": "2026-02-14T11:09:17.407Z"
+    "checkedAt": "2026-01-20T09:30:00.000Z"
   },
   {
-    "id": "14db88ae-d475-4169-b949-0e744b1a286a",
-    "paperId": "eee70ef1-b19f-4915-9b4c-8695d5fb3292",
+    "id": "mock_cc_3",
+    "paperId": "mock_paper_1",
     "checkType": "REQUIRED_SECTIONS",
     "passed": true,
     "details": {
-      "requiredSections": [
+      "found": [
         "Abstract",
         "Introduction",
         "Method",
         "Conclusion"
       ],
-      "missingSections": []
+      "required": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Conclusion"
+      ]
     },
-    "checkedAt": "2026-02-14T11:09:17.407Z"
+    "checkedAt": "2026-01-20T09:30:00.000Z"
   },
   {
-    "id": "df426aec-e279-42a9-a74d-808ffd0827a1",
-    "paperId": "eee70ef1-b19f-4915-9b4c-8695d5fb3292",
+    "id": "mock_cc_4",
+    "paperId": "mock_paper_1",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No author-identifying information found."
+    },
+    "checkedAt": "2026-01-20T09:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_5",
+    "paperId": "mock_paper_1",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "All required metadata fields present."
+    },
+    "checkedAt": "2026-01-20T09:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_6",
+    "paperId": "mock_paper_2",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "pages": 11,
+      "limit": 12
+    },
+    "checkedAt": "2026-02-01T10:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_7",
+    "paperId": "mock_paper_2",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "wordCount": 87,
+      "limit": 300
+    },
+    "checkedAt": "2026-02-01T10:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_8",
+    "paperId": "mock_paper_2",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": true,
+    "details": {
+      "found": [
+        "Abstract",
+        "Introduction",
+        "Approach",
+        "Evaluation"
+      ],
+      "required": [
+        "Abstract",
+        "Introduction",
+        "Approach",
+        "Evaluation"
+      ]
+    },
+    "checkedAt": "2026-02-01T10:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_9",
+    "paperId": "mock_paper_2",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "All required metadata fields present."
+    },
+    "checkedAt": "2026-02-01T10:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_10",
+    "paperId": "mock_paper_3",
+    "checkType": "PAGE_LIMIT",
+    "passed": false,
+    "details": {
+      "pages": 13,
+      "limit": 10,
+      "message": "Paper exceeds page limit by 3 pages."
+    },
+    "checkedAt": "2026-01-25T14:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_11",
+    "paperId": "mock_paper_3",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "wordCount": 102,
+      "limit": 250
+    },
+    "checkedAt": "2026-01-25T14:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_12",
+    "paperId": "mock_paper_3",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": true,
+    "details": {
+      "found": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Conclusion"
+      ],
+      "required": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Conclusion"
+      ]
+    },
+    "checkedAt": "2026-01-25T14:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_13",
+    "paperId": "mock_paper_3",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": false,
+    "details": {
+      "message": "Potential author-identifying information found in acknowledgements section."
+    },
+    "checkedAt": "2026-01-25T14:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_14",
+    "paperId": "mock_paper_3",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "All required metadata fields present."
+    },
+    "checkedAt": "2026-01-25T14:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_15",
+    "paperId": "mock_paper_4",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "pages": 9,
+      "limit": 10
+    },
+    "checkedAt": "2026-02-05T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_16",
+    "paperId": "mock_paper_4",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "wordCount": 89,
+      "limit": 250
+    },
+    "checkedAt": "2026-02-05T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_17",
+    "paperId": "mock_paper_4",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "found": [
+        "Abstract",
+        "Introduction",
+        "Conclusion"
+      ],
+      "missing": [
+        "Method"
+      ],
+      "required": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Conclusion"
+      ]
+    },
+    "checkedAt": "2026-02-05T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_18",
+    "paperId": "mock_paper_4",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No author-identifying information found."
+    },
+    "checkedAt": "2026-02-05T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_19",
+    "paperId": "mock_paper_4",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "All required metadata fields present."
+    },
+    "checkedAt": "2026-02-05T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_20",
+    "paperId": "mock_paper_6",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "pages": 10,
+      "limit": 10
+    },
+    "checkedAt": "2026-01-18T16:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_21",
+    "paperId": "mock_paper_6",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "wordCount": 95,
+      "limit": 250
+    },
+    "checkedAt": "2026-01-18T16:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_22",
+    "paperId": "mock_paper_6",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": true,
+    "details": {
+      "found": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Conclusion"
+      ],
+      "required": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Conclusion"
+      ]
+    },
+    "checkedAt": "2026-01-18T16:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_23",
+    "paperId": "mock_paper_6",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No author-identifying information found."
+    },
+    "checkedAt": "2026-01-18T16:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_24",
+    "paperId": "mock_paper_6",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "All required metadata fields present."
+    },
+    "checkedAt": "2026-01-18T16:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_25",
+    "paperId": "mock_paper_10",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "pages": 10,
+      "limit": 10
+    },
+    "checkedAt": "2026-01-22T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_26",
+    "paperId": "mock_paper_10",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "wordCount": 108,
+      "limit": 250
+    },
+    "checkedAt": "2026-01-22T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_27",
+    "paperId": "mock_paper_10",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": true,
+    "details": {
+      "found": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Conclusion"
+      ],
+      "required": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Conclusion"
+      ]
+    },
+    "checkedAt": "2026-01-22T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_28",
+    "paperId": "mock_paper_10",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No author-identifying information found."
+    },
+    "checkedAt": "2026-01-22T11:30:00.000Z"
+  },
+  {
+    "id": "mock_cc_29",
+    "paperId": "mock_paper_10",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "All required metadata fields present."
+    },
+    "checkedAt": "2026-01-22T11:30:00.000Z"
+  },
+  {
+    "id": "15aa49f1-70ae-4bed-9917-d6c2c0f1c9fb",
+    "paperId": "mock_paper_8",
+    "checkType": "PAGE_LIMIT",
+    "passed": false,
+    "details": {
+      "pageCount": 15,
+      "pageLimit": 10
+    },
+    "checkedAt": "2026-04-18T12:36:04.348Z"
+  },
+  {
+    "id": "9026d4af-39c8-42e5-b1b2-d8f456b61c44",
+    "paperId": "mock_paper_8",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "abstractWordCount": 63,
+      "abstractWordLimit": 250
+    },
+    "checkedAt": "2026-04-18T12:36:04.348Z"
+  },
+  {
+    "id": "e66115a3-6732-4c63-bacd-e95a2bb8d181",
+    "paperId": "mock_paper_8",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Conclusion",
+        "Threats to Validity"
+      ],
+      "missingSections": [
+        "Threats to Validity"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [
+        "Threats to Validity"
+      ]
+    },
+    "checkedAt": "2026-04-18T12:36:04.348Z"
+  },
+  {
+    "id": "cf75fffb-f5af-476d-9c79-c829bbe4cdd4",
+    "paperId": "mock_paper_8",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": false,
+    "details": {
+      "paperType": "RESEARCH",
+      "track": "Research Track",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": false
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": false
+        }
+      ],
+      "missing": [
+        "Empirical evaluation discussed",
+        "Comparison to baseline(s)"
+      ]
+    },
+    "checkedAt": "2026-04-18T12:36:04.348Z"
+  },
+  {
+    "id": "4adf68d0-282a-40d2-a054-6509e5a8eada",
+    "paperId": "mock_paper_8",
+    "checkType": "METADATA_CHECK",
+    "passed": false,
+    "details": {
+      "anonymityRequired": true,
+      "metadataAuthor": "John Smith",
+      "metadataCompany": "MIT Computer Science"
+    },
+    "checkedAt": "2026-04-18T12:36:04.348Z"
+  },
+  {
+    "id": "82232cfd-0896-4958-b83f-d39d1b2d1eda",
+    "paperId": "mock_paper_8",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": false,
+    "details": {
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [
+        "GitHub URL",
+        "LinkedIn profile",
+        "Institutional URL",
+        "Email address"
+      ],
+      "flags": [
+        "GitHub URL",
+        "LinkedIn profile",
+        "Institutional URL",
+        "Email address"
+      ]
+    },
+    "checkedAt": "2026-04-18T12:36:04.348Z"
+  },
+  {
+    "id": "217abd83-f057-4302-8450-1ecfdc5c1ded",
+    "paperId": "mock_paper_8",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": false,
+    "details": {
+      "anonymityRequired": true,
+      "suspectLinks": [
+        {
+          "url": "https://github.com/jsmith/quantum-project",
+          "reason": "GitHub user/repo path may reveal author (jsmith)"
+        }
+      ],
+      "note": "1 suspect link(s) detected."
+    },
+    "checkedAt": "2026-04-18T12:36:04.348Z"
+  },
+  {
+    "id": "0e981510-57ec-4dc1-93df-7598267ca09b",
+    "paperId": "mock_paper_8",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": true,
+    "details": {
+      "expectedFormat": "ACM",
+      "hasReferencesSection": true,
+      "detectedHint": "ACM (author-year)"
+    },
+    "checkedAt": "2026-04-18T12:36:04.348Z"
+  },
+  {
+    "id": "14ca89d7-eefe-4856-9263-ccacd22570ad",
+    "paperId": "mock_paper_8",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "pageCount": null,
+      "pageLimit": 10,
+      "note": "Page count not provided; check skipped."
+    },
+    "checkedAt": "2026-04-18T12:40:48.805Z"
+  },
+  {
+    "id": "63b7baa8-2a61-4c09-9f89-6b17728bbb98",
+    "paperId": "mock_paper_8",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "abstractWordCount": 63,
+      "abstractWordLimit": 250
+    },
+    "checkedAt": "2026-04-18T12:40:48.805Z"
+  },
+  {
+    "id": "09630c5d-0c25-4f77-b778-cbfa63cc7239",
+    "paperId": "mock_paper_8",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Conclusion",
+        "Threats to Validity"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Conclusion",
+        "Threats to Validity"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [
+        "Threats to Validity"
+      ]
+    },
+    "checkedAt": "2026-04-18T12:40:48.805Z"
+  },
+  {
+    "id": "a54c1024-65d6-44ad-b950-40494cd455e4",
+    "paperId": "mock_paper_8",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": false,
+    "details": {
+      "paperType": "RESEARCH",
+      "track": "Research Track",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": false
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": false
+        }
+      ],
+      "missing": [
+        "Empirical evaluation discussed",
+        "Comparison to baseline(s)"
+      ]
+    },
+    "checkedAt": "2026-04-18T12:40:48.805Z"
+  },
+  {
+    "id": "c2159fa0-31ac-441c-8873-0cb01597dd7b",
+    "paperId": "mock_paper_8",
     "checkType": "METADATA_CHECK",
     "passed": true,
     "details": {
@@ -47,17 +603,217 @@
       "metadataAuthor": "",
       "metadataCompany": ""
     },
-    "checkedAt": "2026-02-14T11:09:17.407Z"
+    "checkedAt": "2026-04-18T12:40:48.805Z"
   },
   {
-    "id": "19085f94-72cf-4ec5-a525-ad16c8613010",
-    "paperId": "eee70ef1-b19f-4915-9b4c-8695d5fb3292",
+    "id": "c1463957-a6ed-4c81-80ea-0e688307ad52",
+    "paperId": "mock_paper_8",
     "checkType": "ANONYMITY_CHECK",
     "passed": true,
     "details": {
       "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
       "flags": []
     },
-    "checkedAt": "2026-02-14T11:09:17.407Z"
+    "checkedAt": "2026-04-18T12:40:48.805Z"
+  },
+  {
+    "id": "d09a18b8-1ce2-42ab-bce2-cc0dde81a963",
+    "paperId": "mock_paper_8",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-04-18T12:40:48.805Z"
+  },
+  {
+    "id": "5dec0ee7-8b62-457a-881f-1ed46ebbc0f5",
+    "paperId": "mock_paper_8",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": true,
+    "details": {
+      "expectedFormat": "ACM",
+      "note": "Full text not provided; reference format not verified."
+    },
+    "checkedAt": "2026-04-18T12:40:48.805Z"
+  },
+  {
+    "id": "35241093-7ddc-479a-a628-2e695b02c56f",
+    "paperId": "mock_paper_8",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": false,
+    "details": {
+      "anonymityRequired": true,
+      "author": "Dr. John Smith",
+      "creator": "MIT Lab",
+      "producer": "pdf-lib (https://github.com/Hopding/pdf-lib)",
+      "flags": [
+        "Author: Dr. John Smith",
+        "Creator: MIT Lab"
+      ]
+    },
+    "checkedAt": "2026-04-18T12:40:48.805Z"
+  },
+  {
+    "id": "7167666f-87d4-43d6-b2da-624cbd941503",
+    "paperId": "mock_paper_8",
+    "checkType": "PAGE_LIMIT",
+    "passed": false,
+    "details": {
+      "pageCount": 15,
+      "pageLimit": 10
+    },
+    "checkedAt": "2026-04-18T12:40:49.491Z"
+  },
+  {
+    "id": "9415f953-a48d-47f8-a69f-abb089da7b98",
+    "paperId": "mock_paper_8",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "abstractWordCount": 63,
+      "abstractWordLimit": 250
+    },
+    "checkedAt": "2026-04-18T12:40:49.491Z"
+  },
+  {
+    "id": "b9090081-6aef-416f-a500-40185906f8ca",
+    "paperId": "mock_paper_8",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Conclusion",
+        "Threats to Validity"
+      ],
+      "missingSections": [
+        "Threats to Validity"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [
+        "Threats to Validity"
+      ]
+    },
+    "checkedAt": "2026-04-18T12:40:49.491Z"
+  },
+  {
+    "id": "97bd2b90-7dc9-4ad8-ad99-ae02222c44cf",
+    "paperId": "mock_paper_8",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": false,
+    "details": {
+      "paperType": "RESEARCH",
+      "track": "Research Track",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": false
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": false
+        }
+      ],
+      "missing": [
+        "Empirical evaluation discussed",
+        "Comparison to baseline(s)"
+      ]
+    },
+    "checkedAt": "2026-04-18T12:40:49.491Z"
+  },
+  {
+    "id": "266e52f7-bb51-4006-97d6-141d41e25808",
+    "paperId": "mock_paper_8",
+    "checkType": "METADATA_CHECK",
+    "passed": false,
+    "details": {
+      "anonymityRequired": true,
+      "metadataAuthor": "John Smith",
+      "metadataCompany": "MIT Computer Science"
+    },
+    "checkedAt": "2026-04-18T12:40:49.491Z"
+  },
+  {
+    "id": "318ba5c7-4c34-4c09-bd6e-8b91587a56da",
+    "paperId": "mock_paper_8",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": false,
+    "details": {
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [
+        "GitHub URL",
+        "LinkedIn profile",
+        "Institutional URL",
+        "Email address"
+      ],
+      "flags": [
+        "GitHub URL",
+        "LinkedIn profile",
+        "Institutional URL",
+        "Email address"
+      ]
+    },
+    "checkedAt": "2026-04-18T12:40:49.491Z"
+  },
+  {
+    "id": "fc647147-79ff-45f1-b3ce-1d7f7cf47ae1",
+    "paperId": "mock_paper_8",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": false,
+    "details": {
+      "anonymityRequired": true,
+      "suspectLinks": [
+        {
+          "url": "https://github.com/jsmith/quantum-project",
+          "reason": "GitHub user/repo path may reveal author (jsmith)"
+        }
+      ],
+      "note": "1 suspect link(s) detected."
+    },
+    "checkedAt": "2026-04-18T12:40:49.491Z"
+  },
+  {
+    "id": "b759e1a1-5ea5-46b2-9217-24555d910f5f",
+    "paperId": "mock_paper_8",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": true,
+    "details": {
+      "expectedFormat": "ACM",
+      "hasReferencesSection": true,
+      "detectedHint": "ACM (author-year)"
+    },
+    "checkedAt": "2026-04-18T12:40:49.491Z"
+  },
+  {
+    "id": "763b6c2b-dd05-4945-b5ae-ca1fe8601deb",
+    "paperId": "mock_paper_8",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": false,
+    "details": {
+      "anonymityRequired": true,
+      "author": "Dr. John Smith",
+      "creator": "MIT Lab",
+      "producer": "pdf-lib (https://github.com/Hopding/pdf-lib)",
+      "flags": [
+        "Author: Dr. John Smith",
+        "Creator: MIT Lab"
+      ]
+    },
+    "checkedAt": "2026-04-18T12:40:49.491Z"
   }
 ]

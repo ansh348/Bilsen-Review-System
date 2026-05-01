@@ -104,6 +104,9 @@ export default async function ReviewerDetailsPage({
           </CardHeader>
           <CardContent>
             <p className="text-2xl font-semibold">{data.stats.acceptanceRate}%</p>
+            <p className="mt-1 text-xs text-muted-foreground">
+              {data.stats.acceptedAssignments} accepted · {data.stats.declinedAssignments} declined
+            </p>
           </CardContent>
         </Card>
         <Card className="border">

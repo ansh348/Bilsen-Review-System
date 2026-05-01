@@ -1,8 +1,12 @@
 import { auth } from "@/auth";
 import { getUserById } from "@/lib/users";
 import {
+  getInactiveAssignments,
+  getOverloadedReviewers,
   getOverviewAnalytics,
   getWorkloadAnalytics,
+  INACTIVITY_THRESHOLD_DAYS,
+  OVERLOAD_THRESHOLD,
 } from "@/lib/review-service";
 import {
   Card,
@@ -11,6 +15,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { PeriodSelector } from "@/components/admin/period-selector";
+import { AnalyticsExportButtons } from "@/components/admin/analytics-export-buttons";
+import { ReviewerAttentionCard } from "@/components/admin/reviewer-attention-card";
 import { RunRemindersButton } from "@/components/admin/run-reminders-button";
 import type { AnalyticsPeriod } from "@/lib/review-types";
 
@@ -33,6 +39,8 @@ export default async function AdminDashboardPage({ searchParams }: AdminDashboar
   const period = (params.period ?? "overall") as AnalyticsPeriod;
   const overview = getOverviewAnalytics();
   const workload = getWorkloadAnalytics(period);
+  const inactive = getInactiveAssignments();
+  const overloaded = getOverloadedReviewers();
 
   return (
     <div className="mx-auto max-w-6xl space-y-6">
@@ -46,7 +54,10 @@ export default async function AdminDashboardPage({ searchParams }: AdminDashboar
         <RunRemindersButton />
       </div>
 
-      <PeriodSelector currentPeriod={period} />
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <PeriodSelector currentPeriod={period} />
+        <AnalyticsExportButtons type="workload" period={period} />
+      </div>
 
       <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-6">
         <Card className="border">
@@ -110,6 +121,13 @@ export default async function AdminDashboardPage({ searchParams }: AdminDashboar
           </CardContent>
         </Card>
       </div>
+
+      <ReviewerAttentionCard
+        inactive={inactive}
+        overloaded={overloaded}
+        inactivityThresholdDays={INACTIVITY_THRESHOLD_DAYS}
+        overloadThreshold={OVERLOAD_THRESHOLD}
+      />
 
       <Card className="border">
         <CardHeader>

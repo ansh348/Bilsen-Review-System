@@ -1,0 +1,33 @@
+[
+  {
+    "id": "ea0f7bba-9617-4714-a722-b8d2eed60282",
+    "paperId": "mock_paper_1",
+    "reviewIds": [
+      "mock_review_1",
+      "mock_review_2",
+      "mock_review_3",
+      "mock_review_4"
+    ],
+    "consensusSummary": "The paper presents a novel approach to automated code smell detection using fine-tuned large language models, achieving strong performance metrics (92% precision, 87% recall) that outperform existing static analysis tools by 18%. Reviewers found the experimental setup thorough and the dataset construction well-documented. However, concerns were raised about evaluation gaps, particularly regarding language generalizability, coverage of newer ML-based comparison tools, and the need for practical validation with developers. A second round review indicates that additional experiments and a user study have addressed many initial concerns.",
+    "agreedStrengths": [
+      "Impressive performance metrics with 92% precision and 87% recall compared to existing tools",
+      "Thorough and well-documented experimental setup and dataset construction",
+      "Strong comparison against existing static analysis tools like PMD and SonarQube",
+      "Compelling and solid approach to code smell detection using large language models"
+    ],
+    "agreedConcerns": [
+      "Limited language coverage in evaluation, with initial testing only on Java projects despite generalizability claims",
+      "Need for validation of practical utility and whether detected smells are actionable for developers",
+      "Incomplete comparison with newer ML-based code smell detection tools",
+      "Model performance concerns on less common smell types with limited training data"
+    ],
+    "divergences": [
+      "Reviewer 1 and 4 recommend acceptance while Reviewers 2 and 3 recommend minor revisions",
+      "Reviewer 3 emphasizes missing related work from ICSE 2025 while other reviewers do not mention literature gaps",
+      "Reviewer 4 notes that additional experiments on Python and JavaScript plus a user study have addressed concerns, while Reviewer 3's comments appear to predate these additions"
+    ],
+    "overallRecommendation": "ACCEPT",
+    "reviewerCount": 4,
+    "createdAt": "2026-04-18T12:39:45.897Z"
+  }
+]

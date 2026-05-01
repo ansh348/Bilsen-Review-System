@@ -25,6 +25,7 @@ const iconMap: Record<NotificationType, typeof Bell> = {
   EXTENSION_APPROVED: CheckCircle,
   EXTENSION_DENIED: AlertTriangle,
   ROUND_COMPLETE: CheckCircle,
+  REVISION_REQUESTED: FileText,
 };
 
 function timeAgo(iso: string): string {
@@ -55,8 +56,23 @@ export function RecentNotifications({ notifications }: RecentNotificationsProps)
         ) : (
           notifications.map((notification) => {
             const Icon = iconMap[notification.type] ?? Bell;
-            const inner = (
+            const textBody = (
+              <>
+                <p className={`text-sm ${!notification.read ? "font-semibold" : "font-medium"} text-foreground`}>
+                  {notification.title}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  {notification.message}
+                </p>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  {timeAgo(notification.createdAt)}
+                </p>
+              </>
+            );
+
+            return (
               <div
+                key={notification.id}
                 className={`flex items-start gap-3 rounded-lg border border-border/80 bg-background/35 p-3 transition-colors hover:bg-accent/45 ${
                   !notification.read ? "border-l-2 border-l-primary" : ""
                 }`}
@@ -65,30 +81,29 @@ export function RecentNotifications({ notifications }: RecentNotificationsProps)
                   <Icon className="h-3.5 w-3.5 text-accent-foreground" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className={`text-sm ${!notification.read ? "font-semibold" : "font-medium"} text-foreground`}>
-                    {notification.title}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {notification.message}
-                  </p>
-                  <p className="text-xs text-muted-foreground mt-0.5">
-                    {timeAgo(notification.createdAt)}
-                  </p>
+                  {notification.link ? (
+                    <Link href={notification.link} className="block">
+                      {textBody}
+                    </Link>
+                  ) : (
+                    textBody
+                  )}
+                  {notification.overleafUrl && (
+                    <a
+                      href={notification.overleafUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 inline-block text-xs font-medium text-primary underline underline-offset-2 hover:text-primary/80"
+                    >
+                      Open in Overleaf ↗
+                    </a>
+                  )}
                 </div>
                 {!notification.read && (
                   <MarkAsReadButton notificationId={notification.id} />
                 )}
               </div>
             );
-
-            if (notification.link) {
-              return (
-                <Link key={notification.id} href={notification.link}>
-                  {inner}
-                </Link>
-              );
-            }
-            return <div key={notification.id}>{inner}</div>;
           })
         )}
       </CardContent>

@@ -6,6 +6,7 @@ const paperStatuses = [
   "REVISION_REQUESTED",
   "ACCEPTED",
   "REJECTED",
+  "SUBMITTED_TO_VENUE",
 ] as const;
 
 const paperTypes = [

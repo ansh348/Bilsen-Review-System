@@ -33,7 +33,7 @@ export async function POST(request: Request, { params }: RouteParams) {
       ...payload,
       paperId: id,
     });
-    const checks = runComplianceChecks(parsed);
+    const checks = await runComplianceChecks(parsed);
     return NextResponse.json({ checks });
   } catch (error) {
     return handleRouteError(error);

@@ -12,20 +12,40 @@ interface VenueOption {
   name: string;
 }
 
-interface PaperSubmissionFormProps {
-  venues: VenueOption[];
+interface PaperFormValues {
+  title: string;
+  abstractText: string | null;
+  pdfUrl: string;
+  overleafUrl: string | null;
+  venueId: string | null;
+  paperType: string | null;
 }
 
-export function PaperSubmissionForm({ venues }: PaperSubmissionFormProps) {
+interface PaperSubmissionFormProps {
+  venues: VenueOption[];
+  paperId?: string;
+  initialValues?: Partial<PaperFormValues>;
+  submitLabel?: string;
+  successHref?: string;
+}
+
+export function PaperSubmissionForm({
+  venues,
+  paperId,
+  initialValues,
+  submitLabel,
+  successHref,
+}: PaperSubmissionFormProps) {
   const router = useRouter();
-  const [title, setTitle] = useState("");
-  const [abstractText, setAbstractText] = useState("");
-  const [pdfUrl, setPdfUrl] = useState("");
-  const [overleafUrl, setOverleafUrl] = useState("");
-  const [venueId, setVenueId] = useState("");
-  const [paperType, setPaperType] = useState("RESEARCH");
+  const [title, setTitle] = useState(initialValues?.title ?? "");
+  const [abstractText, setAbstractText] = useState(initialValues?.abstractText ?? "");
+  const [pdfUrl, setPdfUrl] = useState(initialValues?.pdfUrl ?? "");
+  const [overleafUrl, setOverleafUrl] = useState(initialValues?.overleafUrl ?? "");
+  const [venueId, setVenueId] = useState(initialValues?.venueId ?? "");
+  const [paperType, setPaperType] = useState(initialValues?.paperType ?? "");
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const isEditing = Boolean(paperId);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -33,8 +53,8 @@ export function PaperSubmissionForm({ venues }: PaperSubmissionFormProps) {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/papers", {
-        method: "POST",
+      const response = await fetch(paperId ? `/api/papers/${paperId}` : "/api/papers", {
+        method: paperId ? "PATCH" : "POST",
         headers: {
           "Content-Type": "application/json",
         },
@@ -44,20 +64,20 @@ export function PaperSubmissionForm({ venues }: PaperSubmissionFormProps) {
           pdfUrl,
           overleafUrl: overleafUrl || null,
           venueId: venueId || null,
-          paperType,
+          paperType: paperType || null,
         }),
       });
 
       const payload = await response.json().catch(() => ({}));
       if (!response.ok) {
-        setError(payload.error ?? "Failed to submit paper");
+        setError(payload.error ?? `Failed to ${isEditing ? "update" : "submit"} paper`);
         return;
       }
 
-      router.push(`/papers/${payload.paper.id}`);
+      router.push(successHref ?? (paperId ? `/papers/${paperId}` : `/papers/${payload.paper.id}`));
       router.refresh();
     } catch {
-      setError("Failed to submit paper");
+      setError(`Failed to ${isEditing ? "update" : "submit"} paper`);
     } finally {
       setIsSubmitting(false);
     }
@@ -139,17 +159,25 @@ export function PaperSubmissionForm({ venues }: PaperSubmissionFormProps) {
             onChange={(event) => setPaperType(event.target.value)}
             className="h-9 w-full rounded-lg border border-input/90 bg-input/55 px-3 text-sm text-foreground shadow-[0_1px_0_rgba(255,255,255,0.03)_inset] transition-[border-color,box-shadow,background-color] outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/35"
           >
+            <option value="">Auto-detect</option>
             <option value="RESEARCH">Research</option>
             <option value="SURVEY">Survey</option>
             <option value="TOOL">Tool</option>
             <option value="EXPERIENCE_REPORT">Experience Report</option>
             <option value="OTHER">Other</option>
           </select>
+          <p className="text-xs text-muted-foreground">
+            Leave this on auto-detect to infer the paper type from the title and abstract.
+          </p>
         </div>
       </div>
 
       <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? "Submitting..." : "Submit Paper"}
+        {isSubmitting
+          ? isEditing
+            ? "Saving..."
+            : "Submitting..."
+          : submitLabel ?? (isEditing ? "Save Changes" : "Submit Paper")}
       </Button>
     </form>
   );

@@ -52,6 +52,7 @@ function handleReminders() {
     const round = readCollection("rounds").find((r) => r.id === assignment.reviewRoundId);
     const paper = round ? getPaperById(round.paperId) : null;
     const paperTitle = paper?.title ?? "Unknown paper";
+    const overleafUrl = paper?.overleafUrl ?? null;
 
     if (msUntilDeadline < 0) {
       // Past due — mark overdue and notify
@@ -71,6 +72,7 @@ function handleReminders() {
           title: "Assignment overdue",
           message: `Your review for "${paperTitle}" is past due.`,
           link: `/reviews/${assignment.id}`,
+          overleafUrl,
           sentViaEmail: true,
           sentViaSlack: false,
         });
@@ -84,6 +86,7 @@ function handleReminders() {
               title: "Reviewer overdue",
               message: `Review assignment for "${paperTitle}" is overdue.`,
               link: `/reviews/${assignment.id}`,
+              overleafUrl,
               sentViaEmail: true,
               sentViaSlack: false,
             });
@@ -100,6 +103,7 @@ function handleReminders() {
           title: "Deadline tomorrow",
           message: `Your review for "${paperTitle}" is due tomorrow.`,
           link: `/reviews/${assignment.id}`,
+          overleafUrl,
           sentViaEmail: true,
           sentViaSlack: false,
         });
@@ -114,6 +118,7 @@ function handleReminders() {
           title: "Deadline approaching",
           message: `Your review for "${paperTitle}" is due in less than 3 days.`,
           link: `/reviews/${assignment.id}`,
+          overleafUrl,
           sentViaEmail: true,
           sentViaSlack: false,
         });

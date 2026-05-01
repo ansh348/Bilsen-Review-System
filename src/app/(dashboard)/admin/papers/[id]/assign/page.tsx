@@ -16,10 +16,12 @@ import { ExtensionDecisionForm } from "@/components/admin/extension-decision-for
 
 interface AssignReviewersPageProps {
   params: Promise<{ id: string }>;
+  searchParams: Promise<{ roundId?: string }>;
 }
 
 export default async function AssignReviewersPage({
   params,
+  searchParams,
 }: AssignReviewersPageProps) {
   const session = await auth();
   if (!session?.user?.id) {
@@ -32,6 +34,7 @@ export default async function AssignReviewersPage({
   }
 
   const { id } = await params;
+  const query = await searchParams;
   const details = getPaperDetails(id);
   if (!details) {
     notFound();
@@ -42,6 +45,14 @@ export default async function AssignReviewersPage({
   const workloadMap = new Map(
     workload.map((item) => [item.reviewerId, item.activeAssignments])
   );
+
+  const priorReviewerIds = new Set<string>();
+  for (const roundData of details.rounds) {
+    for (const assignment of roundData.assignments) {
+      priorReviewerIds.add(assignment.reviewerId);
+    }
+  }
+
   const reviewers = users
     .filter((user) => user.role === "MEMBER")
     .map((user) => ({
@@ -49,7 +60,34 @@ export default async function AssignReviewersPage({
       name: user.name,
       email: user.email,
       activeAssignments: workloadMap.get(user.id) ?? 0,
+      priorReviewer: priorReviewerIds.has(user.id),
     }));
+
+  const priorRoundHistory = details.rounds.flatMap((roundData) =>
+    roundData.assignments.map((assignment) => {
+      const reviewer = users.find((user) => user.id === assignment.reviewerId);
+      const review = roundData.reviews.find(
+        (review) => review.assignmentId === assignment.id
+      );
+      return {
+        key: assignment.id,
+        roundNumber: roundData.round.roundNumber,
+        reviewerName: reviewer?.name ?? "Unknown",
+        status: assignment.status,
+        recommendation: review?.recommendation ?? null,
+      };
+    })
+  );
+  const requestedRoundData = query.roundId
+    ? details.rounds.find((roundData) => roundData.round.id === query.roundId) ?? null
+    : null;
+  const latestRoundData = details.rounds[details.rounds.length - 1] ?? null;
+  const requiresNewRound =
+    details.paper.status === "REVISION_REQUESTED" &&
+    latestRoundData !== null &&
+    latestRoundData.assignments.length > 0 &&
+    requestedRoundData === null;
+  const targetRoundData = requestedRoundData ?? latestRoundData;
 
   return (
     <div className="mx-auto max-w-6xl space-y-6">
@@ -129,12 +167,66 @@ export default async function AssignReviewersPage({
         </CardContent>
       </Card>
 
+      {priorRoundHistory.length > 0 && (
+        <Card className="border">
+          <CardHeader>
+            <CardTitle className="text-base">Prior-round reviewers</CardTitle>
+            <p className="text-xs text-muted-foreground">
+              Consider picking new reviewers to avoid bias. Prior reviewers are flagged below.
+            </p>
+          </CardHeader>
+          <CardContent>
+            <div className="divide-y divide-border/60 text-sm">
+              <div className="grid grid-cols-4 gap-2 px-2 pb-2 text-xs font-medium uppercase text-muted-foreground">
+                <span>Round</span>
+                <span>Reviewer</span>
+                <span>Status</span>
+                <span>Recommendation</span>
+              </div>
+              {priorRoundHistory.map((entry) => (
+                <div
+                  key={entry.key}
+                  className="grid grid-cols-4 gap-2 px-2 py-2"
+                >
+                  <span className="text-muted-foreground">
+                    Round {entry.roundNumber}
+                  </span>
+                  <span>{entry.reviewerName}</span>
+                  <span>
+                    <Badge variant="outline">{entry.status}</Badge>
+                  </span>
+                  <span className="text-muted-foreground">
+                    {entry.recommendation ?? "N/A"}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
       <Card className="border">
         <CardHeader>
-          <CardTitle className="text-base">New Assignment Batch</CardTitle>
+          <CardTitle className="text-base">Assignment Batch</CardTitle>
         </CardHeader>
         <CardContent>
-          <AssignReviewersForm paperId={details.paper.id} reviewers={reviewers} />
+          {requiresNewRound ? (
+            <p className="text-sm text-muted-foreground">
+              This paper is waiting for a new review round. Start the next round from the paper page,
+              then return here to assign reviewers.
+            </p>
+          ) : (
+            <AssignReviewersForm
+              paperId={details.paper.id}
+              reviewers={reviewers}
+              initialRoundId={targetRoundData?.round.id ?? null}
+              roundLabel={
+                targetRoundData
+                  ? `Round ${targetRoundData.round.roundNumber}`
+                  : "Round 1"
+              }
+            />
+          )}
         </CardContent>
       </Card>
     </div>

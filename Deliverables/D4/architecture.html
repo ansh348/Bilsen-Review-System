@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CS319 D4 — High-Level Architecture — Bilsen Review System</title>
+  <style>
+    @page { size: Letter portrait; margin: 0.75in; }
+    @media print {
+      .page-break { page-break-before: always; }
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .no-print { display: none; }
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: #1a1a1a;
+      line-height: 1.55;
+      font-size: 10.5pt;
+      max-width: 7in;
+      margin: 0 auto;
+    }
+    h1, h2, h3, h4 { line-height: 1.25; }
+    h1 { font-size: 22pt; margin: 0 0 8px; letter-spacing: -0.01em; }
+    h2 {
+      font-size: 15pt;
+      margin: 0 0 14px;
+      color: #0a3d62;
+      border-bottom: 2px solid #0a3d62;
+      padding-bottom: 5px;
+    }
+    h3 {
+      font-size: 12pt;
+      margin: 16px 0 6px;
+      color: #0a3d62;
+    }
+    h4 { font-size: 10.5pt; margin: 10px 0 4px; font-weight: 600; color: #333; }
+    p { margin: 0 0 8px; text-align: justify; }
+    ul { margin: 0 0 8px 20px; padding: 0; }
+    li { margin-bottom: 3px; }
+
+    /* Title page */
+    .title-page {
+      height: 9.5in;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      page-break-after: always;
+    }
+    .title-page .course {
+      font-size: 11pt;
+      color: #555;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .title-page h1 {
+      font-size: 30pt;
+      margin: 18px 0 8px;
+      color: #0a3d62;
+    }
+    .title-page .subtitle {
+      font-size: 17pt;
+      color: #444;
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+    .title-page .project-name {
+      font-size: 13pt;
+      color: #0a3d62;
+      margin-bottom: 36px;
+      font-style: italic;
+    }
+    .title-page .meta {
+      font-size: 11pt;
+      color: #444;
+      line-height: 2;
+    }
+    .title-page .meta strong { color: #1a1a1a; }
+
+    /* Section layout */
+    section.section { page-break-after: always; }
+    section.section:last-child { page-break-after: auto; }
+
+    /* Design goals */
+    .intro {
+      background: #f0f6fa;
+      border-left: 3px solid #0a3d62;
+      padding: 10px 14px;
+      margin-bottom: 18px;
+      font-size: 10pt;
+      color: #333;
+    }
+    .goal {
+      margin: 12px 0 14px;
+      padding: 10px 14px 6px;
+      border-left: 3px solid #0a3d62;
+      background: #fafbfc;
+    }
+    .goal .goal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+    .goal h3 {
+      margin: 0;
+      font-size: 13pt;
+    }
+    .goal .rank {
+      font-size: 9pt;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+    .goal .lede { margin-bottom: 6px; }
+    .goal .kv {
+      margin: 4px 0;
+      font-size: 10pt;
+    }
+    .goal .kv .label {
+      color: #0a3d62;
+      font-weight: 600;
+      margin-right: 4px;
+    }
+    .rejected-block {
+      margin-top: 14px;
+      background: #f7f7f9;
+      border: 1px solid #e1e4e8;
+      padding: 10px 14px;
+      border-radius: 4px;
+      font-size: 9.5pt;
+      line-height: 1.5;
+    }
+    .rejected-block h4 {
+      margin-top: 0;
+      color: #666;
+      font-size: 10pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .rejected-block ul { margin-bottom: 0; }
+    .rejected-block li {
+      margin-bottom: 4px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .rejected-block .rej-name { font-weight: 600; color: #333; }
+    body { orphans: 3; widows: 3; }
+
+    /* Subsystem page */
+    .diagram-intro { font-size: 10pt; color: #444; margin-bottom: 6px; }
+    .diagram-wrap {
+      border: 1px solid #d8dde3;
+      border-radius: 4px;
+      padding: 8px 6px 4px;
+      background: #fcfcfd;
+      margin-bottom: 10px;
+    }
+    svg.diagram {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .legend {
+      font-size: 8.5pt;
+      color: #555;
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+    .legend-item { display: inline-flex; align-items: center; gap: 5px; }
+    .legend-swatch {
+      display: inline-block;
+      width: 14px;
+      height: 10px;
+      border: 1.5px solid #0a3d62;
+      background: #ffffff;
+      border-radius: 2px;
+    }
+    .legend-swatch.ext { border-style: dashed; background: #f2f3f5; border-color: #888; }
+    .legend-line {
+      display: inline-block;
+      width: 20px;
+      height: 0;
+      border-top: 1.5px solid #333;
+    }
+    .legend-line.dashed { border-top: 1.5px dashed #888; }
+
+    /* Subsystem description list */
+    table.sub-list {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9pt;
+      margin-top: 8px;
+    }
+    table.sub-list th, table.sub-list td {
+      text-align: left;
+      padding: 4px 8px;
+      border-bottom: 1px solid #e6e9ec;
+      vertical-align: top;
+    }
+    table.sub-list th {
+      background: #f0f4f8;
+      color: #0a3d62;
+      font-weight: 600;
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    table.sub-list td:first-child { width: 16%; font-weight: 600; color: #0a3d62; }
+    table.sub-list td:nth-child(2) { width: 60%; }
+    table.sub-list td:last-child { color: #555; font-family: ui-monospace, "Cascadia Mono", Menlo, monospace; font-size: 8pt; }
+
+    .no-print {
+      margin: 20px auto;
+      padding: 12px 16px;
+      background: #fffbe6;
+      border: 1px solid #f0d97a;
+      border-radius: 4px;
+      font-size: 10pt;
+      max-width: 7in;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="no-print">
+    <strong>How to produce the PDF:</strong>
+    Press <kbd>Ctrl</kbd>+<kbd>P</kbd>. Destination: <em>Save as PDF</em>. Layout: <em>Portrait</em>. Paper size: <em>Letter</em>. Margins: <em>Default</em>. Under "More settings", <em>uncheck</em> "Headers and footers" and <em>check</em> "Background graphics". Save as <code>&lt;TeamNo&gt;_HighLevelArchitecture.pdf</code> into the <code>Deliverables/D4/</code> folder, replacing <code>&lt;TeamNo&gt;</code> with your team identifier.
+  </div>
+
+  <!-- ================== TITLE PAGE ================== -->
+  <section class="title-page">
+    <div class="course">CS319 — Object-Oriented Software Engineering</div>
+    <h1>Deliverable 4</h1>
+    <div class="subtitle">High-Level Architecture</div>
+    <div class="project-name">Bilsen Review System</div>
+    <div class="meta">
+      Team: <strong>TeamNo</strong><br>
+      Date: <strong>April 18, 2026</strong><br>
+      Submission Deadline: April 19, 2026 — 23:59
+    </div>
+  </section>
+
+  <!-- ================== SECTION 1 — DESIGN GOALS ================== -->
+  <section class="section">
+    <h2>1. Design Goals</h2>
+
+    <div class="intro">
+      The Bilsen Review System replaces BILSEN's current review workflow — coordinated through email threads and Overleaf comments — with a centralized web application that manages paper submission, compliance checking, reviewer assignment, and review collection. Our design goals flow directly from that context: the system exists to be <em>easier to use</em> than the status quo, <em>trustworthy</em> enough for high-stakes academic artifacts, and <em>open to evolution</em> as BILSEN's process matures. We ranked every candidate goal against those three forces and kept the three that most shape the day-to-day architecture.
+    </div>
+
+    <!-- Goal 1 -->
+    <div class="goal">
+      <div class="goal-header">
+        <h3>Usability</h3>
+        <span class="rank">Priority 1</span>
+      </div>
+      <p class="lede">
+        The core justification for building Bilsen at all is that the current email-plus-Overleaf workflow is slow, error-prone, and opaque. If our system is not dramatically easier to use than that baseline, it fails its purpose. The user base is heterogeneous — authors, reviewers, coordinators, and administrators — with differing levels of tool familiarity, so every routine action (submit a paper, accept an assignment, draft a review, rate a reviewer) must be obvious within seconds of first exposure.
+      </p>
+      <p class="kv"><span class="label">Why we picked it:</span> Direct consequence of the problem statement. Replacing a working-but-painful manual process only pays off when the replacement is visibly less painful. Every coordinator task that still requires leaving the app and falling back to email is a partial failure of the product.</p>
+      <p class="kv"><span class="label">Tradeoff accepted:</span> Rich inline validation, role-specific dashboards, and real-time compliance feedback add frontend complexity and a heavier initial bundle. We accept a slower first paint and a larger UI surface in exchange for fewer support questions, fewer miscoordinated assignments, and fewer reviews lost because a reviewer did not see a notification.</p>
+      <p class="kv"><span class="label">How the design honors it:</span> One home screen per role (My Papers, My Assignments, Admin Dashboard); React Hook Form + Zod for live form validation; inline compliance verdicts shown on the paper detail page; AI-drafted review skeletons so reviewers do not face a blank page; coordinator flows for assignment and extension approval on a single page each.</p>
+    </div>
+
+    <!-- Goal 2 -->
+    <div class="goal">
+      <div class="goal-header">
+        <h3>Reliability</h3>
+        <span class="rank">Priority 2</span>
+      </div>
+      <p class="lede">
+        Review artifacts — submitted papers, assignment records, deadline reminders, completed reviews — carry academic weight. A silently lost review, a missed three-day reminder, or a duplicate reviewer assignment can delay a publication or embarrass the coordinator. The system must be predictable and recoverable: every state transition should be durable, every deadline-adjacent event should fire, and every action should be safe to repeat.
+      </p>
+      <p class="kv"><span class="label">Why we picked it:</span> Academic review has low tolerance for silent failure. Users will forgive occasional slowness but not a missing review. Since coordinators cannot easily audit email chains, the system itself is now the authoritative record — that shifts the reliability burden onto us.</p>
+      <p class="kv"><span class="label">Tradeoff accepted:</span> Strong validation, centralized state logic, audit trails, and automated reminders all cost development time and add background work (cron-driven reminders, compliance re-checks, notification retries). We pay that ongoing cost because the alternative — hunting down a lost review after the fact — is far more expensive.</p>
+      <p class="kv"><span class="label">How the design honors it:</span> All business logic funnels through a single <code>review-service</code> module that owns state transitions for papers, rounds, assignments, reviews, and ratings; every API route validates its input server-side with Zod; a cron endpoint fires deadline reminders at 3-day and 1-day marks plus overdue alerts; persisted JSON collections act as a durable ledger of every change.</p>
+    </div>
+
+    <!-- Goal 3 -->
+    <div class="goal">
+      <div class="goal-header">
+        <h3>Extensibility</h3>
+        <span class="rank">Priority 3</span>
+      </div>
+      <p class="lede">
+        BILSEN's review process is not static. New paper categories (tool papers, experience reports, surveys) arrive with their own compliance rules; new venues bring new anonymity requirements; new communication channels (Slack is currently stubbed; Microsoft Teams is plausible) will be demanded; AI features will grow beyond drafting into consensus reports, plagiarism signals, and automated summaries. The architecture must treat these as additions, not rewrites — a new compliance rule or notification channel should be a contained, low-risk change rather than a rippling refactor.
+      </p>
+      <p class="kv"><span class="label">Why we picked it:</span> The product is early in its life and will evolve as BILSEN uses it. A system that forces a rewrite every time a venue changes its page limit or the group adds a Slack integration will collapse under its own maintenance cost. Extensibility is the long-term hedge.</p>
+      <p class="kv"><span class="label">Tradeoff accepted:</span> Designing for extension introduces abstractions — validation profiles, modular API route groups, a pluggable notification dispatcher — that add a layer of indirection and slightly more code than a monolithic direct-call approach. We accept that complexity now because the alternative is either constant rewrites or an accumulation of special cases.</p>
+      <p class="kv"><span class="label">How the design honors it:</span> Compliance rules live in a <code>validation-profiles</code> module that selects rule sets by paper type and track; AI endpoints sit behind a single <code>ai</code> service module so the underlying model can change; notifications flow through a central dispatcher so a new channel (Slack, Teams) is an additive change; API routes are grouped per domain concern so new features attach without touching existing ones.</p>
+    </div>
+
+    <!-- Rejected alternatives -->
+    <div class="rejected-block">
+      <h4>Alternatives we considered and rejected</h4>
+      <ul>
+        <li><span class="rej-name">Security &amp; Privacy</span> — genuinely important for double-blind review and confidential unpublished work, but largely satisfied by standard practice (NextAuth sessions, role-gated API routes, automated PDF metadata stripping). We treat it as table-stakes rather than a top-level organizing goal.</li>
+        <li><span class="rej-name">Performance</span> — BILSEN is a bounded community of roughly thirty active members. Response times of a few hundred milliseconds are comfortably sufficient; optimizing to sub-50 ms would be over-engineering at this scale.</li>
+        <li><span class="rej-name">Scalability</span> — the user base will not grow by an order of magnitude. A single-node deployment with a JSON-backed datastore (with a documented migration path to PostgreSQL) is adequate for the foreseeable horizon.</li>
+        <li><span class="rej-name">Portability</span> — the system is a responsive web application, which already runs on any modern browser and device. There is no separate native build to justify portability as a distinct goal.</li>
+        <li><span class="rej-name">Cost-effectiveness</span> — infrastructure costs are negligible at this scale (one small cloud instance plus metered AI API usage). Not a meaningful design constraint.</li>
+        <li><span class="rej-name">Maintainability</span> — effectively subsumed by Extensibility in our case; we treat it as a subset rather than a separately ranked goal.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================== SECTION 2 — SUBSYSTEM DECOMPOSITION ================== -->
+  <section class="section" style="page-break-after:auto;">
+    <h2>2. Subsystem Decomposition</h2>
+
+    <p class="diagram-intro">
+      The Bilsen Review System decomposes into eight cohesive subsystems arranged in four architectural tiers (presentation, access control, domain services, persistence) plus a set of external service integrations. The UML component diagram below shows the provided/required interfaces and the direction of dependencies; solid arrows indicate synchronous in-process calls, dashed arrows indicate outbound calls to third-party services or inbound triggers.
+    </p>
+
+    <div class="diagram-wrap">
+      <svg class="diagram" viewBox="0 0 820 560" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+        <defs>
+          <!-- Arrowheads -->
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+          </marker>
+          <marker id="arrow-light" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#888"/>
+          </marker>
+
+          <!-- UML component icon (two small rectangles on the left-hand side of a component box) -->
+          <symbol id="comp-icon" viewBox="0 0 18 22">
+            <rect x="3" y="0" width="15" height="22" fill="none"/>
+            <rect x="0" y="4"  width="8" height="5" fill="#ffffff" stroke="#0a3d62" stroke-width="1"/>
+            <rect x="0" y="13" width="8" height="5" fill="#ffffff" stroke="#0a3d62" stroke-width="1"/>
+          </symbol>
+          <symbol id="comp-icon-ext" viewBox="0 0 18 22">
+            <rect x="3" y="0" width="15" height="22" fill="none"/>
+            <rect x="0" y="4"  width="8" height="5" fill="#f2f3f5" stroke="#888" stroke-width="1"/>
+            <rect x="0" y="13" width="8" height="5" fill="#f2f3f5" stroke="#888" stroke-width="1"/>
+          </symbol>
+        </defs>
+
+        <!-- ============== TIER 1: PRESENTATION ============== -->
+        <g>
+          <rect x="210" y="20" width="400" height="54" rx="5" ry="5"
+                fill="#ffffff" stroke="#0a3d62" stroke-width="1.8"/>
+          <use href="#comp-icon" x="584" y="26" width="18" height="22"/>
+          <text x="410" y="43" text-anchor="middle" font-size="13" font-weight="700" fill="#0a3d62">«component» Presentation Layer</text>
+          <text x="410" y="60" text-anchor="middle" font-size="10" fill="#555">Next.js App Router pages &amp; React components — one per user role</text>
+        </g>
+
+        <!-- UI → Auth -->
+        <line x1="410" y1="74" x2="410" y2="98" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <text x="416" y="90" font-size="8.5" fill="#555">every request</text>
+
+        <!-- ============== TIER 2: AUTH ============== -->
+        <g>
+          <rect x="270" y="98" width="280" height="58" rx="5" ry="5"
+                fill="#ffffff" stroke="#0a3d62" stroke-width="1.8"/>
+          <use href="#comp-icon" x="524" y="104" width="18" height="22"/>
+          <text x="410" y="117" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0a3d62">«component»</text>
+          <text x="410" y="132" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0a3d62">Authentication &amp; Authorization</text>
+          <text x="410" y="148" text-anchor="middle" font-size="9" fill="#555">NextAuth session, COORDINATOR / MEMBER role gating</text>
+        </g>
+
+        <!-- Auth → 5 domain services (fanning lines) -->
+        <!-- To Paper&Venue top (x=90, y=200) -->
+        <path d="M 360 156 Q 340 180 90 200" fill="none" stroke="#333" stroke-width="1.3" marker-end="url(#arrow)"/>
+        <!-- To Review Workflow top (x=250, y=200) -->
+        <path d="M 385 156 Q 375 180 250 200" fill="none" stroke="#333" stroke-width="1.3" marker-end="url(#arrow)"/>
+        <!-- To Compliance top (x=410, y=200) -->
+        <line x1="410" y1="156" x2="410" y2="200" stroke="#333" stroke-width="1.3" marker-end="url(#arrow)"/>
+        <!-- To AI Assistance top (x=570, y=200) -->
+        <path d="M 435 156 Q 445 180 570 200" fill="none" stroke="#333" stroke-width="1.3" marker-end="url(#arrow)"/>
+        <!-- To Notification top (x=730, y=200) -->
+        <path d="M 460 156 Q 480 180 730 200" fill="none" stroke="#333" stroke-width="1.3" marker-end="url(#arrow)"/>
+        <text x="418" y="180" font-size="8.5" fill="#555">role gate</text>
+
+        <!-- ============== TIER 3: FIVE DOMAIN SERVICES ============== -->
+        <!-- Each box: width=140, height=80 -->
+        <!-- Paper & Venue: x=20-160 -->
+        <g>
+          <rect x="20" y="200" width="140" height="80" rx="5" ry="5"
+                fill="#ffffff" stroke="#0a3d62" stroke-width="1.6"/>
+          <use href="#comp-icon" x="134" y="206" width="18" height="22"/>
+          <text x="90" y="222" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0a3d62">«component»</text>
+          <text x="90" y="238" text-anchor="middle" font-size="11" font-weight="700" fill="#0a3d62">Paper &amp; Venue</text>
+          <text x="90" y="254" text-anchor="middle" font-size="8.5" fill="#555">Submission, metadata,</text>
+          <text x="90" y="265" text-anchor="middle" font-size="8.5" fill="#555">venue recommendation</text>
+          <text x="90" y="276" text-anchor="middle" font-size="8" fill="#888">IPaperMgmt</text>
+        </g>
+
+        <!-- Review Workflow: x=180-320 -->
+        <g>
+          <rect x="180" y="200" width="140" height="80" rx="5" ry="5"
+                fill="#ffffff" stroke="#0a3d62" stroke-width="1.6"/>
+          <use href="#comp-icon" x="294" y="206" width="18" height="22"/>
+          <text x="250" y="222" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0a3d62">«component»</text>
+          <text x="250" y="238" text-anchor="middle" font-size="11" font-weight="700" fill="#0a3d62">Review Workflow</text>
+          <text x="250" y="254" text-anchor="middle" font-size="8.5" fill="#555">Rounds, assignments,</text>
+          <text x="250" y="265" text-anchor="middle" font-size="8.5" fill="#555">reviews, ratings</text>
+          <text x="250" y="276" text-anchor="middle" font-size="8" fill="#888">IReviewLifecycle</text>
+        </g>
+
+        <!-- Compliance: x=340-480 -->
+        <g>
+          <rect x="340" y="200" width="140" height="80" rx="5" ry="5"
+                fill="#ffffff" stroke="#0a3d62" stroke-width="1.6"/>
+          <use href="#comp-icon" x="454" y="206" width="18" height="22"/>
+          <text x="410" y="222" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0a3d62">«component»</text>
+          <text x="410" y="238" text-anchor="middle" font-size="11" font-weight="700" fill="#0a3d62">Compliance</text>
+          <text x="410" y="254" text-anchor="middle" font-size="8.5" fill="#555">Venue-specific rule</text>
+          <text x="410" y="265" text-anchor="middle" font-size="8.5" fill="#555">checks, anonymity</text>
+          <text x="410" y="276" text-anchor="middle" font-size="8" fill="#888">IComplianceCheck</text>
+        </g>
+
+        <!-- AI Assistance: x=500-640 -->
+        <g>
+          <rect x="500" y="200" width="140" height="80" rx="5" ry="5"
+                fill="#ffffff" stroke="#0a3d62" stroke-width="1.6"/>
+          <use href="#comp-icon" x="614" y="206" width="18" height="22"/>
+          <text x="570" y="222" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0a3d62">«component»</text>
+          <text x="570" y="238" text-anchor="middle" font-size="11" font-weight="700" fill="#0a3d62">AI Assistance</text>
+          <text x="570" y="254" text-anchor="middle" font-size="8.5" fill="#555">Review drafting,</text>
+          <text x="570" y="265" text-anchor="middle" font-size="8.5" fill="#555">grounded claims, reports</text>
+          <text x="570" y="276" text-anchor="middle" font-size="8" fill="#888">IAiAssist</text>
+        </g>
+
+        <!-- Notification: x=660-800 -->
+        <g>
+          <rect x="660" y="200" width="140" height="80" rx="5" ry="5"
+                fill="#ffffff" stroke="#0a3d62" stroke-width="1.6"/>
+          <use href="#comp-icon" x="774" y="206" width="18" height="22"/>
+          <text x="730" y="222" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0a3d62">«component»</text>
+          <text x="730" y="238" text-anchor="middle" font-size="11" font-weight="700" fill="#0a3d62">Notification</text>
+          <text x="730" y="254" text-anchor="middle" font-size="8.5" fill="#555">In-app, email, Slack,</text>
+          <text x="730" y="265" text-anchor="middle" font-size="8.5" fill="#555">deadline reminders</text>
+          <text x="730" y="276" text-anchor="middle" font-size="8" fill="#888">INotify</text>
+        </g>
+
+        <!-- (Intra-tier dependencies between domain subsystems are described in the
+             accompanying table rather than drawn as crossing arrows, to keep the
+             high-level diagram readable.) -->
+
+        <!-- Domain services → Data Persistence (converge) -->
+        <path d="M 90 280 Q 90 310 260 320" fill="none" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 250 280 Q 250 310 340 320" fill="none" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <line x1="410" y1="280" x2="410" y2="320" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 570 280 Q 570 310 480 320" fill="none" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 730 280 Q 730 310 560 320" fill="none" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <text x="416" y="305" font-size="8.5" fill="#555">read / write</text>
+
+        <!-- ============== TIER 4: DATA PERSISTENCE ============== -->
+        <g>
+          <rect x="210" y="320" width="400" height="50" rx="5" ry="5"
+                fill="#ffffff" stroke="#0a3d62" stroke-width="1.8"/>
+          <use href="#comp-icon" x="584" y="326" width="18" height="22"/>
+          <text x="410" y="342" text-anchor="middle" font-size="12" font-weight="700" fill="#0a3d62">«component» Data Persistence</text>
+          <text x="410" y="358" text-anchor="middle" font-size="9.5" fill="#555">Typed JSON collections for papers, users, reviews, assignments, venues, notifications…</text>
+        </g>
+
+        <!-- ============== EXTERNAL SERVICES ROW ============== -->
+        <!-- Divider label -->
+        <line x1="20" y1="395" x2="800" y2="395" stroke="#c8cfd6" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="20" y="410" font-size="9" fill="#666" font-weight="600" letter-spacing="1">EXTERNAL SERVICES</text>
+
+        <!-- Cron: x=20-160 -->
+        <g>
+          <rect x="20" y="430" width="140" height="56" rx="5" ry="5"
+                fill="#f5f6f8" stroke="#888" stroke-width="1.4" stroke-dasharray="4,3"/>
+          <use href="#comp-icon-ext" x="134" y="436" width="18" height="22"/>
+          <text x="90" y="454" text-anchor="middle" font-size="10.5" font-weight="700" fill="#555">«external»</text>
+          <text x="90" y="470" text-anchor="middle" font-size="11" font-weight="700" fill="#333">Cron Trigger</text>
+          <text x="90" y="482" text-anchor="middle" font-size="8.5" fill="#666">Vercel Cron / GH Actions</text>
+        </g>
+
+        <!-- Anthropic: x=340-480 (below AI Assistance, one tier) -->
+        <g>
+          <rect x="340" y="430" width="140" height="56" rx="5" ry="5"
+                fill="#f5f6f8" stroke="#888" stroke-width="1.4" stroke-dasharray="4,3"/>
+          <use href="#comp-icon-ext" x="454" y="436" width="18" height="22"/>
+          <text x="410" y="454" text-anchor="middle" font-size="10.5" font-weight="700" fill="#555">«external»</text>
+          <text x="410" y="470" text-anchor="middle" font-size="11" font-weight="700" fill="#333">Anthropic API</text>
+          <text x="410" y="482" text-anchor="middle" font-size="8.5" fill="#666">Claude Sonnet 4.5</text>
+        </g>
+
+        <!-- Resend: x=500-640 -->
+        <g>
+          <rect x="500" y="430" width="140" height="56" rx="5" ry="5"
+                fill="#f5f6f8" stroke="#888" stroke-width="1.4" stroke-dasharray="4,3"/>
+          <use href="#comp-icon-ext" x="614" y="436" width="18" height="22"/>
+          <text x="570" y="454" text-anchor="middle" font-size="10.5" font-weight="700" fill="#555">«external»</text>
+          <text x="570" y="470" text-anchor="middle" font-size="11" font-weight="700" fill="#333">Resend</text>
+          <text x="570" y="482" text-anchor="middle" font-size="8.5" fill="#666">Transactional email</text>
+        </g>
+
+        <!-- Slack: x=660-800 -->
+        <g>
+          <rect x="660" y="430" width="140" height="56" rx="5" ry="5"
+                fill="#f5f6f8" stroke="#888" stroke-width="1.4" stroke-dasharray="4,3"/>
+          <use href="#comp-icon-ext" x="774" y="436" width="18" height="22"/>
+          <text x="730" y="454" text-anchor="middle" font-size="10.5" font-weight="700" fill="#555">«external»</text>
+          <text x="730" y="470" text-anchor="middle" font-size="11" font-weight="700" fill="#333">Slack Workspace</text>
+          <text x="730" y="482" text-anchor="middle" font-size="8.5" fill="#666">Webhook (planned)</text>
+        </g>
+
+        <!-- External arrows (all routed around the Data Persistence component) -->
+
+        <!-- Cron → Notification (up the left side, across above DP, up into Notification) -->
+        <polyline points="90,430 90,310 660,310 660,280"
+                  fill="none" stroke="#888" stroke-width="1.2"
+                  stroke-dasharray="4,3" marker-end="url(#arrow-light)"/>
+        <text x="330" y="303" font-size="8" fill="#666">fires reminders</text>
+
+        <!-- AI Assistance → Anthropic (right of AI down, across below DP, down into Anthropic) -->
+        <polyline points="640,280 640,385 410,385 410,430"
+                  fill="none" stroke="#888" stroke-width="1.2"
+                  stroke-dasharray="4,3" marker-end="url(#arrow-light)"/>
+        <text x="648" y="338" font-size="8" fill="#666">Claude API</text>
+
+        <!-- Notification → Resend (right of Notification down, across below DP, down into Resend) -->
+        <polyline points="670,280 670,385 570,385 570,430"
+                  fill="none" stroke="#888" stroke-width="1.2"
+                  stroke-dasharray="4,3" marker-end="url(#arrow-light)"/>
+        <text x="597" y="380" font-size="8" fill="#666">send email</text>
+
+        <!-- Notification → Slack (nearly vertical, both outside Data Persistence x-range) -->
+        <polyline points="760,280 760,410 730,430"
+                  fill="none" stroke="#888" stroke-width="1.2"
+                  stroke-dasharray="4,3" marker-end="url(#arrow-light)"/>
+        <text x="766" y="350" font-size="8" fill="#666">post msg</text>
+
+      </svg>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend">
+      <span class="legend-item"><span class="legend-swatch"></span>Internal subsystem («component»)</span>
+      <span class="legend-item"><span class="legend-swatch ext"></span>External service («external»)</span>
+      <span class="legend-item"><span class="legend-line"></span>Solid — synchronous in-process call</span>
+      <span class="legend-item"><span class="legend-line dashed"></span>Dashed — third-party API call or external trigger</span>
+    </div>
+
+    <!-- Subsystem descriptions -->
+    <table class="sub-list" aria-label="Subsystem responsibilities">
+      <thead>
+        <tr>
+          <th>Subsystem</th>
+          <th>Responsibility</th>
+          <th>Key code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Presentation Layer</td>
+          <td>Role-specific UI for authors, reviewers, coordinators; renders pages and forwards user actions to the API.</td>
+          <td>src/app/(dashboard), src/components</td>
+        </tr>
+        <tr>
+          <td>Authentication &amp; AuthZ</td>
+          <td>Validates credentials, issues sessions, and gates every API route by role (COORDINATOR, MEMBER).</td>
+          <td>src/auth.ts, proxy.ts, src/lib/users.ts</td>
+        </tr>
+        <tr>
+          <td>Paper &amp; Venue</td>
+          <td>Paper submission, metadata scrubbing, venue CRUD, keyword-based venue recommendation.</td>
+          <td>src/app/api/papers, src/app/api/venues, src/lib/venue-recommender.ts</td>
+        </tr>
+        <tr>
+          <td>Review Workflow</td>
+          <td>Creates rounds, assigns reviewers, handles accept/decline/extension, stores submitted reviews and ratings.</td>
+          <td>src/app/api/rounds, src/app/api/assignments, src/app/api/reviews, src/lib/review-service.ts</td>
+        </tr>
+        <tr>
+          <td>Compliance</td>
+          <td>Runs per-venue rule checks (page limits, sections, reference format, anonymity heuristics, PDF metadata).</td>
+          <td>src/app/api/compliance, src/lib/validation-profiles.ts</td>
+        </tr>
+        <tr>
+          <td>AI Assistance</td>
+          <td>Claude-powered review drafting, grounded-claim verification, consensus reports, annotated PDF export.</td>
+          <td>src/app/api/papers/[id]/ai-*, src/lib/ai.ts, src/lib/pdf-report.ts</td>
+        </tr>
+        <tr>
+          <td>Notification</td>
+          <td>In-app notifications, email dispatch via Resend, Slack (stub), deadline reminders triggered by cron.</td>
+          <td>src/app/api/notifications, src/app/api/cron/reminders, src/lib/email.ts</td>
+        </tr>
+        <tr>
+          <td>Data Persistence</td>
+          <td>Typed JSON collections serving as the authoritative datastore; planned migration path to PostgreSQL.</td>
+          <td>src/lib/data-store.ts, data/*.json</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </section>
+
+</body>
+</html>

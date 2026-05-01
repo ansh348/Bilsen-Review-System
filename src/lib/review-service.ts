@@ -93,6 +93,7 @@ interface ComplianceInput {
     author?: string | null;
     company?: string | null;
   };
+  pdfBuffer?: Uint8Array | ArrayBuffer;
 }
 
 function nowIso() {
@@ -101,6 +102,61 @@ function nowIso() {
 
 function ensureUnique(values: string[]) {
   return [...new Set(values)];
+}
+
+function inferPaperType(title: string, abstractText?: string | null): PaperType | null {
+  const text = `${title} ${abstractText ?? ""}`.toLowerCase();
+  if (!text.trim()) {
+    return null;
+  }
+
+  const hasAny = (phrases: string[]) => phrases.some((phrase) => text.includes(phrase));
+
+  if (
+    hasAny([
+      "systematic review",
+      "mapping study",
+      "literature review",
+      "survey of",
+      "survey paper",
+      "tertiary study",
+      "state of the art",
+    ])
+  ) {
+    return "SURVEY";
+  }
+
+  if (
+    hasAny([
+      "experience report",
+      "lessons learned",
+      "in practice",
+      "industrial experience",
+      "industry experience",
+      "deployment experience",
+      "case study",
+    ])
+  ) {
+    return "EXPERIENCE_REPORT";
+  }
+
+  if (
+    hasAny([
+      "tool ",
+      "tool:",
+      "framework",
+      "platform",
+      "plugin",
+      "prototype",
+      "artifact",
+      "extension",
+      "pipeline",
+    ])
+  ) {
+    return "TOOL";
+  }
+
+  return "RESEARCH";
 }
 
 function parseDate(value: string) {
@@ -331,15 +387,17 @@ export function createPaper(input: PaperCreateInput) {
   }
 
   const timestamp = nowIso();
+  const title = input.title.trim();
+  const abstractText = input.abstractText?.trim() || null;
   const paper: PaperRecord = {
     id: crypto.randomUUID(),
-    title: input.title.trim(),
-    abstractText: input.abstractText?.trim() || null,
+    title,
+    abstractText,
     pdfUrl: input.pdfUrl.trim(),
     overleafUrl: input.overleafUrl?.trim() || null,
     venueId: input.venueId || null,
     status: "SUBMITTED",
-    paperType: input.paperType ?? null,
+    paperType: input.paperType ?? inferPaperType(title, abstractText),
     authorIds: [input.authorId],
     createdAt: timestamp,
     updatedAt: timestamp,
@@ -363,7 +421,7 @@ export function createPaper(input: PaperCreateInput) {
   }
 
   if (paper.venueId) {
-    try { runComplianceChecks({ paperId: paper.id }); } catch { /* non-blocking */ }
+    runComplianceChecks({ paperId: paper.id }).catch(() => { /* non-blocking */ });
   }
 
   return paper;
@@ -485,7 +543,6 @@ export function getPaperDetails(paperId: string): PaperDetails | null {
 }
 
 export function updatePaper(paperId: string, input: PaperUpdateInput) {
-  const oldVenueId = getPaperById(paperId)?.venueId;
   let updatedPaper: PaperRecord | null = null;
 
   upsertCollection("papers", (papers) =>
@@ -498,13 +555,20 @@ export function updatePaper(paperId: string, input: PaperUpdateInput) {
         throw new Error("Selected venue does not exist");
       }
 
+      const nextTitle = input.title?.trim() ?? paper.title;
+      const nextAbstractText =
+        input.abstractText === undefined
+          ? paper.abstractText
+          : input.abstractText?.trim() || null;
+      const nextPaperType =
+        input.paperType === undefined
+          ? paper.paperType ?? inferPaperType(nextTitle, nextAbstractText)
+          : input.paperType ?? inferPaperType(nextTitle, nextAbstractText);
+
       updatedPaper = {
         ...paper,
-        title: input.title?.trim() ?? paper.title,
-        abstractText:
-          input.abstractText === undefined
-            ? paper.abstractText
-            : input.abstractText?.trim() || null,
+        title: nextTitle,
+        abstractText: nextAbstractText,
         pdfUrl: input.pdfUrl?.trim() ?? paper.pdfUrl,
         overleafUrl:
           input.overleafUrl === undefined
@@ -512,8 +576,7 @@ export function updatePaper(paperId: string, input: PaperUpdateInput) {
             : input.overleafUrl?.trim() || null,
         venueId: input.venueId === undefined ? paper.venueId : input.venueId,
         status: input.status ?? paper.status,
-        paperType:
-          input.paperType === undefined ? paper.paperType : input.paperType,
+        paperType: nextPaperType,
         updatedAt: nowIso(),
       };
 
@@ -527,7 +590,7 @@ export function updatePaper(paperId: string, input: PaperUpdateInput) {
 
   const result: PaperRecord = updatedPaper;
   if (result.venueId) {
-    try { runComplianceChecks({ paperId }); } catch { /* non-blocking */ }
+    runComplianceChecks({ paperId }).catch(() => { /* non-blocking */ });
   }
 
   return result;
@@ -616,16 +679,42 @@ export function createReviewRound(paperId: string) {
   }
 
   const rounds = listRoundsForPaper(paperId);
+  const latestRound = rounds[rounds.length - 1];
+  if (latestRound) {
+    const latestRoundAssignments = readCollection("assignments").filter(
+      (assignment) => assignment.reviewRoundId === latestRound.id
+    );
+    if (latestRoundAssignments.length === 0) {
+      updatePaper(paperId, { status: "UNDER_REVIEW" });
+      return latestRound;
+    }
+  }
+
   const nextRoundNumber =
     rounds.length === 0
       ? 1
       : Math.max(...rounds.map((round) => round.roundNumber)) + 1;
+
+  const priorReviewerIds: string[] = [];
+  if (rounds.length > 0) {
+    const priorRoundIds = new Set(rounds.map((round) => round.id));
+    const priorAssignments = readCollection("assignments").filter((assignment) =>
+      priorRoundIds.has(assignment.reviewRoundId)
+    );
+    for (const assignment of priorAssignments) {
+      if (!priorReviewerIds.includes(assignment.reviewerId)) {
+        priorReviewerIds.push(assignment.reviewerId);
+      }
+    }
+  }
 
   const round: ReviewRoundRecord = {
     id: crypto.randomUUID(),
     paperId,
     roundNumber: nextRoundNumber,
     createdAt: nowIso(),
+    revisionNote: null,
+    priorReviewerIds,
   };
 
   const allRounds = readCollection("rounds");
@@ -634,6 +723,45 @@ export function createReviewRound(paperId: string) {
 
   updatePaper(paperId, { status: "UNDER_REVIEW" });
   return round;
+}
+
+export function markForRevision(paperId: string, note: string | null) {
+  const paper = getPaperById(paperId);
+  if (!paper) {
+    throw new Error("Paper not found");
+  }
+
+  const trimmedNote = note?.trim() || null;
+
+  const rounds = listRoundsForPaper(paperId);
+  if (rounds.length > 0) {
+    const latestRound = rounds[rounds.length - 1];
+    upsertCollection("rounds", (allRounds) =>
+      allRounds.map((round) =>
+        round.id === latestRound.id
+          ? { ...round, revisionNote: trimmedNote }
+          : round
+      )
+    );
+  }
+
+  const updated = updatePaper(paperId, { status: "REVISION_REQUESTED" });
+
+  for (const authorId of paper.authorIds) {
+    createNotification({
+      userId: authorId,
+      type: "REVISION_REQUESTED",
+      title: "Revision requested",
+      message: trimmedNote
+        ? `Your paper "${paper.title}" needs revisions. Coordinator note: ${trimmedNote}`
+        : `Your paper "${paper.title}" needs revisions. Please review reviewer feedback and resubmit.`,
+      link: `/papers/${paper.id}`,
+      sentViaEmail: true,
+      sentViaSlack: false,
+    });
+  }
+
+  return updated;
 }
 
 export function getRoundDetails(paperId: string, roundId: string) {
@@ -734,12 +862,14 @@ export function assignReviewers(roundId: string, reviewers: AssignReviewerInput[
     };
     newAssignments.push(assignment);
 
+    const overleafLine = paper.overleafUrl ? ` Overleaf: ${paper.overleafUrl}` : "";
     createNotification({
       userId: reviewer.id,
       type: "ASSIGNMENT_NEW",
       title: "New review assignment",
-      message: `You were assigned to review "${paper.title}" (round ${round.roundNumber}).`,
+      message: `You were assigned to review "${paper.title}" (round ${round.roundNumber}).${overleafLine}`,
       link: `/reviews/${assignment.id}`,
+      overleafUrl: paper.overleafUrl,
       sentViaEmail: true,
       sentViaSlack: false,
     });
@@ -1252,6 +1382,7 @@ interface NotificationInput {
   title: string;
   message: string;
   link?: string | null;
+  overleafUrl?: string | null;
   sentViaEmail?: boolean;
   sentViaSlack?: boolean;
 }
@@ -1264,6 +1395,7 @@ export function createNotification(input: NotificationInput) {
     title: input.title,
     message: input.message,
     link: input.link ?? null,
+    overleafUrl: input.overleafUrl ?? null,
     read: false,
     sentViaEmail: input.sentViaEmail ?? false,
     sentViaSlack: input.sentViaSlack ?? false,
@@ -1283,6 +1415,7 @@ export function createNotification(input: NotificationInput) {
         title: notification.title,
         message: notification.message,
         link: notification.link,
+        overleafUrl: notification.overleafUrl ?? null,
       }).catch(() => { /* fire-and-forget */ });
     }
   }
@@ -1323,6 +1456,83 @@ export function getUnreadNotificationCount(userId: string) {
   return readCollection("notifications").filter(
     (notification) => notification.userId === userId && !notification.read
   ).length;
+}
+
+export const INACTIVITY_THRESHOLD_DAYS = 5;
+export const OVERLOAD_THRESHOLD = 5;
+
+export interface InactiveAssignmentEntry {
+  assignment: ReviewAssignmentRecord;
+  reviewer: UserRecord | null;
+  paper: PaperRecord;
+  daysSinceAccepted: number;
+}
+
+export interface OverloadedReviewerEntry {
+  reviewer: UserRecord;
+  activeCount: number;
+}
+
+export function getInactiveAssignments(
+  thresholdDays: number = INACTIVITY_THRESHOLD_DAYS
+): InactiveAssignmentEntry[] {
+  const assignments = refreshOverdueAssignments();
+  const reviews = readCollection("reviews");
+  const users = listUsers();
+  const rounds = readCollection("rounds");
+  const papers = readCollection("papers");
+  const cutoffMs = Date.now() - thresholdDays * 24 * 60 * 60 * 1000;
+
+  const reviewedAssignmentIds = new Set(
+    reviews.map((review) => review.assignmentId)
+  );
+
+  const entries: InactiveAssignmentEntry[] = [];
+  for (const assignment of assignments) {
+    if (assignment.status !== "ACCEPTED") continue;
+    if (!assignment.respondedAt) continue;
+    if (reviewedAssignmentIds.has(assignment.id)) continue;
+    const respondedMs = new Date(assignment.respondedAt).getTime();
+    if (respondedMs > cutoffMs) continue;
+
+    const round = rounds.find((item) => item.id === assignment.reviewRoundId);
+    if (!round) continue;
+    const paper = papers.find((item) => item.id === round.paperId);
+    if (!paper) continue;
+
+    const daysSinceAccepted = Math.floor(
+      (Date.now() - respondedMs) / (24 * 60 * 60 * 1000)
+    );
+    entries.push({
+      assignment,
+      reviewer: users.find((user) => user.id === assignment.reviewerId) ?? null,
+      paper,
+      daysSinceAccepted,
+    });
+  }
+
+  return entries.sort((a, b) => b.daysSinceAccepted - a.daysSinceAccepted);
+}
+
+export function getOverloadedReviewers(
+  threshold: number = OVERLOAD_THRESHOLD
+): OverloadedReviewerEntry[] {
+  const assignments = refreshOverdueAssignments();
+  const reviewers = listUsers().filter((user) => user.role === "MEMBER");
+  const entries: OverloadedReviewerEntry[] = [];
+
+  for (const reviewer of reviewers) {
+    const activeCount = assignments.filter(
+      (assignment) =>
+        assignment.reviewerId === reviewer.id &&
+        isActiveAssignmentStatus(assignment.status)
+    ).length;
+    if (activeCount > threshold) {
+      entries.push({ reviewer, activeCount });
+    }
+  }
+
+  return entries.sort((a, b) => b.activeCount - a.activeCount);
 }
 
 export function getOverviewAnalytics() {
@@ -1383,6 +1593,9 @@ function buildReviewerStats(reviewer: UserRecord, period: AnalyticsPeriod = "ove
       assignment.status === "IN_PROGRESS" ||
       assignment.status === "COMPLETED"
   );
+  const declinedAssignments = assignments.filter(
+    (assignment) => assignment.status === "DECLINED"
+  );
   const overdueAssignments = assignments.filter(
     (assignment) => assignment.status === "OVERDUE"
   );
@@ -1413,6 +1626,7 @@ function buildReviewerStats(reviewer: UserRecord, period: AnalyticsPeriod = "ove
     ).length,
     totalAssignments: assignments.length,
     acceptedAssignments: acceptedAssignments.length,
+    declinedAssignments: declinedAssignments.length,
     completedAssignments: completedAssignments.length,
     overdueAssignments: overdueAssignments.length,
     acceptanceRate:
@@ -1475,8 +1689,13 @@ export function getReviewerAnalytics(reviewerId: string, period: AnalyticsPeriod
   }
 
   const stats = buildReviewerStats(reviewer, period);
-  const assignments = listAssignmentsForReviewer(reviewerId);
-  const ratings = getRatingsForReviewer(reviewerId);
+  const periodStart = getDateRangeStart(period);
+  const assignments = listAssignmentsForReviewer(reviewerId).filter(
+    (entry) => isWithinPeriod(entry.assignment.assignedAt, periodStart)
+  );
+  const ratings = getRatingsForReviewer(reviewerId).filter((rating) =>
+    isWithinPeriod(rating.createdAt, periodStart)
+  );
 
   return {
     stats,
@@ -1494,7 +1713,21 @@ function getPaperTextForCompliance(paper: PaperRecord, extractedText?: string) {
   return `${paper.title}\n${paper.abstractText ?? ""}\n${extractedText ?? ""}`.toLowerCase();
 }
 
-export function runComplianceChecks(input: ComplianceInput) {
+async function tryFetchPdfBuffer(pdfUrl: string): Promise<Uint8Array | null> {
+  if (!/^https?:\/\//i.test(pdfUrl)) {
+    return null;
+  }
+  try {
+    const response = await fetch(pdfUrl);
+    if (!response.ok) return null;
+    const arrayBuffer = await response.arrayBuffer();
+    return new Uint8Array(arrayBuffer);
+  } catch {
+    return null;
+  }
+}
+
+export async function runComplianceChecks(input: ComplianceInput) {
   const paper = getPaperById(input.paperId);
   if (!paper) {
     throw new Error("Paper not found");
@@ -1548,17 +1781,47 @@ export function runComplianceChecks(input: ComplianceInput) {
     },
   });
 
-  const missingSections = venue.requiredSections.filter(
+  const { getValidationProfile, findIdentityRevealingLinks } = await import(
+    "@/lib/validation-profiles"
+  );
+  const profile = getValidationProfile(paper.paperType, venue.track);
+  const profileExtraSections = profile?.extraRequiredSections ?? [];
+  const combinedRequiredSections = [
+    ...venue.requiredSections,
+    ...profileExtraSections,
+  ];
+  const missingSections = combinedRequiredSections.filter(
     (section) => !text.includes(section.toLowerCase())
   );
   checks.push({
     checkType: "REQUIRED_SECTIONS",
     passed: missingSections.length === 0,
     details: {
-      requiredSections: venue.requiredSections,
+      requiredSections: combinedRequiredSections,
       missingSections,
+      venueRequiredSections: venue.requiredSections,
+      profileRequiredSections: profileExtraSections,
     },
   });
+
+  if (profile && profile.checklistKeywords.length > 0) {
+    const checklistResults = profile.checklistKeywords.map((item) => ({
+      phrase: item.phrase,
+      description: item.description,
+      present: text.includes(item.phrase.toLowerCase()),
+    }));
+    const missingChecklist = checklistResults.filter((c) => !c.present);
+    checks.push({
+      checkType: "DYNAMIC_CHECKLIST",
+      passed: missingChecklist.length === 0,
+      details: {
+        paperType: paper.paperType,
+        track: venue.track,
+        items: checklistResults,
+        missing: missingChecklist.map((c) => c.description),
+      },
+    });
+  }
 
   const metadataPass =
     !venue.anonymityRequired ||
@@ -1614,6 +1877,23 @@ export function runComplianceChecks(input: ComplianceInput) {
     },
   });
 
+  if (venue.anonymityRequired || profile) {
+    const sourceForLinks = `${input.extractedText ?? ""}\n${paper.abstractText ?? ""}`;
+    const suspectLinks = findIdentityRevealingLinks(sourceForLinks);
+    checks.push({
+      checkType: "TOOL_LINK_ANONYMITY",
+      passed: !venue.anonymityRequired || suspectLinks.length === 0,
+      details: {
+        anonymityRequired: venue.anonymityRequired,
+        suspectLinks,
+        note:
+          suspectLinks.length === 0
+            ? "No identity-revealing tool/dataset links detected."
+            : `${suspectLinks.length} suspect link(s) detected.`,
+      },
+    });
+  }
+
   // Reference format check
   if (venue.referenceFormat) {
     const hasExtractedText = Boolean(input.extractedText?.trim());
@@ -1655,6 +1935,38 @@ export function runComplianceChecks(input: ComplianceInput) {
           detectedHint,
         },
       });
+    }
+  }
+
+  let pdfBuffer: Uint8Array | ArrayBuffer | null = input.pdfBuffer ?? null;
+  if (!pdfBuffer) {
+    pdfBuffer = await tryFetchPdfBuffer(paper.pdfUrl);
+  }
+
+  if (pdfBuffer) {
+    try {
+      const { readPdfMetadata, metadataSuggestsIdentity } = await import(
+        "@/lib/pdf-metadata"
+      );
+      const pdfMeta = await readPdfMetadata(pdfBuffer);
+      const { hasIdentity, flags } = metadataSuggestsIdentity(pdfMeta);
+      const shouldFail = venue.anonymityRequired && hasIdentity;
+      checks.push({
+        checkType: "PDF_METADATA_ANONYMITY",
+        passed: !shouldFail,
+        details: {
+          anonymityRequired: venue.anonymityRequired,
+          author: pdfMeta.author,
+          creator: pdfMeta.creator,
+          producer: pdfMeta.producer,
+          flags,
+          note: venue.anonymityRequired
+            ? undefined
+            : "Venue does not require anonymity; check informational only.",
+        },
+      });
+    } catch {
+      // PDF could not be parsed; skip silently.
     }
   }
 
@@ -1718,18 +2030,89 @@ export async function generateAiReviewDraft(extractedText: string) {
     summary:
       "This is a local deterministic draft. Plug in Anthropic API later for production quality.",
     strengths: [
-      "Problem framing appears clear and scoped.",
-      "The draft contains a concrete method section.",
-      "The paper structure is generally coherent.",
+      { point: "Problem framing appears clear and scoped.", quote: "", unsupported: false },
+      { point: "The draft contains a concrete method section.", quote: "", unsupported: false },
+      { point: "The paper structure is generally coherent.", quote: "", unsupported: false },
     ],
     concerns: [
-      "Add stronger empirical evaluation details.",
-      "Clarify threat model and limitations.",
-      "Improve related work positioning.",
+      { point: "Add stronger empirical evaluation details.", quote: "", unsupported: false },
+      { point: "Clarify threat model and limitations.", quote: "", unsupported: false },
+      { point: "Improve related work positioning.", quote: "", unsupported: false },
     ],
     recommendation: "MINOR_REVISION",
+    unsupportedCount: 0,
     estimatedWordCount: wordCount,
   };
+}
+
+export function getLatestAiReportForPaper(paperId: string) {
+  const all = readCollection("aiReports").filter((r) => r.paperId === paperId);
+  return all.sort((a, b) => b.createdAt.localeCompare(a.createdAt))[0] ?? null;
+}
+
+export async function generateAndStoreFinalReport(paperId: string) {
+  const paper = getPaperById(paperId);
+  if (!paper) {
+    throw new Error("Paper not found");
+  }
+
+  const details = getPaperDetails(paperId);
+  if (!details) {
+    throw new Error("Paper details unavailable");
+  }
+
+  const reviews: Array<{
+    review: ReviewRecord;
+    reviewerName: string;
+  }> = [];
+
+  for (const round of details.rounds) {
+    for (const review of round.reviews) {
+      const assignment = round.assignments.find((a) => a.id === review.assignmentId);
+      if (!assignment) continue;
+      const reviewer = getUserById(assignment.reviewerId);
+      reviews.push({
+        review,
+        reviewerName: reviewer?.name ?? "Reviewer",
+      });
+    }
+  }
+
+  if (reviews.length === 0) {
+    throw new Error("No completed reviews to synthesize");
+  }
+
+  if (!process.env.ANTHROPIC_API_KEY) {
+    throw new Error("ANTHROPIC_API_KEY is not configured");
+  }
+
+  const { generateFinalReportWithClaude } = await import("@/lib/ai");
+  const synth = await generateFinalReportWithClaude({
+    paperTitle: paper.title,
+    abstractText: paper.abstractText,
+    reviews: reviews.map((r) => ({
+      reviewerName: r.reviewerName,
+      comments: r.review.comments,
+      recommendation: r.review.recommendation,
+      overallScore: r.review.overallScore,
+    })),
+  });
+
+  const record = {
+    id: crypto.randomUUID(),
+    paperId,
+    reviewIds: reviews.map((r) => r.review.id),
+    consensusSummary: synth.consensusSummary,
+    agreedStrengths: synth.agreedStrengths,
+    agreedConcerns: synth.agreedConcerns,
+    divergences: synth.divergences,
+    overallRecommendation: synth.overallRecommendation,
+    reviewerCount: reviews.length,
+    createdAt: nowIso(),
+  };
+
+  upsertCollection("aiReports", (existing) => [...existing, record]);
+  return record;
 }
 
 export async function generateAiSuggestions(extractedText: string) {
@@ -1761,4 +2144,87 @@ export async function generateAiSuggestions(extractedText: string) {
   }
 
   return suggestions;
+}
+
+export async function getVenueRecommendations(paperId: string, limit = 5) {
+  const paper = getPaperById(paperId);
+  if (!paper) {
+    throw new Error("Paper not found");
+  }
+  const { recommendVenues } = await import("@/lib/venue-recommender");
+  const venues = listVenues();
+  return recommendVenues(paper, venues, limit);
+}
+
+export interface SubmitVenueResult {
+  paper: PaperRecord;
+  failedChecks: ComplianceCheckRecord[];
+}
+
+export async function submitPaperToVenue(paperId: string, venueId: string): Promise<SubmitVenueResult> {
+  const paper = getPaperById(paperId);
+  if (!paper) {
+    throw new Error("Paper not found");
+  }
+  const venue = getVenueById(venueId);
+  if (!venue) {
+    throw new Error("Venue not found");
+  }
+
+  if (paper.status === "SUBMITTED_TO_VENUE") {
+    throw new Error("Paper has already been submitted to a venue");
+  }
+
+  // Compliance must have been run against THIS venue (paper.venueId === venueId)
+  // and every check must pass.
+  if (paper.venueId !== venueId) {
+    throw new Error(
+      "Paper's selected venue does not match submission target. Run compliance for the target venue first.",
+    );
+  }
+
+  const checks = getComplianceChecksByPaper(paperId);
+  if (checks.length === 0) {
+    throw new Error("No compliance checks have been run. Run compliance first.");
+  }
+
+  const latestByType = new Map<ComplianceCheckType, ComplianceCheckRecord>();
+  for (const check of checks) {
+    const existing = latestByType.get(check.checkType);
+    if (!existing || check.checkedAt > existing.checkedAt) {
+      latestByType.set(check.checkType, check);
+    }
+  }
+  const failedChecks = Array.from(latestByType.values()).filter((c) => !c.passed);
+  if (failedChecks.length > 0) {
+    return { paper, failedChecks };
+  }
+
+  const timestamp = nowIso();
+  const updated: PaperRecord = {
+    ...paper,
+    status: "SUBMITTED_TO_VENUE",
+    submittedVenueId: venueId,
+    submittedAt: timestamp,
+    updatedAt: timestamp,
+  };
+
+  upsertCollection("papers", (existing) =>
+    existing.map((p) => (p.id === paperId ? updated : p)),
+  );
+
+  const coordinators = listAllUsers().filter((user) => user.role === "COORDINATOR");
+  for (const coordinator of coordinators) {
+    createNotification({
+      userId: coordinator.id,
+      type: "REVIEW_SUBMITTED",
+      title: "Paper submitted to venue",
+      message: `"${paper.title}" was submitted to ${venue.name}.`,
+      link: `/papers/${paper.id}`,
+      sentViaEmail: true,
+      sentViaSlack: false,
+    });
+  }
+
+  return { paper: updated, failedChecks: [] };
 }

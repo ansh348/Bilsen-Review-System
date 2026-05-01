@@ -23,10 +23,12 @@ export default async function PapersPage({ searchParams }: PapersPageProps) {
     return null;
   }
 
+  const isCoordinator = session.user.role === "COORDINATOR";
   const params = await searchParams;
   const papers = listPapers({
     status: params.status ?? null,
     venueId: params.venueId ?? null,
+    authorId: isCoordinator ? null : session.user.id,
   });
   const venues = listVenues();
 
@@ -34,9 +36,13 @@ export default async function PapersPage({ searchParams }: PapersPageProps) {
     <div className="mx-auto max-w-6xl space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold text-foreground">Papers</h1>
+          <h1 className="text-2xl font-semibold text-foreground">
+            {isCoordinator ? "Papers" : "My Papers"}
+          </h1>
           <p className="text-sm text-muted-foreground">
-            Browse submissions and their review progress.
+            {isCoordinator
+              ? "Browse submissions and their review progress."
+              : "Browse your submissions and their review progress."}
           </p>
         </div>
         <Button asChild>

@@ -1,41 +1,46 @@
-const AdmZip = require('adm-zip');
-
 async function main() {
-  const { parseStringPromise } = await import('xml2js');
-  const zip = new AdmZip('C:\\Users\\anshu\\WebstormProjects\\cs319\\slides319.pptx');
-  const entries = zip.getEntries();
+  const { execFileSync } = await import("node:child_process");
+  const { existsSync } = await import("node:fs");
+  const { join } = await import("node:path");
 
-  const slideEntries = entries
-    .filter(e => /ppt\/slides\/slide\d+\.xml$/.test(e.entryName))
-    .sort((a, b) => {
-      const numA = parseInt(e.entryName.match(/slide(\d+)/)[1]);
-      const numB = parseInt(e.entryName.match(/slide(\d+)/)[1]);
-      return numA - numB;
-    });
+  const pptxPath = join(process.cwd(), "slides319.pptx");
+  if (!existsSync(pptxPath)) {
+    throw new Error(`slides319.pptx not found at ${pptxPath}`);
+  }
 
-  for (const entry of slideEntries) {
-    const xml = entry.getData().toString('utf8');
-    const result = await parseStringPromise(xml);
-    const slideNum = entry.entryName.match(/slide(\d+)/)[1];
-    console.log('=== SLIDE ' + slideNum + ' ===');
+  const script = `
+$ErrorActionPreference = "Stop"
+Add-Type -AssemblyName System.IO.Compression.FileSystem
 
-    const texts = [];
-    function findText(obj) {
-      if (obj === null || obj === undefined) return;
-      if (typeof obj === 'string') return;
-      if (Array.isArray(obj)) { obj.forEach(findText); return; }
-      if (obj['a:t']) {
-        const tArr = Array.isArray(obj['a:t']) ? obj['a:t'] : [obj['a:t']];
-        tArr.forEach(t => {
-          const text = typeof t === 'string' ? t : (t._ || '');
-          if (text.trim()) texts.push(text);
-        });
+$src = ${JSON.stringify(pptxPath)}
+$dst = Join-Path ([System.IO.Path]::GetTempPath()) ("slides319_" + [guid]::NewGuid().ToString("N"))
+
+try {
+  [System.IO.Compression.ZipFile]::ExtractToDirectory($src, $dst)
+  Get-ChildItem (Join-Path $dst "ppt\\\\slides") -Filter "slide*.xml" |
+    Sort-Object { [int]($_.BaseName -replace "\\D", "") } |
+    ForEach-Object {
+      Write-Output ("=== SLIDE " + ($_.BaseName -replace "\\D", "") + " ===")
+      $content = Get-Content $_.FullName -Raw
+      [regex]::Matches($content, "<a:t>(.*?)</a:t>") | ForEach-Object {
+        [System.Net.WebUtility]::HtmlDecode($_.Groups[1].Value)
       }
-      Object.values(obj).forEach(findText);
+      Write-Output ""
     }
-    findText(result);
-    console.log(texts.join('\n'));
-    console.log();
+} finally {
+  if (Test-Path $dst) {
+    Remove-Item -LiteralPath $dst -Recurse -Force
   }
 }
-main().catch(e => console.error(e));
+`;
+
+  execFileSync("powershell", ["-NoProfile", "-Command", script], {
+    cwd: process.cwd(),
+    stdio: "inherit",
+  });
+}
+
+main().catch((error) => {
+  console.error(error instanceof Error ? error.message : error);
+  process.exitCode = 1;
+});

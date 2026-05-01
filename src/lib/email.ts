@@ -26,6 +26,7 @@ const SUBJECT_MAP: Record<NotificationType, string> = {
   EXTENSION_APPROVED: "Extension Approved",
   EXTENSION_DENIED: "Extension Denied",
   ROUND_COMPLETE: "Review Round Complete",
+  REVISION_REQUESTED: "Revision Requested",
 };
 
 interface SendEmailInput {
@@ -34,6 +35,7 @@ interface SendEmailInput {
   title: string;
   message: string;
   link?: string | null;
+  overleafUrl?: string | null;
 }
 
 export async function sendNotificationEmail(input: SendEmailInput): Promise<boolean> {
@@ -47,6 +49,9 @@ export async function sendNotificationEmail(input: SendEmailInput): Promise<bool
   const subject = SUBJECT_MAP[input.type] || input.title;
   const appUrl = process.env.AUTH_URL || "http://localhost:3000";
   const ctaUrl = input.link ? `${appUrl}${input.link}` : appUrl;
+  const overleafCta = input.overleafUrl
+    ? `<a href="${input.overleafUrl}" style="display:inline-block;margin-left:8px;background:#ffffff;color:#1865F2;text-decoration:none;padding:10px 20px;border:1px solid #1865F2;border-radius:6px;font-size:14px;font-weight:600;">Open in Overleaf</a>`
+    : "";
 
   const html = `
 <!DOCTYPE html>
@@ -65,7 +70,7 @@ export async function sendNotificationEmail(input: SendEmailInput): Promise<bool
           <td style="padding:32px;">
             <h2 style="margin:0 0 12px;font-size:18px;color:#111827;">${input.title}</h2>
             <p style="margin:0 0 24px;font-size:14px;line-height:1.6;color:#374151;">${input.message}</p>
-            <a href="${ctaUrl}" style="display:inline-block;background:#1865F2;color:#ffffff;text-decoration:none;padding:10px 24px;border-radius:6px;font-size:14px;font-weight:600;">View Details</a>
+            <a href="${ctaUrl}" style="display:inline-block;background:#1865F2;color:#ffffff;text-decoration:none;padding:10px 24px;border-radius:6px;font-size:14px;font-weight:600;">View Details</a>${overleafCta}
           </td>
         </tr>
         <tr>

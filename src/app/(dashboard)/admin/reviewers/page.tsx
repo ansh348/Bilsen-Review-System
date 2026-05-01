@@ -11,6 +11,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PeriodSelector } from "@/components/admin/period-selector";
+import { AnalyticsExportButtons } from "@/components/admin/analytics-export-buttons";
 import type { AnalyticsPeriod } from "@/lib/review-types";
 
 interface AdminReviewersPageProps {
@@ -41,7 +42,10 @@ export default async function AdminReviewersPage({ searchParams }: AdminReviewer
         </p>
       </div>
 
-      <PeriodSelector currentPeriod={period} />
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <PeriodSelector currentPeriod={period} />
+        <AnalyticsExportButtons type="leaderboard" period={period} />
+      </div>
 
       <Card className="border">
         <CardHeader>
@@ -63,6 +67,7 @@ export default async function AdminReviewersPage({ searchParams }: AdminReviewer
                   </div>
                   <div className="flex items-center gap-2">
                     <Badge variant="outline">{item.completedAssignments} done</Badge>
+                    <Badge variant="outline">{item.acceptanceRate}% accept</Badge>
                     <Badge variant="outline">{item.onTimeRate}% on-time</Badge>
                     <Button variant="outline" size="sm" asChild>
                       <Link href={`/admin/reviewers/${item.reviewer.id}`}>Details</Link>

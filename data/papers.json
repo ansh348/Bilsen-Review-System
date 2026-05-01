@@ -1,1 +1,159 @@
-[]
+[
+  {
+    "id": "mock_paper_1",
+    "title": "Automated Detection of Code Smells Using Large Language Models",
+    "abstractText": "Code smells are indicators of deeper design problems in software systems. This paper presents a novel approach to automated code smell detection leveraging large language models. We fine-tune a transformer-based model on a curated dataset of 15,000 labeled code snippets across five smell categories. Our approach achieves 92% precision and 87% recall on the benchmark dataset, outperforming existing static analysis tools by 18%. We validate our findings on three large-scale open-source projects.",
+    "pdfUrl": "https://example.com/papers/code-smells-llm.pdf",
+    "overleafUrl": "https://overleaf.com/project/mock1",
+    "venueId": "952ace7e-092e-467d-90c5-d1188c4459dd",
+    "status": "SUBMITTED_TO_VENUE",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "mock_user_1",
+      "mock_user_3"
+    ],
+    "createdAt": "2026-01-20T09:00:00.000Z",
+    "updatedAt": "2026-04-18T12:42:54.572Z",
+    "submittedVenueId": "952ace7e-092e-467d-90c5-d1188c4459dd",
+    "submittedAt": "2026-04-18T12:42:54.572Z"
+  },
+  {
+    "id": "mock_paper_2",
+    "title": "A Systematic Survey of CI/CD Pipeline Optimization Techniques",
+    "abstractText": "Continuous integration and continuous delivery pipelines are critical to modern software development. This survey systematically reviews 142 papers published between 2018 and 2025 on CI/CD optimization. We identify six major categories of optimization techniques including parallelization, caching strategies, and intelligent test selection. Our taxonomy provides practitioners with actionable guidance for improving pipeline efficiency.",
+    "pdfUrl": "https://example.com/papers/cicd-survey.pdf",
+    "overleafUrl": null,
+    "venueId": "b57f458c-ef4b-4f1f-91d0-c6d4eb2188f5",
+    "status": "UNDER_REVIEW",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "mock_user_2"
+    ],
+    "createdAt": "2026-02-01T10:00:00.000Z",
+    "updatedAt": "2026-02-15T12:00:00.000Z"
+  },
+  {
+    "id": "mock_paper_3",
+    "title": "DeepRefactor: Neural Program Repair for Complex Refactoring Operations",
+    "abstractText": "Program repair techniques have traditionally focused on simple bug fixes. We present DeepRefactor, a neural approach capable of performing complex refactoring operations including extract method, move class, and inline variable. Our model uses a graph neural network to capture program dependencies and generates semantically equivalent refactored code. Evaluation on 500 refactoring instances from GitHub shows our tool successfully completes 73% of refactorings correctly.",
+    "pdfUrl": "https://example.com/papers/deep-refactor.pdf",
+    "overleafUrl": "https://overleaf.com/project/mock3",
+    "venueId": "952ace7e-092e-467d-90c5-d1188c4459dd",
+    "status": "REVISION_REQUESTED",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "mock_user_4",
+      "mock_user_5"
+    ],
+    "createdAt": "2026-01-25T14:00:00.000Z",
+    "updatedAt": "2026-02-28T16:00:00.000Z"
+  },
+  {
+    "id": "mock_paper_4",
+    "title": "MicroLint: A Static Analysis Tool for Microservice Anti-Pattern Detection",
+    "abstractText": "Microservice architectures introduce unique design challenges. MicroLint is a lightweight static analysis tool that detects seven common microservice anti-patterns including god service, chatty communication, and shared database. The tool analyzes service definitions, API contracts, and inter-service communication patterns. In a controlled experiment with 12 industry microservice systems, MicroLint detected anti-patterns with 89% accuracy.",
+    "pdfUrl": "https://example.com/papers/microlint.pdf",
+    "overleafUrl": null,
+    "venueId": "952ace7e-092e-467d-90c5-d1188c4459dd",
+    "status": "UNDER_REVIEW",
+    "paperType": "TOOL",
+    "authorIds": [
+      "mock_user_6"
+    ],
+    "createdAt": "2026-02-05T11:00:00.000Z",
+    "updatedAt": "2026-02-20T09:00:00.000Z"
+  },
+  {
+    "id": "mock_paper_5",
+    "title": "Experience Report: Adopting Test-Driven Development in a Legacy Banking System",
+    "abstractText": "We report on our three-year experience of introducing test-driven development practices into a legacy banking system comprising 2.4 million lines of COBOL and Java code. We describe the incremental adoption strategy, the challenges encountered including resistance from senior developers and integration with existing testing frameworks, and the measurable improvements in defect density and development velocity achieved over the period.",
+    "pdfUrl": "https://example.com/papers/tdd-legacy.pdf",
+    "overleafUrl": null,
+    "venueId": "b57f458c-ef4b-4f1f-91d0-c6d4eb2188f5",
+    "status": "SUBMITTED",
+    "paperType": "EXPERIENCE_REPORT",
+    "authorIds": [
+      "mock_user_7"
+    ],
+    "createdAt": "2026-03-01T08:00:00.000Z",
+    "updatedAt": "2026-03-01T08:00:00.000Z"
+  },
+  {
+    "id": "mock_paper_6",
+    "title": "Fault Localization via Spectrum-Based Analysis with Contextual Embeddings",
+    "abstractText": "Spectrum-based fault localization uses program execution traces to identify likely faulty code locations. We enhance traditional SBFL techniques by incorporating contextual code embeddings that capture semantic relationships between program elements. Our approach re-ranks suspicious statements using a learned scoring function. Experiments on the Defects4J benchmark show a 24% improvement in top-5 accuracy over Ochiai and Tarantula baselines.",
+    "pdfUrl": "https://example.com/papers/fault-localization.pdf",
+    "overleafUrl": "https://overleaf.com/project/mock6",
+    "venueId": "952ace7e-092e-467d-90c5-d1188c4459dd",
+    "status": "REJECTED",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "mock_user_8"
+    ],
+    "createdAt": "2026-01-18T16:00:00.000Z",
+    "updatedAt": "2026-02-25T10:00:00.000Z"
+  },
+  {
+    "id": "mock_paper_7",
+    "title": "Privacy-Preserving Log Analysis for Distributed Systems",
+    "abstractText": "System logs contain valuable debugging information but also sensitive data. We propose a differential privacy framework for log analysis that enables anomaly detection and root cause analysis while preserving user privacy. Our approach adds calibrated noise to log feature vectors before analysis. Evaluation on production logs from a cloud provider demonstrates that our method maintains 94% anomaly detection accuracy while providing formal privacy guarantees.",
+    "pdfUrl": "https://example.com/papers/privacy-logs.pdf",
+    "overleafUrl": "https://overleaf.com/project/mock7",
+    "venueId": "b57f458c-ef4b-4f1f-91d0-c6d4eb2188f5",
+    "status": "UNDER_REVIEW",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "mock_user_1",
+      "mock_user_7"
+    ],
+    "createdAt": "2026-02-10T13:00:00.000Z",
+    "updatedAt": "2026-02-22T11:00:00.000Z"
+  },
+  {
+    "id": "mock_paper_8",
+    "title": "Quantum Computing Approaches for Combinatorial Software Testing",
+    "abstractText": "Combinatorial testing generates test suites covering all t-way interactions of input parameters. We explore how quantum computing can accelerate covering array generation. Using quantum annealing on D-Wave hardware, we formulate covering array construction as a QUBO problem. Preliminary results on benchmark instances show quantum approaches can find competitive solutions for small to medium problem sizes, with potential for quantum advantage as hardware scales.",
+    "pdfUrl": "http://localhost:3000/test_paper.pdf",
+    "overleafUrl": null,
+    "venueId": "952ace7e-092e-467d-90c5-d1188c4459dd",
+    "status": "SUBMITTED",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "mock_user_3"
+    ],
+    "createdAt": "2026-03-03T10:00:00.000Z",
+    "updatedAt": "2026-04-18T12:40:48.759Z"
+  },
+  {
+    "id": "mock_paper_9",
+    "title": "Green Software Engineering: Metrics and Measurement Frameworks",
+    "abstractText": "As software's environmental impact grows, measuring energy consumption and carbon footprint becomes essential. We propose a comprehensive measurement framework for green software engineering encompassing code-level energy profiling, infrastructure utilization metrics, and lifecycle carbon accounting. We validate our framework through case studies with three software companies, demonstrating measurable reductions in energy consumption through targeted optimizations.",
+    "pdfUrl": "https://example.com/papers/green-se.pdf",
+    "overleafUrl": "https://overleaf.com/project/mock9",
+    "venueId": "b57f458c-ef4b-4f1f-91d0-c6d4eb2188f5",
+    "status": "UNDER_REVIEW",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "mock_user_5",
+      "mock_user_6"
+    ],
+    "createdAt": "2026-02-08T09:30:00.000Z",
+    "updatedAt": "2026-02-18T15:00:00.000Z"
+  },
+  {
+    "id": "mock_paper_10",
+    "title": "Flaky Test Mitigation: A Machine Learning Approach to Test Reliability",
+    "abstractText": "Flaky tests undermine developer trust in test suites and waste CI resources. We present a machine learning classifier that predicts test flakiness based on code features, execution history, and environmental factors. Our model achieves 91% precision in identifying flaky tests before they manifest, enabling proactive mitigation. A six-month deployment at a large tech company reduced flaky test failures by 67% and saved an estimated 4,200 developer hours.",
+    "pdfUrl": "https://example.com/papers/flaky-tests.pdf",
+    "overleafUrl": "https://overleaf.com/project/mock10",
+    "venueId": "952ace7e-092e-467d-90c5-d1188c4459dd",
+    "status": "ACCEPTED",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "mock_user_2",
+      "mock_user_4"
+    ],
+    "createdAt": "2026-01-22T11:00:00.000Z",
+    "updatedAt": "2026-03-02T09:00:00.000Z"
+  }
+]

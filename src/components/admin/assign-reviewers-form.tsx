@@ -9,16 +9,21 @@ interface ReviewerOption {
   name: string;
   email: string;
   activeAssignments: number;
+  priorReviewer?: boolean;
 }
 
 interface AssignReviewersFormProps {
   paperId: string;
   reviewers: ReviewerOption[];
+  initialRoundId?: string | null;
+  roundLabel?: string;
 }
 
 export function AssignReviewersForm({
   paperId,
   reviewers,
+  initialRoundId = null,
+  roundLabel,
 }: AssignReviewersFormProps) {
   const router = useRouter();
   const [selectedReviewerIds, setSelectedReviewerIds] = useState<string[]>([]);
@@ -28,7 +33,13 @@ export function AssignReviewersForm({
   const [message, setMessage] = useState<string | null>(null);
 
   const sortedReviewers = useMemo(
-    () => [...reviewers].sort((a, b) => a.activeAssignments - b.activeAssignments),
+    () =>
+      [...reviewers].sort((a, b) => {
+        const priorA = a.priorReviewer ? 1 : 0;
+        const priorB = b.priorReviewer ? 1 : 0;
+        if (priorA !== priorB) return priorA - priorB;
+        return a.activeAssignments - b.activeAssignments;
+      }),
     [reviewers]
   );
 
@@ -57,17 +68,29 @@ export function AssignReviewersForm({
 
     setIsLoading(true);
     try {
-      const roundResponse = await fetch(`/api/papers/${paperId}/rounds`, {
-        method: "POST",
-      });
-      const roundPayload = await roundResponse.json().catch(() => ({}));
-      if (!roundResponse.ok) {
-        setError(roundPayload.error ?? "Failed to create review round");
+      let roundId = initialRoundId;
+      let assignedRoundLabel = roundLabel ?? "Round 1";
+
+      if (!roundId) {
+        const roundResponse = await fetch(`/api/papers/${paperId}/rounds`, {
+          method: "POST",
+        });
+        const roundPayload = await roundResponse.json().catch(() => ({}));
+        if (!roundResponse.ok) {
+          setError(roundPayload.error ?? "Failed to create review round");
+          return;
+        }
+        roundId = roundPayload.round?.id ?? null;
+        assignedRoundLabel = `Round ${roundPayload.round?.roundNumber ?? 1}`;
+      }
+
+      if (!roundId) {
+        setError("Failed to resolve review round");
         return;
       }
 
       const assignmentsResponse = await fetch(
-        `/api/rounds/${roundPayload.round.id}/assignments`,
+        `/api/rounds/${roundId}/assignments`,
         {
           method: "POST",
           headers: {
@@ -87,7 +110,7 @@ export function AssignReviewersForm({
         return;
       }
 
-      setMessage("Reviewers assigned successfully.");
+      setMessage(`Reviewers assigned successfully to ${assignedRoundLabel}.`);
       setSelectedReviewerIds([]);
       setDeadline("");
       router.refresh();
@@ -113,14 +136,31 @@ export function AssignReviewersForm({
 
       <div className="space-y-2">
         <p className="text-sm font-medium">Select reviewers</p>
+        {roundLabel && (
+          <p className="text-xs text-muted-foreground">
+            Assignments will be added to {roundLabel}.
+          </p>
+        )}
         <div className="space-y-2">
           {sortedReviewers.map((reviewer) => (
             <label
               key={reviewer.id}
-              className="flex items-center justify-between rounded-md border border-border px-3 py-2 text-sm"
+              className={`flex items-center justify-between rounded-md border border-border px-3 py-2 text-sm ${
+                reviewer.priorReviewer ? "opacity-60" : ""
+              }`}
             >
-              <span>
-                {reviewer.name} ({reviewer.email})
+              <span className="flex items-center gap-2">
+                <span>
+                  {reviewer.name} ({reviewer.email})
+                </span>
+                {reviewer.priorReviewer && (
+                  <span
+                    className="rounded-sm border border-amber-500/50 bg-amber-500/10 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-amber-600"
+                    title="This reviewer reviewed a prior round for this paper"
+                  >
+                    Prior
+                  </span>
+                )}
               </span>
               <span className="flex items-center gap-4">
                 <span className="text-xs text-muted-foreground">

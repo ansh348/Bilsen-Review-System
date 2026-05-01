@@ -1,12 +1,178 @@
 [
   {
-    "id": "377ec2f2-7be9-4a10-9f62-e855065591b4",
-    "assignmentId": "a68a67a4-7fc8-411d-9710-0dfec4227c26",
-    "comments": "Detailed review comments for the assigned paper.",
-    "structuredFeedback": null,
+    "id": "mock_review_1",
+    "assignmentId": "mock_assign_1",
+    "comments": "The paper presents a compelling approach to code smell detection using large language models. The experimental setup is thorough, covering five open-source projects with diverse characteristics. The precision and recall numbers are impressive compared to existing tools. However, the threat to validity section could be strengthened by discussing model hallucination risks and the generalizability to languages beyond Java and Python.",
+    "structuredFeedback": {
+      "novelty": "Strong contribution - first systematic application of LLMs to multi-category code smell detection with fine-tuning.",
+      "methodology": "Sound experimental design with appropriate baselines. Cross-validation is well executed.",
+      "clarity": "Well-written paper with clear figures and tables. The running example in Section 3 is particularly helpful.",
+      "significance": "High practical relevance - the tool could be integrated into existing IDE workflows.",
+      "presentation": "Minor formatting issues in Table 4. References need updating to include 2025 related work."
+    },
+    "overallScore": 4,
+    "recommendation": "ACCEPT",
+    "submittedAt": "2026-02-05T14:00:00.000Z",
+    "updatedAt": "2026-02-05T14:00:00.000Z"
+  },
+  {
+    "id": "mock_review_2",
+    "assignmentId": "mock_assign_2",
+    "comments": "This paper introduces a solid approach to code smell detection. The dataset construction is well-documented and the labeling guidelines are thorough. I have some concerns about the model's performance on less common smell types where training data is limited. The comparison with PMD and SonarQube is fair but should include newer ML-based tools like DeepSmell.",
+    "structuredFeedback": {
+      "novelty": "Good novelty, though the idea of applying ML to code smells is not entirely new.",
+      "methodology": "Generally sound but the imbalanced dataset handling could be improved.",
+      "clarity": "Clear presentation overall. Section 4.2 could be more concise.",
+      "significance": "Moderate to high - addresses a real need in software quality assurance.",
+      "presentation": "Good quality writing. Figures are informative and well-designed."
+    },
     "overallScore": 4,
     "recommendation": "MINOR_REVISION",
-    "submittedAt": "2026-02-14T11:09:17.396Z",
-    "updatedAt": "2026-02-14T11:09:17.396Z"
+    "submittedAt": "2026-02-08T11:00:00.000Z",
+    "updatedAt": "2026-02-08T11:00:00.000Z"
+  },
+  {
+    "id": "mock_review_3",
+    "assignmentId": "mock_assign_3",
+    "comments": "The code smell detection work is relevant but the evaluation has significant gaps. Only Java projects were used for testing, yet claims of generalizability are made. The paper lacks a user study to validate whether the detected smells are actionable for developers. The related work section misses several important papers from ICSE 2025.",
+    "structuredFeedback": {
+      "novelty": "Reasonable novelty but incremental over existing LLM-based code analysis work.",
+      "methodology": "Evaluation is limited to one programming language. No user study included.",
+      "clarity": "Writing is adequate but some sections are verbose.",
+      "significance": "Limited without broader language support validation.",
+      "presentation": "Acceptable. Some figures could be larger for readability."
+    },
+    "overallScore": 3,
+    "recommendation": "MINOR_REVISION",
+    "submittedAt": "2026-02-09T16:00:00.000Z",
+    "updatedAt": "2026-02-09T16:00:00.000Z"
+  },
+  {
+    "id": "mock_review_4",
+    "assignmentId": "mock_assign_4",
+    "comments": "The second round review confirms that the authors have adequately addressed the concerns raised in round one. The additional experiments on Python and JavaScript projects strengthen the generalizability claims. The new user study with 24 developers provides convincing evidence of practical utility. I recommend acceptance.",
+    "structuredFeedback": {
+      "novelty": "Same as before - strong contribution.",
+      "methodology": "Significantly improved with multi-language evaluation and user study.",
+      "clarity": "Improved writing quality. The paper reads well.",
+      "significance": "Now convincingly demonstrated through user study results.",
+      "presentation": "All formatting issues from round 1 have been fixed."
+    },
+    "overallScore": 5,
+    "recommendation": "ACCEPT",
+    "submittedAt": "2026-02-27T10:00:00.000Z",
+    "updatedAt": "2026-02-27T10:00:00.000Z"
+  },
+  {
+    "id": "mock_review_5",
+    "assignmentId": "mock_assign_8",
+    "comments": "DeepRefactor presents an interesting idea of using graph neural networks for complex refactoring. The approach is technically sound and the graph representation of program dependencies is well-motivated. However, the 73% success rate may not be sufficient for practical deployment. The paper should discuss failure modes more thoroughly and provide guidance on when the tool is likely to fail.",
+    "structuredFeedback": {
+      "novelty": "High novelty - novel application of GNNs to refactoring beyond simple patterns.",
+      "methodology": "Good technical approach but evaluation could include more diverse refactoring types.",
+      "clarity": "Well-structured paper. The GNN architecture description is clear.",
+      "significance": "Potentially high impact but practical applicability needs more evidence.",
+      "presentation": "Clean formatting. Good use of code examples throughout."
+    },
+    "overallScore": 3,
+    "recommendation": "MAJOR_REVISION",
+    "submittedAt": "2026-02-14T09:00:00.000Z",
+    "updatedAt": "2026-02-14T09:00:00.000Z"
+  },
+  {
+    "id": "mock_review_6",
+    "assignmentId": "mock_assign_9",
+    "comments": "The neural program repair approach shows promise but has critical limitations. The evaluation only covers Java refactorings and the comparison with existing refactoring tools like IntelliJ's built-in refactoring is missing. The semantic equivalence checking is approximate and may miss subtle behavioral changes. A more rigorous validation methodology is needed.",
+    "structuredFeedback": {
+      "novelty": "Moderate - builds on existing neural program transformation work.",
+      "methodology": "Weak evaluation - missing comparison with IDE refactoring tools.",
+      "clarity": "Generally clear but Section 5 is confusing.",
+      "significance": "Would be higher with better evaluation and practical comparisons.",
+      "presentation": "Adequate. Some notation inconsistencies between sections."
+    },
+    "overallScore": 2,
+    "recommendation": "MAJOR_REVISION",
+    "submittedAt": "2026-02-16T15:00:00.000Z",
+    "updatedAt": "2026-02-16T15:00:00.000Z"
+  },
+  {
+    "id": "mock_review_7",
+    "assignmentId": "mock_assign_13",
+    "comments": "The spectrum-based fault localization paper attempts to combine SBFL with contextual embeddings. While the idea is interesting, the improvement over baselines is marginal when considering the added complexity. The contextual embeddings add significant computational overhead that is not adequately discussed. The evaluation on Defects4J is standard but the paper should also test on real-world industrial defects.",
+    "structuredFeedback": {
+      "novelty": "Limited novelty - combining embeddings with SBFL has been explored before.",
+      "methodology": "Standard evaluation but lacks scalability analysis.",
+      "clarity": "Dense writing that could benefit from simplification.",
+      "significance": "Low - marginal improvement does not justify the complexity.",
+      "presentation": "Below average. Too many tables crammed into limited space."
+    },
+    "overallScore": 2,
+    "recommendation": "REJECT",
+    "submittedAt": "2026-02-08T12:00:00.000Z",
+    "updatedAt": "2026-02-08T12:00:00.000Z"
+  },
+  {
+    "id": "mock_review_8",
+    "assignmentId": "mock_assign_14",
+    "comments": "I agree with the first reviewer that the contribution is incremental. The embedding-based re-ranking adds complexity without convincing gains. The claimed 24% improvement in top-5 accuracy is measured on a subset of Defects4J that favors the approach. When evaluated on the full benchmark, the improvement drops to 11%. The paper does not adequately address this discrepancy.",
+    "structuredFeedback": {
+      "novelty": "Marginal novelty over existing neural fault localization approaches.",
+      "methodology": "Cherry-picked evaluation subset raises concerns about validity.",
+      "clarity": "Readable but the experimental setup description has ambiguities.",
+      "significance": "Low practical significance given the computational cost.",
+      "presentation": "Acceptable quality but could be improved."
+    },
+    "overallScore": 2,
+    "recommendation": "REJECT",
+    "submittedAt": "2026-02-10T14:00:00.000Z",
+    "updatedAt": "2026-02-10T14:00:00.000Z"
+  },
+  {
+    "id": "mock_review_9",
+    "assignmentId": "mock_assign_20",
+    "comments": "Excellent paper on flaky test detection. The feature engineering is thoughtful, combining code-level, history-based, and environmental features. The six-month deployment study provides compelling real-world evidence. The 91% precision with low false positive rate makes this practically useful. The only weakness is limited discussion of how the model handles test suite evolution over time.",
+    "structuredFeedback": {
+      "novelty": "Strong contribution with a comprehensive feature set for flakiness prediction.",
+      "methodology": "Rigorous evaluation with both controlled experiments and industrial deployment.",
+      "clarity": "Exceptionally well-written. One of the clearest papers I've reviewed this year.",
+      "significance": "High impact - directly addresses a costly industry problem with proven results.",
+      "presentation": "Excellent formatting, clear figures, and well-organized sections."
+    },
+    "overallScore": 5,
+    "recommendation": "ACCEPT",
+    "submittedAt": "2026-02-10T11:00:00.000Z",
+    "updatedAt": "2026-02-10T11:00:00.000Z"
+  },
+  {
+    "id": "mock_review_10",
+    "assignmentId": "mock_assign_21",
+    "comments": "The flaky test paper makes a solid contribution. The machine learning approach is well-executed and the feature analysis in Section 5 provides useful insights. I appreciate the industrial deployment results. Minor concerns: the paper should discuss privacy implications of collecting execution history data, and the comparison with Google's flaky test detection should be more detailed.",
+    "structuredFeedback": {
+      "novelty": "Good novelty - comprehensive approach to a well-known problem.",
+      "methodology": "Sound methodology with appropriate statistical tests.",
+      "clarity": "Very clear writing with good flow between sections.",
+      "significance": "High practical significance demonstrated through deployment.",
+      "presentation": "Well-formatted. Minor typos on pages 7 and 9."
+    },
+    "overallScore": 4,
+    "recommendation": "MINOR_REVISION",
+    "submittedAt": "2026-02-13T09:00:00.000Z",
+    "updatedAt": "2026-02-13T09:00:00.000Z"
+  },
+  {
+    "id": "mock_review_11",
+    "assignmentId": "mock_assign_22",
+    "comments": "The revised version addresses all my concerns from round 1. The added discussion on model evolution and the privacy considerations section are both well-done. The paper is ready for publication. Strong accept.",
+    "structuredFeedback": {
+      "novelty": "Unchanged - strong contribution.",
+      "methodology": "Improved with additional analysis of model drift over time.",
+      "clarity": "Maintained high quality.",
+      "significance": "Confirmed through extended deployment data.",
+      "presentation": "All typos fixed. Paper is polished."
+    },
+    "overallScore": 5,
+    "recommendation": "ACCEPT",
+    "submittedAt": "2026-02-28T15:00:00.000Z",
+    "updatedAt": "2026-02-28T15:00:00.000Z"
   }
 ]

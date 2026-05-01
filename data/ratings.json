@@ -1,13 +1,101 @@
 [
   {
-    "id": "4b76d966-d37f-42aa-b82d-5fca5435933f",
-    "reviewId": "377ec2f2-7be9-4a10-9f62-e855065591b4",
-    "raterId": "476807ab-edcb-44ae-9adf-4d312958a2c7",
-    "reviewerId": "518f0c73-2de4-4d00-9bce-8ee949eff149",
-    "qualityScore": 1,
-    "quantityScore": 1,
-    "timelinessScore": 1,
-    "comment": "Second author rating",
-    "createdAt": "2026-02-14T11:09:17.402Z"
+    "id": "mock_rating_1",
+    "reviewId": "mock_review_1",
+    "raterId": "cba1a659-ba9e-4b4c-9536-e26cd62885cb",
+    "reviewerId": "mock_user_2",
+    "qualityScore": 5,
+    "quantityScore": 4,
+    "timelinessScore": 5,
+    "comment": "Thorough and constructive review with actionable feedback.",
+    "createdAt": "2026-02-06T10:00:00.000Z"
+  },
+  {
+    "id": "mock_rating_2",
+    "reviewId": "mock_review_2",
+    "raterId": "cba1a659-ba9e-4b4c-9536-e26cd62885cb",
+    "reviewerId": "mock_user_4",
+    "qualityScore": 4,
+    "quantityScore": 4,
+    "timelinessScore": 4,
+    "comment": "Good review with solid technical insights.",
+    "createdAt": "2026-02-09T10:00:00.000Z"
+  },
+  {
+    "id": "mock_rating_3",
+    "reviewId": "mock_review_3",
+    "raterId": "cba1a659-ba9e-4b4c-9536-e26cd62885cb",
+    "reviewerId": "mock_user_6",
+    "qualityScore": 3,
+    "quantityScore": 3,
+    "timelinessScore": 3,
+    "comment": "Adequate review but could be more detailed.",
+    "createdAt": "2026-02-10T10:00:00.000Z"
+  },
+  {
+    "id": "mock_rating_4",
+    "reviewId": "mock_review_5",
+    "raterId": "cba1a659-ba9e-4b4c-9536-e26cd62885cb",
+    "reviewerId": "mock_user_1",
+    "qualityScore": 4,
+    "quantityScore": 5,
+    "timelinessScore": 4,
+    "comment": "Very detailed review with excellent structured feedback.",
+    "createdAt": "2026-02-15T10:00:00.000Z"
+  },
+  {
+    "id": "mock_rating_5",
+    "reviewId": "mock_review_6",
+    "raterId": "cba1a659-ba9e-4b4c-9536-e26cd62885cb",
+    "reviewerId": "mock_user_7",
+    "qualityScore": 3,
+    "quantityScore": 3,
+    "timelinessScore": 2,
+    "comment": "Review was submitted close to the deadline. Content is acceptable.",
+    "createdAt": "2026-02-17T10:00:00.000Z"
+  },
+  {
+    "id": "mock_rating_6",
+    "reviewId": "mock_review_7",
+    "raterId": "cba1a659-ba9e-4b4c-9536-e26cd62885cb",
+    "reviewerId": "mock_user_3",
+    "qualityScore": 3,
+    "quantityScore": 2,
+    "timelinessScore": 4,
+    "comment": "Review could be more constructive. Some feedback was vague.",
+    "createdAt": "2026-02-09T10:00:00.000Z"
+  },
+  {
+    "id": "mock_rating_7",
+    "reviewId": "mock_review_9",
+    "raterId": "cba1a659-ba9e-4b4c-9536-e26cd62885cb",
+    "reviewerId": "mock_user_1",
+    "qualityScore": 5,
+    "quantityScore": 5,
+    "timelinessScore": 5,
+    "comment": "Outstanding review. Comprehensive and insightful.",
+    "createdAt": "2026-02-11T10:00:00.000Z"
+  },
+  {
+    "id": "mock_rating_8",
+    "reviewId": "mock_review_8",
+    "raterId": "cba1a659-ba9e-4b4c-9536-e26cd62885cb",
+    "reviewerId": "mock_user_5",
+    "qualityScore": 2,
+    "quantityScore": 2,
+    "timelinessScore": 3,
+    "comment": "Review lacks depth. The concerns raised are valid but not well-articulated.",
+    "createdAt": "2026-02-11T14:00:00.000Z"
+  },
+  {
+    "id": "54f34f0a-a49d-4f58-b004-629d066666ea",
+    "reviewId": "mock_review_4",
+    "raterId": "mock_user_1",
+    "reviewerId": "mock_user_2",
+    "qualityScore": 5,
+    "quantityScore": 4,
+    "timelinessScore": 5,
+    "comment": "Thorough and on-time.",
+    "createdAt": "2026-04-18T12:41:44.695Z"
   }
 ]

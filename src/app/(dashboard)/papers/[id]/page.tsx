@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { auth } from "@/auth";
-import { canUserAccessPaper, getPaperDetails } from "@/lib/review-service";
+import { canUserAccessPaper, getLatestAiReportForPaper, getPaperDetails } from "@/lib/review-service";
 import { getUserById, listAllUsers } from "@/lib/users";
 import {
   Card,
@@ -14,6 +14,9 @@ import { Button } from "@/components/ui/button";
 import { PaperComplianceRunner } from "@/components/papers/paper-compliance-runner";
 import { RateReviewForm } from "@/components/reviews/rate-review-form";
 import { PaperStatusActions } from "@/components/papers/paper-status-actions";
+import { AiReportActions } from "@/components/papers/ai-report-actions";
+import { VenueSubmissionCard } from "@/components/papers/venue-submission-card";
+import { listVenues } from "@/lib/review-service";
 
 function renderComplianceDetails(check: { checkType: string; details: Record<string, unknown> }) {
   const d = check.details;
@@ -44,7 +47,24 @@ function renderComplianceDetails(check: { checkType: string; details: Record<str
       const parts: string[] = [`Expected: ${d.expectedFormat}`];
       if (d.detectedHint) parts.push(String(d.detectedHint));
       if (d.hasReferencesSection === false) parts.push("No references section found");
-      return parts.join(" — ");
+      return parts.join(" - ");
+    }
+    case "PDF_METADATA_ANONYMITY": {
+      if (Array.isArray(d.flags) && d.flags.length > 0) {
+        return `PDF metadata: ${d.flags.join(", ")}`;
+      }
+      if (d.note) return String(d.note);
+      return "PDF metadata does not reveal author identity.";
+    }
+    case "TOOL_LINK_ANONYMITY": {
+      const links = Array.isArray(d.suspectLinks) ? (d.suspectLinks as Array<{ url: string; reason: string }>) : [];
+      if (links.length === 0) return "No identity-revealing tool/dataset links detected.";
+      return `Suspect links: ${links.slice(0, 3).map((l) => l.url).join(", ")}${links.length > 3 ? "..." : ""}`;
+    }
+    case "DYNAMIC_CHECKLIST": {
+      const missing = Array.isArray(d.missing) ? (d.missing as string[]) : [];
+      if (missing.length === 0) return "All paper-type checklist items present.";
+      return `Missing for ${d.paperType ?? "paper type"}: ${missing.join(", ")}`;
     }
     default:
       return null;
@@ -77,6 +97,31 @@ export default async function PaperDetailsPage({ params }: PaperDetailsPageProps
   }
 
   const users = listAllUsers();
+  const latestRound = details.rounds[details.rounds.length - 1];
+  const isAuthor = details.paper.authorIds.includes(currentUser.id);
+  const canManagePaper = currentUser.role === "COORDINATOR" || isAuthor;
+  const latestAiReport =
+    currentUser.role === "COORDINATOR" ? getLatestAiReportForPaper(details.paper.id) : null;
+
+  const showVenueCard = isAuthor || currentUser.role === "COORDINATOR";
+  const isSubmittedToVenue = details.paper.status === "SUBMITTED_TO_VENUE";
+  const submittedVenueName = details.paper.submittedVenueId
+    ? listVenues().find((v) => v.id === details.paper.submittedVenueId)?.name ?? null
+    : null;
+  const latestChecksByType = new Map<string, { passed: boolean; type: string }>();
+  for (const check of details.complianceChecks) {
+    const existing = latestChecksByType.get(check.checkType);
+    if (!existing) {
+      latestChecksByType.set(check.checkType, { passed: check.passed, type: check.checkType });
+    }
+  }
+  const failedComplianceTypes = Array.from(latestChecksByType.values())
+    .filter((c) => !c.passed)
+    .map((c) => c.type);
+  const complianceAllPassed =
+    details.complianceChecks.length > 0 && failedComplianceTypes.length === 0;
+  const showRevisionBanner =
+    details.paper.status === "REVISION_REQUESTED" && (isAuthor || currentUser.role === "COORDINATOR");
 
   return (
     <div className="mx-auto max-w-6xl space-y-6">
@@ -89,6 +134,11 @@ export default async function PaperDetailsPage({ params }: PaperDetailsPageProps
         </div>
         <div className="flex items-center gap-2">
           <Badge variant="outline">{details.paper.status}</Badge>
+          {canManagePaper && (
+            <Button variant="outline" asChild>
+              <Link href={`/papers/${details.paper.id}/edit`}>Edit Paper</Link>
+            </Button>
+          )}
           {currentUser.role === "COORDINATOR" && (
             <>
               <PaperStatusActions
@@ -104,6 +154,24 @@ export default async function PaperDetailsPage({ params }: PaperDetailsPageProps
           )}
         </div>
       </div>
+
+      {showRevisionBanner && (
+        <div className="rounded-lg border border-amber-500/50 bg-amber-500/5 p-4">
+          <p className="text-sm font-semibold text-amber-600">
+            Revision requested
+          </p>
+          <p className="mt-1 text-sm text-foreground">
+            {latestRound?.round.revisionNote
+              ? latestRound.round.revisionNote
+              : "The coordinator asked for revisions. Review the reviewer feedback below and update your paper."}
+          </p>
+          {isAuthor && (
+            <p className="mt-2 text-xs text-muted-foreground">
+              Use the Edit Paper button above to update the PDF link or Overleaf URL.
+            </p>
+          )}
+        </div>
+      )}
 
       <Card className="border">
         <CardHeader>
@@ -179,6 +247,69 @@ export default async function PaperDetailsPage({ params }: PaperDetailsPageProps
           )}
         </CardContent>
       </Card>
+
+      {showVenueCard && (
+        <Card className="border">
+          <CardHeader>
+            <CardTitle className="text-base">Venue Submission</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <VenueSubmissionCard
+              paperId={details.paper.id}
+              currentVenueId={details.paper.venueId}
+              isSubmitted={isSubmittedToVenue}
+              submittedVenueName={submittedVenueName}
+              complianceAllPassed={complianceAllPassed}
+              failedComplianceTypes={failedComplianceTypes}
+            />
+          </CardContent>
+        </Card>
+      )}
+
+      {currentUser.role === "COORDINATOR" && (
+        <Card className="border">
+          <CardHeader>
+            <CardTitle className="text-base">AI Synthesis Report</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            {latestAiReport ? (
+              <div className="space-y-2 text-sm">
+                <p>
+                  <span className="text-muted-foreground">Generated: </span>
+                  {latestAiReport.createdAt.slice(0, 19).replace("T", " ")}
+                </p>
+                <p>
+                  <span className="text-muted-foreground">Recommendation: </span>
+                  <Badge variant="outline">{latestAiReport.overallRecommendation}</Badge>
+                </p>
+                <p className="text-muted-foreground">
+                  {latestAiReport.consensusSummary || "No consensus summary."}
+                </p>
+                {latestAiReport.agreedConcerns.length > 0 && (
+                  <div>
+                    <p className="font-medium text-xs uppercase tracking-wide text-muted-foreground">
+                      Agreed concerns
+                    </p>
+                    <ul className="ml-4 list-disc text-sm">
+                      {latestAiReport.agreedConcerns.slice(0, 3).map((c, i) => (
+                        <li key={i}>{c}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <p className="text-sm text-muted-foreground">
+                No AI synthesis report yet. Generate one once at least one review is submitted.
+              </p>
+            )}
+            <AiReportActions
+              paperId={details.paper.id}
+              hasExistingReport={Boolean(latestAiReport)}
+            />
+          </CardContent>
+        </Card>
+      )}
 
       <Card className="border">
         <CardHeader>

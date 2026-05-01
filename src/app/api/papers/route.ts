@@ -19,7 +19,7 @@ export async function GET(request: Request) {
     const papers = listPapers({
       status,
       venueId,
-      authorId,
+      authorId: user.role === "COORDINATOR" ? authorId : user.id,
     });
     return NextResponse.json({ papers });
   } catch (error) {

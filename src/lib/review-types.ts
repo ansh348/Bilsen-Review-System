@@ -5,7 +5,8 @@ export type PaperStatus =
   | "UNDER_REVIEW"
   | "REVISION_REQUESTED"
   | "ACCEPTED"
-  | "REJECTED";
+  | "REJECTED"
+  | "SUBMITTED_TO_VENUE";
 
 export type PaperType =
   | "RESEARCH"
@@ -36,6 +37,9 @@ export type ComplianceCheckType =
   | "REFERENCE_FORMAT"
   | "ANONYMITY_CHECK"
   | "METADATA_CHECK"
+  | "PDF_METADATA_ANONYMITY"
+  | "TOOL_LINK_ANONYMITY"
+  | "DYNAMIC_CHECKLIST"
   | "CHECKLIST";
 
 export type NotificationType =
@@ -50,7 +54,8 @@ export type NotificationType =
   | "EXTENSION_REQUESTED"
   | "EXTENSION_APPROVED"
   | "EXTENSION_DENIED"
-  | "ROUND_COMPLETE";
+  | "ROUND_COMPLETE"
+  | "REVISION_REQUESTED";
 
 export interface UserRecord {
   id: string;
@@ -88,6 +93,8 @@ export interface PaperRecord {
   status: PaperStatus;
   paperType: PaperType | null;
   authorIds: string[];
+  submittedVenueId?: string | null;
+  submittedAt?: string | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -97,6 +104,8 @@ export interface ReviewRoundRecord {
   paperId: string;
   roundNumber: number;
   createdAt: string;
+  revisionNote?: string | null;
+  priorReviewerIds?: string[];
 }
 
 export interface ReviewAssignmentRecord {
@@ -144,6 +153,33 @@ export interface ComplianceCheckRecord {
   checkedAt: string;
 }
 
+export interface AiClaim {
+  point: string;
+  quote: string;
+  unsupported: boolean;
+}
+
+export interface AiReviewDraftRecord {
+  summary: string;
+  strengths: AiClaim[];
+  concerns: AiClaim[];
+  recommendation: string;
+  unsupportedCount: number;
+}
+
+export interface AiFinalReportRecord {
+  id: string;
+  paperId: string;
+  reviewIds: string[];
+  consensusSummary: string;
+  agreedStrengths: string[];
+  agreedConcerns: string[];
+  divergences: string[];
+  overallRecommendation: string;
+  reviewerCount: number;
+  createdAt: string;
+}
+
 export interface NotificationRecord {
   id: string;
   userId: string;
@@ -151,6 +187,7 @@ export interface NotificationRecord {
   title: string;
   message: string;
   link: string | null;
+  overleafUrl?: string | null;
   read: boolean;
   sentViaEmail: boolean;
   sentViaSlack: boolean;
@@ -174,6 +211,7 @@ export interface ReviewerStats {
   activeAssignments: number;
   totalAssignments: number;
   acceptedAssignments: number;
+  declinedAssignments: number;
   completedAssignments: number;
   overdueAssignments: number;
   acceptanceRate: number;

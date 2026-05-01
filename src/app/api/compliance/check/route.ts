@@ -26,7 +26,7 @@ export async function POST(request: Request) {
       return jsonError("Forbidden", 403);
     }
 
-    const checks = runComplianceChecks(parsed);
+    const checks = await runComplianceChecks(parsed);
     return NextResponse.json({ checks });
   } catch (error) {
     return handleRouteError(error);
