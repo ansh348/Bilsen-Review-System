@@ -1,0 +1,3636 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "generated": "2026-05-02",
+    "sources": "Official CFPs, author guidelines, and submission instructions (2025-2026 cycles)",
+    "total_venues": 34,
+    "note": "Fields marked null could not be confirmed from public CFPs. Consult official venue pages before submission."
+  },
+  "venues": [
+    {
+      "acronym": "ICSE",
+      "fullName": "IEEE/ACM International Conference on Software Engineering",
+      "type": "conference",
+      "domain": "software-engineering",
+      "publisher": "IEEE/ACM",
+      "coreRanking": "A*",
+      "typicalMonth": "April",
+      "edition": "ICSE 2026 (48th), Rio de Janeiro, Brazil",
+      "tracks": [
+        {
+          "name": "Research",
+          "pageLimit": 10,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": 2,
+          "cameraReadyPageLimit": null,
+          "notes": "10 pages includes appendices/figures/tables; 2 additional pages for references only"
+        },
+        {
+          "name": "SEIP",
+          "pageLimit": 10,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": null
+        },
+        {
+          "name": "NIER",
+          "pageLimit": 4,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": 1
+        },
+        {
+          "name": "Demonstrations",
+          "pageLimit": 4,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": 1
+        }
+      ],
+      "template": "ACM Primary Article Template (acmart) sigconf, two-column; \\documentclass[sigconf,review,anonymous]{acmart}",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "discouraged; if posted, do not say 'submitted to ICSE'",
+        "socialMediaDiscussion": "discouraged",
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Page limit exceeded",
+        "Wrong template / decreased margins or font",
+        "Non-anonymous submission",
+        "Dual submission / concurrent submission",
+        "Plagiarism (ACM/IEEE policy)"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Methodology",
+        "Evaluation",
+        "Threats to Validity",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Data Availability statement"
+      ],
+      "specialRequiredSections": [],
+      "referenceFormat": {
+        "style": "ACM Reference Format",
+        "type": "either",
+        "notes": "Either author-year or numbered accepted"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACM Policy and Procedures on Plagiarism + IEEE Plagiarism FAQ",
+        "overlapPolicy": "Concurrent submission deemed serious breach of ethics",
+        "ethicsReviewRequired": true,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": true,
+        "decisionTypes": ["Accept", "Reject", "Major Revision"],
+        "notes": "Two cycles per year; ~8-week revision window in cycle 1"
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": null,
+        "fullPaperDeadline": "2025-03-15",
+        "cycle2Deadline": "2025-07-19",
+        "notificationDate": null,
+        "cameraReadyDeadline": null,
+        "conferenceDates": "2026-04-12 to 2026-04-18",
+        "notes": "Cycle 1: Mar 15; Cycle 2: Jul 19; Major revision deadline: Nov 15"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": true,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": false,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["Data Availability statement encouraged"]
+      }
+    },
+    {
+      "acronym": "FSE",
+      "fullName": "ACM International Conference on the Foundations of Software Engineering",
+      "type": "conference",
+      "domain": "software-engineering",
+      "publisher": "ACM (PACMSE)",
+      "coreRanking": "A*",
+      "typicalMonth": "June-July",
+      "edition": "FSE 2026, Montreal, Canada",
+      "tracks": [
+        {
+          "name": "Research",
+          "pageLimit": 18,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": 4,
+          "cameraReadyPageLimit": 20,
+          "notes": "PACMSE single-column acmsmall format; submission body 18 pages + 4 ref pages; major revision body limit 20 pages + 4 ref pages"
+        },
+        {
+          "name": "Industry",
+          "pageLimit": 10,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": 2
+        },
+        {
+          "name": "Tool Demonstrations",
+          "pageLimit": 4,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": 1
+        }
+      ],
+      "template": "ACM Primary Article Template, single-column acmsmall (PACMSE) — \\documentclass[acmsmall,screen,review,anonymous]{acmart}",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "recommended to delay; if posted, don't disclose FSE submission",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Non-compliant page limit / format",
+        "Non-anonymous submission",
+        "Concurrent submission",
+        "Use of non-double-column or wrong template style"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Methodology",
+        "Evaluation",
+        "Threats to Validity",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Data Availability"
+      ],
+      "specialRequiredSections": [
+        {
+          "name": "Data Availability",
+          "placement": "after Conclusion",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": false
+        }
+      ],
+      "referenceFormat": {
+        "style": "ACM Reference Format",
+        "type": "either"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACM Policy and Procedures on Plagiarism",
+        "overlapPolicy": "No concurrent submission; standard ACM rules",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": true,
+        "decisionTypes": ["Accept", "Reject", "Major Revision"]
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": null,
+        "fullPaperDeadline": "2025-09-11",
+        "notificationDate": null,
+        "cameraReadyDeadline": null,
+        "conferenceDates": "2026-07-05 to 2026-07-09",
+        "notes": "Cycle 1 deadline 11 Sep 2025 AoE; two cycles per year. Author/title list cannot change after submission."
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": true,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["Open science policy", "Replication package strongly encouraged", "GenAI use disclosure requested at submission"]
+      }
+    },
+    {
+      "acronym": "ASE",
+      "fullName": "IEEE/ACM International Conference on Automated Software Engineering",
+      "type": "conference",
+      "domain": "software-engineering",
+      "publisher": "IEEE/ACM",
+      "coreRanking": "A*",
+      "typicalMonth": "October-November",
+      "edition": "ASE 2026, Munich, Germany",
+      "tracks": [
+        {
+          "name": "Research",
+          "pageLimit": 10,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": 2,
+          "cameraReadyPageLimit": 11
+        },
+        {
+          "name": "NIER",
+          "pageLimit": null,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true
+        }
+      ],
+      "template": "ACM Primary Article Template, sigconf two-column",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed but should not identify ASE submission",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Page limit exceeded",
+        "Non-anonymous submission",
+        "Wrong format/template",
+        "Concurrent or dual submission",
+        "Missing mandatory Data Availability Statement (ASE 2026)"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Methodology",
+        "Evaluation",
+        "Threats to Validity",
+        "Conclusion"
+      ],
+      "conventionalSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "Data Availability Statement",
+          "placement": "after Conclusions",
+          "countsTowardLimit": true,
+          "deskRejectIfMissing": true,
+          "notes": "ASE 2026: mandatory, within 10-page limit"
+        }
+      ],
+      "referenceFormat": {
+        "style": "ACM Reference Format",
+        "type": "either"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACM/IEEE plagiarism policies",
+        "overlapPolicy": "No concurrent submission",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": true,
+        "decisionTypes": ["Accept", "Reject", "Major Revision"],
+        "notes": "Major Revision introduced ASE 2026"
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": null,
+        "fullPaperDeadline": "2026-03-26",
+        "notificationDate": null,
+        "cameraReadyDeadline": null,
+        "conferenceDates": "2026-10-12 to 2026-10-16"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": true,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": false,
+        "mandatoryDataAvailability": true,
+        "mandatoryStructuredAbstract": false,
+        "other": []
+      }
+    },
+    {
+      "acronym": "ISSTA",
+      "fullName": "ACM SIGSOFT International Symposium on Software Testing and Analysis",
+      "type": "conference",
+      "domain": "software-engineering",
+      "publisher": "ACM (PACMSE)",
+      "coreRanking": "A",
+      "typicalMonth": "June",
+      "edition": "ISSTA 2026",
+      "tracks": [
+        {
+          "name": "Research",
+          "pageLimit": 18,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": 4,
+          "cameraReadyPageLimit": null,
+          "notes": "Major revision body limit 20 pages"
+        }
+      ],
+      "template": "ACM Primary, sample-acmsmall-conf.tex with [acmsmall,review,screen,anonymous]",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": null,
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Strict 18-page limit; >18 pages (anything except references) → desk reject",
+        "Non-anonymous submission",
+        "Wrong format",
+        "Concurrent submission"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Methodology",
+        "Evaluation",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Threats to Validity"
+      ],
+      "specialRequiredSections": [
+        {
+          "name": "Data Availability",
+          "placement": "before references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": false,
+          "notes": "Mandatory since ISSTA 2024, does not count toward limit"
+        }
+      ],
+      "referenceFormat": {
+        "style": "ACM Reference Format",
+        "type": "either"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACM plagiarism + prior publication policies",
+        "overlapPolicy": "No concurrent submission",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": true,
+        "decisionTypes": ["Accept", "Reject", "Major Revision"]
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": null,
+        "fullPaperDeadline": null,
+        "conferenceDates": null,
+        "notes": "ISSTA 2025 was 25-28 June in Trondheim, Norway. ISSTA 2026 dates TBA — verify against the live CFP. Strict 18-page enforcement; >18 pages of non-reference content (text+figures+appendix) → desk reject."
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": true,
+        "pageLimit": null,
+        "notes": "At least one reviewer will check supplementary"
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": true,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": false,
+        "mandatoryDataAvailability": true,
+        "mandatoryStructuredAbstract": false,
+        "other": ["Open science policy"]
+      }
+    },
+    {
+      "acronym": "MSR",
+      "fullName": "International Conference on Mining Software Repositories",
+      "type": "conference",
+      "domain": "software-engineering",
+      "publisher": "IEEE/ACM",
+      "coreRanking": "A",
+      "typicalMonth": "April",
+      "edition": "MSR 2026, Rio de Janeiro (co-located with ICSE)",
+      "tracks": [
+        {
+          "name": "Research (Full)",
+          "pageLimit": 10,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": 2,
+          "cameraReadyPageLimit": 11
+        },
+        {
+          "name": "Research (Short)",
+          "pageLimit": 4,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true
+        }
+      ],
+      "template": "ACM Primary Article Template, sigconf, double-column",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": true
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": null,
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Exceeding 10 pages main text (incl. appendices)",
+        "Format/template deviation",
+        "Non-anonymous",
+        "Concurrent submission"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Methodology",
+        "Results",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Related Work",
+        "Threats to Validity"
+      ],
+      "specialRequiredSections": [],
+      "referenceFormat": {
+        "style": "ACM Reference Format",
+        "type": "either"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACM/IEEE plagiarism",
+        "overlapPolicy": "No concurrent / no prior publication",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": false,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"]
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": "2025-10-20",
+        "fullPaperDeadline": "2025-10-23",
+        "conferenceDates": "2026-04-13 to 2026-04-14"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": true,
+        "registeredReports": true,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": false,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["Mining Challenge track"]
+      }
+    },
+    {
+      "acronym": "NeurIPS",
+      "fullName": "Annual Conference on Neural Information Processing Systems",
+      "type": "conference",
+      "domain": "ai-ml",
+      "publisher": "NeurIPS Foundation (open access)",
+      "coreRanking": "A*",
+      "typicalMonth": "December",
+      "edition": "NeurIPS 2026 (40th), Sydney, Australia",
+      "tracks": [
+        {
+          "name": "Main (Research)",
+          "pageLimit": 9,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 10,
+          "notes": "9 content pages at submission; 10 at camera-ready (one extra page on acceptance). Checklist does not count toward limit. Contribution types: General, Theory, Use-Inspired, Concept & Feasibility, Negative Results."
+        },
+        {
+          "name": "Evaluations & Datasets",
+          "pageLimit": 9,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 10,
+          "notes": "Renamed from 'Datasets & Benchmarks' for 2026. Follows main-track CFP (no separate page-limit). Code release required at submission for benchmark/evaluation-environment artifacts."
+        },
+        {
+          "name": "Position Paper",
+          "pageLimit": 9,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "notes": "Second year for the track; double-blind; rationale for fit to track required. No checklist required."
+        }
+      ],
+      "template": "NeurIPS 2026 LaTeX style file",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": true,
+        "notes": "Placeholder abstract forbidden; rewriting at full paper deadline forbidden"
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed; papers appearing online after March 1, 2026 are considered contemporaneous work and not grounds for novelty rejection",
+        "socialMediaDiscussion": "discretion advised",
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Page limit exceeded / margin or font tampering",
+        "Wrong style file",
+        "Non-anonymous submission",
+        "Placeholder abstract",
+        "Failure to file paper checklist",
+        "Concurrent submission to another archival venue"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Broader Impact",
+        "Limitations"
+      ],
+      "specialRequiredSections": [
+        {
+          "name": "NeurIPS Paper Checklist",
+          "placement": "in main PDF, after references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "referenceFormat": {
+        "style": "Any consistent style",
+        "type": "author-choice",
+        "notes": "Author's choice, must be consistent; 9pt font allowed"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "NeurIPS Code of Conduct prohibits plagiarism",
+        "overlapPolicy": "Concurrent submission to other archival venues prohibited",
+        "ethicsReviewRequired": true,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"],
+        "notes": "No revisions allowed during rebuttal"
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": "2026-05-04",
+        "fullPaperDeadline": "2026-05-06",
+        "supplementalDeadline": null,
+        "notificationDate": null,
+        "cameraReadyDeadline": null,
+        "conferenceDates": "2026-12-06 to 2026-12-12",
+        "notes": "Sydney International Convention Centre. All authors must have an OpenReview profile by full-paper deadline."
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null,
+        "sizeLimit": "50MB"
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": true,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": [
+          "Funding disclosure required at camera-ready",
+          "LLM use disclosure if LLM is component of methods",
+          "Contribution types tagged at submission (General/Theory/Use-Inspired/Concept & Feasibility/Negative Results)",
+          "Contemporaneous-work cutoff: March 1, 2026"
+        ]
+      }
+    },
+    {
+      "acronym": "ICML",
+      "fullName": "International Conference on Machine Learning",
+      "type": "conference",
+      "domain": "ai-ml",
+      "publisher": "PMLR (Proceedings of Machine Learning Research)",
+      "coreRanking": "A*",
+      "typicalMonth": "July",
+      "edition": "ICML 2026 (43rd), Seoul, South Korea",
+      "tracks": [
+        {
+          "name": "Main (Research)",
+          "pageLimit": 8,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 9,
+          "notes": "8 content pages at submission (over-length → automatic rejection); 9 at camera-ready. Impact statement and references unlimited."
+        },
+        {
+          "name": "Position Paper",
+          "pageLimit": 8,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 9
+        }
+      ],
+      "template": "ICML 2026 LaTeX style file",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": true,
+        "notes": "~4-6 sentences; abstract pre-registration required (Jan 24, 2026 AoE) one week before full paper deadline"
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed (no anonymity period required)",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Page limit exceeded",
+        "Margins/spacing tampered",
+        "Non-anonymous submission",
+        "Lack of broader-impact statement in camera-ready"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "conventionalSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "Broader Impact Statement",
+          "placement": "before references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true,
+          "notes": "Mandatory at camera-ready"
+        },
+        {
+          "name": "Lay Summary",
+          "placement": "OpenReview at camera-ready",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": false,
+          "notes": "New for ICML 2025"
+        }
+      ],
+      "referenceFormat": {
+        "style": "ICML style",
+        "type": "author-choice"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "Standard",
+        "overlapPolicy": "No dual submission",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"],
+        "notes": "Reciprocal reviewing: authors with multiple submissions required to review"
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": "2026-01-24",
+        "fullPaperDeadline": "2026-01-29",
+        "notificationDate": null,
+        "conferenceDates": "2026-07-06 to 2026-07-11",
+        "notes": "COEX Seoul. Reciprocal-reviewing: authors with 4+ submissions must serve as reviewer (threshold may drop to 3)."
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null,
+        "notes": "No camera-ready supplementary on PMLR/OpenReview"
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": true,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": false,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["Reciprocal reviewing", "Lay summary at camera-ready"]
+      }
+    },
+    {
+      "acronym": "ICLR",
+      "fullName": "International Conference on Learning Representations",
+      "type": "conference",
+      "domain": "ai-ml",
+      "publisher": "OpenReview (open-access)",
+      "coreRanking": "A*",
+      "typicalMonth": "April-May",
+      "edition": "ICLR 2026 (14th, Rio de Janeiro)",
+      "tracks": [
+        {
+          "name": "Main (Research)",
+          "pageLimit": 9,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 10,
+          "notes": "Ethics statement does not count toward limit"
+        }
+      ],
+      "template": "ICLR 2026 LaTeX style",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": true,
+        "notes": "Placeholder forbidden"
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed",
+        "socialMediaDiscussion": "permitted; reviews are anonymous and publicly visible",
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Main text beyond page limit (e.g., 11th page)",
+        "Non-anonymous",
+        "Failure of reciprocal reviewer requirement",
+        "Placeholder abstracts"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Reproducibility Statement"
+      ],
+      "specialRequiredSections": [
+        {
+          "name": "Ethics Statement",
+          "placement": "after main text, before references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": false,
+          "maxPages": 1
+        }
+      ],
+      "referenceFormat": {
+        "style": "ICLR LaTeX style",
+        "type": "author-year"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "Standard",
+        "overlapPolicy": "No dual submission",
+        "ethicsReviewRequired": true,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept (Spotlight/Oral)", "Reject"],
+        "notes": "Extended discussion phase Nov 11–Dec 3"
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": "2025-09-19",
+        "fullPaperDeadline": "2025-09-24",
+        "notificationDate": "2026-01-22",
+        "conferenceDates": "2026-04-23 to 2026-04-27"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["Open peer review on OpenReview", "Reciprocal reviewing requirement"]
+      }
+    },
+    {
+      "acronym": "AAAI",
+      "fullName": "AAAI Conference on Artificial Intelligence",
+      "type": "conference",
+      "domain": "ai-ml",
+      "publisher": "AAAI Press",
+      "coreRanking": "A*",
+      "typicalMonth": "January-February",
+      "edition": "AAAI-26 (40th, Singapore)",
+      "tracks": [
+        {
+          "name": "Main Technical",
+          "pageLimit": 7,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": null
+        }
+      ],
+      "template": "AAAI-26 Author Kit, 2-column AAAI style",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": true
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Page limit / formatting violations",
+        "Non-anonymous submission",
+        "Concurrent submission with another archival venue",
+        "LLM-generated text without disclosure",
+        "Missing/incomplete reproducibility checklist",
+        "Modifications to paper after full-paper deadline"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Ethics statement"
+      ],
+      "specialRequiredSections": [
+        {
+          "name": "Reproducibility Checklist",
+          "placement": "submitted separately",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "referenceFormat": {
+        "style": "AAAI Reference Format",
+        "type": "numbered"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "AAAI Code of Professional Ethics; sanctions include retraction and ban",
+        "overlapPolicy": "No paper under review/accepted in archival venue; arXiv & workshops OK",
+        "ethicsReviewRequired": true,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"],
+        "notes": "Two-phase review: Phase 1 reject → final; Phase 2 accept/reject after rebuttal. AI-Assisted Peer Review pilot."
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": "2025-07-25",
+        "fullPaperDeadline": "2025-08-01",
+        "supplementalDeadline": "2025-08-04",
+        "notificationDate": "2025-11-08",
+        "cameraReadyDeadline": "2025-11-16",
+        "conferenceDates": "2026-01-20 to 2026-01-27"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null,
+        "types": ["technical appendix", "multimedia", "code/data"]
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": true,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["AI-Assisted Peer Review pilot", "All authors expected to review"]
+      }
+    },
+    {
+      "acronym": "IJCAI",
+      "fullName": "International Joint Conference on Artificial Intelligence",
+      "type": "conference",
+      "domain": "ai-ml",
+      "publisher": "IJCAI Inc.",
+      "coreRanking": "A*",
+      "typicalMonth": "August",
+      "edition": "IJCAI-ECAI 2026 (35th), Bremen, Germany",
+      "tracks": [
+        {
+          "name": "Main Track",
+          "pageLimit": 7,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "extraRefPages": 2,
+          "cameraReadyPageLimit": 7,
+          "notes": "7 body + 2 refs = 9 total. Optional ethics statement may be placed in body or in the 2 reference pages."
+        },
+        {
+          "name": "Survey Track",
+          "pageLimit": 7,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "extraRefPages": 2
+        }
+      ],
+      "template": "IJCAI-ECAI 2026 LaTeX template",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": true,
+        "notes": "Abstract registration required (Jan 12, 2026) one week before full paper. No official word limit; ~200 words recommended."
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed but no advertising",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Over-length papers (>9 pages)",
+        "Format/style violations",
+        "Non-anonymous (main track)",
+        "Dual / parallel submission",
+        "Author list changes after deadline"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Ethics statement"
+      ],
+      "specialRequiredSections": [],
+      "referenceFormat": {
+        "style": "IJCAI Reference Format",
+        "type": "numbered"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "Standard",
+        "overlapPolicy": "No prior or concurrent in formal venues; workshops without proceedings OK",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"],
+        "submissionLimitPerAuthor": 8,
+        "notes": "Two-phase reviewing; IJCAI-ECAI 2026 requires resubmission disclosure"
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": "2026-01-12",
+        "fullPaperDeadline": "2026-01-19",
+        "rebuttalPeriod": "2026-04-07 to 2026-04-10",
+        "notificationDate": "2026-04-29",
+        "conferenceDates": "2026-08-15 to 2026-08-21",
+        "notes": "Bremen, Germany. Five special tracks alongside main: Human-Centered AI, AI for Social Good, AI4Tech, AI and Health, AI and Robotics — all share 7+2 page format."
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": [
+          "ORCID compulsory for all authors",
+          "Resubmission disclosure required (12-month window): attach prior reviews + response letter",
+          "Max 8 submissions per author across all tracks (Primary Paper Initiative)",
+          "LLM-detection tools used; LLM-written papers desk-rejected"
+        ]
+      }
+    },
+    {
+      "acronym": "ACL",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "type": "conference",
+      "domain": "nlp",
+      "publisher": "ACL (ACL Anthology)",
+      "coreRanking": "A*",
+      "typicalMonth": "July-August",
+      "edition": "ACL 2026",
+      "tracks": [
+        {
+          "name": "Long Papers",
+          "pageLimit": 8,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 9,
+          "notes": "8 content pages at submission; 9 at camera-ready. References and appendices unlimited."
+        },
+        {
+          "name": "Short Papers",
+          "pageLimit": 4,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 5
+        }
+      ],
+      "template": "ACL Rolling Review LaTeX (Overleaf [review] setting on)",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed; no anonymity period required",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true,
+        "system": "ACL Rolling Review (ARR) via OpenReview"
+      },
+      "deskRejectCriteria": [
+        "Missing 'Limitations' section",
+        "Format/page-limit violations (long >8 / short >4 main body)",
+        "Anonymity violations",
+        "Dual submission",
+        "Self-plagiarism / >25% overlap",
+        "Incorrect / misleading Responsible NLP Checklist",
+        "Resubmissions without revisions or justification",
+        "Appendices not in double-column format (since July 2025)",
+        "Submissions attempting to manipulate machine readers (e.g., hidden prompts)"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Ethical Considerations"
+      ],
+      "specialRequiredSections": [
+        {
+          "name": "Limitations",
+          "placement": "after main, before references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true,
+          "notes": "Mandatory since Dec 2023"
+        },
+        {
+          "name": "Responsible NLP Checklist",
+          "placement": "submitted with paper",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "referenceFormat": {
+        "style": "ACL",
+        "type": "author-year"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACL Publication Ethics Policy",
+        "overlapPolicy": "ARR Multiple Submission Policy; >25% overlap → reject",
+        "ethicsReviewRequired": true,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": true,
+        "decisionTypes": ["Accept (Main)", "Accept (Findings)", "Reject"],
+        "notes": "ARR workflow: submit → review → commit to venue"
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": null,
+        "fullPaperDeadline": null,
+        "conferenceDates": null,
+        "notes": "ARR-only submission: eligible cycles ARR October 2025 and ARR January 2026, then commit to ACL 2026 via OpenReview commitment site. Papers automatically considered for Findings of the ACL."
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": true,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": [
+          "Responsible NLP Checklist mandatory (made public for accepted papers)",
+          "ARR workflow (no separate ACL abstract pre-registration deadline)",
+          "TACL/CL journal-track papers presented at conference alongside ACL submissions",
+          "Irresponsible reviewers may be ineligible to submit"
+        ]
+      }
+    },
+    {
+      "acronym": "EMNLP",
+      "fullName": "Conference on Empirical Methods in Natural Language Processing",
+      "type": "conference",
+      "domain": "nlp",
+      "publisher": "ACL (ACL Anthology)",
+      "coreRanking": "A*",
+      "typicalMonth": "November",
+      "edition": "EMNLP 2025, Suzhou, China",
+      "tracks": [
+        {
+          "name": "Long Papers",
+          "pageLimit": 8,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 9
+        },
+        {
+          "name": "Short Papers",
+          "pageLimit": 4,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 5
+        },
+        {
+          "name": "Industry Track",
+          "pageLimit": 6,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 7
+        }
+      ],
+      "template": "ACL/ARR template",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed; no anonymity period",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true,
+        "system": "ACL Rolling Review (ARR)"
+      },
+      "deskRejectCriteria": [
+        "Missing 'Limitations' section",
+        "Format/page violations",
+        "Anonymity violations",
+        "Dual submission (>25% overlap → reject)",
+        "Incorrect Responsible NLP Checklist",
+        "Resubmissions without revision/justification",
+        "Appendix not in double-column format"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Ethical Considerations"
+      ],
+      "specialRequiredSections": [
+        {
+          "name": "Limitations",
+          "placement": "after main, before references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        },
+        {
+          "name": "Responsible NLP Checklist",
+          "placement": "submitted with paper",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "referenceFormat": {
+        "style": "ACL",
+        "type": "author-year"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACL Publication Ethics Policy",
+        "overlapPolicy": "ARR Multiple Submission Policy",
+        "ethicsReviewRequired": true,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": true,
+        "decisionTypes": ["Accept (Main)", "Accept (Findings)", "Reject"]
+      },
+      "dates": {
+        "cycle": "2025",
+        "fullPaperDeadline": "2025-05-19",
+        "commitmentDeadline": "2025-07-31",
+        "notificationDate": "2025-08-20",
+        "cameraReadyDeadline": "2025-09-19",
+        "conferenceDates": "2025-11-05 to 2025-11-09"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": true,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["ARR workflow", "Responsible NLP Checklist mandatory"]
+      }
+    },
+    {
+      "acronym": "SIGIR",
+      "fullName": "ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "type": "conference",
+      "domain": "information-retrieval",
+      "publisher": "ACM",
+      "coreRanking": "A*",
+      "typicalMonth": "July",
+      "edition": "SIGIR 2025, Padua, Italy",
+      "tracks": [
+        {
+          "name": "Full Papers",
+          "pageLimit": 9,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "cameraReadyPageLimit": null
+        },
+        {
+          "name": "Short Papers",
+          "pageLimit": 4,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true
+        },
+        {
+          "name": "Resource & Reproducibility",
+          "pageLimit": 9,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "notes": "Single-blind review"
+        }
+      ],
+      "template": "ACM Primary Article Template (sigconf for LaTeX) — two-column",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": true,
+        "notes": "Placeholder forbidden"
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed per SIGIR Pre-Print/ArXiv Policy",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true,
+        "notes": "Resource/Reproducibility track is single-blind"
+      },
+      "deskRejectCriteria": [
+        "Content past page 9 (figures, tables, appendices)",
+        "Formatting non-compliant",
+        "Author addition after abstract deadline",
+        "Plagiarism / academic dishonesty",
+        "Lack of topical fit",
+        "Pre-print policy violations",
+        "Placeholder abstracts"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "conventionalSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "ACM CCS concepts and keywords",
+          "placement": "after abstract",
+          "countsTowardLimit": true,
+          "deskRejectIfMissing": false,
+          "notes": "Required for review"
+        }
+      ],
+      "referenceFormat": {
+        "style": "ACM Reference Format",
+        "type": "either"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACM plagiarism policy",
+        "overlapPolicy": "No concurrent submission",
+        "ethicsReviewRequired": true,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": false,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"],
+        "notes": "SIGIR-RR option to ICTIR/SIGIR-AP for unaccepted papers"
+      },
+      "dates": {
+        "cycle": "2025",
+        "abstractDeadline": "2025-01-16",
+        "fullPaperDeadline": "2025-01-23",
+        "conferenceDates": "2025-07-13 to 2025-07-18"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": false,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["In-person presentation required"]
+      }
+    },
+    {
+      "acronym": "KDD",
+      "fullName": "ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+      "type": "conference",
+      "domain": "data-mining",
+      "publisher": "ACM",
+      "coreRanking": "A*",
+      "typicalMonth": "August",
+      "edition": "KDD 2026, Jeju, South Korea",
+      "tracks": [
+        {
+          "name": "Research Track",
+          "pageLimit": 8,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 9,
+          "notes": "Camera-ready total max 12 pages (9 content + 3 appendix)"
+        },
+        {
+          "name": "Applied Data Science",
+          "pageLimit": 8,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 9
+        }
+      ],
+      "template": "ACM Primary Article Template, sigconf, anonymous, review",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": true,
+        "notes": "Placeholder forbidden"
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed; no citation of own arXiv preprint",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Page limit violations / template violations",
+        "Anonymity violations",
+        "Concurrent submission to peer-reviewed venue with proceedings",
+        "Resubmission without 1-page summary of changes",
+        "Incomplete OpenReview profile",
+        "Failure to nominate qualified reviewer",
+        "Author list changes after deadline",
+        "Maximum of 7 submissions per author"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Ethics/data section"
+      ],
+      "specialRequiredSections": [],
+      "referenceFormat": {
+        "style": "ACM Reference Format",
+        "type": "either"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACM plagiarism policy",
+        "overlapPolicy": "No concurrent or accepted; arXiv/SSRN allowed",
+        "ethicsReviewRequired": true,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": true,
+        "decisionTypes": ["Accept", "Reject", "Resubmit"],
+        "submissionLimitPerAuthor": 7,
+        "notes": "Two cycles per year; Resubmit carries to next cycle with 1-page changes summary"
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": "2025-07-24",
+        "fullPaperDeadline": "2025-07-31",
+        "cycle2AbstractDeadline": "2026-02-01",
+        "cycle2Deadline": "2026-02-08",
+        "notificationDate": null,
+        "cameraReadyDeadline": null,
+        "conferenceDates": "2026-08-09 to 2026-08-13",
+        "notes": "Two cycles per year. Cycle 1: abstract Jul 24, full paper Jul 31, 2025. Cycle 2: abstract Feb 1, full paper Feb 8, 2026. Two-week author rebuttal period. All accepted papers' submissions, reviews, meta-reviews, and discussions become public on OpenReview."
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": [
+          "Two cycles per year",
+          "Max 7 submissions per author per cycle",
+          "ACM Artifacts Available badge optional",
+          "New for 2026: Datasets and Benchmarks Track, AI for Sciences Track",
+          "Resubmit decisions can carry to next cycle; rejected/withdrawn cannot"
+        ]
+      }
+    },
+    {
+      "acronym": "TheWebConf",
+      "fullName": "The ACM Web Conference (formerly WWW)",
+      "type": "conference",
+      "domain": "data-mining",
+      "publisher": "ACM",
+      "coreRanking": "A*",
+      "typicalMonth": "April-May",
+      "edition": "TheWebConf 2026, Dubai, UAE",
+      "tracks": [
+        {
+          "name": "Research",
+          "pageLimit": 8,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": null,
+          "notes": "Max 12 total pages; first 8 must be self-contained; reviewers not required to read past page 8"
+        }
+      ],
+      "template": "ACM Primary Article Template, sigconf, anonymous, review",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": true,
+        "notes": "Placeholder forbidden; first page must state relevance to the Web"
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed; don't cite own preprint",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Page-limit / formatting violations",
+        "Submissions that don't state relevance to the Web on first page",
+        "Anonymity violations",
+        "Concurrent submission",
+        "More than 7 submissions per author",
+        "Author additions/removal after abstract deadline",
+        "Failure of ACM Human Subjects Policy",
+        "PDFs that don't view/print properly"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Ethical use of data / informed consent"
+      ],
+      "specialRequiredSections": [
+        {
+          "name": "Web relevance statement",
+          "placement": "first page",
+          "countsTowardLimit": true,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "referenceFormat": {
+        "style": "ACM Reference Format",
+        "type": "either"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACM strict policy",
+        "overlapPolicy": "No concurrent/accepted; arXiv/SSRN OK",
+        "ethicsReviewRequired": true,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"],
+        "submissionLimitPerAuthor": 7
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": "2025-09-30",
+        "fullPaperDeadline": "2025-10-07",
+        "notificationDate": "2026-01-13",
+        "cameraReadyDeadline": "2026-01-25",
+        "conferenceDates": "April 2026, Dubai"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["Max 7 submissions per author", "Web relevance statement required on first page", "ACM Open Access 2026"]
+      }
+    },
+    {
+      "acronym": "ICSME",
+      "fullName": "IEEE International Conference on Software Maintenance and Evolution",
+      "type": "conference",
+      "domain": "software-engineering",
+      "publisher": "IEEE",
+      "coreRanking": "A",
+      "typicalMonth": "September",
+      "edition": "ICSME 2026, Benevento, Italy",
+      "tracks": [
+        {
+          "name": "Research",
+          "pageLimit": 10,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": 2
+        },
+        {
+          "name": "NIER",
+          "pageLimit": 5,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": 1
+        }
+      ],
+      "template": "IEEE conference (\\documentclass[conference]{IEEEtran}, US Letter)",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": true
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person; may anonymize if would unblind",
+        "arxivDuringReview": "allowed; do not cite as own",
+        "socialMediaDiscussion": "discouraged",
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Page limit exceeded",
+        "Wrong template (not IEEE conf)",
+        "Non-anonymous submission",
+        "Concurrent/dual submission",
+        "Out-of-scope or non-PDF"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Methodology",
+        "Evaluation",
+        "Threats to Validity",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Replication Package link"
+      ],
+      "specialRequiredSections": [],
+      "referenceFormat": {
+        "style": "IEEE",
+        "type": "numbered"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "IEEE plagiarism rules; iThenticate",
+        "overlapPolicy": "Must not be under review or published elsewhere",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"],
+        "notes": "ICSME 2026 introduces early decisions (some papers accepted/rejected before rebuttal)"
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": "2026-02-27",
+        "fullPaperDeadline": "2026-03-06",
+        "conferenceDates": "2026-09-14 to 2026-09-18"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": true,
+        "registeredReports": true,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["Best papers invited to EMSE special issue", "Early-decision mechanism"]
+      }
+    },
+    {
+      "acronym": "SANER",
+      "fullName": "IEEE International Conference on Software Analysis, Evolution, and Reengineering",
+      "type": "conference",
+      "domain": "software-engineering",
+      "publisher": "IEEE",
+      "coreRanking": "A",
+      "typicalMonth": "March",
+      "edition": "SANER 2026, Limassol, Cyprus",
+      "tracks": [
+        {
+          "name": "Research",
+          "pageLimit": 10,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": 2
+        },
+        {
+          "name": "ERA",
+          "pageLimit": 5,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": 1
+        }
+      ],
+      "template": "IEEE conference proceedings (\\documentclass[10pt,conference]{IEEEtran})",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": true
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person; can anonymize references if would unblind",
+        "arxivDuringReview": "allowed",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Format/template violations",
+        "Page-limit violations",
+        "Non-anonymous",
+        "Dual submission"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Methodology",
+        "Evaluation",
+        "Threats to Validity",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Replication package"
+      ],
+      "specialRequiredSections": [],
+      "referenceFormat": {
+        "style": "IEEE",
+        "type": "numbered"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACM Authorship Policy on GenAI",
+        "overlapPolicy": "No concurrent submission",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"]
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": "2025-10-09",
+        "fullPaperDeadline": "2025-10-16",
+        "conferenceDates": "2026-03-17 to 2026-03-20"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": true,
+        "registeredReports": true,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["Best papers invited to EMSE special issue"]
+      }
+    },
+    {
+      "acronym": "ESEM",
+      "fullName": "ACM/IEEE International Symposium on Empirical Software Engineering and Measurement",
+      "type": "conference",
+      "domain": "software-engineering",
+      "publisher": "ACM/IEEE",
+      "coreRanking": "A",
+      "typicalMonth": "September-October",
+      "edition": "ESEM 2025, Honolulu; ESEM 2026 TBA",
+      "tracks": [
+        {
+          "name": "Technical (Research)",
+          "pageLimit": 10,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true
+        }
+      ],
+      "template": "Standard IEEE conference template (2025); publisher transition in progress for 2026",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": true,
+        "abstractRegistrationRequired": false,
+        "notes": "ESEM REQUIRES a structured abstract — desk reject if missing"
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Non-anonymous submission",
+        "Format violation",
+        "Missing structured abstract"
+      ],
+      "requiredSections": [
+        "Abstract (structured)",
+        "Introduction",
+        "Related Work",
+        "Methodology",
+        "Results",
+        "Threats to Validity",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Open-science / data-availability statement"
+      ],
+      "specialRequiredSections": [],
+      "referenceFormat": {
+        "style": "IEEE",
+        "type": "numbered"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "Standard",
+        "overlapPolicy": "No concurrent submission",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": false,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"]
+      },
+      "dates": {
+        "cycle": "2025",
+        "conferenceDates": "2025-09-28 to 2025-10-03",
+        "notes": "ESEM 2026 dates TBA; publisher transition in progress"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": true,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": true,
+        "other": ["Open science initiative"]
+      }
+    },
+    {
+      "acronym": "ICST",
+      "fullName": "IEEE International Conference on Software Testing, Verification and Validation",
+      "type": "conference",
+      "domain": "software-engineering",
+      "publisher": "IEEE",
+      "coreRanking": "A",
+      "typicalMonth": "April-May",
+      "edition": "ICST 2026, Daejeon, South Korea",
+      "tracks": [
+        {
+          "name": "Research Papers",
+          "pageLimit": 10,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": 2
+        }
+      ],
+      "template": "IEEE two-column conference (US Letter)",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Format violation",
+        "Anonymity breach",
+        "Page-limit violation",
+        "Dual submission"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Methodology",
+        "Evaluation",
+        "Threats to Validity",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Replication package link"
+      ],
+      "specialRequiredSections": [],
+      "referenceFormat": {
+        "style": "IEEE",
+        "type": "numbered"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "IEEE/ACM disclosure",
+        "overlapPolicy": "No concurrent submission",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": false,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"]
+      },
+      "dates": {
+        "cycle": "2026",
+        "fullPaperDeadline": "2025-12-22",
+        "notificationDate": "2026-02-20",
+        "conferenceDates": "2026-05-18 to 2026-05-22"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": true,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": []
+      }
+    },
+    {
+      "acronym": "RE",
+      "fullName": "IEEE International Requirements Engineering Conference",
+      "type": "conference",
+      "domain": "software-engineering",
+      "publisher": "IEEE",
+      "coreRanking": "A",
+      "typicalMonth": "August-September",
+      "edition": "RE 2025, Valencia, Spain",
+      "tracks": [
+        {
+          "name": "Research Papers",
+          "pageLimit": 10,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": 2
+        }
+      ],
+      "template": "IEEE conference",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": true
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": null,
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Format violation",
+        "Non-anonymous",
+        "Page-limit violation",
+        "Dual submission"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Methodology",
+        "Evaluation",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Threats to Validity"
+      ],
+      "specialRequiredSections": [],
+      "referenceFormat": {
+        "style": "IEEE",
+        "type": "numbered"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "IEEE/ACM disclosure",
+        "overlapPolicy": "No concurrent submission",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": false,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"]
+      },
+      "dates": {
+        "cycle": "2025",
+        "conferenceDates": "2025-09-01 to 2025-09-05"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": true,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["RE Open Data Initiative (new 2025)"]
+      }
+    },
+    {
+      "acronym": "MODELS",
+      "fullName": "ACM/IEEE International Conference on Model-Driven Engineering Languages and Systems",
+      "type": "conference",
+      "domain": "software-engineering",
+      "publisher": "ACM/IEEE",
+      "coreRanking": "A",
+      "typicalMonth": "September-October",
+      "edition": "MODELS 2025",
+      "tracks": [
+        {
+          "name": "Foundations (Research)",
+          "pageLimit": 10,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "notes": "Double-anonymous"
+        },
+        {
+          "name": "Practice",
+          "pageLimit": 10,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "notes": "Single-anonymous"
+        }
+      ],
+      "template": "IEEE conference format with mandatory ORCIDs",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind (Foundations); single-anonymous (Practice)",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person (Foundations)",
+        "arxivDuringReview": "allowed",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Format/template violation"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Approach",
+        "Evaluation",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Threats to Validity"
+      ],
+      "specialRequiredSections": [],
+      "referenceFormat": {
+        "style": "IEEE",
+        "type": "numbered"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACM/IEEE policies",
+        "overlapPolicy": "No concurrent submission",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": false,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"]
+      },
+      "dates": {
+        "cycle": "2025",
+        "conferenceDates": "Late September 2025"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": true,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["SoSyM journal special-issue invitations for best papers", "ORCID mandatory"]
+      }
+    },
+    {
+      "acronym": "ICPC",
+      "fullName": "IEEE/ACM International Conference on Program Comprehension",
+      "type": "conference",
+      "domain": "software-engineering",
+      "publisher": "IEEE/ACM",
+      "coreRanking": "A",
+      "typicalMonth": "April-May",
+      "edition": "ICPC 2025/2026 (co-located with ICSE)",
+      "tracks": [
+        {
+          "name": "Research",
+          "pageLimit": 10,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": 2,
+          "notes": "Double-anonymous"
+        },
+        {
+          "name": "RENE",
+          "pageLimit": 10,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "extraRefPages": 2,
+          "notes": "Single-blind"
+        }
+      ],
+      "template": "IEEE conference (\\documentclass[10pt,conference]{IEEEtran})",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind (research/ERA); single-blind (tool demo, RENE)",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Format/anonymity violation",
+        "Page-limit violation",
+        "Dual submission"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Methodology",
+        "Results",
+        "Threats to Validity",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Open science / data availability"
+      ],
+      "specialRequiredSections": [],
+      "referenceFormat": {
+        "style": "IEEE",
+        "type": "numbered"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "Standard",
+        "overlapPolicy": "No concurrent submission",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": false,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"]
+      },
+      "dates": {
+        "cycle": "2025",
+        "conferenceDates": "Co-located with ICSE 2025"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": true,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["EMSE special issue for select papers", "ACM SIGSOFT distinguished paper awards"]
+      }
+    },
+    {
+      "acronym": "EASE",
+      "fullName": "International Conference on Evaluation and Assessment in Software Engineering",
+      "type": "conference",
+      "domain": "software-engineering",
+      "publisher": "ACM",
+      "coreRanking": "A",
+      "typicalMonth": "June",
+      "edition": "EASE 2026, Glasgow, UK",
+      "tracks": [
+        {
+          "name": "Research Papers",
+          "pageLimit": 10,
+          "referencesCountTowardLimit": true,
+          "appendixCountsTowardLimit": true,
+          "notes": "Everything inclusive — refs count toward 10 pages"
+        },
+        {
+          "name": "Short Papers",
+          "pageLimit": 6,
+          "referencesCountTowardLimit": true,
+          "appendixCountsTowardLimit": true
+        }
+      ],
+      "template": "ACM sigconf (\\documentclass[sigconf,review,anonymous]{acmart})",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": null,
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true,
+        "notes": "Mandatory SIGSOFT Open Science Policy — artifacts must be in permanent repositories (Zenodo, not GitHub)"
+      },
+      "deskRejectCriteria": [
+        "Deviation from ACM formatting",
+        "Non-anonymous submission",
+        "Page-limit violation",
+        "Dual submission"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Methodology",
+        "Results",
+        "Threats to Validity",
+        "Conclusion"
+      ],
+      "conventionalSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "Open-science / data-availability statement",
+          "placement": "in paper",
+          "countsTowardLimit": true,
+          "deskRejectIfMissing": false,
+          "notes": "Mandatory"
+        }
+      ],
+      "referenceFormat": {
+        "style": "ACM Reference Format",
+        "type": "either"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACM Authorship Policy on GenAI",
+        "overlapPolicy": "No concurrent submission",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": false,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"]
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": "2026-01-16",
+        "fullPaperDeadline": "2026-01-23",
+        "conferenceDates": "2026-06-09 to 2026-06-12"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": true,
+        "mandatoryStructuredAbstract": false,
+        "other": ["Open science mandatory", "References count toward page limit (unusual)"]
+      }
+    },
+    {
+      "acronym": "TSE",
+      "fullName": "IEEE Transactions on Software Engineering",
+      "type": "journal",
+      "domain": "software-engineering",
+      "publisher": "IEEE Computer Society",
+      "coreRanking": "A*",
+      "typicalMonth": null,
+      "edition": "Rolling submission",
+      "tracks": [
+        {
+          "name": "Regular Paper",
+          "pageLimit": 14,
+          "referencesCountTowardLimit": true,
+          "appendixCountsTowardLimit": true,
+          "notes": "~14 pages IEEE Transactions two-column; over-length charges apply"
+        }
+      ],
+      "template": "IEEE Transactions journal format (two-column)",
+      "abstract": {
+        "wordLimit": 250,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false,
+        "notes": "150-250 words"
+      },
+      "reviewPolicy": {
+        "blindness": "single-blind",
+        "clearPdfMetadata": false,
+        "acknowledgmentsAllowed": true,
+        "selfCitationPolicy": "normal (single-blind)",
+        "arxivDuringReview": null,
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": false
+      },
+      "deskRejectCriteria": [
+        "Out of scope",
+        "Plagiarism / dual submission",
+        "Failure to meet basic standards",
+        "Resubmission without significant revision (2-month embargo)"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Methodology",
+        "Evaluation",
+        "Threats to Validity",
+        "Conclusion"
+      ],
+      "conventionalSections": [],
+      "specialRequiredSections": [],
+      "referenceFormat": {
+        "style": "IEEE",
+        "type": "numbered"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "IEEE plagiarism policy with iThenticate",
+        "overlapPolicy": "No concurrent submission; 2-month embargo after rejection",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": false,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": true,
+        "decisionTypes": ["Accept", "Minor Revision", "Major Revision", "Reject"]
+      },
+      "dates": {
+        "cycle": "rolling",
+        "notes": "Continuously open; invites extended versions of distinguished ICSE/ISSTA/FSE papers"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "impactFactor": 6.5,
+        "other": ["Hybrid OA available (APC ~$2195)"]
+      }
+    },
+    {
+      "acronym": "TOSEM",
+      "fullName": "ACM Transactions on Software Engineering and Methodology",
+      "type": "journal",
+      "domain": "software-engineering",
+      "publisher": "ACM",
+      "coreRanking": "A*",
+      "typicalMonth": null,
+      "edition": "Rolling submission",
+      "tracks": [
+        {
+          "name": "Regular Paper",
+          "pageLimit": null,
+          "referencesCountTowardLimit": null,
+          "appendixCountsTowardLimit": null,
+          "notes": "~11,000 words soft cap; may be returned without review if exceeded"
+        }
+      ],
+      "template": "ACM acmart, single-column manuscript format (\\documentclass[manuscript]{acmart})",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false
+      },
+      "reviewPolicy": {
+        "blindness": "single-blind",
+        "clearPdfMetadata": false,
+        "acknowledgmentsAllowed": true,
+        "selfCitationPolicy": "normal (single-blind)",
+        "arxivDuringReview": null,
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": false
+      },
+      "deskRejectCriteria": [
+        "Plagiarism",
+        "Self-plagiarism / simultaneous submission",
+        "Incomplete / over page limit / incorrectly formatted",
+        "Below TOSEM scholarship standards",
+        "Out-of-scope"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Methodology",
+        "Evaluation",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Threats to Validity"
+      ],
+      "specialRequiredSections": [],
+      "referenceFormat": {
+        "style": "ACM Reference Format",
+        "type": "either"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACM Policy with iThenticate",
+        "overlapPolicy": "No concurrent submission",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": false,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": true,
+        "decisionTypes": ["Accept", "Minor Revision", "Major Revision", "Reject"]
+      },
+      "dates": {
+        "cycle": "rolling",
+        "notes": "Continuously open; from Jan 1 2026 all-OA with APC requirement"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": true,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "impactFactor": 4.4,
+        "other": ["Mandatory OA from 2026", "Special sections on Sustainable SE, Quantum SE"]
+      }
+    },
+    {
+      "acronym": "EMSE",
+      "fullName": "Empirical Software Engineering — An International Journal",
+      "type": "journal",
+      "domain": "software-engineering",
+      "publisher": "Springer Nature",
+      "coreRanking": "A",
+      "typicalMonth": null,
+      "edition": "Rolling submission",
+      "tracks": [
+        {
+          "name": "Regular Paper",
+          "pageLimit": null,
+          "referencesCountTowardLimit": null,
+          "appendixCountsTowardLimit": null,
+          "notes": "No strict page limit; extensive papers expected to justify length"
+        }
+      ],
+      "template": "Springer journal LaTeX template (svjour3)",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false,
+        "notes": "Encouraged for empirical work"
+      },
+      "reviewPolicy": {
+        "blindness": "single-blind",
+        "clearPdfMetadata": false,
+        "acknowledgmentsAllowed": true,
+        "selfCitationPolicy": "normal (single-blind)",
+        "arxivDuringReview": null,
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": false
+      },
+      "deskRejectCriteria": [
+        "Out-of-scope",
+        "Empirical-rigor expectations not met"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Methodology",
+        "Results",
+        "Threats to Validity",
+        "Conclusion"
+      ],
+      "conventionalSections": [],
+      "specialRequiredSections": [],
+      "referenceFormat": {
+        "style": "APA-like Springer style",
+        "type": "author-year"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "Springer policy",
+        "overlapPolicy": "No concurrent submission",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": false,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": true,
+        "decisionTypes": ["Accept", "Minor Revision", "Major Revision", "Reject"]
+      },
+      "dates": {
+        "cycle": "rolling",
+        "notes": "Aim for first decision in <3 months"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": true,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "impactFactor": 4.33,
+        "other": ["Open-science initiative", "Partner journal for ICSME/ESEM/SANER Registered Reports"]
+      }
+    },
+    {
+      "acronym": "JSS",
+      "fullName": "Journal of Systems and Software",
+      "type": "journal",
+      "domain": "software-engineering",
+      "publisher": "Elsevier",
+      "coreRanking": "A",
+      "typicalMonth": null,
+      "edition": "Rolling submission",
+      "tracks": [
+        {
+          "name": "Regular Research Paper",
+          "pageLimit": null,
+          "referencesCountTowardLimit": null,
+          "appendixCountsTowardLimit": null,
+          "notes": "No fixed page limit"
+        },
+        {
+          "name": "Practitioner Insights",
+          "pageLimit": 4,
+          "referencesCountTowardLimit": true,
+          "appendixCountsTowardLimit": true,
+          "notes": "First author must be from industry"
+        }
+      ],
+      "template": "Elsevier elsarticle (single column for review)",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false,
+        "notes": "Encouraged for empirical work"
+      },
+      "reviewPolicy": {
+        "blindness": "single-blind",
+        "clearPdfMetadata": false,
+        "acknowledgmentsAllowed": true,
+        "selfCitationPolicy": "normal (single-blind)",
+        "arxivDuringReview": null,
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": false
+      },
+      "deskRejectCriteria": [
+        "Out of scope",
+        "Plagiarism / dual submission",
+        "Below standards"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Methodology",
+        "Results",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Threats to Validity"
+      ],
+      "specialRequiredSections": [],
+      "referenceFormat": {
+        "style": "Elsevier (elsarticle-num or elsarticle-harv)",
+        "type": "either",
+        "notes": "Numbered or author-year depending on template choice"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "Elsevier GenAI policy",
+        "overlapPolicy": "No concurrent submission",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": false,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": true,
+        "decisionTypes": ["Accept", "Minor Revision", "Major Revision", "Reject"],
+        "notes": "One appeal per submission allowed"
+      },
+      "dates": {
+        "cycle": "rolling",
+        "notes": "First decision often 2-4 months"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "impactFactor": 5.88,
+        "other": ["Active special-issue program", "Journal-First with ASE, ICSME, SANER"]
+      }
+    },
+    {
+      "acronym": "IST",
+      "fullName": "Information and Software Technology",
+      "type": "journal",
+      "domain": "software-engineering",
+      "publisher": "Elsevier",
+      "coreRanking": "A",
+      "typicalMonth": null,
+      "edition": "Rolling submission",
+      "tracks": [
+        {
+          "name": "Regular Research Paper",
+          "pageLimit": null,
+          "referencesCountTowardLimit": null,
+          "appendixCountsTowardLimit": null,
+          "notes": "No strict limit"
+        }
+      ],
+      "template": "Elsevier elsarticle",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false,
+        "notes": "Encouraged for empirical/SLR work"
+      },
+      "reviewPolicy": {
+        "blindness": "single-blind",
+        "clearPdfMetadata": false,
+        "acknowledgmentsAllowed": true,
+        "selfCitationPolicy": "normal (single-blind)",
+        "arxivDuringReview": null,
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": false
+      },
+      "deskRejectCriteria": [
+        "Out of scope",
+        "Below standards"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Methodology",
+        "Results",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Threats to Validity"
+      ],
+      "specialRequiredSections": [],
+      "referenceFormat": {
+        "style": "Elsevier (elsarticle-harv)",
+        "type": "author-year"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "Elsevier GenAI policy",
+        "overlapPolicy": "No concurrent submission",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": false,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": true,
+        "decisionTypes": ["Accept", "Revise", "Reject"]
+      },
+      "dates": {
+        "cycle": "rolling"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "impactFactor": 3.86,
+        "other": ["Premier outlet for SE systematic reviews"]
+      }
+    },
+    {
+      "acronym": "NAACL",
+      "fullName": "Annual Conference of the North American Chapter of the ACL",
+      "type": "conference",
+      "domain": "nlp",
+      "publisher": "ACL (ACL Anthology)",
+      "coreRanking": "A",
+      "typicalMonth": "April-May",
+      "edition": "NAACL 2025, Albuquerque",
+      "tracks": [
+        {
+          "name": "Long Papers",
+          "pageLimit": 8,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 9
+        },
+        {
+          "name": "Short Papers",
+          "pageLimit": 4,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 5
+        },
+        {
+          "name": "Industry Track",
+          "pageLimit": 6,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 7
+        }
+      ],
+      "template": "ACL style (acl.sty / overleaf template)",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed; no anonymity period since early 2024",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true,
+        "system": "ACL Rolling Review (ARR)"
+      },
+      "deskRejectCriteria": [
+        "Wrong format / page-limit violation",
+        "Anonymity breach",
+        "Dual submission",
+        "Missing or incorrect Responsible NLP Checklist",
+        "Resubmission without revisions/justification",
+        "Appendices not in double-column format"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Ethical Considerations"
+      ],
+      "specialRequiredSections": [
+        {
+          "name": "Limitations",
+          "placement": "after main, before references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        },
+        {
+          "name": "Responsible NLP Checklist",
+          "placement": "submitted with paper",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "referenceFormat": {
+        "style": "ACL",
+        "type": "author-year"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACL Publication Ethics Policy",
+        "overlapPolicy": "ARR Multiple Submission Policy",
+        "ethicsReviewRequired": true,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": true,
+        "decisionTypes": ["Accept (Main)", "Accept (Findings)", "Reject"]
+      },
+      "dates": {
+        "cycle": "2025",
+        "conferenceDates": "2025-04-29 to 2025-05-04",
+        "notes": "Uses ARR; Oct 2024 cycle for NAACL 2025"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": true,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["ARR workflow required", "Responsible NLP Checklist mandatory", "Irresponsible reviewers may be ineligible to submit"]
+      }
+    },
+    {
+      "acronym": "COLING",
+      "fullName": "International Conference on Computational Linguistics",
+      "type": "conference",
+      "domain": "nlp",
+      "publisher": "ICCL / ACL Anthology",
+      "coreRanking": "A",
+      "typicalMonth": "Variable",
+      "edition": "COLING 2025, Abu Dhabi; next: COLING 2027, Macau",
+      "tracks": [
+        {
+          "name": "Long Papers",
+          "pageLimit": 8,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false
+        },
+        {
+          "name": "Short Papers",
+          "pageLimit": 4,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false
+        },
+        {
+          "name": "Industry Track",
+          "pageLimit": 6,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false
+        }
+      ],
+      "template": "COLING 2025 style files (*ACL adaptation)",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "follows *ACL policy",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true,
+        "notes": "Accepts both direct submissions AND ARR commitments"
+      },
+      "deskRejectCriteria": [
+        "Deviation from style files (auto-reject without review)",
+        "Page-size/font-size/margin violations",
+        "Anonymity violation",
+        "Dual submission to multiple COLING tracks"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Ethical Considerations"
+      ],
+      "specialRequiredSections": [
+        {
+          "name": "Limitations",
+          "placement": "at end of paper",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "referenceFormat": {
+        "style": "ACL-style",
+        "type": "author-year"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACL Ethics Policy",
+        "overlapPolicy": "No dual submission",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"]
+      },
+      "dates": {
+        "cycle": "2025",
+        "fullPaperDeadline": "2024-09-16",
+        "conferenceDates": "2025-01-19 to 2025-01-24"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": true,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["Hybrid review: direct + ARR commitments"]
+      }
+    },
+    {
+      "acronym": "EACL",
+      "fullName": "Conference of the European Chapter of the ACL",
+      "type": "conference",
+      "domain": "nlp",
+      "publisher": "ACL (ACL Anthology)",
+      "coreRanking": "A",
+      "typicalMonth": "March-April",
+      "edition": "EACL 2026, Rabat, Morocco",
+      "tracks": [
+        {
+          "name": "Long Papers",
+          "pageLimit": 8,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 9
+        },
+        {
+          "name": "Short Papers",
+          "pageLimit": 4,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 5
+        },
+        {
+          "name": "Industry Track",
+          "pageLimit": 6,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": false,
+          "cameraReadyPageLimit": 7
+        }
+      ],
+      "template": "ACL style (shared with NAACL/ACL/EMNLP)",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": false
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed; no anonymity period since Feb 2024",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true,
+        "system": "ACL Rolling Review (ARR) only — no direct submission"
+      },
+      "deskRejectCriteria": [
+        "Author identity revealed",
+        "Page/format violation",
+        "Dual submission",
+        "Bad/incomplete Responsible NLP Checklist",
+        "Appendices not in double-column"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "conventionalSections": [
+        "Ethical Considerations"
+      ],
+      "specialRequiredSections": [
+        {
+          "name": "Limitations",
+          "placement": "after main, before references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        },
+        {
+          "name": "Responsible NLP Checklist",
+          "placement": "submitted with paper",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "referenceFormat": {
+        "style": "ACL",
+        "type": "author-year"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACL Publication Ethics Policy",
+        "overlapPolicy": "ARR Multiple Submission Policy",
+        "ethicsReviewRequired": true,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": true,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": true,
+        "decisionTypes": ["Accept (Main)", "Accept (Findings)", "Reject"]
+      },
+      "dates": {
+        "cycle": "2026",
+        "fullPaperDeadline": "2025-10-06",
+        "commitmentDeadline": "2025-12-14",
+        "conferenceDates": "2026-03-24 to 2026-03-29"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": true,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["ARR-only (no direct submission)", "Responsible NLP Checklist mandatory"]
+      }
+    },
+    {
+      "acronym": "CIKM",
+      "fullName": "ACM International Conference on Information and Knowledge Management",
+      "type": "conference",
+      "domain": "information-retrieval",
+      "publisher": "ACM",
+      "coreRanking": "A",
+      "typicalMonth": "October-November",
+      "edition": "CIKM 2025, Seoul, Korea",
+      "tracks": [
+        {
+          "name": "Full Research Papers",
+          "pageLimit": 9,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "notes": "GenAI Usage Disclosure section does not count"
+        },
+        {
+          "name": "Short Research Papers",
+          "pageLimit": 4,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true
+        }
+      ],
+      "template": "ACM sigconf 2-column",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": true
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed; title/abstract should be modified",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true
+      },
+      "deskRejectCriteria": [
+        "Improperly anonymized submission",
+        "Format/template violation",
+        "Page-limit violation",
+        "Dual submission",
+        "Text generated by LLMs (unless experimental analysis)"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "conventionalSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "GenAI Usage Disclosure",
+          "placement": "at end, before references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true,
+          "notes": "NEW 2025; mandatory"
+        }
+      ],
+      "referenceFormat": {
+        "style": "ACM Reference Format",
+        "type": "either"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACM authorship policy",
+        "overlapPolicy": "Concurrent submission prohibited",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": false,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"],
+        "notes": "LLM-produced text in body PROHIBITED unless part of experimental analysis"
+      },
+      "dates": {
+        "cycle": "2025",
+        "abstractDeadline": "2025-05-16",
+        "fullPaperDeadline": "2025-05-23",
+        "notificationDate": "2025-08-04",
+        "cameraReadyDeadline": "2025-08-27",
+        "conferenceDates": "2025-11-10 to 2025-11-14"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["GenAI Usage Disclosure section mandatory", "Author list locked after abstract deadline"]
+      }
+    },
+    {
+      "acronym": "WSDM",
+      "fullName": "ACM International Conference on Web Search and Data Mining",
+      "type": "conference",
+      "domain": "information-retrieval",
+      "publisher": "ACM",
+      "coreRanking": "A*",
+      "typicalMonth": "February-March",
+      "edition": "WSDM 2026, Boise, Idaho",
+      "tracks": [
+        {
+          "name": "Full Research Paper",
+          "pageLimit": null,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": null,
+          "notes": "ACM sigconf format; exact page limit not explicitly stated"
+        },
+        {
+          "name": "Short Research Paper",
+          "pageLimit": null,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": null,
+          "notes": "NEW for WSDM 2026 — first short paper track in series"
+        }
+      ],
+      "template": "ACM acmart sigconf",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": true
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "allowed",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true,
+        "submissionLimitPerAuthor": 10
+      },
+      "deskRejectCriteria": [
+        "More than 10 submissions per author",
+        "Concurrent submission elsewhere",
+        "Already-accepted-or-published papers",
+        "Format/anonymity violation"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "conventionalSections": [],
+      "specialRequiredSections": [],
+      "referenceFormat": {
+        "style": "ACM Reference Format",
+        "type": "either"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACM strict policy on plagiarism and self-plagiarism",
+        "overlapPolicy": "No concurrent submission",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": false,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"],
+        "submissionLimitPerAuthor": 10
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": "2025-08-07",
+        "fullPaperDeadline": "2025-08-14",
+        "notificationDate": "2025-10-23",
+        "cameraReadyDeadline": "2025-12-17",
+        "conferenceDates": "2026-02-22 to 2026-02-26"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["In-person required; proxies must present if author cannot", "Max 10 submissions per author", "First short paper track in 2026"]
+      }
+    },
+    {
+      "acronym": "ECIR",
+      "fullName": "European Conference on Information Retrieval",
+      "type": "conference",
+      "domain": "information-retrieval",
+      "publisher": "Springer (LNCS series)",
+      "coreRanking": "A",
+      "typicalMonth": "March-April",
+      "edition": "ECIR 2026, Delft, Netherlands",
+      "tracks": [
+        {
+          "name": "Full Paper",
+          "pageLimit": 12,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true,
+          "notes": "Appendix before references"
+        },
+        {
+          "name": "Short Paper",
+          "pageLimit": 6,
+          "referencesCountTowardLimit": false,
+          "appendixCountsTowardLimit": true
+        }
+      ],
+      "template": "Springer LNCS (LaTeX or Word), with ORCID encouraged",
+      "abstract": {
+        "wordLimit": null,
+        "structuredRequired": false,
+        "abstractRegistrationRequired": true
+      },
+      "reviewPolicy": {
+        "blindness": "double-blind",
+        "clearPdfMetadata": true,
+        "acknowledgmentsAllowed": false,
+        "selfCitationPolicy": "must use third person",
+        "arxivDuringReview": "discouraged but permitted",
+        "socialMediaDiscussion": null,
+        "anonymizeToolLinks": true,
+        "notes": "Two-stage: initial review + discussion stage"
+      },
+      "deskRejectCriteria": [
+        "Format/template deviation",
+        "Anonymity breach",
+        "Page-limit violation",
+        "Dual submission"
+      ],
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "conventionalSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "Theory of Change",
+          "placement": "in paper body",
+          "countsTowardLimit": true,
+          "deskRejectIfMissing": false,
+          "notes": "Mandatory only in IR-for-Good track for tool/method/resource papers"
+        }
+      ],
+      "referenceFormat": {
+        "style": "Springer LNCS",
+        "type": "numbered"
+      },
+      "authorshipPolicy": {
+        "aiAuthorshipAllowed": false,
+        "aiUseDisclosureRequired": true,
+        "plagiarismPolicy": "ACM authorship policy",
+        "overlapPolicy": "No concurrent submission",
+        "ethicsReviewRequired": false,
+        "coiDeclarationRequired": true,
+        "rebuttalPhase": false,
+        "rebuttalWordLimit": null,
+        "reviseAndResubmit": false,
+        "decisionTypes": ["Accept", "Reject"]
+      },
+      "dates": {
+        "cycle": "2026",
+        "abstractDeadline": "2025-09-25",
+        "fullPaperDeadline": "2025-10-02",
+        "notificationDate": "2025-12-16",
+        "conferenceDates": "2026-03-30 to 2026-04-01"
+      },
+      "supplementaryPolicy": {
+        "allowed": true,
+        "codeAllowed": true,
+        "reviewersRequired": false,
+        "pageLimit": null
+      },
+      "specialRequirements": {
+        "reproducibilityChecklist": false,
+        "artifactEvaluation": false,
+        "registeredReports": false,
+        "mandatoryLimitationsSection": false,
+        "mandatoryBroaderImpact": false,
+        "mandatoryPaperChecklist": false,
+        "mandatoryGenAIDisclosure": true,
+        "mandatoryDataAvailability": false,
+        "mandatoryStructuredAbstract": false,
+        "other": ["IR-for-Good promoted to core track 2026", "In-person presentation required", "Consent to publish required for Springer LNCS"]
+      }
+    }
+  ]
+}

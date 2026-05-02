@@ -10,7 +10,10 @@ export interface ValidationProfile {
 const PROFILES: ValidationProfile[] = [
   {
     paperType: "RESEARCH",
-    extraRequiredSections: ["Threats to Validity"],
+    // "Threats to Validity" is an SE-specific convention; SE venues now declare it
+    // explicitly via venue.requiredSections (see data/venues.json). Don't impose it
+    // on ML/AI/NLP/CV/security venues.
+    extraRequiredSections: [],
     checklistKeywords: [
       { phrase: "evaluation", description: "Empirical evaluation discussed" },
       { phrase: "baseline", description: "Comparison to baseline(s)" },

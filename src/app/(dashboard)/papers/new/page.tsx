@@ -16,10 +16,7 @@ export default async function NewPaperPage() {
     return null;
   }
 
-  const venues = listVenues().map((venue) => ({
-    id: venue.id,
-    name: venue.name,
-  }));
+  const venues = listVenues();
 
   return (
     <div className="mx-auto max-w-3xl space-y-6">

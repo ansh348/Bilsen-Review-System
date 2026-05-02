@@ -40,6 +40,9 @@ export type ComplianceCheckType =
   | "PDF_METADATA_ANONYMITY"
   | "TOOL_LINK_ANONYMITY"
   | "DYNAMIC_CHECKLIST"
+  | "DESK_REJECT_RISK"
+  | "AI_FULL_REVIEW"
+  | "AI_REFERENCE_CHECK"
   | "CHECKLIST";
 
 export type NotificationType =
@@ -68,6 +71,75 @@ export interface UserRecord {
   updatedAt: string;
 }
 
+export interface SpecialRequiredSection {
+  name: string;
+  placement?: string | null;
+  countsTowardLimit?: boolean | null;
+  deskRejectIfMissing?: boolean | null;
+}
+
+export interface VenueReviewPolicy {
+  blindness?: string | null;
+  clearPdfMetadata?: boolean | null;
+  acknowledgmentsAllowed?: boolean | null;
+  selfCitationPolicy?: string | null;
+  arxivDuringReview?: string | null;
+  socialMediaDiscussion?: string | null;
+  anonymizeToolLinks?: boolean | null;
+  submissionLimitPerAuthor?: number | string | null;
+}
+
+export interface VenueAuthorshipPolicy {
+  aiAuthorshipAllowed?: boolean | null;
+  aiUseDisclosureRequired?: boolean | null;
+  plagiarismPolicy?: string | null;
+  overlapPolicy?: string | null;
+  ethicsReviewRequired?: boolean | null;
+  coiDeclarationRequired?: boolean | null;
+  rebuttalPhase?: boolean | null;
+  rebuttalWordLimit?: number | null;
+  reviseAndResubmit?: boolean | null;
+  decisionTypes?: string[];
+}
+
+export interface VenueDates {
+  cycle?: string | null;
+  abstractDeadline?: string | null;
+  fullPaperDeadline?: string | null;
+  cycle2Deadline?: string | null;
+  notificationDate?: string | null;
+  cameraReadyDeadline?: string | null;
+  conferenceDates?: string | null;
+  notes?: string | null;
+}
+
+export interface VenueSupplementaryPolicy {
+  allowed?: boolean | null;
+  codeAllowed?: boolean | null;
+  reviewersRequired?: boolean | null;
+  pageLimit?: number | null;
+}
+
+export interface VenueSpecialRequirements {
+  reproducibilityChecklist?: boolean | null;
+  artifactEvaluation?: boolean | null;
+  registeredReports?: boolean | null;
+  mandatoryLimitationsSection?: boolean | null;
+  mandatoryBroaderImpact?: boolean | null;
+  mandatoryPaperChecklist?: boolean | null;
+  mandatoryGenAIDisclosure?: boolean | null;
+  mandatoryDataAvailability?: boolean | null;
+  mandatoryStructuredAbstract?: boolean | null;
+  impactFactor?: number | null;
+  other?: string[];
+}
+
+export interface VenueReferenceFormatDetails {
+  style?: string | null;
+  type?: string | null;
+  notes?: string | null;
+}
+
 export interface VenueRecord {
   id: string;
   name: string;
@@ -81,13 +153,47 @@ export interface VenueRecord {
   paperTypes: PaperType[];
   createdAt: string;
   updatedAt: string;
+
+  // Optional rich fields sourced from venues_comprehensive.json. Older venue
+  // records (e.g. CVPR, OSDI) may not carry these — code MUST treat them as
+  // potentially undefined.
+  acronym?: string | null;
+  fullName?: string | null;
+  type?: "conference" | "journal" | null;
+  domain?: string | null;
+  publisher?: string | null;
+  coreRanking?: string | null;
+  edition?: string | null;
+  template?: string | null;
+
+  referencesCountTowardLimit?: boolean | null;
+  extraRefPages?: number | null;
+  appendixCountsTowardLimit?: boolean | null;
+  cameraReadyPageLimit?: number | null;
+
+  conventionalSections?: string[];
+  specialRequiredSections?: SpecialRequiredSection[];
+
+  deskRejectCriteria?: string[];
+
+  abstractStructuredRequired?: boolean | null;
+  abstractRegistrationRequired?: boolean | null;
+  referenceFormatDetails?: VenueReferenceFormatDetails | null;
+
+  reviewPolicy?: VenueReviewPolicy | null;
+  authorshipPolicy?: VenueAuthorshipPolicy | null;
+  dates?: VenueDates | null;
+  supplementaryPolicy?: VenueSupplementaryPolicy | null;
+  specialRequirements?: VenueSpecialRequirements | null;
 }
 
 export interface PaperRecord {
   id: string;
   title: string;
   abstractText: string | null;
-  pdfUrl: string;
+  pdfUrl: string | null;
+  pdfPath?: string | null;
+  pageCount?: number | null;
   overleafUrl: string | null;
   venueId: string | null;
   status: PaperStatus;
@@ -95,6 +201,11 @@ export interface PaperRecord {
   authorIds: string[];
   submittedVenueId?: string | null;
   submittedAt?: string | null;
+  extractedSections?: string[];
+  extractedReferences?: string[];
+  extractedAuthors?: string[];
+  extractedAffiliations?: string[];
+  extractedAt?: string;
   createdAt: string;
   updatedAt: string;
 }

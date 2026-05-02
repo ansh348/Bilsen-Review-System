@@ -37,10 +37,7 @@ export default async function EditPaperPage({ params }: EditPaperPageProps) {
     notFound();
   }
 
-  const venues = listVenues().map((venue) => ({
-    id: venue.id,
-    name: venue.name,
-  }));
+  const venues = listVenues();
 
   return (
     <div className="mx-auto max-w-3xl space-y-6">
@@ -69,6 +66,7 @@ export default async function EditPaperPage({ params }: EditPaperPageProps) {
               title: details.paper.title,
               abstractText: details.paper.abstractText,
               pdfUrl: details.paper.pdfUrl,
+              pdfPath: details.paper.pdfPath ?? null,
               overleafUrl: details.paper.overleafUrl,
               venueId: details.paper.venueId,
               paperType: details.paper.paperType,

@@ -26,20 +26,32 @@ const recommendations = [
 
 const roles = ["COORDINATOR", "MEMBER"] as const;
 
-export const createPaperSchema = z.object({
+const paperBaseSchema = z.object({
   title: z.string().min(3),
   abstractText: z.string().optional().nullable(),
-  pdfUrl: z.string().min(1),
+  pdfUrl: z.string().optional().nullable(),
   overleafUrl: z.string().optional().nullable(),
   venueId: z.string().optional().nullable(),
   paperType: z.enum(paperTypes).optional().nullable(),
+  uploadId: z
+    .string()
+    .regex(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)
+    .optional(),
+  pageCount: z.number().int().positive().optional().nullable(),
+  extractedSections: z.array(z.string()).optional(),
+  extractedReferences: z.array(z.string()).optional(),
+  extractedAuthors: z.array(z.string()).optional(),
+  extractedAffiliations: z.array(z.string()).optional(),
 });
 
-export const updatePaperSchema = createPaperSchema
-  .partial()
-  .extend({
-    status: z.enum(paperStatuses).optional(),
-  });
+export const createPaperSchema = paperBaseSchema.refine(
+  (data) => Boolean(data.uploadId) || Boolean(data.pdfUrl && data.pdfUrl.trim()),
+  { message: "Either uploadId (file upload) or pdfUrl is required", path: ["pdfUrl"] }
+);
+
+export const updatePaperSchema = paperBaseSchema.partial().extend({
+  status: z.enum(paperStatuses).optional(),
+});
 
 export const createVenueSchema = z.object({
   name: z.string().min(2),

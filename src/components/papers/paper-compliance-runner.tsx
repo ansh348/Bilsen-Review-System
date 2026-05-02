@@ -6,44 +6,80 @@ import { Button } from "@/components/ui/button";
 
 interface PaperComplianceRunnerProps {
   paperId: string;
+  hasAiKey?: boolean;
 }
 
-export function PaperComplianceRunner({ paperId }: PaperComplianceRunnerProps) {
+export function PaperComplianceRunner({ paperId, hasAiKey = false }: PaperComplianceRunnerProps) {
   const router = useRouter();
-  const [isRunning, setIsRunning] = useState(false);
+  const [isRunning, setIsRunning] = useState<"none" | "fast" | "ai">("none");
   const [error, setError] = useState<string | null>(null);
+  const [info, setInfo] = useState<string | null>(null);
 
-  async function runChecks() {
+  async function runFast() {
     setError(null);
-    setIsRunning(true);
+    setInfo(null);
+    setIsRunning("fast");
     try {
       const response = await fetch(`/api/papers/${paperId}/compliance`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({}),
       });
-
       const payload = await response.json().catch(() => ({}));
       if (!response.ok) {
         setError(payload.error ?? "Failed to run compliance checks");
         return;
       }
-
       router.refresh();
     } catch {
       setError("Failed to run compliance checks");
     } finally {
-      setIsRunning(false);
+      setIsRunning("none");
+    }
+  }
+
+  async function runAi() {
+    setError(null);
+    setInfo("AI is reading the full paper and verifying references — this can take 30-60 seconds.");
+    setIsRunning("ai");
+    try {
+      const response = await fetch(`/api/papers/${paperId}/ai-compliance`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        setError(payload.error ?? "Failed to run AI review");
+        setInfo(null);
+        return;
+      }
+      setInfo("AI review complete.");
+      router.refresh();
+    } catch {
+      setError("Failed to run AI review");
+      setInfo(null);
+    } finally {
+      setIsRunning("none");
     }
   }
 
   return (
     <div className="space-y-2">
-      <Button type="button" onClick={runChecks} disabled={isRunning}>
-        {isRunning ? "Running checks..." : "Run Compliance Checks"}
-      </Button>
+      <div className="flex flex-wrap gap-2">
+        <Button type="button" onClick={runFast} disabled={isRunning !== "none"}>
+          {isRunning === "fast" ? "Running checks..." : "Run Compliance Checks"}
+        </Button>
+        <Button
+          type="button"
+          variant="outline"
+          onClick={runAi}
+          disabled={isRunning !== "none" || !hasAiKey}
+          title={hasAiKey ? "AI reads the full paper + verifies references" : "ANTHROPIC_API_KEY not configured"}
+        >
+          {isRunning === "ai" ? "AI is reviewing..." : "Run AI Review (paper + references)"}
+        </Button>
+      </div>
+      {info && <p className="text-xs text-muted-foreground">{info}</p>}
       {error && <p className="text-sm text-destructive">{error}</p>}
     </div>
   );

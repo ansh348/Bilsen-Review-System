@@ -155,5 +155,328 @@
     ],
     "createdAt": "2026-01-22T11:00:00.000Z",
     "updatedAt": "2026-03-02T09:00:00.000Z"
+  },
+  {
+    "id": "f906ad21-f1b7-4d7c-84cb-cc795e4c30f3",
+    "title": "fortunate recall",
+    "abstractText": "Current LLM memory systems treat all personal facts identically—storing them in\nflat vector stores or knowledge graphs with uniform retention—producing stores\nthat grow unboundedly while retrieval precision degrades. We present Fortu-\nnate Recall, a composable policy layer that classifies personal facts into a 10+1\nbehavioral ontology and applies category-specific lifecycle policies: differential\ntemporal decay, slot-key supersession, event-time validity, and category-aware\nretrieval routing. LLMs are used at ingestion and for a single lightweight candidate-\nselection step at retrieval; all lifecycle operations—decay, supersession filtering,\nevent-time validity, category-aware scoring—execute as deterministic functions.\nWe formalize a lifecycle non-identifiability theorem showing that scoring functions\nover semantic similarity and elapsed time alone cannot identify lifecycle state, and\nprove that behavioral category, slot keys, lifecycle state, and event-time anchors\nare individually necessary under the natural lifecycle metadata basis. We introduce\nLifeMemBench, a 516-question temporal disambiguation benchmark across 40\nsynthetic personas with controlled supersession, preference changes, and logistical\nexpiry. FR-Bank, our infrastructure-independent implementation, achieves 77.3%\npass rate on LifeMemBench—outperforming Mem0 (61%), Memory-R1 (66.9%),\nand MemoryOS (70.5%)—and 75.4% on the full 500-question LongMemEval-S\ncanonical benchmark under the exact Wu et al. (ICLR 2025) judge protocol\n(79.5% on the 234-question oracle POC subset). End-to-end evaluation confirms\nthat lifecycle management reduces downstream confabulation from 45.1% to 22.4%,\nan architectural gap that reasoning cannot close. Cross-generator validation on\nKimi K2.5 confirms invariance of this hierarchy. The ontology, benchmark, and\ncode are publicly released.",
+    "pdfUrl": "https://www.overleaf.com/project/69a65e91e766f22550db0797",
+    "overleafUrl": "https://www.overleaf.com/read/dtsygnystcwm#4ba92e",
+    "venueId": "venue-neurips-2026",
+    "status": "SUBMITTED",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
+    ],
+    "createdAt": "2026-05-01T08:50:05.315Z",
+    "updatedAt": "2026-05-01T08:50:05.315Z"
+  },
+  {
+    "id": "25a904fc-8e71-4fbe-9692-388b55da1b52",
+    "title": "Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs",
+    "abstractText": "Current LLM memory systems treat all personal facts identically, storing them in flat vector stores or knowledge graphs with uniform retention, so stores grow unboundedly while retrieval precision degrades. The core challenge is lifecycle management: which memories should persist, which should be replaced, and at what rate, conditioned on the behavioral type of each fact. Fortunate Recall (FR) is a composable policy layer that classifies personal facts into a 10+1 behavioral ontology and applies category-specific lifecycle policies (differential temporal decay, slot-key supersession, event-time validity, and category-aware retrieval routing) as deterministic functions over LLM-extracted metadata. The lifecycle policy layer is pure math; the LLM is used at ingestion and for a single lightweight candidate-selection step at retrieval. FR-Bank, our infrastructure-independent implementation, achieves 77.3% pass rate on LifeMemBench, a new 516-question temporal-disambiguation benchmark, outperforming Mem0 (61%), Memory-R1 (66.9%), and MemoryOS (70.5%). FR-Bank also reaches 75.2% on the full 500-question LongMemEval-S canonical benchmark under the exact Wu et al. (ICLR 2025) judge protocol—to our knowledge, the first result evaluated under the original Wu et al. evaluation methodology. End-to-end evaluation reduces downstream confabulation from 45.1% (Mem0) to 22.4%, with cross-generator validation on Kimi K2.5 confirming the hierarchy is generator-invariant. The ontology, benchmark, and code are released as supplementary material and will be made publicly available upon publication.",
+    "pdfUrl": null,
+    "pdfPath": "data/uploads/fba50902-6881-4636-9a44-c7ab9ffc5bf2.pdf",
+    "overleafUrl": null,
+    "venueId": "venue-neurips-2026",
+    "status": "SUBMITTED",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
+    ],
+    "extractedSections": [
+      "Introduction",
+      "Related Work and Gap Analysis",
+      "Fortunate Recall"
+    ],
+    "extractedReferences": [],
+    "extractedAuthors": [],
+    "extractedAffiliations": [],
+    "extractedAt": "2026-05-01T09:25:13.903Z",
+    "createdAt": "2026-05-01T09:25:13.903Z",
+    "updatedAt": "2026-05-01T09:25:13.903Z"
+  },
+  {
+    "id": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "title": "Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs",
+    "abstractText": "Current LLM memory systems treat all personal facts identically, storing them in flat vector stores or knowledge graphs with uniform retention, so stores grow unboundedly while retrieval precision degrades. The core challenge is lifecycle management: which memories should persist, which should be replaced, and at what rate, conditioned on the behavioral type of each fact. Fortunate Recall (FR) is a composable policy layer that classifies personal facts into a 10+1 behavioral ontology and applies category-specific lifecycle policies (differential temporal decay, slot-key supersession, event-time validity, and category-aware retrieval routing) as deterministic functions over LLM-extracted metadata. The lifecycle policy layer is pure math; the LLM is used at ingestion and for a single lightweight candidate-selection step at retrieval. FR-Bank, our infrastructure-independent implementation, achieves 77.3% pass rate on LifeMemBench, a new 516-question temporal-disambiguation benchmark, outperforming Mem0 (61%), Memory-R1 (66.9%), and MemoryOS (70.5%). FR-Bank also reaches 75.2% on the full 500-question LongMemEval-S canonical benchmark under the exact Wu et al. (ICLR 2025) judge protocol—to our knowledge, the first result evaluated under the original Wu et al. evaluation methodology. End-to-end evaluation reduces downstream confabulation from 45.1% (Mem0) to 22.4%, with cross-generator validation on Kimi K2.5 confirming the hierarchy is generator-invariant. The ontology, benchmark, and code are released as supplementary material and will be made publicly available upon publication.",
+    "pdfUrl": null,
+    "pdfPath": "data/uploads/b2e18b7e-f791-44d1-9b53-8f9c655f57e3.pdf",
+    "pageCount": 49,
+    "overleafUrl": null,
+    "venueId": "venue-neurips-2026",
+    "status": "REJECTED",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
+    ],
+    "extractedSections": [
+      "Introduction",
+      "Related Work and Gap Analysis",
+      "Fortunate Recall"
+    ],
+    "extractedReferences": [],
+    "extractedAuthors": [],
+    "extractedAffiliations": [],
+    "extractedAt": "2026-05-01T09:48:31.288Z",
+    "createdAt": "2026-05-01T09:48:31.288Z",
+    "updatedAt": "2026-05-01T09:54:08.774Z"
+  },
+  {
+    "id": "40382f4d-6cc2-4a8c-9989-8f7ca2701758",
+    "title": "Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs",
+    "abstractText": "Current LLM memory systems treat all personal facts identically, storing them in flat vector stores or knowledge graphs with uniform retention, so stores grow unboundedly while retrieval precision degrades. The core challenge is lifecycle management: which memories should persist, which should be replaced, and at what rate, conditioned on the behavioral type of each fact. Fortunate Recall (FR) is a composable policy layer that classifies personal facts into a 10+1 behavioral ontology and applies category-specific lifecycle policies (differential temporal decay, slot-key supersession, event-time validity, and category-aware retrieval routing) as deterministic functions over LLM-extracted metadata. The lifecycle policy layer is pure math; the LLM is used at ingestion and for a single lightweight candidate-selection step at retrieval. FR-Bank, our infrastructure-independent implementation, achieves 77.3% pass rate on LifeMemBench, a new 516-question temporal-disambiguation benchmark, outperforming Mem0 (61%), Memory-R1 (66.9%), and MemoryOS (70.5%). FR-Bank also reaches 75.2% on the full 500-question LongMemEval-S canonical benchmark under the exact Wu et al. (ICLR 2025) judge protocol—to our knowledge, the first result evaluated under the original Wu et al. evaluation methodology. End-to-end evaluation reduces downstream confabulation from 45.1% (Mem0) to 22.4%, with cross-generator validation on Kimi K2.5 confirming the hierarchy is generator-invariant. The ontology, benchmark, and code are released as supplementary material and will be made publicly available upon publication.",
+    "pdfUrl": null,
+    "pdfPath": "data/uploads/67b2afb7-cb49-4db1-be06-2574f3f60447.pdf",
+    "pageCount": 49,
+    "overleafUrl": null,
+    "venueId": "venue-acl-2026",
+    "status": "SUBMITTED",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
+    ],
+    "extractedSections": [
+      "Introduction",
+      "Related Work and Gap Analysis",
+      "Fortunate Recall",
+      "Theoretical Foundations",
+      "LifeMemBench",
+      "Experiments",
+      "Discussion and Conclusion"
+    ],
+    "extractedReferences": [
+      "[1] D. Bai et al. LongMemEval: Benchmarking chat assistants on long-term interactive memory. arXiv:2410.10813, 2024.",
+      "[2] P. Rasmussen et al. Zep: A temporal knowledge graph architecture for agent memory. arXiv:2501.13956, 2025.",
+      "[3] Z. Tan et al. In prospect and retrospect: Reflective memory management for long-term personalized dialogue agents. In Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL), 2025.",
+      "[4] W. Xu et al. A-MEM: Agentic memory for LLM agents. In NeurIPS, 2025.",
+      "[5] W. Zhong et al. MemoryBank: Enhancing large language models with long-term memory. In AAAI, 2024.",
+      "[6] Z. Wu et al. Memoria: Scalable agentic memory for personalized conversational AI. arXiv:2512.12686, 2025.",
+      "[7] Y. Li et al. Graph-based agent memory: Taxonomy, techniques, and applications. arXiv:2602.05665, 2026.",
+      "[8] C. Packer et al. MemGPT: Towards LLMs as operating systems. arXiv:2310.08560, 2024.",
+      "[9] MemoryOS. Memory OS of AI agent. arXiv:2506.06326, 2025.",
+      "[10] S. Yan et al. Memory-R1: Enhancing large language model agents to manage and utilize memories via reinforcement learning. arXiv:2508.19828, 2025."
+    ],
+    "extractedAuthors": [
+      "Anonymous Authors"
+    ],
+    "extractedAffiliations": [
+      "Anonymous Institution"
+    ],
+    "extractedAt": "2026-05-01T09:55:13.092Z",
+    "createdAt": "2026-05-01T09:55:13.092Z",
+    "updatedAt": "2026-05-01T09:55:13.092Z"
+  },
+  {
+    "id": "a98d163c-e712-4a13-bd65-ed555bcaed65",
+    "title": "Ontology-Driven Clustering for Extracting Legal Reasoning Graphs",
+    "abstractText": "Extracting structured reasoning from long court judgments is a persistent challenge in legal NLP: large language models can identify individual legal concepts but struggle to consistently link them across thousands of tokens, producing graphs that are incomplete, structurally invalid, or non-reproducible. We present LEXCGRAPH, a pipeline that decomposes long-document graph extraction into a set of local inference problems by clustering extracted nodes around canonical legal concepts defined in a compiled ontology. Within each cluster, an LLM infers edges under ontology-provided constraints (definitions, AND/OR requirements, defeaters, relation whitelists); all cross-cluster structure is constructed deterministically. On 2,517 Indian Supreme Court cases from IL-TUR, ontology-normalized annotations outperform BM25 by +0.100 nDCG@10 (p < 0.05) and all dense retrieval baselines. Graph representations improve zero-shot outcome prediction by +11.1pp on Grok-4.1 and +11.1pp on Claude Sonnet 4.5 (McNemar p < 0.05), with substantially improved calibration (ECE: 0.109→0.026). Crucially, structured nodes without ontology-constrained edges perform worse than raw text, demonstrating that naive structuring destroys implicit textual signals—only ontology-constrained relational structure recovers and exceeds them. A leakage audit confirms comparable information access between representations (0.233 vs. 0.225 signals per 1K characters), and the consistent performance ordering across representations rules out LLM memorization. An ontology completeness ablation (11 vs. 54 concepts) reveals that enrichment dramatically improves graph quality (gold tier: 77%→90%, pseudo-cluster nodes: 93% reduction) while prediction accuracy remains unchanged—indicating that core doctrines saturate outcome-predictive signal while additional concepts improve structural fidelity for downstream applications. The AND/OR justification structure enables counterfactual impact analysis: across 15,276 justification sets, 77.5% of holdings are structurally fragile, and removing the single most critical concept eliminates one-third of a case's justifications on average. Cross-jurisdictional evaluation on ECHR cases confirms generalizability. We release the ontology, extraction code, and evaluation scripts.",
+    "pdfUrl": null,
+    "pdfPath": "data/uploads/30008b5a-1223-4103-984f-9144e9d52a0a.pdf",
+    "pageCount": 7,
+    "overleafUrl": null,
+    "venueId": "venue-emnlp-2026-long-papers",
+    "status": "SUBMITTED",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
+    ],
+    "extractedSections": [
+      "Introduction",
+      "Related Work",
+      "Method",
+      "Experimental Setup",
+      "Results",
+      "Counterfactual Impact Analysis",
+      "Discussion",
+      "Limitations",
+      "Conclusion"
+    ],
+    "extractedReferences": [],
+    "extractedAuthors": [],
+    "extractedAffiliations": [],
+    "extractedAt": "2026-05-02T08:32:25.794Z",
+    "createdAt": "2026-05-02T08:32:25.794Z",
+    "updatedAt": "2026-05-02T08:32:25.794Z"
+  },
+  {
+    "id": "e789084a-3fd0-4fe8-b686-97021829991d",
+    "title": "Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs",
+    "abstractText": "Current LLM memory systems treat all personal facts identically, storing them in flat vector stores or knowledge graphs with uniform retention, so stores grow unboundedly while retrieval precision degrades. The core challenge is lifecycle management: which memories should persist, which should be replaced, and at what rate, conditioned on the behavioral type of each fact. Fortunate Recall (FR) is a composable policy layer that classifies personal facts into a 10+1 behavioral ontology and applies category-specific lifecycle policies (differential temporal decay, slot-key supersession, event-time validity, and category-aware retrieval routing) as deterministic functions over LLM-extracted metadata. The lifecycle policy layer is pure math; the LLM is used at ingestion and for a single lightweight candidate-selection step at retrieval. FR-Bank, our infrastructure-independent implementation, achieves 77.3% pass rate on LifeMemBench, a new 516-question temporal-disambiguation benchmark, outperforming Mem0 (61%), Memory-R1 (66.9%), and MemoryOS (70.5%). FR-Bank also reaches 75.2% on the full 500-question LongMemEval-S canonical benchmark under the exact Wu et al. (ICLR 2025) judge protocol—to our knowledge, the first result evaluated under the original Wu et al. evaluation methodology. End-to-end evaluation reduces downstream confabulation from 45.1% (Mem0) to 22.4%, with cross-generator validation on Kimi K2.5 confirming the hierarchy is generator-invariant. The ontology, benchmark, and code are released as supplementary material and will be made publicly available upon publication.",
+    "pdfUrl": null,
+    "pdfPath": "data/uploads/86bef8f4-3002-4009-82d5-daec9b725844.pdf",
+    "pageCount": 52,
+    "overleafUrl": null,
+    "venueId": "venue-neurips-2026",
+    "status": "SUBMITTED",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
+    ],
+    "extractedSections": [
+      "Introduction",
+      "Related Work and Gap Analysis",
+      "Fortunate Recall",
+      "Theoretical Foundations",
+      "LifeMemBench",
+      "Experiments",
+      "Discussion and Conclusion"
+    ],
+    "extractedReferences": [
+      "D. Wu, H. Wang, W. Yu, Y. Zhang, K.-W. Chang, and D. Yu. LongMemEval: Benchmarking chat assistants on long-term interactive memory. In ICLR, 2025.",
+      "P. Rasmussen et al. Zep: A temporal knowledge graph architecture for agent memory. arXiv:2501.13956, 2025.",
+      "Z. Tan et al. In prospect and retrospect: Reflective memory management for long-term personalized dialogue agents. In Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL), 2025.",
+      "W. Xu et al. A-MEM: Agentic memory for LLM agents. In NeurIPS, 2025.",
+      "W. Zhong et al. MemoryBank: Enhancing large language models with long-term memory. In AAAI, 2024.",
+      "Z. Wu et al. Memoria: Scalable agentic memory for personalized conversational AI. arXiv:2512.12686, 2025.",
+      "Y. Li et al. Graph-based agent memory: Taxonomy, techniques, and applications. arXiv:2602.05665, 2026.",
+      "C. Packer et al. MemGPT: Towards LLMs as operating systems. arXiv:2310.08560, 2024.",
+      "J. Kang, M. Ji, Z. Zhao, and T. Bai. Memory OS of AI agent. arXiv:2506.06326, 2025.",
+      "S. Yan et al. Memory-R1: Enhancing large language model agents to manage and utilize memories via reinforcement learning. arXiv:2508.19828, 2025."
+    ],
+    "extractedAuthors": [
+      "Anonymous Authors"
+    ],
+    "extractedAffiliations": [
+      "Anonymous Institution"
+    ],
+    "extractedAt": "2026-05-02T09:15:31.462Z",
+    "createdAt": "2026-05-02T09:15:31.462Z",
+    "updatedAt": "2026-05-02T09:15:31.462Z"
+  },
+  {
+    "id": "c935f649-a615-42c9-b791-89629c487376",
+    "title": "Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs",
+    "abstractText": "Current LLM memory systems treat all personal facts identically, storing them in flat vector stores or knowledge graphs with uniform retention, so stores grow unboundedly while retrieval precision degrades. The core challenge is lifecycle management: which memories should persist, which should be replaced, and at what rate, conditioned on the behavioral type of each fact. Fortunate Recall (FR) is a composable policy layer that classifies personal facts into a 10+1 behavioral ontology and applies category-specific lifecycle policies (differential temporal decay, slot-key supersession, event-time validity, and category-aware retrieval routing) as deterministic functions over LLM-extracted metadata. The lifecycle policy layer is pure math; the LLM is used at ingestion and for a single lightweight candidate-selection step at retrieval. FR-Bank, our infrastructure-independent implementation, achieves 77.3% pass rate on LifeMemBench, a new 516-question temporal-disambiguation benchmark, outperforming Mem0 (61%), Memory-R1 (66.9%), and MemoryOS (70.5%). FR-Bank also reaches 75.2% on the full 500-question LongMemEval-S canonical benchmark under the exact Wu et al. (ICLR 2025) judge protocol—to our knowledge, the first result evaluated under the original Wu et al. evaluation methodology. End-to-end evaluation reduces downstream confabulation from 45.1% (Mem0) to 22.4%, with cross-generator validation on Kimi K2.5 confirming the hierarchy is generator-invariant. The ontology, benchmark, and code are released as supplementary material and will be made publicly available upon publication.",
+    "pdfUrl": null,
+    "pdfPath": "data/uploads/86bef8f4-3002-4009-82d5-daec9b725844.pdf",
+    "pageCount": 52,
+    "overleafUrl": null,
+    "venueId": "venue-neurips-2026",
+    "status": "SUBMITTED",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
+    ],
+    "extractedSections": [
+      "Introduction",
+      "Related Work and Gap Analysis",
+      "Fortunate Recall",
+      "Theoretical Foundations",
+      "LifeMemBench",
+      "Experiments",
+      "Discussion and Conclusion"
+    ],
+    "extractedReferences": [
+      "D. Wu, H. Wang, W. Yu, Y. Zhang, K.-W. Chang, and D. Yu. LongMemEval: Benchmarking chat assistants on long-term interactive memory. In ICLR, 2025.",
+      "P. Rasmussen et al. Zep: A temporal knowledge graph architecture for agent memory. arXiv:2501.13956, 2025.",
+      "Z. Tan et al. In prospect and retrospect: Reflective memory management for long-term personalized dialogue agents. In Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL), 2025.",
+      "W. Xu et al. A-MEM: Agentic memory for LLM agents. In NeurIPS, 2025.",
+      "W. Zhong et al. MemoryBank: Enhancing large language models with long-term memory. In AAAI, 2024.",
+      "Z. Wu et al. Memoria: Scalable agentic memory for personalized conversational AI. arXiv:2512.12686, 2025.",
+      "Y. Li et al. Graph-based agent memory: Taxonomy, techniques, and applications. arXiv:2602.05665, 2026.",
+      "C. Packer et al. MemGPT: Towards LLMs as operating systems. arXiv:2310.08560, 2024.",
+      "J. Kang, M. Ji, Z. Zhao, and T. Bai. Memory OS of AI agent. arXiv:2506.06326, 2025.",
+      "S. Yan et al. Memory-R1: Enhancing large language model agents to manage and utilize memories via reinforcement learning. arXiv:2508.19828, 2025."
+    ],
+    "extractedAuthors": [
+      "Anonymous Authors"
+    ],
+    "extractedAffiliations": [
+      "Anonymous Institution"
+    ],
+    "extractedAt": "2026-05-02T09:15:31.687Z",
+    "createdAt": "2026-05-02T09:15:31.687Z",
+    "updatedAt": "2026-05-02T09:15:31.687Z"
+  },
+  {
+    "id": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "title": "Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs",
+    "abstractText": "Current LLM memory systems treat all personal facts identically, storing them in flat vector stores or knowledge graphs with uniform retention, so stores grow unboundedly while retrieval precision degrades. The core challenge is lifecycle management: which memories should persist, which should be replaced, and at what rate, conditioned on the behavioral type of each fact. Fortunate Recall (FR) is a composable policy layer that classifies personal facts into a 10+1 behavioral ontology and applies category-specific lifecycle policies (differential temporal decay, slot-key supersession, event-time validity, and category-aware retrieval routing) as deterministic functions over LLM-extracted metadata. The lifecycle policy layer is pure math; the LLM is used at ingestion and for a single lightweight candidate-selection step at retrieval. FR-Bank, our infrastructure-independent implementation, achieves 77.3% pass rate on LifeMemBench, a new 516-question temporal-disambiguation benchmark, outperforming Mem0 (61%), Memory-R1 (66.9%), and MemoryOS (70.5%). FR-Bank also reaches 75.2% on the full 500-question LongMemEval-S canonical benchmark under the exact Wu et al. (ICLR 2025) judge protocol—to our knowledge, the first result evaluated under the original Wu et al. evaluation methodology. End-to-end evaluation reduces downstream confabulation from 45.1% (Mem0) to 22.4%, with cross-generator validation on Kimi K2.5 confirming the hierarchy is generator-invariant. The ontology, benchmark, and code are released as supplementary material and will be made publicly available upon publication.",
+    "pdfUrl": null,
+    "pdfPath": "data/uploads/86bef8f4-3002-4009-82d5-daec9b725844.pdf",
+    "pageCount": 52,
+    "overleafUrl": null,
+    "venueId": "venue-neurips-2026",
+    "status": "SUBMITTED",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
+    ],
+    "extractedSections": [
+      "Introduction",
+      "Related Work and Gap Analysis",
+      "Fortunate Recall",
+      "Theoretical Foundations",
+      "LifeMemBench",
+      "Experiments",
+      "Discussion and Conclusion"
+    ],
+    "extractedReferences": [
+      "D. Wu, H. Wang, W. Yu, Y. Zhang, K.-W. Chang, and D. Yu. LongMemEval: Benchmarking chat assistants on long-term interactive memory. In ICLR, 2025.",
+      "P. Rasmussen et al. Zep: A temporal knowledge graph architecture for agent memory. arXiv:2501.13956, 2025.",
+      "Z. Tan et al. In prospect and retrospect: Reflective memory management for long-term personalized dialogue agents. In Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL), 2025.",
+      "W. Xu et al. A-MEM: Agentic memory for LLM agents. In NeurIPS, 2025.",
+      "W. Zhong et al. MemoryBank: Enhancing large language models with long-term memory. In AAAI, 2024.",
+      "Z. Wu et al. Memoria: Scalable agentic memory for personalized conversational AI. arXiv:2512.12686, 2025.",
+      "Y. Li et al. Graph-based agent memory: Taxonomy, techniques, and applications. arXiv:2602.05665, 2026.",
+      "C. Packer et al. MemGPT: Towards LLMs as operating systems. arXiv:2310.08560, 2024.",
+      "J. Kang, M. Ji, Z. Zhao, and T. Bai. Memory OS of AI agent. arXiv:2506.06326, 2025.",
+      "S. Yan et al. Memory-R1: Enhancing large language model agents to manage and utilize memories via reinforcement learning. arXiv:2508.19828, 2025."
+    ],
+    "extractedAuthors": [
+      "Anonymous Authors"
+    ],
+    "extractedAffiliations": [
+      "Anonymous Institution"
+    ],
+    "extractedAt": "2026-05-02T09:15:40.968Z",
+    "createdAt": "2026-05-02T09:15:40.968Z",
+    "updatedAt": "2026-05-02T09:15:40.968Z"
+  },
+  {
+    "id": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "title": "Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs",
+    "abstractText": "Current LLM memory systems treat all personal facts identically, storing them in flat vector stores or knowledge graphs with uniform retention, so stores grow unboundedly while retrieval precision degrades. The core challenge is lifecycle management: which memories should persist, which should be replaced, and at what rate, conditioned on the behavioral type of each fact. Fortunate Recall (FR) is a composable policy layer that classifies personal facts into a 10+1 behavioral ontology and applies category-specific lifecycle policies (differential temporal decay, slot-key supersession, event-time validity, and category-aware retrieval routing) as deterministic functions over LLM-extracted metadata. The lifecycle policy layer is pure math; the LLM is used at ingestion and for a single lightweight candidate-selection step at retrieval. FR-Bank, our infrastructure-independent implementation, achieves 77.3% pass rate on LifeMemBench, a new 516-question temporal-disambiguation benchmark, outperforming Mem0 (61%), Memory-R1 (66.9%), and MemoryOS (70.5%). FR-Bank also reaches 75.2% on the full 500-question LongMemEval-S canonical benchmark under the exact Wu et al. (ICLR 2025) judge protocol—to our knowledge, the first result evaluated under the original Wu et al. evaluation methodology. End-to-end evaluation reduces downstream confabulation from 45.1% (Mem0) to 22.4%, with cross-generator validation on Kimi K2.5 confirming the hierarchy is generator-invariant. The ontology, benchmark, and code are released as supplementary material and will be made publicly available upon publication.",
+    "pdfUrl": null,
+    "pdfPath": "data/uploads/3206705c-5706-4466-b99f-e4d29394ab3a.pdf",
+    "pageCount": 52,
+    "overleafUrl": null,
+    "venueId": "venue-neurips-2026",
+    "status": "SUBMITTED",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
+    ],
+    "extractedSections": [
+      "Introduction",
+      "Related Work and Gap Analysis",
+      "Fortunate Recall",
+      "Theoretical Foundations",
+      "LifeMemBench",
+      "Experiments",
+      "Discussion and Conclusion"
+    ],
+    "extractedReferences": [
+      "D. Wu, H. Wang, W. Yu, Y. Zhang, K.-W. Chang, and D. Yu. LongMemEval: Benchmarking chat assistants on long-term interactive memory. In ICLR, 2025.",
+      "P. Rasmussen et al. Zep: A temporal knowledge graph architecture for agent memory. arXiv:2501.13956, 2025.",
+      "Z. Tan et al. In prospect and retrospect: Reflective memory management for long-term personalized dialogue agents. In Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL), 2025.",
+      "W. Xu et al. A-MEM: Agentic memory for LLM agents. In NeurIPS, 2025.",
+      "W. Zhong et al. MemoryBank: Enhancing large language models with long-term memory. In AAAI, 2024.",
+      "Z. Wu et al. Memoria: Scalable agentic memory for personalized conversational AI. arXiv:2512.12686, 2025.",
+      "Y. Li et al. Graph-based agent memory: Taxonomy, techniques, and applications. arXiv:2602.05665, 2026.",
+      "C. Packer et al. MemGPT: Towards LLMs as operating systems. arXiv:2310.08560, 2024.",
+      "J. Kang, M. Ji, Z. Zhao, and T. Bai. Memory OS of AI agent. arXiv:2506.06326, 2025.",
+      "S. Yan et al. Memory-R1: Enhancing large language model agents to manage and utilize memories via reinforcement learning. arXiv:2508.19828, 2025."
+    ],
+    "extractedAuthors": [
+      "Anonymous Authors"
+    ],
+    "extractedAffiliations": [
+      "Anonymous Institution"
+    ],
+    "extractedAt": "2026-05-02T09:57:38.448Z",
+    "createdAt": "2026-05-02T09:57:38.448Z",
+    "updatedAt": "2026-05-02T09:57:38.448Z"
   }
 ]

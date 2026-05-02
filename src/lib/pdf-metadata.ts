@@ -1,4 +1,9 @@
+import fs from "fs/promises";
+import path from "path";
 import { PDFDocument } from "pdf-lib";
+import type { PaperRecord } from "@/lib/review-types";
+
+const UPLOADS_DIR = path.resolve(process.cwd(), "data", "uploads");
 
 export interface PdfMetadata {
   author: string | null;
@@ -45,6 +50,33 @@ const GENERIC_PRODUCERS = [
   "tcpdf",
   "wkhtmltopdf",
 ];
+
+export async function loadPdfBuffer(
+  paper: Pick<PaperRecord, "pdfPath" | "pdfUrl">
+): Promise<Uint8Array | null> {
+  if (paper.pdfPath) {
+    const resolved = path.resolve(process.cwd(), paper.pdfPath);
+    if (resolved.startsWith(UPLOADS_DIR + path.sep) || resolved === UPLOADS_DIR) {
+      try {
+        const buf = await fs.readFile(resolved);
+        return new Uint8Array(buf);
+      } catch {
+        // fall through to URL fallback
+      }
+    }
+  }
+  if (paper.pdfUrl && /^https?:\/\//i.test(paper.pdfUrl)) {
+    try {
+      const response = await fetch(paper.pdfUrl);
+      if (!response.ok) return null;
+      const arrayBuffer = await response.arrayBuffer();
+      return new Uint8Array(arrayBuffer);
+    } catch {
+      return null;
+    }
+  }
+  return null;
+}
 
 export function metadataSuggestsIdentity(metadata: PdfMetadata): {
   hasIdentity: boolean;

@@ -1,11 +1,26 @@
 import Anthropic from "@anthropic-ai/sdk";
 
 const MAX_TEXT_LENGTH = 15000;
+const MAX_EXTRACTION_TEXT_LENGTH = 60000;
 const MODEL = "claude-sonnet-4-5-20250929";
 
 function truncateText(text: string): string {
   if (text.length <= MAX_TEXT_LENGTH) return text;
   return text.slice(0, MAX_TEXT_LENGTH) + "\n[...truncated]";
+}
+
+// For metadata extraction we want a much wider view of the paper than for review:
+// section headings live throughout, and references sit at the end. Send the head
+// (covers abstract → most body sections) + the tail (covers references).
+function truncateForExtraction(text: string): string {
+  if (text.length <= MAX_EXTRACTION_TEXT_LENGTH) return text;
+  const headBudget = Math.floor(MAX_EXTRACTION_TEXT_LENGTH * 0.75);
+  const tailBudget = MAX_EXTRACTION_TEXT_LENGTH - headBudget - 32;
+  return (
+    text.slice(0, headBudget) +
+    "\n\n[... middle of paper truncated ...]\n\n" +
+    text.slice(text.length - tailBudget)
+  );
 }
 
 function getClient(): Anthropic {
@@ -60,6 +75,102 @@ function coerceClaims(value: unknown): GroundedClaim[] {
       return null;
     })
     .filter((c): c is GroundedClaim => c !== null && c.point.length > 0);
+}
+
+export interface ExtractedPaperMetadata {
+  title: string | null;
+  abstract: string | null;
+  authors: string[];
+  affiliations: string[];
+  sectionHeadings: string[];
+  references: string[];
+  suggestedPaperType: "RESEARCH" | "SURVEY" | "TOOL" | "EXPERIENCE_REPORT" | "OTHER" | null;
+}
+
+function emptyExtractedMetadata(): ExtractedPaperMetadata {
+  return {
+    title: null,
+    abstract: null,
+    authors: [],
+    affiliations: [],
+    sectionHeadings: [],
+    references: [],
+    suggestedPaperType: null,
+  };
+}
+
+const PAPER_TYPES = ["RESEARCH", "SURVEY", "TOOL", "EXPERIENCE_REPORT", "OTHER"] as const;
+
+function coerceStringArray(value: unknown, max = 50): string[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .map((item) => (typeof item === "string" ? item.trim() : ""))
+    .filter((s) => s.length > 0)
+    .slice(0, max);
+}
+
+export async function extractPaperMetadata(text: string): Promise<ExtractedPaperMetadata | null> {
+  console.log("[extractPaperMetadata]", {
+    hasKey: Boolean(process.env.ANTHROPIC_API_KEY),
+    textLen: text.length,
+  });
+
+  if (!process.env.ANTHROPIC_API_KEY) {
+    return null;
+  }
+
+  const client = getClient();
+  const truncated = truncateForExtraction(text);
+
+  const response = await client.messages.create({
+    model: MODEL,
+    max_tokens: 1500,
+    messages: [
+      {
+        role: "user",
+        content: `Extract structured metadata from this academic paper. Return ONLY valid JSON, no markdown fences or extra text, with exactly these fields:
+
+- "title": the paper title, just the title text, no "Title:" prefix
+- "abstract": the abstract, verbatim, no "Abstract:" prefix
+- "authors": array of author full names (e.g. ["Jane Doe", "John Smith"])
+- "affiliations": array of unique institutions/companies (e.g. ["MIT", "Microsoft Research"])
+- "sectionHeadings": array of top-level section headings in order (e.g. ["Introduction", "Related Work", "Method", "Evaluation", "Conclusion"]). Top-level only — skip subsections.
+- "references": array of the first ~10 reference list entries verbatim (one string per reference)
+- "suggestedPaperType": one of "RESEARCH", "SURVEY", "TOOL", "EXPERIENCE_REPORT", "OTHER" — your best guess based on the abstract and structure
+
+CRITICAL: All values must come from the paper text below. Do not invent. If a field cannot be found, use null for strings or an empty array for lists.
+
+Paper text:
+${truncated}`,
+      },
+    ],
+  });
+
+  const raw = response.content[0]?.type === "text" ? response.content[0].text : "";
+
+  let parsed: Record<string, unknown> = {};
+  try {
+    const cleaned = raw.replace(/```json\s*|```\s*/g, "").trim();
+    parsed = JSON.parse(cleaned) as Record<string, unknown>;
+  } catch {
+    return emptyExtractedMetadata();
+  }
+
+  const suggestedPaperTypeRaw =
+    typeof parsed.suggestedPaperType === "string" ? parsed.suggestedPaperType.toUpperCase() : null;
+  const suggestedPaperType = (PAPER_TYPES as readonly string[]).includes(suggestedPaperTypeRaw ?? "")
+    ? (suggestedPaperTypeRaw as ExtractedPaperMetadata["suggestedPaperType"])
+    : null;
+
+  return {
+    title: typeof parsed.title === "string" && parsed.title.trim() ? parsed.title.trim() : null,
+    abstract: typeof parsed.abstract === "string" && parsed.abstract.trim() ? parsed.abstract.trim() : null,
+    authors: coerceStringArray(parsed.authors, 30),
+    affiliations: coerceStringArray(parsed.affiliations, 30),
+    sectionHeadings: coerceStringArray(parsed.sectionHeadings, 50),
+    references: coerceStringArray(parsed.references, 30),
+    suggestedPaperType,
+  };
 }
 
 export async function generateReviewWithClaude(extractedText: string): Promise<GroundedReview> {

@@ -79,14 +79,27 @@ export default async function ReviewWorkspacePage({
           </p>
           <p>
             <span className="text-muted-foreground">PDF:</span>{" "}
-            <a
-              href={assignmentDetails.paper.pdfUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="text-primary hover:underline"
-            >
-              Open PDF
-            </a>
+            {assignmentDetails.paper.pdfUrl ? (
+              <a
+                href={assignmentDetails.paper.pdfUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary hover:underline"
+              >
+                Open PDF
+              </a>
+            ) : assignmentDetails.paper.pdfPath ? (
+              <a
+                href={`/api/papers/${assignmentDetails.paper.id}/pdf`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary hover:underline"
+              >
+                Open PDF
+              </a>
+            ) : (
+              <span className="text-muted-foreground">Not available</span>
+            )}
           </p>
           {assignmentDetails.paper.overleafUrl && (
             <p>

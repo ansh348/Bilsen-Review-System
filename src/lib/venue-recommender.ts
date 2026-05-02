@@ -48,11 +48,36 @@ export function recommendVenues(
         reasons.push(`Accepts ${paper.paperType} papers`);
       }
 
-      const venueTokens = tokenize(`${venue.name} ${venue.track ?? ""}`);
+      const venueTokens = tokenize(
+        `${venue.name} ${venue.track ?? ""} ${venue.fullName ?? ""}`,
+      );
       const overlap = intersectionSize(paperTokens, venueTokens);
       if (overlap > 0) {
         score += Math.min(overlap, 3) * 2;
         reasons.push(`${overlap} keyword(s) overlap with venue topic`);
+      }
+
+      // Domain match: split on dashes (e.g. "software-engineering" -> ["software", "engineering"]).
+      const domain = venue.domain ?? null;
+      if (domain) {
+        const domainTokens = tokenize(domain.replace(/-/g, " "));
+        const domainOverlap = intersectionSize(paperTokens, domainTokens);
+        if (domainOverlap > 0) {
+          score += 1;
+          reasons.push(`Matches venue domain: ${domain}`);
+        }
+      }
+
+      // Acronym mention in the paper text is a strong signal.
+      const acronym = venue.acronym ?? null;
+      if (acronym && acronym.length >= 3) {
+        const lc = acronym.toLowerCase();
+        const titleLc = paper.title.toLowerCase();
+        const abstractLc = (paper.abstractText ?? "").toLowerCase();
+        if (titleLc.includes(lc) || abstractLc.includes(lc)) {
+          score += 2;
+          reasons.push(`Paper mentions ${acronym}`);
+        }
       }
 
       if (venue.submissionDeadline) {

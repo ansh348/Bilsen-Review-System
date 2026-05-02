@@ -815,5 +815,3340 @@
       ]
     },
     "checkedAt": "2026-04-18T12:40:49.491Z"
+  },
+  {
+    "id": "efe0f1c6-8aca-47ea-8f23-e74c0b37c2e8",
+    "paperId": "f906ad21-f1b7-4d7c-84cb-cc795e4c30f3",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "pageCount": null,
+      "pageLimit": 9,
+      "note": "Page count not provided; check skipped."
+    },
+    "checkedAt": "2026-05-01T08:50:05.664Z"
+  },
+  {
+    "id": "318c37d4-b743-48da-a4ac-d5d66610c4a7",
+    "paperId": "f906ad21-f1b7-4d7c-84cb-cc795e4c30f3",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "abstractWordCount": 231,
+      "abstractWordLimit": 250
+    },
+    "checkedAt": "2026-05-01T08:50:05.664Z"
+  },
+  {
+    "id": "219adf02-03c3-4f71-945b-30054dd8290e",
+    "paperId": "f906ad21-f1b7-4d7c-84cb-cc795e4c30f3",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Experiments",
+        "Conclusion",
+        "Threats to Validity"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Experiments",
+        "Conclusion",
+        "Threats to Validity"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [
+        "Threats to Validity"
+      ]
+    },
+    "checkedAt": "2026-05-01T08:50:05.664Z"
+  },
+  {
+    "id": "33e9aa17-b97e-4a20-9037-95d6b9faa845",
+    "paperId": "f906ad21-f1b7-4d7c-84cb-cc795e4c30f3",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": false,
+    "details": {
+      "paperType": "RESEARCH",
+      "track": "Main Conference",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": false
+        }
+      ],
+      "missing": [
+        "Comparison to baseline(s)"
+      ]
+    },
+    "checkedAt": "2026-05-01T08:50:05.664Z"
+  },
+  {
+    "id": "26ed776a-08ca-44b4-8734-15807c6bbe3d",
+    "paperId": "f906ad21-f1b7-4d7c-84cb-cc795e4c30f3",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-01T08:50:05.664Z"
+  },
+  {
+    "id": "474eb99a-a051-4870-8f2d-bb2cb5b03ff4",
+    "paperId": "f906ad21-f1b7-4d7c-84cb-cc795e4c30f3",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-01T08:50:05.664Z"
+  },
+  {
+    "id": "e9976460-8b87-4786-92fb-53dab1a95e4c",
+    "paperId": "f906ad21-f1b7-4d7c-84cb-cc795e4c30f3",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-01T08:50:05.664Z"
+  },
+  {
+    "id": "64af24b2-b4ca-497a-b71f-cce2e881e890",
+    "paperId": "f906ad21-f1b7-4d7c-84cb-cc795e4c30f3",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": true,
+    "details": {
+      "expectedFormat": "IEEE",
+      "note": "Full text not provided; reference format not verified."
+    },
+    "checkedAt": "2026-05-01T08:50:05.664Z"
+  },
+  {
+    "id": "feed4812-32db-46b4-b346-b5313a0b63fe",
+    "paperId": "25a904fc-8e71-4fbe-9692-388b55da1b52",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "pageCount": null,
+      "pageLimit": 9,
+      "note": "Page count not provided; check skipped."
+    },
+    "checkedAt": "2026-05-01T09:25:14.076Z"
+  },
+  {
+    "id": "649a30a2-2216-446f-ae4c-e5b51dd7121a",
+    "paperId": "25a904fc-8e71-4fbe-9692-388b55da1b52",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "abstractWordCount": 213,
+      "abstractWordLimit": 250
+    },
+    "checkedAt": "2026-05-01T09:25:14.076Z"
+  },
+  {
+    "id": "0ef5af1d-dec3-4acf-bc46-4834af6f87f9",
+    "paperId": "25a904fc-8e71-4fbe-9692-388b55da1b52",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Experiments",
+        "Conclusion",
+        "Threats to Validity"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method",
+        "Experiments",
+        "Conclusion",
+        "Threats to Validity"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [
+        "Threats to Validity"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction",
+        "Related Work and Gap Analysis",
+        "Fortunate Recall"
+      ]
+    },
+    "checkedAt": "2026-05-01T09:25:14.076Z"
+  },
+  {
+    "id": "81d71ba7-5b60-4493-9bb9-f34e7ae23907",
+    "paperId": "25a904fc-8e71-4fbe-9692-388b55da1b52",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "paperType": "RESEARCH",
+      "track": "Main Conference",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-01T09:25:14.076Z"
+  },
+  {
+    "id": "e3187cd3-ccc6-4a48-a668-ec114acbba17",
+    "paperId": "25a904fc-8e71-4fbe-9692-388b55da1b52",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-01T09:25:14.076Z"
+  },
+  {
+    "id": "4e687a70-24d4-4a78-9bea-a30f067dd727",
+    "paperId": "25a904fc-8e71-4fbe-9692-388b55da1b52",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-01T09:25:14.076Z"
+  },
+  {
+    "id": "afe1de7b-7a69-4d94-a4e6-85108436fdb0",
+    "paperId": "25a904fc-8e71-4fbe-9692-388b55da1b52",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-01T09:25:14.076Z"
+  },
+  {
+    "id": "66be1f9a-48d0-4074-9b3f-1a156e46ec42",
+    "paperId": "25a904fc-8e71-4fbe-9692-388b55da1b52",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": true,
+    "details": {
+      "expectedFormat": "IEEE",
+      "hasReferencesSection": true,
+      "detectedHint": "IEEE (numbered)",
+      "source": "text-heuristic"
+    },
+    "checkedAt": "2026-05-01T09:25:14.076Z"
+  },
+  {
+    "id": "91edb4f0-5d47-45f3-abcc-5617dfdc2a51",
+    "paperId": "25a904fc-8e71-4fbe-9692-388b55da1b52",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "anonymityRequired": true,
+      "author": null,
+      "creator": "LaTeX with hyperref",
+      "producer": "MiKTeX pdfTeX-1.40.27",
+      "flags": []
+    },
+    "checkedAt": "2026-05-01T09:25:14.076Z"
+  },
+  {
+    "id": "28db5f10-27dc-40ba-a625-46bec60771a9",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "PAGE_LIMIT",
+    "passed": false,
+    "details": {
+      "message": "Paper is 49 pages. NeurIPS 2026 limit is 9 pages (excluding references and appendix). Remove 40 pages of content (or move material to appendix if the venue allows).",
+      "pageCount": 49,
+      "pageLimit": 9
+    },
+    "checkedAt": "2026-05-01T09:48:31.522Z"
+  },
+  {
+    "id": "6f94bc04-e178-4d5d-8742-f9b06c2e44c2",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "Abstract is 213 words, within the 250-word limit.",
+      "abstractWordCount": 213,
+      "abstractWordLimit": 250
+    },
+    "checkedAt": "2026-05-01T09:48:31.522Z"
+  },
+  {
+    "id": "c0753666-fd8b-4670-b79a-216387126184",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Method, Experiments, Conclusion. NeurIPS 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction, Related Work and Gap Analysis, Fortunate Recall).",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction",
+        "Related Work and Gap Analysis",
+        "Fortunate Recall"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction",
+        "Related Work": "related work and gap analysis"
+      }
+    },
+    "checkedAt": "2026-05-01T09:48:31.522Z"
+  },
+  {
+    "id": "b8a49614-4426-4f83-9e99-013ea78ca5b3",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Main Conference",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-01T09:48:31.522Z"
+  },
+  {
+    "id": "affde0c7-a3ce-43cb-9298-d9e862763440",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-01T09:48:31.522Z"
+  },
+  {
+    "id": "a590c6e5-ed7a-43c3-a72c-7698d25f0408",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-01T09:48:31.522Z"
+  },
+  {
+    "id": "f59c059f-ba8d-43cf-bdf9-bd774bb6d971",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-01T09:48:31.522Z"
+  },
+  {
+    "id": "3a0d219a-cf2e-43a4-accc-1af492954e45",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": false,
+    "details": {
+      "message": "Expected ACM format but no ACM citations found. Use \\citep{} (natbib) so citations render as '(Smith et al., 2024)'.",
+      "expectedFormat": "ACM",
+      "hasReferencesSection": true,
+      "detectedHint": "no ACM citations found",
+      "source": "text-heuristic"
+    },
+    "checkedAt": "2026-05-01T09:48:31.522Z"
+  },
+  {
+    "id": "d1c03c77-1056-47de-a04c-0da1df248b72",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": "LaTeX with hyperref",
+      "producer": "MiKTeX pdfTeX-1.40.27",
+      "flags": []
+    },
+    "checkedAt": "2026-05-01T09:48:31.522Z"
+  },
+  {
+    "id": "4b1d00cd-3c5f-47a9-b84f-43e2e6f096e1",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "PAGE_LIMIT",
+    "passed": false,
+    "details": {
+      "message": "Paper is 49 pages. NeurIPS 2026 limit is 9 pages (excluding references and appendix). Remove 40 pages of content (or move material to appendix if the venue allows).",
+      "pageCount": 49,
+      "pageLimit": 9
+    },
+    "checkedAt": "2026-05-01T09:54:00.142Z"
+  },
+  {
+    "id": "9b212189-e49f-4b30-93b0-aa35529e1d01",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "Abstract is 213 words, within the 250-word limit.",
+      "abstractWordCount": 213,
+      "abstractWordLimit": 250
+    },
+    "checkedAt": "2026-05-01T09:54:00.142Z"
+  },
+  {
+    "id": "bb3c317e-9cd7-4e38-a710-bfbad609696d",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Method, Experiments, Conclusion. NeurIPS 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction, Related Work and Gap Analysis, Fortunate Recall).",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction",
+        "Related Work and Gap Analysis",
+        "Fortunate Recall"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction",
+        "Related Work": "related work and gap analysis"
+      }
+    },
+    "checkedAt": "2026-05-01T09:54:00.142Z"
+  },
+  {
+    "id": "616f31de-b244-4f1e-9623-8d5a1dd7a807",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Main Conference",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-01T09:54:00.142Z"
+  },
+  {
+    "id": "6392c223-d6eb-42cf-a7c9-2792f31220f5",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-01T09:54:00.142Z"
+  },
+  {
+    "id": "fbeec46b-a817-4250-b2d3-90833af5722c",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-01T09:54:00.142Z"
+  },
+  {
+    "id": "2ba2aa05-3ecd-4ba2-a729-f1a4070da98a",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-01T09:54:00.142Z"
+  },
+  {
+    "id": "be8d0c32-ac58-435b-a9a0-433561f51b5b",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": false,
+    "details": {
+      "message": "Expected ACM format but no ACM citations found. Use \\citep{} (natbib) so citations render as '(Smith et al., 2024)'.",
+      "expectedFormat": "ACM",
+      "hasReferencesSection": true,
+      "detectedHint": "no ACM citations found",
+      "source": "text-heuristic"
+    },
+    "checkedAt": "2026-05-01T09:54:00.142Z"
+  },
+  {
+    "id": "51accf0b-b4d5-4234-9515-41dda5c6574e",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": "LaTeX with hyperref",
+      "producer": "MiKTeX pdfTeX-1.40.27",
+      "flags": []
+    },
+    "checkedAt": "2026-05-01T09:54:00.142Z"
+  },
+  {
+    "id": "9553c434-6312-4f97-bf1c-82d835caff49",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "PAGE_LIMIT",
+    "passed": false,
+    "details": {
+      "message": "Paper is 49 pages. NeurIPS 2026 limit is 9 pages (excluding references and appendix). Remove 40 pages of content (or move material to appendix if the venue allows).",
+      "pageCount": 49,
+      "pageLimit": 9
+    },
+    "checkedAt": "2026-05-01T09:54:08.951Z"
+  },
+  {
+    "id": "71a05c90-1ef7-4cd1-a431-b02c66b33b72",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "Abstract is 213 words, within the 250-word limit.",
+      "abstractWordCount": 213,
+      "abstractWordLimit": 250
+    },
+    "checkedAt": "2026-05-01T09:54:08.951Z"
+  },
+  {
+    "id": "9813a21b-1657-4800-aa7f-6fb4ad1a32f2",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Method, Experiments, Conclusion. NeurIPS 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction, Related Work and Gap Analysis, Fortunate Recall).",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction",
+        "Related Work and Gap Analysis",
+        "Fortunate Recall"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction",
+        "Related Work": "related work and gap analysis"
+      }
+    },
+    "checkedAt": "2026-05-01T09:54:08.951Z"
+  },
+  {
+    "id": "4ff39731-83a0-44d5-9cad-adc72cb7034e",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Main Conference",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-01T09:54:08.951Z"
+  },
+  {
+    "id": "cc9208a6-ae26-45ac-8b7c-22cfbd2d1869",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-01T09:54:08.951Z"
+  },
+  {
+    "id": "c2f71945-6ac5-4f0f-8ad8-dda433227b08",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-01T09:54:08.951Z"
+  },
+  {
+    "id": "5fcd53e6-5856-42f2-8128-84387a506ee5",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-01T09:54:08.951Z"
+  },
+  {
+    "id": "658d1366-e9e2-49ef-ad40-5d1cc229479f",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": false,
+    "details": {
+      "message": "Expected ACM format but no ACM citations found. Use \\citep{} (natbib) so citations render as '(Smith et al., 2024)'.",
+      "expectedFormat": "ACM",
+      "hasReferencesSection": true,
+      "detectedHint": "no ACM citations found",
+      "source": "text-heuristic"
+    },
+    "checkedAt": "2026-05-01T09:54:08.951Z"
+  },
+  {
+    "id": "03e0d2bf-7b57-416b-8b83-2e2f575b7a82",
+    "paperId": "c1978f9c-f7b5-4d6d-aea7-54654c05466e",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": "LaTeX with hyperref",
+      "producer": "MiKTeX pdfTeX-1.40.27",
+      "flags": []
+    },
+    "checkedAt": "2026-05-01T09:54:08.951Z"
+  },
+  {
+    "id": "c3b7758e-90d3-4dcb-82a8-cd723ec568e3",
+    "paperId": "40382f4d-6cc2-4a8c-9989-8f7ca2701758",
+    "checkType": "PAGE_LIMIT",
+    "passed": false,
+    "details": {
+      "message": "Paper is 49 pages. ACL 2026 limit is 8 pages (excluding references and appendix). Remove 41 pages of content (or move material to appendix if the venue allows).",
+      "pageCount": 49,
+      "pageLimit": 8
+    },
+    "checkedAt": "2026-05-01T09:55:13.282Z"
+  },
+  {
+    "id": "e55b224e-07ac-4b45-b290-08ce1c8ab122",
+    "paperId": "40382f4d-6cc2-4a8c-9989-8f7ca2701758",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": false,
+    "details": {
+      "message": "Abstract is 213 words; ACL 2026 allows 200. Trim by 13 words.",
+      "abstractWordCount": 213,
+      "abstractWordLimit": 200
+    },
+    "checkedAt": "2026-05-01T09:55:13.282Z"
+  },
+  {
+    "id": "90a0a94f-86fa-449b-8652-3af15f560800",
+    "paperId": "40382f4d-6cc2-4a8c-9989-8f7ca2701758",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Method. ACL 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction, Related Work and Gap Analysis, Fortunate Recall, Theoretical Foundations, LifeMemBench, Experiments, Discussion and Conclusion).",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction",
+        "Related Work and Gap Analysis",
+        "Fortunate Recall",
+        "Theoretical Foundations",
+        "LifeMemBench",
+        "Experiments",
+        "Discussion and Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction",
+        "Related Work": "related work and gap analysis",
+        "Experiments": "experiments",
+        "Conclusion": "discussion and conclusion"
+      }
+    },
+    "checkedAt": "2026-05-01T09:55:13.282Z"
+  },
+  {
+    "id": "b75bfb17-b9d5-444d-a276-1ba1861b7f1a",
+    "paperId": "40382f4d-6cc2-4a8c-9989-8f7ca2701758",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Main Conference",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-01T09:55:13.282Z"
+  },
+  {
+    "id": "6679a92d-7b4b-4c67-bd3a-d8c682ce201f",
+    "paperId": "40382f4d-6cc2-4a8c-9989-8f7ca2701758",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-01T09:55:13.282Z"
+  },
+  {
+    "id": "906e15ac-c161-40b3-898b-d357252811db",
+    "paperId": "40382f4d-6cc2-4a8c-9989-8f7ca2701758",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-01T09:55:13.282Z"
+  },
+  {
+    "id": "cd49ae59-969b-4d51-8a9b-cab06e20831e",
+    "paperId": "40382f4d-6cc2-4a8c-9989-8f7ca2701758",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-01T09:55:13.282Z"
+  },
+  {
+    "id": "27e7b3c2-95af-49ca-afba-4ff419f8865b",
+    "paperId": "40382f4d-6cc2-4a8c-9989-8f7ca2701758",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": false,
+    "details": {
+      "message": "Expected ACM format but no ACM citations found. Use \\citep{} (natbib) so citations render as '(Smith et al., 2024)'.",
+      "expectedFormat": "ACM",
+      "hasReferencesSection": true,
+      "detectedHint": "no ACM citations found",
+      "source": "structured-extraction"
+    },
+    "checkedAt": "2026-05-01T09:55:13.282Z"
+  },
+  {
+    "id": "77b6959c-b7ed-4ba3-aafc-ebce10de3377",
+    "paperId": "40382f4d-6cc2-4a8c-9989-8f7ca2701758",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": "LaTeX with hyperref",
+      "producer": "MiKTeX pdfTeX-1.40.27",
+      "flags": []
+    },
+    "checkedAt": "2026-05-01T09:55:13.282Z"
+  },
+  {
+    "id": "b304769b-13c5-49cf-a38c-f1feba2c828b",
+    "paperId": "a98d163c-e712-4a13-bd65-ed555bcaed65",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "message": "Paper is 7 pages, within EMNLP 2026's 8 pages (references don't count) limit.",
+      "pageCount": 7,
+      "pageLimit": 8,
+      "effectiveLimit": 8,
+      "referencesCountTowardLimit": false,
+      "extraRefPages": null,
+      "estimatedReferencePages": 0
+    },
+    "checkedAt": "2026-05-02T08:32:25.854Z"
+  },
+  {
+    "id": "d2a51a80-eb4e-49d7-adb7-090432cb933c",
+    "paperId": "a98d163c-e712-4a13-bd65-ed555bcaed65",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "EMNLP 2026 does not specify an abstract word limit. Abstract is 286 words.",
+      "abstractWordCount": 286,
+      "abstractWordLimit": null
+    },
+    "checkedAt": "2026-05-02T08:32:25.854Z"
+  },
+  {
+    "id": "68e3418c-952c-48db-9719-d1c69a9a2569",
+    "paperId": "a98d163c-e712-4a13-bd65-ed555bcaed65",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Responsible NLP Checklist. EMNLP 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction, Related Work, Method, Experimental Setup, Results, Counterfactual Impact Analysis, Discussion, Limitations, Conclusion). Suggested but not enforced: Ethical Considerations.",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion",
+        "Limitations",
+        "Responsible NLP Checklist"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Responsible NLP Checklist"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "Limitations",
+          "placement": "after main, before references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        },
+        {
+          "name": "Responsible NLP Checklist",
+          "placement": "submitted with paper",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "conventionalSections": [
+        "Ethical Considerations"
+      ],
+      "warnings": [
+        "Ethical Considerations"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experimental Setup",
+        "Results",
+        "Counterfactual Impact Analysis",
+        "Discussion",
+        "Limitations",
+        "Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction",
+        "Related Work": "related work",
+        "Method": "method",
+        "Experiments": "results",
+        "Conclusion": "conclusion",
+        "Limitations": "limitations"
+      }
+    },
+    "checkedAt": "2026-05-02T08:32:25.854Z"
+  },
+  {
+    "id": "76530f1d-e163-440a-b9de-b0e26debf3c4",
+    "paperId": "a98d163c-e712-4a13-bd65-ed555bcaed65",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Long Papers",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-02T08:32:25.854Z"
+  },
+  {
+    "id": "c550ab34-53c5-4929-b991-aa32da847b3f",
+    "paperId": "a98d163c-e712-4a13-bd65-ed555bcaed65",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-02T08:32:25.854Z"
+  },
+  {
+    "id": "241a36f3-bb53-46f1-9bd6-9d0b65e61bff",
+    "paperId": "a98d163c-e712-4a13-bd65-ed555bcaed65",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-02T08:32:25.854Z"
+  },
+  {
+    "id": "71c13a41-cb30-43b4-9956-6b0ea0fd7ebb",
+    "paperId": "a98d163c-e712-4a13-bd65-ed555bcaed65",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-02T08:32:25.854Z"
+  },
+  {
+    "id": "5167216a-a70c-43b6-9e7d-998584a49ad9",
+    "paperId": "a98d163c-e712-4a13-bd65-ed555bcaed65",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": false,
+    "details": {
+      "message": "Expected ACL format but no author-year citations found. Update the bibliography style accordingly.",
+      "expectedFormat": "ACL",
+      "hasReferencesSection": true,
+      "detectedHint": "no author-year citations found",
+      "source": "text-heuristic"
+    },
+    "checkedAt": "2026-05-02T08:32:25.854Z"
+  },
+  {
+    "id": "78f4a641-f7f2-445c-9cdc-651d49788f72",
+    "paperId": "a98d163c-e712-4a13-bd65-ed555bcaed65",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": null,
+      "producer": null,
+      "flags": []
+    },
+    "checkedAt": "2026-05-02T08:32:25.854Z"
+  },
+  {
+    "id": "da503ff0-4eae-4fc9-ac76-f29740f39621",
+    "paperId": "a98d163c-e712-4a13-bd65-ed555bcaed65",
+    "checkType": "DESK_REJECT_RISK",
+    "passed": true,
+    "details": {
+      "message": "No automated desk-reject signals detected. Manually confirm the 7 items below before submitting to EMNLP 2026.",
+      "items": [
+        {
+          "criterion": "Missing 'Limitations' section",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Format/page violations",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Anonymity violations",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Dual submission (>25% overlap → reject)",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies."
+        },
+        {
+          "criterion": "Incorrect Responsible NLP Checklist",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Resubmissions without revision/justification",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Appendix not in double-column format",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        }
+      ]
+    },
+    "checkedAt": "2026-05-02T08:32:25.854Z"
+  },
+  {
+    "id": "d3bd285f-3e9f-47ed-8d17-78ea68fb7c44",
+    "paperId": "e789084a-3fd0-4fe8-b686-97021829991d",
+    "checkType": "PAGE_LIMIT",
+    "passed": false,
+    "details": {
+      "message": "Paper is 52 pages. NeurIPS 2026 limit is 9 pages (references don't count). Remove 43 pages of content (or move material to appendix if the venue allows).",
+      "pageCount": 52,
+      "pageLimit": 9,
+      "effectiveLimit": 9,
+      "referencesCountTowardLimit": false,
+      "extraRefPages": null,
+      "estimatedReferencePages": 1
+    },
+    "checkedAt": "2026-05-02T09:15:31.675Z"
+  },
+  {
+    "id": "4cfacbb4-9c70-4ac8-96db-b2f43eb350e8",
+    "paperId": "e789084a-3fd0-4fe8-b686-97021829991d",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "NeurIPS 2026 does not specify an abstract word limit. Abstract is 213 words.",
+      "abstractWordCount": 213,
+      "abstractWordLimit": null
+    },
+    "checkedAt": "2026-05-02T09:15:31.675Z"
+  },
+  {
+    "id": "48240b37-7117-4c7f-9425-e5ec617d2acf",
+    "paperId": "e789084a-3fd0-4fe8-b686-97021829991d",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Method, NeurIPS Paper Checklist. NeurIPS 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction, Related Work and Gap Analysis, Fortunate Recall, Theoretical Foundations, LifeMemBench, Experiments, Discussion and Conclusion). Suggested but not enforced: Broader Impact, Limitations.",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion",
+        "NeurIPS Paper Checklist"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method",
+        "NeurIPS Paper Checklist"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "NeurIPS Paper Checklist",
+          "placement": "in main PDF, after references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "conventionalSections": [
+        "Broader Impact",
+        "Limitations"
+      ],
+      "warnings": [
+        "Broader Impact",
+        "Limitations"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction",
+        "Related Work and Gap Analysis",
+        "Fortunate Recall",
+        "Theoretical Foundations",
+        "LifeMemBench",
+        "Experiments",
+        "Discussion and Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction",
+        "Related Work": "related work and gap analysis",
+        "Experiments": "experiments",
+        "Conclusion": "discussion and conclusion"
+      }
+    },
+    "checkedAt": "2026-05-02T09:15:31.675Z"
+  },
+  {
+    "id": "136a0097-4d80-426a-8921-2eb6fc63820f",
+    "paperId": "e789084a-3fd0-4fe8-b686-97021829991d",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Main (Research)",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-02T09:15:31.675Z"
+  },
+  {
+    "id": "3d73823b-28fc-4db8-bcad-9aecf233a6d3",
+    "paperId": "e789084a-3fd0-4fe8-b686-97021829991d",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-02T09:15:31.675Z"
+  },
+  {
+    "id": "357257ba-ceba-4c2f-adb0-3164445d5bfd",
+    "paperId": "e789084a-3fd0-4fe8-b686-97021829991d",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-02T09:15:31.675Z"
+  },
+  {
+    "id": "47d36cd3-8ce5-4273-99c1-a6dcf312ac0b",
+    "paperId": "e789084a-3fd0-4fe8-b686-97021829991d",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-02T09:15:31.675Z"
+  },
+  {
+    "id": "2146aae3-d559-47ad-b2c6-df75a4d1fa61",
+    "paperId": "e789084a-3fd0-4fe8-b686-97021829991d",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": true,
+    "details": {
+      "message": "References use Any consistent style format as expected by NeurIPS 2026 (references section present).",
+      "expectedFormat": "Any consistent style",
+      "hasReferencesSection": true,
+      "detectedHint": "references section present",
+      "source": "structured-extraction"
+    },
+    "checkedAt": "2026-05-02T09:15:31.675Z"
+  },
+  {
+    "id": "a1eec58b-c93e-492f-97f8-e8713ff1508d",
+    "paperId": "e789084a-3fd0-4fe8-b686-97021829991d",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": "LaTeX with hyperref",
+      "producer": "MiKTeX pdfTeX-1.40.27",
+      "flags": []
+    },
+    "checkedAt": "2026-05-02T09:15:31.675Z"
+  },
+  {
+    "id": "6846076d-5c4f-4f51-a7f7-55b3f58f31d6",
+    "paperId": "e789084a-3fd0-4fe8-b686-97021829991d",
+    "checkType": "DESK_REJECT_RISK",
+    "passed": false,
+    "details": {
+      "message": "Automated desk-reject risk: Page limit exceeded / margin or font tampering. Resolve before submitting.",
+      "items": [
+        {
+          "criterion": "Page limit exceeded / margin or font tampering",
+          "kind": "auto",
+          "status": "fail",
+          "relatedCheck": "PAGE_LIMIT"
+        },
+        {
+          "criterion": "Wrong style file",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Non-anonymous submission",
+          "kind": "auto",
+          "status": "pass",
+          "relatedCheck": "ANONYMITY_CHECK"
+        },
+        {
+          "criterion": "Placeholder abstract",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Failure to file paper checklist",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Concurrent submission to another archival venue",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies."
+        }
+      ]
+    },
+    "checkedAt": "2026-05-02T09:15:31.675Z"
+  },
+  {
+    "id": "d4177bc3-fb73-4dda-ade2-ccccce42221f",
+    "paperId": "c935f649-a615-42c9-b791-89629c487376",
+    "checkType": "PAGE_LIMIT",
+    "passed": false,
+    "details": {
+      "message": "Paper is 52 pages. NeurIPS 2026 limit is 9 pages (references don't count). Remove 43 pages of content (or move material to appendix if the venue allows).",
+      "pageCount": 52,
+      "pageLimit": 9,
+      "effectiveLimit": 9,
+      "referencesCountTowardLimit": false,
+      "extraRefPages": null,
+      "estimatedReferencePages": 1
+    },
+    "checkedAt": "2026-05-02T09:15:31.869Z"
+  },
+  {
+    "id": "9fd42f79-a384-4d34-aa9b-43d9f0551e7c",
+    "paperId": "c935f649-a615-42c9-b791-89629c487376",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "NeurIPS 2026 does not specify an abstract word limit. Abstract is 213 words.",
+      "abstractWordCount": 213,
+      "abstractWordLimit": null
+    },
+    "checkedAt": "2026-05-02T09:15:31.869Z"
+  },
+  {
+    "id": "6c3876d6-8fba-4ce1-8aca-e1844159bded",
+    "paperId": "c935f649-a615-42c9-b791-89629c487376",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Method, NeurIPS Paper Checklist. NeurIPS 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction, Related Work and Gap Analysis, Fortunate Recall, Theoretical Foundations, LifeMemBench, Experiments, Discussion and Conclusion). Suggested but not enforced: Broader Impact, Limitations.",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion",
+        "NeurIPS Paper Checklist"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method",
+        "NeurIPS Paper Checklist"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "NeurIPS Paper Checklist",
+          "placement": "in main PDF, after references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "conventionalSections": [
+        "Broader Impact",
+        "Limitations"
+      ],
+      "warnings": [
+        "Broader Impact",
+        "Limitations"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction",
+        "Related Work and Gap Analysis",
+        "Fortunate Recall",
+        "Theoretical Foundations",
+        "LifeMemBench",
+        "Experiments",
+        "Discussion and Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction",
+        "Related Work": "related work and gap analysis",
+        "Experiments": "experiments",
+        "Conclusion": "discussion and conclusion"
+      }
+    },
+    "checkedAt": "2026-05-02T09:15:31.869Z"
+  },
+  {
+    "id": "274b3aef-00f8-45b4-a46c-73051967e80b",
+    "paperId": "c935f649-a615-42c9-b791-89629c487376",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Main (Research)",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-02T09:15:31.869Z"
+  },
+  {
+    "id": "f58c2608-9169-4425-917f-16740eefdf70",
+    "paperId": "c935f649-a615-42c9-b791-89629c487376",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-02T09:15:31.869Z"
+  },
+  {
+    "id": "9a57fd68-47e7-4382-a4d9-297f08ac7e54",
+    "paperId": "c935f649-a615-42c9-b791-89629c487376",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-02T09:15:31.869Z"
+  },
+  {
+    "id": "3b31faad-9bd4-4b1f-8c85-d5877d8231a1",
+    "paperId": "c935f649-a615-42c9-b791-89629c487376",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-02T09:15:31.869Z"
+  },
+  {
+    "id": "69f24ee8-a4d3-4301-9782-994f0a9d66ca",
+    "paperId": "c935f649-a615-42c9-b791-89629c487376",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": true,
+    "details": {
+      "message": "References use Any consistent style format as expected by NeurIPS 2026 (references section present).",
+      "expectedFormat": "Any consistent style",
+      "hasReferencesSection": true,
+      "detectedHint": "references section present",
+      "source": "structured-extraction"
+    },
+    "checkedAt": "2026-05-02T09:15:31.869Z"
+  },
+  {
+    "id": "06145190-63a2-411c-8923-0fe7f92f3f76",
+    "paperId": "c935f649-a615-42c9-b791-89629c487376",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": "LaTeX with hyperref",
+      "producer": "MiKTeX pdfTeX-1.40.27",
+      "flags": []
+    },
+    "checkedAt": "2026-05-02T09:15:31.869Z"
+  },
+  {
+    "id": "1151df9b-ce38-4a54-ab4b-7a3849b71417",
+    "paperId": "c935f649-a615-42c9-b791-89629c487376",
+    "checkType": "DESK_REJECT_RISK",
+    "passed": false,
+    "details": {
+      "message": "Automated desk-reject risk: Page limit exceeded / margin or font tampering. Resolve before submitting.",
+      "items": [
+        {
+          "criterion": "Page limit exceeded / margin or font tampering",
+          "kind": "auto",
+          "status": "fail",
+          "relatedCheck": "PAGE_LIMIT"
+        },
+        {
+          "criterion": "Wrong style file",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Non-anonymous submission",
+          "kind": "auto",
+          "status": "pass",
+          "relatedCheck": "ANONYMITY_CHECK"
+        },
+        {
+          "criterion": "Placeholder abstract",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Failure to file paper checklist",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Concurrent submission to another archival venue",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies."
+        }
+      ]
+    },
+    "checkedAt": "2026-05-02T09:15:31.869Z"
+  },
+  {
+    "id": "ce8a20f4-38cb-4a41-84a8-99d3414bc2d1",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "PAGE_LIMIT",
+    "passed": false,
+    "details": {
+      "message": "Paper is 52 pages. NeurIPS 2026 limit is 9 pages (references don't count). Remove 43 pages of content (or move material to appendix if the venue allows).",
+      "pageCount": 52,
+      "pageLimit": 9,
+      "effectiveLimit": 9,
+      "referencesCountTowardLimit": false,
+      "extraRefPages": null,
+      "estimatedReferencePages": 1
+    },
+    "checkedAt": "2026-05-02T09:15:41.116Z"
+  },
+  {
+    "id": "774385e2-0708-4b9b-a2cc-7e21e8dca795",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "NeurIPS 2026 does not specify an abstract word limit. Abstract is 213 words.",
+      "abstractWordCount": 213,
+      "abstractWordLimit": null
+    },
+    "checkedAt": "2026-05-02T09:15:41.116Z"
+  },
+  {
+    "id": "8fa0007b-ce17-4e16-bce1-935115c4b1f0",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Method, NeurIPS Paper Checklist. NeurIPS 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction, Related Work and Gap Analysis, Fortunate Recall, Theoretical Foundations, LifeMemBench, Experiments, Discussion and Conclusion). Suggested but not enforced: Broader Impact, Limitations.",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion",
+        "NeurIPS Paper Checklist"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method",
+        "NeurIPS Paper Checklist"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "NeurIPS Paper Checklist",
+          "placement": "in main PDF, after references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "conventionalSections": [
+        "Broader Impact",
+        "Limitations"
+      ],
+      "warnings": [
+        "Broader Impact",
+        "Limitations"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction",
+        "Related Work and Gap Analysis",
+        "Fortunate Recall",
+        "Theoretical Foundations",
+        "LifeMemBench",
+        "Experiments",
+        "Discussion and Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction",
+        "Related Work": "related work and gap analysis",
+        "Experiments": "experiments",
+        "Conclusion": "discussion and conclusion"
+      }
+    },
+    "checkedAt": "2026-05-02T09:15:41.116Z"
+  },
+  {
+    "id": "76b0c6b2-42d1-4fe9-a8b0-dc2336d4385c",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Main (Research)",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-02T09:15:41.116Z"
+  },
+  {
+    "id": "4384bbca-0b2c-4786-963b-e408e7cc8d72",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-02T09:15:41.116Z"
+  },
+  {
+    "id": "34b81a86-8f07-48a8-ba5a-1729a4e04ecc",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-02T09:15:41.116Z"
+  },
+  {
+    "id": "8923e0b7-2a16-4af4-82cf-0df477569935",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-02T09:15:41.116Z"
+  },
+  {
+    "id": "abbe5dc8-da5d-4778-8881-e5e117b8a5ae",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": true,
+    "details": {
+      "message": "References use Any consistent style format as expected by NeurIPS 2026 (references section present).",
+      "expectedFormat": "Any consistent style",
+      "hasReferencesSection": true,
+      "detectedHint": "references section present",
+      "source": "structured-extraction"
+    },
+    "checkedAt": "2026-05-02T09:15:41.116Z"
+  },
+  {
+    "id": "a808ff6f-9f0e-442b-a7ba-af7066bc2ceb",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": "LaTeX with hyperref",
+      "producer": "MiKTeX pdfTeX-1.40.27",
+      "flags": []
+    },
+    "checkedAt": "2026-05-02T09:15:41.116Z"
+  },
+  {
+    "id": "a7c41996-7f83-421b-acf1-279f93514bb7",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "DESK_REJECT_RISK",
+    "passed": false,
+    "details": {
+      "message": "Automated desk-reject risk: Page limit exceeded / margin or font tampering. Resolve before submitting.",
+      "items": [
+        {
+          "criterion": "Page limit exceeded / margin or font tampering",
+          "kind": "auto",
+          "status": "fail",
+          "relatedCheck": "PAGE_LIMIT"
+        },
+        {
+          "criterion": "Wrong style file",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Non-anonymous submission",
+          "kind": "auto",
+          "status": "pass",
+          "relatedCheck": "ANONYMITY_CHECK"
+        },
+        {
+          "criterion": "Placeholder abstract",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Failure to file paper checklist",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Concurrent submission to another archival venue",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies."
+        }
+      ]
+    },
+    "checkedAt": "2026-05-02T09:15:41.116Z"
+  },
+  {
+    "id": "0ee97c41-a8a3-45a1-aca1-a9aba1f244be",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "PAGE_LIMIT",
+    "passed": false,
+    "details": {
+      "message": "Paper is 52 pages. NeurIPS 2026 limit is 9 pages (references don't count). Remove 43 pages of content (or move material to appendix if the venue allows).",
+      "pageCount": 52,
+      "pageLimit": 9,
+      "effectiveLimit": 9,
+      "referencesCountTowardLimit": false,
+      "extraRefPages": null,
+      "estimatedReferencePages": 1
+    },
+    "checkedAt": "2026-05-02T09:15:49.262Z"
+  },
+  {
+    "id": "af89fe4c-d015-47f2-a65b-7593adad6594",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "NeurIPS 2026 does not specify an abstract word limit. Abstract is 213 words.",
+      "abstractWordCount": 213,
+      "abstractWordLimit": null
+    },
+    "checkedAt": "2026-05-02T09:15:49.262Z"
+  },
+  {
+    "id": "05848049-cdbe-4046-b963-90eb00823300",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Method, NeurIPS Paper Checklist. NeurIPS 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction, Related Work and Gap Analysis, Fortunate Recall, Theoretical Foundations, LifeMemBench, Experiments, Discussion and Conclusion). Suggested but not enforced: Broader Impact, Limitations.",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion",
+        "NeurIPS Paper Checklist"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method",
+        "NeurIPS Paper Checklist"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "NeurIPS Paper Checklist",
+          "placement": "in main PDF, after references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "conventionalSections": [
+        "Broader Impact",
+        "Limitations"
+      ],
+      "warnings": [
+        "Broader Impact",
+        "Limitations"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction",
+        "Related Work and Gap Analysis",
+        "Fortunate Recall",
+        "Theoretical Foundations",
+        "LifeMemBench",
+        "Experiments",
+        "Discussion and Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction",
+        "Related Work": "related work and gap analysis",
+        "Experiments": "experiments",
+        "Conclusion": "discussion and conclusion"
+      }
+    },
+    "checkedAt": "2026-05-02T09:15:49.262Z"
+  },
+  {
+    "id": "76035b68-ef6f-4b00-9440-52852607e6c4",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Main (Research)",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-02T09:15:49.262Z"
+  },
+  {
+    "id": "1118133e-3691-4032-a3b2-0a8a3729b35d",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-02T09:15:49.262Z"
+  },
+  {
+    "id": "cab39e9b-6a29-4446-9fb6-14732a7e238b",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-02T09:15:49.262Z"
+  },
+  {
+    "id": "bbb2600a-f484-4f1e-a803-f9796df51172",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-02T09:15:49.262Z"
+  },
+  {
+    "id": "1e4fa802-0da3-48ee-9187-3cc9b5ee8d49",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": true,
+    "details": {
+      "message": "References use Any consistent style format as expected by NeurIPS 2026 (references section present).",
+      "expectedFormat": "Any consistent style",
+      "hasReferencesSection": true,
+      "detectedHint": "references section present",
+      "source": "structured-extraction"
+    },
+    "checkedAt": "2026-05-02T09:15:49.262Z"
+  },
+  {
+    "id": "3c8138a3-1593-46b9-91e3-d6608facd8fc",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": "LaTeX with hyperref",
+      "producer": "MiKTeX pdfTeX-1.40.27",
+      "flags": []
+    },
+    "checkedAt": "2026-05-02T09:15:49.262Z"
+  },
+  {
+    "id": "7143f8f3-8425-4cb1-8fb6-0de2e5ba33bc",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "DESK_REJECT_RISK",
+    "passed": false,
+    "details": {
+      "message": "Automated desk-reject risk: Page limit exceeded / margin or font tampering. Resolve before submitting.",
+      "items": [
+        {
+          "criterion": "Page limit exceeded / margin or font tampering",
+          "kind": "auto",
+          "status": "fail",
+          "relatedCheck": "PAGE_LIMIT"
+        },
+        {
+          "criterion": "Wrong style file",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Non-anonymous submission",
+          "kind": "auto",
+          "status": "pass",
+          "relatedCheck": "ANONYMITY_CHECK"
+        },
+        {
+          "criterion": "Placeholder abstract",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Failure to file paper checklist",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Concurrent submission to another archival venue",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies."
+        }
+      ]
+    },
+    "checkedAt": "2026-05-02T09:15:49.262Z"
+  },
+  {
+    "id": "4fb5b78f-ca1b-4b22-b6cc-cb73468d0f70",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "AI_FULL_REVIEW",
+    "passed": false,
+    "details": {
+      "message": "The paper presents strong research contributions with proper anonymization, complete NeurIPS checklist, and comprehensive reproducibility materials. However, it faces HIGH desk reject risk due to two critical issues: (1) the main content exceeds the 9-page limit by approximately 2 pages, and (2) the 'Preprint' header suggests the wrong LaTeX style file may be in use. Both are explicit desk reject criteria for NeurIPS. The authors must immediately reduce the main paper length and verify they are using the official NeurIPS 2026 submission style (not preprint) to avoid desk rejection.",
+      "checks": [
+        {
+          "dimension": "PAGE_LIMIT",
+          "verdict": "fail",
+          "summary": "The paper is 52 pages total, vastly exceeding the 9-page main content limit (references and appendix do not count, but main body must be ≤9 pages).",
+          "evidence": [
+            "Page count (extracted from PDF): 52",
+            "Venue requirement: pageLimit: 9, referencesCountTowardLimit: false, appendixCountsTowardLimit: false",
+            "The paper contains main sections (Introduction through Discussion and Conclusion) spanning pages 1-11, with references on pages 10-11 and appendices from page 12 onward."
+          ],
+          "recommendation": "The main content (Introduction through Conclusion, excluding references and appendices) must be condensed to fit within 9 pages. Based on the current structure, the main body appears to span approximately 11 pages before references begin, which exceeds the limit by ~2 pages.",
+          "confidence": 0.95
+        },
+        {
+          "dimension": "ABSTRACT",
+          "verdict": "pass",
+          "summary": "Abstract is present and appropriately summarizes the paper's contributions.",
+          "evidence": [
+            "Abstract section is present on page 1",
+            "Abstract text: 'Current LLM memory systems treat all personal facts identically... The ontology, benchmark, and code are released as supplementary material and will be made publicly available upon publication.'"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "REQUIRED_SECTIONS",
+          "verdict": "pass",
+          "summary": "All required sections are present with appropriate synonyms accepted.",
+          "evidence": [
+            "Abstract: present",
+            "Introduction: 'Introduction' section on page 1",
+            "Related Work: 'Related Work and Gap Analysis' section on page 2 (synonym acceptable)",
+            "Method: 'Fortunate Recall' section on page 2 and 'Theoretical Foundations' section on page 5 cover methodology",
+            "Experiments: 'Experiments' section on page 6",
+            "Conclusion: 'Discussion and Conclusion' section on page 9"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.95
+        },
+        {
+          "dimension": "CONVENTIONAL_SECTIONS",
+          "verdict": "warning",
+          "summary": "Limitations section is present in main conclusion; Broader Impact is mentioned only in extended discussion in appendix.",
+          "evidence": [
+            "Limitations paragraph in section 7 'Discussion and Conclusion': 'Limitations. Rate calibration uses mechanistic parameter selection...'",
+            "Broader Impact mentioned only in appendix: 'AC.1 Privacy, Consent, and Safety' discusses 'privacy and safety concerns beyond those addressed in this work'",
+            "NeurIPS venue specifies these as 'conventionalSections' (not mandatory but encouraged)"
+          ],
+          "recommendation": "Consider moving the privacy/safety discussion from AC.1 to a standalone Broader Impact section in the main paper. While not mandatory, NeurIPS encourages these sections.",
+          "confidence": 0.85
+        },
+        {
+          "dimension": "SPECIAL_REQUIRED_SECTIONS",
+          "verdict": "pass",
+          "summary": "NeurIPS Paper Checklist is present after references as required.",
+          "evidence": [
+            "Section 'NeurIPS Paper Checklist' appears on page 52",
+            "Venue requirement: 'NeurIPS Paper Checklist' must be 'in main PDF, after references', 'deskRejectIfMissing: true'",
+            "References end on page 11, checklist appears at end of document"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "REFERENCE_FORMAT",
+          "verdict": "pass",
+          "summary": "References use numbered format [1], [2], etc., which is consistent and acceptable under NeurIPS 'any consistent style' policy.",
+          "evidence": [
+            "References in text: '[1]', '[2]', '[3]', etc.",
+            "Venue requirement: 'Any consistent style', 'author-choice, must be consistent'",
+            "All 15 main references follow the same numbered format"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "ANONYMITY",
+          "verdict": "pass",
+          "summary": "The paper is properly anonymized with 'Anonymous Authors' and 'Anonymous Institution'.",
+          "evidence": [
+            "Title page shows 'Anonymous Authors' and 'Anonymous Institution'",
+            "No identifiable institution names, email addresses, or GitHub usernames found in main text",
+            "Self-citations appear to use third person appropriately",
+            "Release statement: 'will be made publicly available upon publication' (appropriate conditional phrasing)"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.95
+        },
+        {
+          "dimension": "TEMPLATE_FORMAT",
+          "verdict": "manual",
+          "summary": "Cannot verify LaTeX template compliance from extracted text alone.",
+          "evidence": [
+            "Venue requires 'NeurIPS 2026 LaTeX style file'",
+            "Document header shows 'Preprint' on page 1, which may indicate use of the preprint style",
+            "Margins, fonts, and exact formatting cannot be verified from text extraction"
+          ],
+          "recommendation": "Manually verify that the submission uses the official NeurIPS 2026 style file (not the preprint variant) and that no margin or font tampering has occurred. The 'Preprint' header suggests the wrong style may be in use.",
+          "confidence": 0.6
+        },
+        {
+          "dimension": "AI_DISCLOSURE",
+          "verdict": "pass",
+          "summary": "Paper includes AI/LLM use disclosure in the NeurIPS checklist as required.",
+          "evidence": [
+            "NeurIPS Paper Checklist item discussing LLM use",
+            "Venue requirement: 'mandatoryGenAIDisclosure: true', 'LLM use disclosure if LLM is component of methods'",
+            "The paper extensively uses LLMs (GPT-4.1-mini, GPT-4o-mini) as components of the method, which is disclosed throughout"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.9
+        },
+        {
+          "dimension": "BROADER_IMPACT",
+          "verdict": "warning",
+          "summary": "Broader impact discussion exists but only in appendix AC.1, not as a standalone section in main paper.",
+          "evidence": [
+            "Appendix AC.1 titled 'Privacy, Consent, and Safety' discusses broader impacts",
+            "NeurIPS Paper Checklist item 6: 'Broader impacts. Memory systems that retain personal information raise privacy concerns...'",
+            "Venue specifies 'mandatoryBroaderImpact: false' (not required but conventional)"
+          ],
+          "recommendation": "While not mandatory, consider promoting the broader impact discussion to a standalone section in the main paper before the conclusion, as this is conventional for NeurIPS.",
+          "confidence": 0.8
+        },
+        {
+          "dimension": "DATA_AVAILABILITY",
+          "verdict": "pass",
+          "summary": "Data availability is clearly stated with appropriate conditional release language.",
+          "evidence": [
+            "Abstract: 'The ontology, benchmark, and code are released as supplementary material and will be made publicly available upon publication.'",
+            "NeurIPS Paper Checklist item 9: 'LifeMemBench (516 questions, 40 personas) and FR-Bank code are released as supplementary material and will be made publicly available under an open license upon publication.'",
+            "Venue does not mandate data availability statement (mandatoryDataAvailability: false)"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "LIMITATIONS",
+          "verdict": "pass",
+          "summary": "Limitations section is present in the main paper conclusion.",
+          "evidence": [
+            "Section 7 'Discussion and Conclusion' contains paragraph titled 'Limitations.'",
+            "Text includes: 'Rate calibration uses mechanistic parameter selection rather than metric optimization... Classifier validation uses LLM judges rather than human annotators...'",
+            "Venue does not mandate limitations section (mandatoryLimitationsSection: false) but it is present"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "REPRODUCIBILITY",
+          "verdict": "pass",
+          "summary": "Reproducibility information is comprehensive with code/data release and detailed methodology.",
+          "evidence": [
+            "NeurIPS Paper Checklist item 4: 'Code is released as supplementary material and will be made publicly available upon publication.'",
+            "Item 4(b): 'All hyperparameters are reported in Appendix U and V.'",
+            "Item 5: 'Benchmark data (personas, conversations, questions, ground truth) and evaluation code are released... All model versions and configurations are specified.'",
+            "Detailed methodology in appendices C, O, P, and AA"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "ETHICS_STATEMENT",
+          "verdict": "pass",
+          "summary": "Ethics considerations are addressed in the NeurIPS checklist and appendix.",
+          "evidence": [
+            "NeurIPS Paper Checklist item 6: 'Broader impacts. Memory systems that retain personal information raise privacy concerns...'",
+            "Item 10: 'Human subjects. No human subjects. All personas are synthetic.'",
+            "Appendix AC.1 discusses privacy, consent, and safety concerns",
+            "Venue requires 'ethicsReviewRequired: true' and checklist demonstrates this consideration"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.9
+        },
+        {
+          "dimension": "PAPER_TYPE_FIT",
+          "verdict": "pass",
+          "summary": "Paper is a RESEARCH contribution fitting the NeurIPS Main track.",
+          "evidence": [
+            "Author-declared paper type: RESEARCH",
+            "Venue accepts paperTypes: ['RESEARCH']",
+            "Paper presents novel methods (Fortunate Recall architecture), theoretical results (lifecycle non-identifiability theorem), new benchmark (LifeMemBench), and empirical evaluation"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "DESK_REJECT_RISK",
+          "verdict": "fail",
+          "summary": "High desk reject risk due to page limit violation and possible template issue.",
+          "evidence": [
+            "Main content appears to exceed 9-page limit by ~2 pages",
+            "Desk reject criteria include: 'Page limit exceeded / margin or font tampering' and 'Wrong style file'",
+            "Document shows 'Preprint' header which may indicate wrong style file usage",
+            "All other major requirements (anonymity, checklist, abstract) are satisfied"
+          ],
+          "recommendation": "CRITICAL: Reduce main content to ≤9 pages and verify correct NeurIPS 2026 style file (not preprint variant) is used. These are desk reject criteria.",
+          "confidence": 0.9
+        }
+      ],
+      "deskRejectRisk": "high",
+      "failedDimensions": [
+        "PAGE_LIMIT",
+        "DESK_REJECT_RISK"
+      ],
+      "warningDimensions": [
+        "CONVENTIONAL_SECTIONS",
+        "BROADER_IMPACT"
+      ],
+      "modelUsed": "claude-sonnet-4-5-20250929",
+      "paperTruncated": true,
+      "generatedAt": "2026-05-02T09:20:01.688Z"
+    },
+    "checkedAt": "2026-05-02T09:20:57.196Z"
+  },
+  {
+    "id": "d3bc2572-9757-4086-9f11-ad817382c5a3",
+    "paperId": "f5608adb-9d25-4b1f-a009-9c11eb36785d",
+    "checkType": "AI_REFERENCE_CHECK",
+    "passed": false,
+    "details": {
+      "message": "5 references flagged as suspicious — investigate before submission. 4 references unverifiable from training data alone.",
+      "summary": {
+        "total": 10,
+        "likelyReal": 1,
+        "uncertain": 4,
+        "suspicious": 5,
+        "malformed": 0,
+        "overallAssessment": "5 references flagged as suspicious — investigate before submission. 4 references unverifiable from training data alone."
+      },
+      "references": [
+        {
+          "index": 1,
+          "raw": "D. Wu, H. Wang, W. Yu, Y. Zhang, K.-W. Chang, and D. Yu. LongMemEval: Benchmarking chat assistants on long-term interactive memory. In ICLR, 2025.",
+          "parsed": {
+            "title": "LongMemEval: Benchmarking chat assistants on long-term interactive memory",
+            "authors": [
+              "D. Wu",
+              "H. Wang",
+              "W. Yu",
+              "Y. Zhang",
+              "K.-W. Chang",
+              "D. Yu"
+            ],
+            "year": 2025,
+            "venue": "ICLR",
+            "type": "conference",
+            "doi": null,
+            "arxivId": null
+          },
+          "status": "uncertain",
+          "concerns": [
+            "ICLR 2025 likely refers to papers accepted for presentation in 2025, which would typically be available as preprints in late 2024",
+            "Cannot verify this specific paper exists in my training data",
+            "Authors include K.-W. Chang who is a known researcher, lending some credibility",
+            "Topic (long-term memory benchmarking) is plausible for current LLM research"
+          ],
+          "confidence": 0.5
+        },
+        {
+          "index": 2,
+          "raw": "P. Rasmussen et al. Zep: A temporal knowledge graph architecture for agent memory. arXiv:2501.13956, 2025.",
+          "parsed": {
+            "title": "Zep: A temporal knowledge graph architecture for agent memory",
+            "authors": [
+              "P. Rasmussen"
+            ],
+            "year": 2025,
+            "venue": "arXiv",
+            "type": "preprint",
+            "doi": null,
+            "arxivId": "2501.13956"
+          },
+          "status": "suspicious",
+          "concerns": [
+            "arXiv ID 2501.13956 indicates January 2025 submission (2501 = year-month)",
+            "My training data cutoff is April 2024, so I cannot verify 2025 arXiv papers",
+            "However, the arXiv ID format follows correct conventions",
+            "Zep is a known memory platform for LLM agents, so this could be a real technical paper from the developers",
+            "The combination of known product (Zep) and plausible technical topic suggests this may be real but unverifiable"
+          ],
+          "confidence": 0.4
+        },
+        {
+          "index": 3,
+          "raw": "Z. Tan et al. In prospect and retrospect: Reflective memory management for long-term personalized dialogue agents. In Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL), 2025.",
+          "parsed": {
+            "title": "In prospect and retrospect: Reflective memory management for long-term personalized dialogue agents",
+            "authors": [
+              "Z. Tan"
+            ],
+            "year": 2025,
+            "venue": "ACL",
+            "type": "conference",
+            "doi": null,
+            "arxivId": null
+          },
+          "status": "uncertain",
+          "concerns": [
+            "ACL 2025 would have papers accepted in spring 2025, potentially available as preprints late 2024/early 2025",
+            "Cannot verify this specific paper in my training data (cutoff April 2024)",
+            "Title structure is typical for ACL papers",
+            "Topic is highly relevant to current research trends"
+          ],
+          "confidence": 0.45
+        },
+        {
+          "index": 4,
+          "raw": "W. Xu et al. A-MEM: Agentic memory for LLM agents. In NeurIPS, 2025.",
+          "parsed": {
+            "title": "A-MEM: Agentic memory for LLM agents",
+            "authors": [
+              "W. Xu"
+            ],
+            "year": 2025,
+            "venue": "NeurIPS",
+            "type": "conference",
+            "doi": null,
+            "arxivId": null
+          },
+          "status": "uncertain",
+          "concerns": [
+            "NeurIPS 2025 would have submission deadline in May 2025, acceptance in September 2025",
+            "My training cutoff (April 2024) predates this conference cycle",
+            "Cannot verify this paper exists",
+            "Topic and venue are plausible"
+          ],
+          "confidence": 0.4
+        },
+        {
+          "index": 5,
+          "raw": "W. Zhong et al. MemoryBank: Enhancing large language models with long-term memory. In AAAI, 2024.",
+          "parsed": {
+            "title": "MemoryBank: Enhancing large language models with long-term memory",
+            "authors": [
+              "W. Zhong"
+            ],
+            "year": 2024,
+            "venue": "AAAI",
+            "type": "conference",
+            "doi": null,
+            "arxivId": null
+          },
+          "status": "uncertain",
+          "concerns": [
+            "AAAI 2024 conference occurred in February 2024, just before my training cutoff",
+            "Cannot definitively verify this specific paper",
+            "MemoryBank is mentioned in the paper context as a comparison system, suggesting it's real",
+            "Topic is highly relevant and plausible for AAAI 2024"
+          ],
+          "confidence": 0.6
+        },
+        {
+          "index": 6,
+          "raw": "Z. Wu et al. Memoria: Scalable agentic memory for personalized conversational AI. arXiv:2512.12686, 2025.",
+          "parsed": {
+            "title": "Memoria: Scalable agentic memory for personalized conversational AI",
+            "authors": [
+              "Z. Wu"
+            ],
+            "year": 2025,
+            "venue": "arXiv",
+            "type": "preprint",
+            "doi": null,
+            "arxivId": "2512.12686"
+          },
+          "status": "suspicious",
+          "concerns": [
+            "arXiv ID 2512.12686 indicates December 2025 submission",
+            "This is well beyond my training cutoff and represents a future paper",
+            "arXiv ID format is correct (YYMM.NNNNN)",
+            "Cannot verify, but format is plausible"
+          ],
+          "confidence": 0.35
+        },
+        {
+          "index": 7,
+          "raw": "Y. Li et al. Graph-based agent memory: Taxonomy, techniques, and applications. arXiv:2602.05665, 2026.",
+          "parsed": {
+            "title": "Graph-based agent memory: Taxonomy, techniques, and applications",
+            "authors": [
+              "Y. Li"
+            ],
+            "year": 2026,
+            "venue": "arXiv",
+            "type": "preprint",
+            "doi": null,
+            "arxivId": "2602.05665"
+          },
+          "status": "suspicious",
+          "concerns": [
+            "arXiv ID 2602.05665 indicates February 2026 submission",
+            "This is nearly 2 years beyond my training cutoff",
+            "Year 2026 is in the future relative to typical paper submission timelines",
+            "This appears to be a fabricated or placeholder reference for a future work",
+            "arXiv does not accept submissions from the future"
+          ],
+          "confidence": 0.1
+        },
+        {
+          "index": 8,
+          "raw": "C. Packer et al. MemGPT: Towards LLMs as operating systems. arXiv:2310.08560, 2024.",
+          "parsed": {
+            "title": "MemGPT: Towards LLMs as operating systems",
+            "authors": [
+              "C. Packer"
+            ],
+            "year": 2024,
+            "venue": "arXiv",
+            "type": "preprint",
+            "doi": null,
+            "arxivId": "2310.08560"
+          },
+          "status": "likely_real",
+          "concerns": [
+            "arXiv ID 2310.08560 indicates October 2023 submission, which is within my training window",
+            "MemGPT is a known project/paper in the LLM memory space",
+            "Authors and title match known work",
+            "Year listed as 2024 might refer to a journal version or updated version, but original appeared in 2023"
+          ],
+          "confidence": 0.85
+        },
+        {
+          "index": 9,
+          "raw": "J. Kang, M. Ji, Z. Zhao, and T. Bai. Memory OS of AI agent. arXiv:2506.06326, 2025.",
+          "parsed": {
+            "title": "Memory OS of AI agent",
+            "authors": [
+              "J. Kang",
+              "M. Ji",
+              "Z. Zhao",
+              "T. Bai"
+            ],
+            "year": 2025,
+            "venue": "arXiv",
+            "type": "preprint",
+            "doi": null,
+            "arxivId": "2506.06326"
+          },
+          "status": "suspicious",
+          "concerns": [
+            "arXiv ID 2506.06326 indicates June 2025 submission",
+            "This is beyond my training cutoff (April 2024)",
+            "MemoryOS is mentioned in the paper context as a comparison baseline, suggesting some system exists",
+            "However, cannot verify this specific arXiv paper",
+            "Title is somewhat generic ('Memory OS of AI agent' vs more typical academic phrasing)"
+          ],
+          "confidence": 0.4
+        },
+        {
+          "index": 10,
+          "raw": "S. Yan et al. Memory-R1: Enhancing large language model agents to manage and utilize memories via reinforcement learning. arXiv:2508.19828, 2025.",
+          "parsed": {
+            "title": "Memory-R1: Enhancing large language model agents to manage and utilize memories via reinforcement learning",
+            "authors": [
+              "S. Yan"
+            ],
+            "year": 2025,
+            "venue": "arXiv",
+            "type": "preprint",
+            "doi": null,
+            "arxivId": "2508.19828"
+          },
+          "status": "suspicious",
+          "concerns": [
+            "arXiv ID 2508.19828 indicates August 2025 submission",
+            "This is well beyond my training cutoff",
+            "Memory-R1 is mentioned as a comparison baseline in the paper abstract",
+            "Cannot verify this paper exists",
+            "The naming 'R1' may reference recent RL trends (like DeepSeek-R1), making it plausible but unverifiable"
+          ],
+          "confidence": 0.35
+        }
+      ],
+      "modelUsed": "claude-sonnet-4-5-20250929",
+      "generatedAt": "2026-05-02T09:20:01.689Z"
+    },
+    "checkedAt": "2026-05-02T09:20:57.196Z"
+  },
+  {
+    "id": "7a1d128c-d7fc-4a19-b1ea-b6813495c92e",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "PAGE_LIMIT",
+    "passed": false,
+    "details": {
+      "message": "Paper is 52 pages. NeurIPS 2026 limit is 9 pages (references don't count). Remove 43 pages of content (or move material to appendix if the venue allows).",
+      "pageCount": 52,
+      "pageLimit": 9,
+      "effectiveLimit": 9,
+      "referencesCountTowardLimit": false,
+      "extraRefPages": null,
+      "estimatedReferencePages": 1
+    },
+    "checkedAt": "2026-05-02T09:57:38.721Z"
+  },
+  {
+    "id": "a1d7d0a1-3103-4268-93eb-123e39155cae",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "NeurIPS 2026 does not specify an abstract word limit. Abstract is 213 words.",
+      "abstractWordCount": 213,
+      "abstractWordLimit": null
+    },
+    "checkedAt": "2026-05-02T09:57:38.721Z"
+  },
+  {
+    "id": "5c2a435d-e2a1-4620-9d23-67a39f58f987",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Method, NeurIPS Paper Checklist. NeurIPS 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction, Related Work and Gap Analysis, Fortunate Recall, Theoretical Foundations, LifeMemBench, Experiments, Discussion and Conclusion). Suggested but not enforced: Broader Impact, Limitations.",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion",
+        "NeurIPS Paper Checklist"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method",
+        "NeurIPS Paper Checklist"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "NeurIPS Paper Checklist",
+          "placement": "in main PDF, after references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "conventionalSections": [
+        "Broader Impact",
+        "Limitations"
+      ],
+      "warnings": [
+        "Broader Impact",
+        "Limitations"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction",
+        "Related Work and Gap Analysis",
+        "Fortunate Recall",
+        "Theoretical Foundations",
+        "LifeMemBench",
+        "Experiments",
+        "Discussion and Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction",
+        "Related Work": "related work and gap analysis",
+        "Experiments": "experiments",
+        "Conclusion": "discussion and conclusion"
+      }
+    },
+    "checkedAt": "2026-05-02T09:57:38.721Z"
+  },
+  {
+    "id": "6f5d5f6e-3826-471c-b7bf-39dc31741673",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Main (Research)",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-02T09:57:38.721Z"
+  },
+  {
+    "id": "925041c5-9ebf-45b6-9f5b-c1b5c642e833",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-02T09:57:38.721Z"
+  },
+  {
+    "id": "949c2466-3549-4856-a399-9b829fe56269",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-02T09:57:38.721Z"
+  },
+  {
+    "id": "fbb460a9-7313-4e34-89ca-de0fa378a348",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-02T09:57:38.721Z"
+  },
+  {
+    "id": "92690703-2633-4c93-bd39-ea6ff8e2eec0",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": true,
+    "details": {
+      "message": "References use Any consistent style format as expected by NeurIPS 2026 (references section present).",
+      "expectedFormat": "Any consistent style",
+      "hasReferencesSection": true,
+      "detectedHint": "references section present",
+      "source": "structured-extraction"
+    },
+    "checkedAt": "2026-05-02T09:57:38.721Z"
+  },
+  {
+    "id": "ab510867-7735-43a7-90f4-ab0e6dc4060c",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": "LaTeX with hyperref",
+      "producer": "MiKTeX pdfTeX-1.40.27",
+      "flags": []
+    },
+    "checkedAt": "2026-05-02T09:57:38.721Z"
+  },
+  {
+    "id": "5bed6749-148a-427b-957c-23fbdfaaea11",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "DESK_REJECT_RISK",
+    "passed": false,
+    "details": {
+      "message": "Automated desk-reject risk: Page limit exceeded / margin or font tampering. Resolve before submitting.",
+      "items": [
+        {
+          "criterion": "Page limit exceeded / margin or font tampering",
+          "kind": "auto",
+          "status": "fail",
+          "relatedCheck": "PAGE_LIMIT"
+        },
+        {
+          "criterion": "Wrong style file",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Non-anonymous submission",
+          "kind": "auto",
+          "status": "pass",
+          "relatedCheck": "ANONYMITY_CHECK"
+        },
+        {
+          "criterion": "Placeholder abstract",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Failure to file paper checklist",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Concurrent submission to another archival venue",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies."
+        }
+      ]
+    },
+    "checkedAt": "2026-05-02T09:57:38.721Z"
+  },
+  {
+    "id": "0859bc8d-0e2f-42a4-8d7a-eb50b1488e9d",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "AI_FULL_REVIEW",
+    "passed": true,
+    "details": {
+      "message": "The paper is substantively strong and passes the most critical desk-reject criteria: it is anonymized, the NeurIPS Paper Checklist is present, page limit appears met (9 main-body pages), and references/appendices are correctly excluded from the count. However, two significant formatting concerns elevate risk to 'medium': (1) the paper's 'Preprint.' footer strongly suggests the wrong LaTeX style option (preprint instead of anonymous submission) is active, which is a desk-reject criterion for 'wrong style file'; and (2) the NeurIPS Paper Checklist in the paper appears to contain only 10 items rather than the full official template (which includes ~16 items, notably the LLM Declaration item 16 and Code of Ethics item 15), which risks a checklist-related desk rejection. Authors should immediately switch to the correct anonymous submission style option and regenerate the full checklist from the official NeurIPS 2026 LaTeX template before submitting.",
+      "checks": [
+        {
+          "dimension": "PAGE_LIMIT",
+          "verdict": "pass",
+          "summary": "Main body content occupies exactly 9 pages, within the NeurIPS 2026 limit; references, appendices, and checklist do not count toward the limit.",
+          "evidence": [
+            "Section headings span pages 1–9: Introduction (p.1), Related Work and Gap Analysis (p.2), Fortunate Recall (p.3), Theoretical Foundations (p.5), LifeMemBench (p.6), Experiments (p.7), Discussion and Conclusion (p.9).",
+            "References begin on p.10; 'Supplementary Materials' heading appears mid-paper; NeurIPS Paper Checklist appears on p.52.",
+            "Page marker '9' appears at the bottom of the Discussion and Conclusion section, confirming the main text ends at exactly page 9.",
+            "Venue rule: referencesCountTowardLimit=false, appendixCountsTowardLimit=false."
+          ],
+          "recommendation": "No action needed. Verify in the actual PDF that no main-body content overflows past page 9.",
+          "confidence": 0.9
+        },
+        {
+          "dimension": "ABSTRACT",
+          "verdict": "pass",
+          "summary": "Abstract is present, substantive, and no structured format is required by NeurIPS 2026.",
+          "evidence": [
+            "Abstract is present and begins: 'Current LLM memory systems treat all personal facts identically...'",
+            "Venue specifies abstractWordLimit=null and abstractStructuredRequired=false.",
+            "Abstract clearly states problem, method, results, and contributions."
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "REQUIRED_SECTIONS",
+          "verdict": "pass",
+          "summary": "All six required sections are present, with section 3 'Fortunate Recall' serving as the Method section and section 7 'Discussion and Conclusion' covering Conclusion.",
+          "evidence": [
+            "Abstract: present in paper header.",
+            "Introduction: '1 Introduction' — present.",
+            "Related Work: '2 Related Work and Gap Analysis' — present (synonym accepted).",
+            "Method: '3 Fortunate Recall' — describes the proposed system/approach, accepted as Method synonym.",
+            "Experiments: '6 Experiments' — present.",
+            "Conclusion: '7 Discussion and Conclusion' — present (synonym accepted)."
+          ],
+          "recommendation": "No action needed. The method section title 'Fortunate Recall' is an acceptable synonym for 'Method/Approach'. Consider adding a subsection heading such as 'Method Overview' if reviewers expect an explicit label.",
+          "confidence": 0.95
+        },
+        {
+          "dimension": "CONVENTIONAL_SECTIONS",
+          "verdict": "warning",
+          "summary": "A 'Limitations' paragraph is present within Section 7, but there is no standalone 'Broader Impact' section in the main paper body.",
+          "evidence": [
+            "Limitations paragraph found in Section 7: 'Limitations. Rate calibration uses mechanistic parameter selection rather than metric optimization...'",
+            "No standalone 'Broader Impact' section exists in the main 9-page body. Broader impact content is only in NeurIPS checklist item 6 ('Broader impacts. Memory systems that retain personal information raise privacy concerns.') and Appendix AC.1.",
+            "Venue lists 'Broader Impact' and 'Limitations' as conventionalSections (not mandatory)."
+          ],
+          "recommendation": "Although not mandatory, consider adding a brief 'Broader Impact' paragraph to the main body (can be very short, ~2–3 sentences) to preempt reviewer requests. The Limitations paragraph in Section 7 is adequate.",
+          "confidence": 0.9
+        },
+        {
+          "dimension": "SPECIAL_REQUIRED_SECTIONS",
+          "verdict": "pass",
+          "summary": "The NeurIPS Paper Checklist is present in the main PDF, correctly placed after references and supplementary material on page 52.",
+          "evidence": [
+            "Checklist appears at the end of the paper (page 52) with items 1–10 answered.",
+            "Official NeurIPS guidance states: 'All submissions must be in PDF format, and in a single PDF file include, in this order, (1) the submitted paper; (2) optional technical appendices...; (3) the NeurIPS paper checklist.' The checklist follows the appendices, which is the required order.",
+            "Sample checklist items found: '1. Claims. All main claims are supported...', '2. Limitations. Discussed in §7.', '10. Human subjects. No human subjects.'"
+          ],
+          "recommendation": "Verify the checklist uses the official NeurIPS 2026 LaTeX macros (\\answerYes{}, \\answerNo{}, \\answerNA{}) rather than free-text answers, as the style file requires these macros. The current text uses prose answers rather than the macro format.",
+          "confidence": 0.88
+        },
+        {
+          "dimension": "REFERENCE_FORMAT",
+          "verdict": "pass",
+          "summary": "References use a consistent numbered format [1], [2], etc. with author, title, venue, and year — compliant with NeurIPS's 'any consistent style' policy.",
+          "evidence": [
+            "Reference [1]: 'D. Wu, H. Wang, W. Yu, Y. Zhang, K.-W. Chang, and D. Yu. LongMemEval: Benchmarking chat assistants on long-term interactive memory. In ICLR, 2025.'",
+            "Reference [9]: 'J. Kang, M. Ji, Z. Zhao, and T. Bai. Memory OS of AI agent. arXiv:2506.06326, 2025.'",
+            "In-text citations use bracketed numbers: '[2]', '[4]', '[9]', '[10]' — consistent throughout.",
+            "Venue specifies referenceFormat='Any consistent style', type='author-choice'."
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.97
+        },
+        {
+          "dimension": "ANONYMITY",
+          "verdict": "warning",
+          "summary": "The submission is formally anonymized (Anonymous Authors/Institution), but multiple first-person possessive references to the system ('our infrastructure-independent implementation', 'our knowledge') and a live third-party API URL may pose minor anonymity concerns under strict double-blind interpretation.",
+          "evidence": [
+            "Header reads: 'Anonymous Authors / Anonymous Institution' — correct.",
+            "Multiple first-person references to the submitted work: 'FR-Bank, our infrastructure-independent implementation', 'to our knowledge, the first result evaluated under the original Wu et al. evaluation methodology.'",
+            "Self-citation policy requires third person: NeurIPS 2026 template states 'use the previous work of Jones et al. [4], not In our previous work [4].' References [1]–[15] include no self-citations from named prior author works, but the phrasing 'our' throughout refers to the submitted work itself rather than prior publications.",
+            "Live API URL present: 'https://api.moonshot.ai/v1' — this is a third-party URL (Moonshot AI), not an author-identifying URL.",
+            "No GitHub usernames, email addresses, or institutional URLs found in the visible text.",
+            "Code/benchmark links described as 'supplementary material' rather than deanonymized URLs — correctly anonymized."
+          ],
+          "recommendation": "The 'our' usage referring to the submitted work itself (rather than prior self-citations) is standard in double-blind submissions and is unlikely to trigger a desk rejection. However, audit all 'our' uses that could point to prior named work: if any of the 15 references are self-citations from named prior publications, those citations must be rephrased to third person or anonymized per NeurIPS rules. The Moonshot API URL is not author-identifying and requires no change.",
+          "confidence": 0.82
+        },
+        {
+          "dimension": "TEMPLATE_FORMAT",
+          "verdict": "manual",
+          "summary": "Cannot verify NeurIPS 2026 LaTeX style file compliance, font sizes, or margin settings from the extracted text alone.",
+          "evidence": [
+            "Paper is formatted as a preprint ('Preprint.' notation visible on page 1), suggesting the NeurIPS 2026 style file may not be in use or the 'preprint' option is set rather than the anonymous submission option.",
+            "The NeurIPS 2026 LaTeX style requires \\usepackage{neurips_2026} for anonymous submission; the 'Preprint.' footer is typical of \\usepackage[preprint]{neurips_2026}.",
+            "Font sizes, margins, and column layout cannot be verified from plain text extraction.",
+            "Desk-reject criteria include: 'Page limit exceeded / margin or font tampering' and 'Wrong style file.'"
+          ],
+          "recommendation": "CRITICAL: Replace \\usepackage[preprint]{neurips_2026} with \\usepackage{neurips_2026} (anonymous submission mode) before submitting. The 'Preprint.' footer in the extracted text strongly suggests the preprint style option is currently active, which is wrong for a double-blind submission. Verify margins and font sizes match the official 2026 style file exactly.",
+          "confidence": 0.85
+        },
+        {
+          "dimension": "AI_DISCLOSURE",
+          "verdict": "warning",
+          "summary": "LLMs are a core methodological component (GPT-4.1-mini for ingestion/retrieval, GPT-4o-mini as answerer, GPT-5.4 for evaluation), which NeurIPS Checklist item 16 requires to be disclosed; the paper describes LLM usage extensively in the method but the NeurIPS checklist does not include an explicit item 16 answer for LLM disclosure.",
+          "evidence": [
+            "LLMs are integral to the core method: 'LLM Ingestion (gpt-4.1-mini) • Entity / edge extraction • Behavioral classification c (10+1 ontology)...'",
+            "End-to-end evaluation uses: 'gpt-4.1-mini for fact extraction and gpt-4o-mini as the answerer', 'Feeding each system's top-10 retrieved facts to GPT-5.4 (temperature 0)...'",
+            "NeurIPS Checklist item 16 requires: 'Does the paper describe the usage of LLMs if it is an important, original, or non-standard component of the core methods in this research?'",
+            "The paper's NeurIPS checklist (pp. 52) contains only 10 items (Claims, Limitations, Theory, Experiments, Reproducibility, Broader impacts, Safeguards, Licenses, New assets, Human subjects) — item 16 for LLM declaration is absent from the checklist as presented.",
+            "The checklist in the paper does not appear to use the full official NeurIPS 2026 checklist template which includes item 16."
+          ],
+          "recommendation": "Add item 16 (LLM Declaration) to the NeurIPS Paper Checklist. Since LLMs are a core methodological component, the answer should be Yes with a justification pointing to Sections 3.4 and 6 where GPT-4.1-mini's role in ingestion, classification, and retrieval distillation is described. Use the official checklist template from the NeurIPS 2026 LaTeX style file, which appears to have more than 10 items.",
+          "confidence": 0.88
+        },
+        {
+          "dimension": "BROADER_IMPACT",
+          "verdict": "warning",
+          "summary": "Broader impact content exists in the checklist and Appendix AC.1 but there is no standalone 'Broader Impact' section in the main paper body; this is a convention not a hard requirement at NeurIPS 2026.",
+          "evidence": [
+            "Checklist item 6 states: 'Broader impacts. Memory systems that retain personal information raise privacy concerns. The interpretability and selective forgetting capabilities of FR provide users with control over their data, which partially mitigates these concerns.'",
+            "Appendix AC.1 'Privacy, Consent, and Safety' discusses broader concerns in detail: 'Deployed systems require explicit user consent for memory retention, verifiable deletion guarantees...'",
+            "No standalone 'Broader Impact' section found in the 9-page main body.",
+            "Venue specifies mandatoryBroaderImpact=false; 'Broader Impact' is listed as a conventionalSection."
+          ],
+          "recommendation": "Not required, but consider a brief Broader Impact paragraph in the main body (e.g., appended to Section 7) to address societal implications proactively — privacy risks of persistent personal memory systems are directly relevant and reviewers often look for this.",
+          "confidence": 0.9
+        },
+        {
+          "dimension": "DATA_AVAILABILITY",
+          "verdict": "pass",
+          "summary": "Data availability is addressed: LifeMemBench, FR-Bank code, and all supplementary materials are described as released with the submission and to be made publicly available upon publication.",
+          "evidence": [
+            "'The ontology, benchmark, and code are released as supplementary material and will be made publicly available upon publication.' (Abstract)",
+            "Checklist item 9: 'New assets. LifeMemBench (516 questions, 40 personas) and FR-Bank code are released as supplementary material and will be made publicly available under an open license upon publication.'",
+            "Venue specifies mandatoryDataAvailability=false."
+          ],
+          "recommendation": "No action needed. At camera-ready, ensure the public repository link is de-anonymized and included.",
+          "confidence": 0.95
+        },
+        {
+          "dimension": "LIMITATIONS",
+          "verdict": "pass",
+          "summary": "A dedicated 'Limitations.' paragraph is present within Section 7, covering rate calibration, competitor scope, soft supersession failure, and classifier validation.",
+          "evidence": [
+            "'Limitations. Rate calibration uses mechanistic parameter selection rather than metric optimization...'",
+            "'Soft supersession exhibits a genuine failure mode under high-commitment generators (Kimi AV9)...'",
+            "'Classifier validation uses LLM judges rather than human annotators.'",
+            "Venue specifies mandatoryLimitationsSection=false; limitations are present regardless."
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "REPRODUCIBILITY",
+          "verdict": "pass",
+          "summary": "Reproducibility is well-addressed: code and benchmark data released as supplementary, hyperparameters documented in appendices, evaluation protocols specified verbatim, and multiple reruns reported.",
+          "evidence": [
+            "Checklist item 5: 'Benchmark data (personas, conversations, questions, ground truth) and evaluation code are released as supplementary material and will be made publicly available upon publication. All model versions and configurations are specified.'",
+            "'FR-Bank achieves 75.2% ± 0.70pp pass@10 (mean over 10 identical reruns; range 74.4–76.6%)'",
+            "'All hyperparameters are reported in Appendix U and V.'",
+            "Judge protocol described verbatim: 'All reported LongMemEval-S numbers use gpt-4o-2024-08-06 as the judge at temperature 0, with the question-type routing and prompt templates taken verbatim from Figure 10 of Wu et al. (ICLR 2025).'"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.97
+        },
+        {
+          "dimension": "ETHICS_STATEMENT",
+          "verdict": "warning",
+          "summary": "Ethics concerns (privacy, consent, safety, no human subjects) are addressed in Appendix AC.1 and the checklist, but the NeurIPS Paper Checklist in the paper does not include an explicit Code of Ethics compliance item.",
+          "evidence": [
+            "Checklist item 10: 'Human subjects. No human subjects. All personas are synthetic.'",
+            "Appendix AC.1: 'Memory systems that retain personal facts raise privacy and safety concerns beyond those addressed in this work, including consent, verifiable deletion, prompt-injection defenses, and cultural generalization...'",
+            "The paper's checklist does not contain an item explicitly confirming conformance with the NeurIPS Code of Ethics (which is item 15 in the official checklist template: 'Does the research conducted in the paper conform, in every respect, with the NeurIPS Code of Ethics?').",
+            "Venue specifies ethicsReviewRequired=true."
+          ],
+          "recommendation": "Ensure the full official NeurIPS 2026 checklist template is used, which includes a Code of Ethics compliance item. The truncated 10-item checklist in the current submission appears to be missing several official items. This may require switching to the correct LaTeX template checklist.",
+          "confidence": 0.82
+        },
+        {
+          "dimension": "PAPER_TYPE_FIT",
+          "verdict": "pass",
+          "summary": "The paper is declared as RESEARCH and presents a novel system with theoretical foundations, a new benchmark, and empirical evaluation — a strong fit for NeurIPS 2026 Main Track Research.",
+          "evidence": [
+            "Author-declared paper type: RESEARCH.",
+            "Venue paperTypes: ['RESEARCH'] for Main Track.",
+            "Paper presents: (1) a novel behavioral ontology with formal lifecycle non-identifiability theorems, (2) a new benchmark (LifeMemBench, 516 questions), (3) a reference implementation (FR-Bank), and (4) comparative empirical evaluation against 4 baselines.",
+            "Reviewer guidelines note contribution types including 'General', 'Theory', and 'Use-Inspired' — this paper spans multiple types."
+          ],
+          "recommendation": "No action needed. Authors should tag the contribution type at submission (e.g., 'General' or 'Use-Inspired') as required by venue special requirements.",
+          "confidence": 0.97
+        },
+        {
+          "dimension": "DESK_REJECT_RISK",
+          "verdict": "manual",
+          "summary": "Skipped as a standalone check — see deskRejectRisk field for overall assessment.",
+          "evidence": [],
+          "recommendation": "See overall deskRejectRisk assessment.",
+          "confidence": 1
+        }
+      ],
+      "deskRejectRisk": "medium",
+      "failedDimensions": [],
+      "warningDimensions": [
+        "CONVENTIONAL_SECTIONS",
+        "ANONYMITY",
+        "AI_DISCLOSURE",
+        "BROADER_IMPACT",
+        "ETHICS_STATEMENT"
+      ],
+      "modelUsed": "claude-sonnet-4-6",
+      "paperTruncated": true,
+      "generatedAt": "2026-05-02T09:57:43.697Z"
+    },
+    "checkedAt": "2026-05-02T10:00:01.029Z"
+  },
+  {
+    "id": "6796d04d-2a78-4e97-8bfb-7f9a021594f3",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "AI_REFERENCE_CHECK",
+    "passed": false,
+    "details": {
+      "message": "2 references flagged as suspicious — investigate before submission.",
+      "summary": {
+        "total": 10,
+        "likelyReal": 8,
+        "uncertain": 0,
+        "suspicious": 2,
+        "malformed": 0,
+        "overallAssessment": "2 references flagged as suspicious — investigate before submission."
+      },
+      "references": [
+        {
+          "index": 1,
+          "raw": "D. Wu, H. Wang, W. Yu, Y. Zhang, K.-W. Chang, and D. Yu. LongMemEval: Benchmarking chat assistants on long-term interactive memory. In ICLR, 2025.",
+          "parsed": {
+            "title": "LongMemEval: Benchmarking chat assistants on long-term interactive memory",
+            "authors": [
+              "Di Wu",
+              "Hongwei Wang",
+              "Wenhao Yu",
+              "Yuwei Zhang",
+              "Kai-Wei Chang",
+              "Dong Yu"
+            ],
+            "year": 2025,
+            "venue": "ICLR",
+            "type": "conference",
+            "doi": null,
+            "arxivId": "2410.10813"
+          },
+          "status": "likely_real",
+          "concerns": [],
+          "confidence": 0.99
+        },
+        {
+          "index": 2,
+          "raw": "P. Rasmussen et al. Zep: A temporal knowledge graph architecture for agent memory. arXiv:2501.13956, 2025.",
+          "parsed": {
+            "title": "Zep: A temporal knowledge graph architecture for agent memory",
+            "authors": [
+              "Preston Rasmussen",
+              "Pavlo Paliychuk",
+              "Travis Beauvais",
+              "Jack Ryan",
+              "Daniel Chalef"
+            ],
+            "year": 2025,
+            "venue": "arXiv",
+            "type": "preprint",
+            "doi": "10.48550/arXiv.2501.13956",
+            "arxivId": "2501.13956"
+          },
+          "status": "likely_real",
+          "concerns": [],
+          "confidence": 0.99
+        },
+        {
+          "index": 3,
+          "raw": "Z. Tan et al. In prospect and retrospect: Reflective memory management for long-term personalized dialogue agents. In Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL), 2025.",
+          "parsed": {
+            "title": "In prospect and retrospect: Reflective memory management for long-term personalized dialogue agents",
+            "authors": [
+              "Zhen Tan",
+              "Jun Yan",
+              "I-Hung Hsu",
+              "Rujun Han",
+              "Zifeng Wang",
+              "Long Le",
+              "Yiwen Song",
+              "Yanfei Chen",
+              "Hamid Palangi",
+              "George Lee",
+              "Anand Rajan Iyer",
+              "Tianlong Chen",
+              "Huan Liu",
+              "Chen-Yu Lee",
+              "Tomas Pfister"
+            ],
+            "year": 2025,
+            "venue": "ACL",
+            "type": "conference",
+            "doi": "10.18653/v1/2025.acl-long.413",
+            "arxivId": "2503.08026"
+          },
+          "status": "likely_real",
+          "concerns": [],
+          "confidence": 0.99
+        },
+        {
+          "index": 4,
+          "raw": "W. Xu et al. A-MEM: Agentic memory for LLM agents. In NeurIPS, 2025.",
+          "parsed": {
+            "title": "A-MEM: Agentic memory for LLM agents",
+            "authors": [
+              "Wujiang Xu",
+              "Zujie Liang",
+              "Kai Mei",
+              "Hang Gao",
+              "Juntao Tan",
+              "Yongfeng Zhang"
+            ],
+            "year": 2025,
+            "venue": "NeurIPS",
+            "type": "conference",
+            "doi": null,
+            "arxivId": "2502.12110"
+          },
+          "status": "likely_real",
+          "concerns": [],
+          "confidence": 0.99
+        },
+        {
+          "index": 5,
+          "raw": "W. Zhong et al. MemoryBank: Enhancing large language models with long-term memory. In AAAI, 2024.",
+          "parsed": {
+            "title": "MemoryBank: Enhancing large language models with long-term memory",
+            "authors": [
+              "Wanjun Zhong",
+              "Lianghong Guo",
+              "Qiqi Gao",
+              "He Ye",
+              "Yanlin Wang"
+            ],
+            "year": 2024,
+            "venue": "AAAI",
+            "type": "conference",
+            "doi": "10.1609/aaai.v38i17.29946",
+            "arxivId": "2305.10250"
+          },
+          "status": "likely_real",
+          "concerns": [],
+          "confidence": 0.99
+        },
+        {
+          "index": 6,
+          "raw": "Z. Wu et al. Memoria: Scalable agentic memory for personalized conversational AI. arXiv:2512.12686, 2025.",
+          "parsed": {
+            "title": "Memoria: Scalable agentic memory for personalized conversational AI",
+            "authors": [
+              "Z. Wu",
+              "et al."
+            ],
+            "year": 2025,
+            "venue": "arXiv",
+            "type": "preprint",
+            "doi": "10.48550/arXiv.2512.12686",
+            "arxivId": "2512.12686"
+          },
+          "status": "suspicious",
+          "concerns": [
+            "Author mismatch: arXiv:2512.12686 is authored by Samarth Sarin, Lovepreet Singh, Bhaskarjit Sarmah, and Dhagash Mehta — not 'Z. Wu et al.' No author with surname Wu appears in this paper.",
+            "Title shortening is minor but the full title is 'Memoria: A Scalable Agentic Memory Framework for Personalized Conversational AI', not 'Scalable agentic memory for personalized conversational AI'.",
+            "The incorrect first-author initial 'Z. Wu' suggests either a fabricated author attribution or confusion with a different paper."
+          ],
+          "confidence": 0.35
+        },
+        {
+          "index": 7,
+          "raw": "Y. Li et al. Graph-based agent memory: Taxonomy, techniques, and applications. arXiv:2602.05665, 2026.",
+          "parsed": {
+            "title": "Graph-based agent memory: Taxonomy, techniques, and applications",
+            "authors": [
+              "Y. Li",
+              "et al."
+            ],
+            "year": 2026,
+            "venue": "arXiv",
+            "type": "preprint",
+            "doi": "10.48550/arXiv.2602.05665",
+            "arxivId": "2602.05665"
+          },
+          "status": "suspicious",
+          "concerns": [
+            "Author mismatch: arXiv:2602.05665 is authored by Chang Yang et al. (18 authors) — the first author is Chang Yang, not 'Y. Li'.",
+            "Title, arXiv ID, and year (2026) all match the actual paper, but the cited first author initial 'Y. Li' is entirely wrong.",
+            "This could be a fabricated or incorrectly attributed authorship on an otherwise real paper."
+          ],
+          "confidence": 0.4
+        },
+        {
+          "index": 8,
+          "raw": "C. Packer et al. MemGPT: Towards LLMs as operating systems. arXiv:2310.08560, 2024.",
+          "parsed": {
+            "title": "MemGPT: Towards LLMs as operating systems",
+            "authors": [
+              "Charles Packer",
+              "Sarah Wooders",
+              "Kevin Lin",
+              "Vivian Fang",
+              "Shishir G. Patil",
+              "Ion Stoica",
+              "Joseph E. Gonzalez"
+            ],
+            "year": 2024,
+            "venue": "arXiv",
+            "type": "preprint",
+            "doi": "10.48550/arXiv.2310.08560",
+            "arxivId": "2310.08560"
+          },
+          "status": "likely_real",
+          "concerns": [
+            "Minor year discrepancy: the paper was originally submitted in October 2023 (arXiv:2310.08560v1); the cited year 2024 corresponds to the v2 revision date (February 2024), which is an acceptable convention for citing the updated preprint."
+          ],
+          "confidence": 0.95
+        },
+        {
+          "index": 9,
+          "raw": "J. Kang, M. Ji, Z. Zhao, and T. Bai. Memory OS of AI agent. arXiv:2506.06326, 2025.",
+          "parsed": {
+            "title": "Memory OS of AI agent",
+            "authors": [
+              "Jiazheng Kang",
+              "Mingming Ji",
+              "Zhe Zhao",
+              "Ting Bai"
+            ],
+            "year": 2025,
+            "venue": "arXiv",
+            "type": "preprint",
+            "doi": "10.48550/arXiv.2506.06326",
+            "arxivId": "2506.06326"
+          },
+          "status": "likely_real",
+          "concerns": [
+            "This paper was subsequently accepted and published at EMNLP 2025 (main conference), so the preprint citation is accurate but understates the final publication venue."
+          ],
+          "confidence": 0.98
+        },
+        {
+          "index": 10,
+          "raw": "S. Yan et al. Memory-R1: Enhancing large language model agents to manage and utilize memories via reinforcement learning. arXiv:2508.19828, 2025.",
+          "parsed": {
+            "title": "Memory-R1: Enhancing large language model agents to manage and utilize memories via reinforcement learning",
+            "authors": [
+              "Sikuan Yan",
+              "Xiufeng Yang",
+              "Zuchao Huang",
+              "Ercong Nie",
+              "Zifeng Ding",
+              "Zonggen Li",
+              "Xiaowen Ma",
+              "Hinrich Schütze",
+              "Volker Tresp",
+              "Yunpu Ma"
+            ],
+            "year": 2025,
+            "venue": "arXiv",
+            "type": "preprint",
+            "doi": "10.48550/arXiv.2508.19828",
+            "arxivId": "2508.19828"
+          },
+          "status": "likely_real",
+          "concerns": [],
+          "confidence": 0.99
+        }
+      ],
+      "modelUsed": "claude-sonnet-4-6",
+      "generatedAt": "2026-05-02T09:57:43.697Z"
+    },
+    "checkedAt": "2026-05-02T10:00:01.029Z"
   }
 ]

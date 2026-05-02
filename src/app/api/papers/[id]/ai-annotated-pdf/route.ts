@@ -4,21 +4,10 @@ import { handleRouteError, jsonError } from "@/lib/api-route";
 import { canUserAccessPaper, getPaperById } from "@/lib/review-service";
 import { generateReviewWithClaude } from "@/lib/ai";
 import { buildAnnotatedPdf } from "@/lib/pdf-report";
+import { loadPdfBuffer } from "@/lib/pdf-metadata";
 
 interface Params {
   params: Promise<{ id: string }>;
-}
-
-async function fetchPdf(url: string): Promise<Uint8Array | null> {
-  if (!/^https?:\/\//i.test(url)) return null;
-  try {
-    const response = await fetch(url);
-    if (!response.ok) return null;
-    const buf = await response.arrayBuffer();
-    return new Uint8Array(buf);
-  } catch {
-    return null;
-  }
 }
 
 export async function POST(request: Request, { params }: Params) {
@@ -40,7 +29,7 @@ export async function POST(request: Request, { params }: Params) {
       return jsonError("extractedText (>= 20 chars) is required to ground annotations", 400);
     }
 
-    const pdfBytes = await fetchPdf(paper.pdfUrl);
+    const pdfBytes = await loadPdfBuffer(paper);
     if (!pdfBytes) {
       return jsonError("Original PDF could not be fetched", 400);
     }

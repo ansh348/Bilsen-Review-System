@@ -16,55 +16,80 @@ import { RateReviewForm } from "@/components/reviews/rate-review-form";
 import { PaperStatusActions } from "@/components/papers/paper-status-actions";
 import { AiReportActions } from "@/components/papers/ai-report-actions";
 import { VenueSubmissionCard } from "@/components/papers/venue-submission-card";
+import {
+  AiComplianceDetails,
+  AiReferenceDetails,
+} from "@/components/papers/ai-compliance-details";
 import { listVenues } from "@/lib/review-service";
 
-function renderComplianceDetails(check: { checkType: string; details: Record<string, unknown> }) {
+function renderComplianceMessage(check: { details: Record<string, unknown> }): string | null {
+  const m = check.details?.message;
+  return typeof m === "string" && m.length > 0 ? m : null;
+}
+
+function renderComplianceTechnical(check: { checkType: string; details: Record<string, unknown> }) {
   const d = check.details;
   switch (check.checkType) {
     case "PAGE_LIMIT":
-      if (d.pageCount === null) return "Page count not provided; check skipped.";
-      return `Pages: ${d.pageCount}/${d.pageLimit}`;
+      if (d.pageCount === null || d.pageCount === undefined) return null;
+      return `Pages: ${d.pageCount}/${d.pageLimit ?? "—"}`;
     case "ABSTRACT_WORD_COUNT":
-      return `Abstract: ${d.abstractWordCount}/${d.abstractWordLimit} words`;
-    case "REQUIRED_SECTIONS":
+      return `Abstract: ${d.abstractWordCount}/${d.abstractWordLimit ?? "—"} words`;
+    case "REQUIRED_SECTIONS": {
+      const parts: string[] = [];
       if (Array.isArray(d.missingSections) && d.missingSections.length > 0) {
-        return `Missing: ${d.missingSections.join(", ")}`;
+        parts.push(`Missing: ${(d.missingSections as string[]).join(", ")}`);
       }
-      return "All required sections present";
+      if (Array.isArray(d.warnings) && d.warnings.length > 0) {
+        parts.push(`Suggested: ${(d.warnings as string[]).join(", ")}`);
+      }
+      if (typeof d.source === "string") {
+        parts.push(`source: ${d.source}`);
+      }
+      return parts.join(" · ") || null;
+    }
+    case "DESK_REJECT_RISK": {
+      const items = Array.isArray(d.items)
+        ? (d.items as Array<{ criterion: string; status: string; kind: string }>)
+        : [];
+      if (items.length === 0) return null;
+      const failed = items.filter((i) => i.kind === "auto" && i.status === "fail");
+      const manual = items.filter((i) => i.kind === "manual");
+      const parts: string[] = [];
+      if (failed.length > 0) parts.push(`Auto-fail: ${failed.map((i) => i.criterion).join("; ")}`);
+      if (manual.length > 0) parts.push(`Manual: ${manual.length} item${manual.length === 1 ? "" : "s"}`);
+      return parts.join(" · ") || null;
+    }
     case "ANONYMITY_CHECK":
       if (Array.isArray(d.flags) && d.flags.length > 0) {
-        return `Flags: ${d.flags.join(", ")}`;
+        return `Flags: ${(d.flags as string[]).join(", ")}`;
       }
-      return "No anonymity issues detected";
+      return null;
     case "METADATA_CHECK": {
       const parts: string[] = [];
       if (d.metadataAuthor) parts.push(`Author: ${d.metadataAuthor}`);
       if (d.metadataCompany) parts.push(`Company: ${d.metadataCompany}`);
-      return parts.length > 0 ? parts.join(", ") : "Clean metadata";
+      return parts.length > 0 ? parts.join(", ") : null;
     }
     case "REFERENCE_FORMAT": {
-      if (d.note) return String(d.note);
       const parts: string[] = [`Expected: ${d.expectedFormat}`];
       if (d.detectedHint) parts.push(String(d.detectedHint));
-      if (d.hasReferencesSection === false) parts.push("No references section found");
-      return parts.join(" - ");
+      if (typeof d.source === "string") parts.push(`source: ${d.source}`);
+      return parts.join(" · ");
     }
-    case "PDF_METADATA_ANONYMITY": {
+    case "PDF_METADATA_ANONYMITY":
       if (Array.isArray(d.flags) && d.flags.length > 0) {
-        return `PDF metadata: ${d.flags.join(", ")}`;
+        return `PDF metadata: ${(d.flags as string[]).join(", ")}`;
       }
-      if (d.note) return String(d.note);
-      return "PDF metadata does not reveal author identity.";
-    }
+      return null;
     case "TOOL_LINK_ANONYMITY": {
       const links = Array.isArray(d.suspectLinks) ? (d.suspectLinks as Array<{ url: string; reason: string }>) : [];
-      if (links.length === 0) return "No identity-revealing tool/dataset links detected.";
-      return `Suspect links: ${links.slice(0, 3).map((l) => l.url).join(", ")}${links.length > 3 ? "..." : ""}`;
+      if (links.length === 0) return null;
+      return `Suspect links: ${links.slice(0, 3).map((l) => l.url).join(", ")}${links.length > 3 ? "…" : ""}`;
     }
     case "DYNAMIC_CHECKLIST": {
       const missing = Array.isArray(d.missing) ? (d.missing as string[]) : [];
-      if (missing.length === 0) return "All paper-type checklist items present.";
-      return `Missing for ${d.paperType ?? "paper type"}: ${missing.join(", ")}`;
+      return missing.length > 0 ? `Missing items: ${missing.join(", ")}` : null;
     }
     default:
       return null;
@@ -184,14 +209,27 @@ export default async function PaperDetailsPage({ params }: PaperDetailsPageProps
           </p>
           <p>
             <span className="text-muted-foreground">PDF: </span>
-            <a
-              href={details.paper.pdfUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="text-primary underline-offset-2 hover:underline"
-            >
-              {details.paper.pdfUrl}
-            </a>
+            {details.paper.pdfUrl ? (
+              <a
+                href={details.paper.pdfUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline-offset-2 hover:underline"
+              >
+                {details.paper.pdfUrl}
+              </a>
+            ) : details.paper.pdfPath ? (
+              <a
+                href={`/api/papers/${details.paper.id}/pdf`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline-offset-2 hover:underline"
+              >
+                Uploaded PDF
+              </a>
+            ) : (
+              <span className="text-muted-foreground">Not available</span>
+            )}
           </p>
           {details.paper.overleafUrl && (
             <p>
@@ -215,7 +253,10 @@ export default async function PaperDetailsPage({ params }: PaperDetailsPageProps
       <Card className="border">
         <CardHeader className="flex flex-row items-center justify-between">
           <CardTitle className="text-base">Compliance Checks</CardTitle>
-          <PaperComplianceRunner paperId={details.paper.id} />
+          <PaperComplianceRunner
+            paperId={details.paper.id}
+            hasAiKey={Boolean(process.env.ANTHROPIC_API_KEY)}
+          />
         </CardHeader>
         <CardContent className="space-y-3">
           {details.complianceChecks.length === 0 ? (
@@ -223,27 +264,54 @@ export default async function PaperDetailsPage({ params }: PaperDetailsPageProps
               No compliance checks have been run.
             </p>
           ) : (
-            details.complianceChecks.map((check) => (
-              <div
-                key={check.id}
-                className="flex items-center justify-between rounded-md border border-border p-3"
-              >
-                <div>
-                  <p className="text-sm font-medium">{check.checkType}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {check.checkedAt.slice(0, 10)}
-                  </p>
-                  {renderComplianceDetails(check) && (
-                    <p className="text-xs text-muted-foreground mt-1">
-                      {renderComplianceDetails(check)}
-                    </p>
+            details.complianceChecks.map((check) => {
+              const message = renderComplianceMessage(check);
+              const technical = renderComplianceTechnical(check);
+              const isAiCompliance = check.checkType === "AI_FULL_REVIEW";
+              const isAiReferences = check.checkType === "AI_REFERENCE_CHECK";
+              return (
+                <div
+                  key={check.id}
+                  className="rounded-md border border-border p-3"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-baseline gap-2">
+                        <p className="text-sm font-medium">{check.checkType}</p>
+                        <p className="text-xs text-muted-foreground">
+                          {check.checkedAt.slice(0, 10)}
+                        </p>
+                      </div>
+                      {message && (
+                        <p className={`text-sm mt-1 ${check.passed ? "text-muted-foreground" : "text-foreground"}`}>
+                          {message}
+                        </p>
+                      )}
+                      {technical && !isAiCompliance && !isAiReferences && (
+                        <p className="text-xs text-muted-foreground mt-1">{technical}</p>
+                      )}
+                    </div>
+                    <Badge variant={check.passed ? "default" : "destructive"} className="shrink-0">
+                      {check.passed ? "Passed" : "Failed"}
+                    </Badge>
+                  </div>
+                  {isAiCompliance && (
+                    <div className="mt-3 border-t border-border/60 pt-3">
+                      <AiComplianceDetails
+                        details={check.details as Parameters<typeof AiComplianceDetails>[0]["details"]}
+                      />
+                    </div>
+                  )}
+                  {isAiReferences && (
+                    <div className="mt-3 border-t border-border/60 pt-3">
+                      <AiReferenceDetails
+                        details={check.details as Parameters<typeof AiReferenceDetails>[0]["details"]}
+                      />
+                    </div>
                   )}
                 </div>
-                <Badge variant={check.passed ? "default" : "destructive"}>
-                  {check.passed ? "Passed" : "Failed"}
-                </Badge>
-              </div>
-            ))
+              );
+            })
           )}
         </CardContent>
       </Card>

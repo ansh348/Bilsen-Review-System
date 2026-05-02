@@ -34,20 +34,29 @@ interface PaperFilters {
   authorId?: string | null;
 }
 
-interface PaperCreateInput {
+interface PaperExtractedFields {
+  pdfPath?: string | null;
+  pageCount?: number | null;
+  extractedSections?: string[];
+  extractedReferences?: string[];
+  extractedAuthors?: string[];
+  extractedAffiliations?: string[];
+}
+
+interface PaperCreateInput extends PaperExtractedFields {
   title: string;
   abstractText?: string | null;
-  pdfUrl: string;
+  pdfUrl?: string | null;
   overleafUrl?: string | null;
   venueId?: string | null;
   paperType?: PaperType | null;
   authorId: string;
 }
 
-interface PaperUpdateInput {
+interface PaperUpdateInput extends PaperExtractedFields {
   title?: string;
   abstractText?: string | null;
-  pdfUrl?: string;
+  pdfUrl?: string | null;
   overleafUrl?: string | null;
   venueId?: string | null;
   paperType?: PaperType | null;
@@ -94,6 +103,8 @@ interface ComplianceInput {
     company?: string | null;
   };
   pdfBuffer?: Uint8Array | ArrayBuffer;
+  extractedSections?: string[];
+  extractedReferences?: string[];
 }
 
 function nowIso() {
@@ -378,8 +389,11 @@ export function createPaper(input: PaperCreateInput) {
     throw new Error("Paper title is required");
   }
 
-  if (!input.pdfUrl.trim()) {
-    throw new Error("PDF URL is required");
+  const trimmedPdfUrl = input.pdfUrl?.trim() || null;
+  const pdfPath = input.pdfPath?.trim() || null;
+
+  if (!trimmedPdfUrl && !pdfPath) {
+    throw new Error("Either an uploaded PDF or a PDF URL is required");
   }
 
   if (input.venueId && !getVenueById(input.venueId)) {
@@ -389,16 +403,28 @@ export function createPaper(input: PaperCreateInput) {
   const timestamp = nowIso();
   const title = input.title.trim();
   const abstractText = input.abstractText?.trim() || null;
+  const hasExtracted =
+    Boolean(input.extractedSections?.length) ||
+    Boolean(input.extractedReferences?.length) ||
+    Boolean(input.extractedAuthors?.length) ||
+    Boolean(input.extractedAffiliations?.length);
   const paper: PaperRecord = {
     id: crypto.randomUUID(),
     title,
     abstractText,
-    pdfUrl: input.pdfUrl.trim(),
+    pdfUrl: pdfPath ? null : trimmedPdfUrl,
+    pdfPath,
+    pageCount: input.pageCount ?? null,
     overleafUrl: input.overleafUrl?.trim() || null,
     venueId: input.venueId || null,
     status: "SUBMITTED",
     paperType: input.paperType ?? inferPaperType(title, abstractText),
     authorIds: [input.authorId],
+    extractedSections: input.extractedSections,
+    extractedReferences: input.extractedReferences,
+    extractedAuthors: input.extractedAuthors,
+    extractedAffiliations: input.extractedAffiliations,
+    extractedAt: hasExtracted ? timestamp : undefined,
     createdAt: timestamp,
     updatedAt: timestamp,
   };
@@ -565,11 +591,27 @@ export function updatePaper(paperId: string, input: PaperUpdateInput) {
           ? paper.paperType ?? inferPaperType(nextTitle, nextAbstractText)
           : input.paperType ?? inferPaperType(nextTitle, nextAbstractText);
 
+      const nextPdfPath =
+        input.pdfPath === undefined ? paper.pdfPath ?? null : input.pdfPath?.trim() || null;
+      const nextPdfUrl =
+        input.pdfPath !== undefined && input.pdfPath
+          ? null
+          : input.pdfUrl === undefined
+            ? paper.pdfUrl
+            : input.pdfUrl?.trim() || null;
+      const hasNewExtracted =
+        input.extractedSections !== undefined ||
+        input.extractedReferences !== undefined ||
+        input.extractedAuthors !== undefined ||
+        input.extractedAffiliations !== undefined;
+
       updatedPaper = {
         ...paper,
         title: nextTitle,
         abstractText: nextAbstractText,
-        pdfUrl: input.pdfUrl?.trim() ?? paper.pdfUrl,
+        pdfUrl: nextPdfUrl,
+        pdfPath: nextPdfPath,
+        pageCount: input.pageCount === undefined ? paper.pageCount ?? null : input.pageCount,
         overleafUrl:
           input.overleafUrl === undefined
             ? paper.overleafUrl
@@ -577,6 +619,19 @@ export function updatePaper(paperId: string, input: PaperUpdateInput) {
         venueId: input.venueId === undefined ? paper.venueId : input.venueId,
         status: input.status ?? paper.status,
         paperType: nextPaperType,
+        extractedSections:
+          input.extractedSections === undefined ? paper.extractedSections : input.extractedSections,
+        extractedReferences:
+          input.extractedReferences === undefined
+            ? paper.extractedReferences
+            : input.extractedReferences,
+        extractedAuthors:
+          input.extractedAuthors === undefined ? paper.extractedAuthors : input.extractedAuthors,
+        extractedAffiliations:
+          input.extractedAffiliations === undefined
+            ? paper.extractedAffiliations
+            : input.extractedAffiliations,
+        extractedAt: hasNewExtracted ? nowIso() : paper.extractedAt,
         updatedAt: nowIso(),
       };
 
@@ -1713,15 +1768,53 @@ function getPaperTextForCompliance(paper: PaperRecord, extractedText?: string) {
   return `${paper.title}\n${paper.abstractText ?? ""}\n${extractedText ?? ""}`.toLowerCase();
 }
 
-async function tryFetchPdfBuffer(pdfUrl: string): Promise<Uint8Array | null> {
-  if (!/^https?:\/\//i.test(pdfUrl)) {
-    return null;
+// Section name synonym groups. A required section "Method" matches an extracted
+// section "Methodology" or "Approach"; "Experiments" matches "Evaluation" / "Results";
+// etc. Real papers vary in their heading conventions and we don't want compliance to
+// fail on cosmetic mismatches.
+const SECTION_SYNONYMS: Record<string, string[]> = {
+  abstract: ["abstract"],
+  introduction: ["introduction", "motivation", "problem statement"],
+  "related work": ["related work", "background", "prior work", "literature review", "related literature"],
+  background: ["background", "related work", "preliminaries"],
+  method: ["method", "methodology", "approach", "technique", "methods", "our approach"],
+  methodology: ["methodology", "method", "approach", "technique", "methods"],
+  approach: ["approach", "method", "methodology", "technique", "our approach"],
+  experiments: ["experiments", "evaluation", "results", "empirical study", "experimental results", "experimental setup", "findings"],
+  evaluation: ["evaluation", "experiments", "results", "empirical evaluation", "findings"],
+  results: ["results", "evaluation", "experiments", "findings", "outcomes"],
+  findings: ["findings", "results", "evaluation", "outcomes"],
+  conclusion: ["conclusion", "conclusions", "concluding remarks", "discussion and conclusion", "summary"],
+  "threats to validity": ["threats to validity", "limitations", "validity threats", "threats", "limitations and threats"],
+  implementation: ["implementation", "system design", "architecture", "system architecture"],
+  design: ["design", "system design", "architecture"],
+  data: ["data", "dataset", "datasets", "data collection"],
+  availability: ["availability", "artifact availability", "artifact", "replication package", "reproducibility"],
+  discussion: ["discussion", "analysis"],
+};
+
+function expandSynonyms(needle: string): string[] {
+  const norm = needle.toLowerCase().trim();
+  const direct = SECTION_SYNONYMS[norm];
+  if (direct) return direct;
+  for (const synonyms of Object.values(SECTION_SYNONYMS)) {
+    if (synonyms.includes(norm)) return synonyms;
   }
+  return [norm];
+}
+
+async function readTextSidecar(pdfPath: string | null | undefined): Promise<string | null> {
+  if (!pdfPath) return null;
   try {
-    const response = await fetch(pdfUrl);
-    if (!response.ok) return null;
-    const arrayBuffer = await response.arrayBuffer();
-    return new Uint8Array(arrayBuffer);
+    const fs = await import("fs/promises");
+    const path = await import("path");
+    const uploadsDir = path.resolve(process.cwd(), "data", "uploads");
+    const resolved = path.resolve(process.cwd(), pdfPath);
+    if (!resolved.startsWith(uploadsDir + path.sep) && resolved !== uploadsDir) {
+      return null;
+    }
+    const txtPath = resolved.replace(/\.pdf$/i, ".txt");
+    return await fs.readFile(txtPath, "utf8");
   } catch {
     return null;
   }
@@ -1746,10 +1839,22 @@ export async function runComplianceChecks(input: ComplianceInput) {
     .trim()
     .split(/\s+/)
     .filter(Boolean).length;
-  const text = getPaperTextForCompliance(paper, input.extractedText);
-  const pageCount = input.pageCount ?? null;
+  const sidecarText = input.extractedText ? null : await readTextSidecar(paper.pdfPath);
+  const effectiveExtractedText = input.extractedText ?? sidecarText ?? "";
+  const text = getPaperTextForCompliance(paper, effectiveExtractedText);
+  const effectiveSections = input.extractedSections ?? paper.extractedSections ?? null;
+  const effectiveReferences = input.extractedReferences ?? paper.extractedReferences ?? null;
+  const pageCount = input.pageCount ?? paper.pageCount ?? null;
   const metadataAuthor = input.metadata?.author?.trim() || "";
   const metadataCompany = input.metadata?.company?.trim() || "";
+
+  console.log(
+    "[compliance] paper", paper.id,
+    "venue:", venue.name,
+    "pageCount:", pageCount,
+    "sections-source:", effectiveSections ? "structured" : "text-heuristic",
+    "refs-source:", effectiveReferences ? "structured" : "text-heuristic",
+  );
 
   const checks: Array<{
     checkType: ComplianceCheckType;
@@ -1757,25 +1862,81 @@ export async function runComplianceChecks(input: ComplianceInput) {
     details: Record<string, unknown>;
   }> = [];
 
+  // Page-limit math respects the venue's reference-counting policy. When
+  // `referencesCountTowardLimit === false`, references are excluded from the
+  // body page count and `extraRefPages` reference pages are allowed on top.
+  // Estimate references pages from `extractedReferences` (≈25 refs/page,
+  // conservative for two-column ACM/IEEE).
+  const refsCountToward = venue.referencesCountTowardLimit ?? null;
+  const extraRefPages = venue.extraRefPages ?? null;
+  const refsExcluded = refsCountToward === false;
+  const refCountForEstimate = effectiveReferences?.length ?? 0;
+  const estimatedRefPages =
+    refsExcluded && refCountForEstimate > 0
+      ? Math.max(1, Math.ceil(refCountForEstimate / 25))
+      : 0;
+  const effectivePageCount =
+    pageCount !== null && refsExcluded
+      ? Math.max(0, Number(pageCount) - estimatedRefPages)
+      : pageCount;
+  const effectiveLimit =
+    venue.pageLimit !== null && refsExcluded && extraRefPages !== null
+      ? Number(venue.pageLimit) + Number(extraRefPages)
+      : venue.pageLimit;
+  const pageLimitPassed =
+    venue.pageLimit === null ||
+    pageCount === null ||
+    (refsExcluded
+      ? Number(effectivePageCount) <= Number(venue.pageLimit) ||
+        Number(pageCount) <= Number(effectiveLimit)
+      : Number(pageCount) <= Number(venue.pageLimit));
+  const limitDescription =
+    venue.pageLimit !== null && refsExcluded && extraRefPages !== null
+      ? `${venue.pageLimit} + ${extraRefPages} reference pages (${effectiveLimit} total)`
+      : venue.pageLimit !== null && refsExcluded
+        ? `${venue.pageLimit} pages (references don't count)`
+        : venue.pageLimit !== null
+          ? `${venue.pageLimit} pages`
+          : "unspecified";
+  const pageLimitMessage =
+    pageCount === null
+      ? `Page count was not extracted from the PDF; ${venue.name}'s ${limitDescription} limit could not be checked. Re-upload the PDF.`
+      : venue.pageLimit === null
+        ? `${venue.name} does not specify a page limit. Paper is ${pageCount} ${pageCount === 1 ? "page" : "pages"}.`
+        : pageLimitPassed
+          ? refsExcluded && extraRefPages !== null
+            ? `Paper is ${pageCount} pages (≈${estimatedRefPages} reference page${estimatedRefPages === 1 ? "" : "s"} excluded), within ${venue.name}'s ${limitDescription} limit.`
+            : `Paper is ${pageCount} ${pageCount === 1 ? "page" : "pages"}, within ${venue.name}'s ${limitDescription} limit.`
+          : `Paper is ${pageCount} pages. ${venue.name} limit is ${limitDescription}. Remove ${Math.max(0, Number(pageCount) - Number(effectiveLimit ?? venue.pageLimit))} page${Math.max(0, Number(pageCount) - Number(effectiveLimit ?? venue.pageLimit)) === 1 ? "" : "s"} of content (or move material to appendix if the venue allows).`;
   checks.push({
     checkType: "PAGE_LIMIT",
-    passed:
-      venue.pageLimit === null ||
-      pageCount === null ||
-      Number(pageCount) <= Number(venue.pageLimit),
+    passed: pageLimitPassed,
     details: {
+      message: pageLimitMessage,
       pageCount,
       pageLimit: venue.pageLimit,
+      effectiveLimit,
+      referencesCountTowardLimit: refsCountToward,
+      extraRefPages,
+      estimatedReferencePages: refsExcluded ? estimatedRefPages : null,
       note:
         pageCount === null ? "Page count not provided; check skipped." : undefined,
     },
   });
 
+  const abstractPassed =
+    venue.abstractWordLimit === null || abstractWordCount <= venue.abstractWordLimit;
+  const abstractMessage =
+    venue.abstractWordLimit === null
+      ? `${venue.name} does not specify an abstract word limit. Abstract is ${abstractWordCount} words.`
+      : abstractPassed
+        ? `Abstract is ${abstractWordCount} words, within the ${venue.abstractWordLimit}-word limit.`
+        : `Abstract is ${abstractWordCount} words; ${venue.name} allows ${venue.abstractWordLimit}. Trim by ${abstractWordCount - venue.abstractWordLimit} word${abstractWordCount - venue.abstractWordLimit === 1 ? "" : "s"}.`;
   checks.push({
     checkType: "ABSTRACT_WORD_COUNT",
-    passed:
-      venue.abstractWordLimit === null || abstractWordCount <= venue.abstractWordLimit,
+    passed: abstractPassed,
     details: {
+      message: abstractMessage,
       abstractWordCount,
       abstractWordLimit: venue.abstractWordLimit,
     },
@@ -1786,21 +1947,81 @@ export async function runComplianceChecks(input: ComplianceInput) {
   );
   const profile = getValidationProfile(paper.paperType, venue.track);
   const profileExtraSections = profile?.extraRequiredSections ?? [];
-  const combinedRequiredSections = [
-    ...venue.requiredSections,
-    ...profileExtraSections,
-  ];
-  const missingSections = combinedRequiredSections.filter(
-    (section) => !text.includes(section.toLowerCase())
+  // Three tiers of section requirements:
+  //   - Mandatory: venue.requiredSections + profile extras + special sections
+  //     where deskRejectIfMissing !== false. Missing → check fails.
+  //   - Special non-fatal: special sections with deskRejectIfMissing === false.
+  //     Missing → warning, doesn't fail the check.
+  //   - Conventional: venue.conventionalSections. Missing → warning only.
+  const specialSections = venue.specialRequiredSections ?? [];
+  const mandatorySpecialSectionNames = specialSections
+    .filter((s) => s.deskRejectIfMissing !== false)
+    .map((s) => s.name);
+  const softSpecialSectionNames = specialSections
+    .filter((s) => s.deskRejectIfMissing === false)
+    .map((s) => s.name);
+  const conventionalSectionNames = venue.conventionalSections ?? [];
+  const combinedRequiredSections = Array.from(
+    new Set([
+      ...venue.requiredSections,
+      ...profileExtraSections,
+      ...mandatorySpecialSectionNames,
+    ]),
   );
+  const softSectionsAll = Array.from(
+    new Set([...softSpecialSectionNames, ...conventionalSectionNames]),
+  );
+  const normalizedSectionList = effectiveSections?.map((s) => s.toLowerCase().trim()) ?? null;
+  const sectionMatchInfo = (needle: string): { matched: boolean; matchedAs?: string } => {
+    const expansions = expandSynonyms(needle);
+    for (const exp of expansions) {
+      if (normalizedSectionList) {
+        const hit = normalizedSectionList.find((s) => s === exp || s.includes(exp) || exp.includes(s));
+        if (hit) return { matched: true, matchedAs: hit };
+      } else if (text.includes(exp)) {
+        return { matched: true, matchedAs: exp };
+      }
+    }
+    return { matched: false };
+  };
+  const sectionMatch = (needle: string) => sectionMatchInfo(needle).matched;
+  const sectionMatches: Record<string, string | null> = {};
+  const missingSections: string[] = [];
+  for (const section of combinedRequiredSections) {
+    const info = sectionMatchInfo(section);
+    if (info.matched) {
+      sectionMatches[section] = info.matchedAs ?? null;
+    } else {
+      missingSections.push(section);
+    }
+  }
+  const missingSoftSections: string[] = [];
+  for (const section of softSectionsAll) {
+    if (!sectionMatch(section)) missingSoftSections.push(section);
+  }
+  const sectionsPassed = missingSections.length === 0;
+  const warningSuffix =
+    missingSoftSections.length > 0
+      ? ` Suggested but not enforced: ${missingSoftSections.join(", ")}.`
+      : "";
+  const requiredSectionsMessage = sectionsPassed
+    ? `All ${combinedRequiredSections.length} required sections present (${combinedRequiredSections.join(", ")})${normalizedSectionList ? " — matched against the structured section list extracted from the PDF" : " — matched against full paper text"}.${warningSuffix}`
+    : `Missing section${missingSections.length === 1 ? "" : "s"}: ${missingSections.join(", ")}. ${venue.name} expects ${missingSections.length === 1 ? "this section" : "these sections"}. Add ${missingSections.length === 1 ? `a "${missingSections[0]}" section` : "the missing sections"} to the paper${normalizedSectionList ? ` (the PDF currently has: ${effectiveSections?.join(", ") ?? "—"})` : ""}.${warningSuffix}`;
   checks.push({
     checkType: "REQUIRED_SECTIONS",
-    passed: missingSections.length === 0,
+    passed: sectionsPassed,
     details: {
+      message: requiredSectionsMessage,
       requiredSections: combinedRequiredSections,
       missingSections,
       venueRequiredSections: venue.requiredSections,
       profileRequiredSections: profileExtraSections,
+      specialRequiredSections: specialSections,
+      conventionalSections: conventionalSectionNames,
+      warnings: missingSoftSections,
+      source: normalizedSectionList ? "structured-extraction" : "text-heuristic",
+      extractedSections: effectiveSections ?? undefined,
+      matchedAs: sectionMatches,
     },
   });
 
@@ -1808,13 +2029,19 @@ export async function runComplianceChecks(input: ComplianceInput) {
     const checklistResults = profile.checklistKeywords.map((item) => ({
       phrase: item.phrase,
       description: item.description,
-      present: text.includes(item.phrase.toLowerCase()),
+      present: sectionMatch(item.phrase) || text.includes(item.phrase.toLowerCase()),
     }));
     const missingChecklist = checklistResults.filter((c) => !c.present);
+    const checklistPassed = missingChecklist.length === 0;
+    const paperTypeLabel = (paper.paperType ?? "this paper type").toString().toLowerCase().replace("_", " ");
+    const checklistMessage = checklistPassed
+      ? `All ${paperTypeLabel} checklist items present.`
+      : `Missing typical ${paperTypeLabel} content: ${missingChecklist.map((c) => c.description).join(", ")}. Reviewers will look for this — adding it strengthens the paper.`;
     checks.push({
       checkType: "DYNAMIC_CHECKLIST",
-      passed: missingChecklist.length === 0,
+      passed: checklistPassed,
       details: {
+        message: checklistMessage,
         paperType: paper.paperType,
         track: venue.track,
         items: checklistResults,
@@ -1826,10 +2053,19 @@ export async function runComplianceChecks(input: ComplianceInput) {
   const metadataPass =
     !venue.anonymityRequired ||
     (metadataAuthor.length === 0 && metadataCompany.length === 0);
+  const metadataMessage = !venue.anonymityRequired
+    ? `${venue.name} does not require anonymity; PDF metadata fields are informational only.`
+    : metadataPass
+      ? "PDF metadata fields supplied via the compliance request are clear of identifying info."
+      : `PDF metadata exposes identifying info: ${[
+          metadataAuthor && `Author='${metadataAuthor}'`,
+          metadataCompany && `Company='${metadataCompany}'`,
+        ].filter(Boolean).join(", ")}. Clear metadata before submission: in LaTeX add \\pdfinfo{ /Author () }, or run 'exiftool -Author= -Company= file.pdf' on the produced PDF.`;
   checks.push({
     checkType: "METADATA_CHECK",
     passed: metadataPass,
     details: {
+      message: metadataMessage,
       anonymityRequired: venue.anonymityRequired,
       metadataAuthor,
       metadataCompany,
@@ -1866,10 +2102,17 @@ export async function runComplianceChecks(input: ComplianceInput) {
     .map((p) => p.label);
 
   const allFlags = [...keywordFlags, ...patternFlags];
+  const anonymityPassed = !venue.anonymityRequired || allFlags.length === 0;
+  const anonymityMessage = !venue.anonymityRequired
+    ? `${venue.name} does not require anonymity; identifying mentions are informational only.${allFlags.length > 0 ? ` Detected: ${allFlags.join(", ")}.` : ""}`
+    : anonymityPassed
+      ? "No identifying author or institution mentions detected in the manuscript text."
+      : `Found ${allFlags.length} identifying mention${allFlags.length === 1 ? "" : "s"}: ${allFlags.join(", ")}. Replace with anonymous placeholders ('Anonymous University', '[redacted]') before double-blind submission.`;
   checks.push({
     checkType: "ANONYMITY_CHECK",
-    passed: !venue.anonymityRequired || allFlags.length === 0,
+    passed: anonymityPassed,
     details: {
+      message: anonymityMessage,
       anonymityRequired: venue.anonymityRequired,
       keywordFlags,
       patternFlags,
@@ -1878,12 +2121,19 @@ export async function runComplianceChecks(input: ComplianceInput) {
   });
 
   if (venue.anonymityRequired || profile) {
-    const sourceForLinks = `${input.extractedText ?? ""}\n${paper.abstractText ?? ""}`;
+    const sourceForLinks = `${effectiveExtractedText}\n${paper.abstractText ?? ""}`;
     const suspectLinks = findIdentityRevealingLinks(sourceForLinks);
+    const linksPassed = !venue.anonymityRequired || suspectLinks.length === 0;
+    const linksMessage = !venue.anonymityRequired
+      ? `${venue.name} does not require anonymity; tool/dataset links are informational only.${suspectLinks.length > 0 ? ` Detected ${suspectLinks.length} link(s).` : ""}`
+      : linksPassed
+        ? "No identity-revealing tool/dataset links detected."
+        : `Found ${suspectLinks.length} identity-revealing link${suspectLinks.length === 1 ? "" : "s"}: ${suspectLinks.slice(0, 3).map((l) => l.url).join(", ")}${suspectLinks.length > 3 ? ", …" : ""}. Use anonymous.4open.science (or strip the link until camera-ready).`;
     checks.push({
       checkType: "TOOL_LINK_ANONYMITY",
-      passed: !venue.anonymityRequired || suspectLinks.length === 0,
+      passed: linksPassed,
       details: {
+        message: linksMessage,
         anonymityRequired: venue.anonymityRequired,
         suspectLinks,
         note:
@@ -1896,43 +2146,74 @@ export async function runComplianceChecks(input: ComplianceInput) {
 
   // Reference format check
   if (venue.referenceFormat) {
-    const hasExtractedText = Boolean(input.extractedText?.trim());
-    if (!hasExtractedText) {
+    const referencesText = effectiveReferences?.length
+      ? effectiveReferences.join("\n")
+      : effectiveExtractedText;
+    const hasReferenceData = Boolean(referencesText.trim());
+
+    if (!hasReferenceData) {
       checks.push({
         checkType: "REFERENCE_FORMAT",
         passed: true,
         details: {
+          message: `Reference data not available — could not verify ${venue.referenceFormat} citation format. Re-upload the PDF if you want this check to run.`,
           expectedFormat: venue.referenceFormat,
-          note: "Full text not provided; reference format not verified.",
+          note: "Reference data not available; check skipped.",
+          source: "none",
         },
       });
     } else {
-      const hasReferencesSection = /\b(references|bibliography)\b/.test(text);
+      const lowerRefText = referencesText.toLowerCase();
+      const hasReferencesSection =
+        Boolean(effectiveReferences?.length) ||
+        /\b(references|bibliography)\b/.test(lowerRefText);
       let formatMatched = false;
       let detectedHint = "unknown";
 
+      const authorYearRegex = /\([A-Z][a-z]+(?:\s+et\s+al\.?)?,?\s*\d{4}\)/;
+      const numberedRegex = /\[\d+(?:\s*,\s*\d+)*\]/;
       const format = venue.referenceFormat.toUpperCase();
-      if (format === "ACM") {
-        // ACM uses author-year: (Author, 2024) or (Author et al., 2024)
-        formatMatched = /\([A-Z][a-z]+(?:\s+et\s+al\.?)?,?\s*\d{4}\)/.test(input.extractedText!);
-        detectedHint = formatMatched ? "ACM (author-year)" : "no ACM citations found";
-      } else if (format === "IEEE") {
-        // IEEE uses numbered brackets: [1], [2], [1, 3]
-        formatMatched = /\[\d+(?:\s*,\s*\d+)*\]/.test(input.extractedText!);
-        detectedHint = formatMatched ? "IEEE (numbered)" : "no IEEE citations found";
+      const detailType = venue.referenceFormatDetails?.type ?? null;
+      if (detailType === "either") {
+        const authorYear = authorYearRegex.test(referencesText);
+        const numbered = numberedRegex.test(referencesText);
+        formatMatched = authorYear || numbered;
+        detectedHint = formatMatched
+          ? `${authorYear ? "author-year" : ""}${authorYear && numbered ? " and " : ""}${numbered ? "numbered" : ""} citations found (either accepted)`
+          : "no citations matching either author-year or numbered styles found";
+      } else if (detailType === "numbered" || (detailType === null && format === "IEEE")) {
+        formatMatched = numberedRegex.test(referencesText);
+        detectedHint = formatMatched ? "numbered citations found" : "no numbered citations found";
+      } else if (detailType === "author-year" || (detailType === null && format === "ACM")) {
+        formatMatched = authorYearRegex.test(referencesText);
+        detectedHint = formatMatched ? "author-year citations found" : "no author-year citations found";
       } else {
-        // Unknown format — just check for a references section
         formatMatched = hasReferencesSection;
         detectedHint = hasReferencesSection ? "references section present" : "no references section found";
       }
 
+      const refsPassed = hasReferencesSection && formatMatched;
+      const refsMessage = refsPassed
+        ? `References use ${venue.referenceFormat} format as expected by ${venue.name} (${detectedHint}).`
+        : !hasReferencesSection
+          ? `No references section detected. ${venue.name} requires a References / Bibliography section in ${venue.referenceFormat} format.`
+          : `Expected ${venue.referenceFormat} format but ${detectedHint}. ${
+              format === "ACM"
+                ? "Use \\citep{} (natbib) so citations render as '(Smith et al., 2024)'."
+                : format === "IEEE"
+                  ? "Use IEEEtran or \\bibliographystyle{IEEEtran} so citations render as '[1]'."
+                  : "Update the bibliography style accordingly."
+            }`;
+
       checks.push({
         checkType: "REFERENCE_FORMAT",
-        passed: hasReferencesSection && formatMatched,
+        passed: refsPassed,
         details: {
+          message: refsMessage,
           expectedFormat: venue.referenceFormat,
           hasReferencesSection,
           detectedHint,
+          source: effectiveReferences?.length ? "structured-extraction" : "text-heuristic",
         },
       });
     }
@@ -1940,7 +2221,8 @@ export async function runComplianceChecks(input: ComplianceInput) {
 
   let pdfBuffer: Uint8Array | ArrayBuffer | null = input.pdfBuffer ?? null;
   if (!pdfBuffer) {
-    pdfBuffer = await tryFetchPdfBuffer(paper.pdfUrl);
+    const { loadPdfBuffer } = await import("@/lib/pdf-metadata");
+    pdfBuffer = await loadPdfBuffer(paper);
   }
 
   if (pdfBuffer) {
@@ -1951,10 +2233,16 @@ export async function runComplianceChecks(input: ComplianceInput) {
       const pdfMeta = await readPdfMetadata(pdfBuffer);
       const { hasIdentity, flags } = metadataSuggestsIdentity(pdfMeta);
       const shouldFail = venue.anonymityRequired && hasIdentity;
+      const pdfMetaMessage = !venue.anonymityRequired
+        ? `${venue.name} does not require anonymity; embedded PDF metadata is informational only.${flags.length > 0 ? ` Detected: ${flags.join("; ")}.` : ""}`
+        : shouldFail
+          ? `PDF embedded metadata reveals identity: ${flags.join("; ")}. Clear metadata before re-uploading: in LaTeX add \\pdfinfo{ /Author () /Title () }, or run 'exiftool -Author= -Title= -Subject= -Creator= file.pdf' on the produced PDF.`
+          : "PDF embedded metadata does not reveal author identity.";
       checks.push({
         checkType: "PDF_METADATA_ANONYMITY",
         passed: !shouldFail,
         details: {
+          message: pdfMetaMessage,
           anonymityRequired: venue.anonymityRequired,
           author: pdfMeta.author,
           creator: pdfMeta.creator,
@@ -1968,6 +2256,89 @@ export async function runComplianceChecks(input: ComplianceInput) {
     } catch {
       // PDF could not be parsed; skip silently.
     }
+  }
+
+  // DESK_REJECT_RISK: consolidate venue.deskRejectCriteria into a single
+  // checklist. For criteria that map to existing checks (page limit,
+  // anonymity-related), surface their pass/fail. Others are flagged manual.
+  const criteria = venue.deskRejectCriteria ?? [];
+  if (criteria.length > 0) {
+    const checkMap = new Map<ComplianceCheckType, boolean>();
+    for (const c of checks) checkMap.set(c.checkType, c.passed);
+    const passed = (t: ComplianceCheckType) => checkMap.get(t) !== false;
+
+    type DeskItem = {
+      criterion: string;
+      kind: "auto" | "manual";
+      status: "pass" | "fail" | "manual";
+      relatedCheck?: ComplianceCheckType;
+      note?: string;
+    };
+    const items: DeskItem[] = criteria.map((criterion) => {
+      const lc = criterion.toLowerCase();
+      if (lc.includes("page limit") || lc.includes("page-limit") || lc.includes("page count") || lc.includes("non-compliant page")) {
+        return {
+          criterion,
+          kind: "auto",
+          status: passed("PAGE_LIMIT") ? "pass" : "fail",
+          relatedCheck: "PAGE_LIMIT",
+        };
+      }
+      if (lc.includes("non-anonymous") || lc.includes("anonymous") || lc.includes("blind")) {
+        const anonymityPasses =
+          passed("ANONYMITY_CHECK") &&
+          passed("METADATA_CHECK") &&
+          passed("PDF_METADATA_ANONYMITY") &&
+          passed("TOOL_LINK_ANONYMITY");
+        return {
+          criterion,
+          kind: "auto",
+          status: anonymityPasses ? "pass" : "fail",
+          relatedCheck: "ANONYMITY_CHECK",
+        };
+      }
+      if (lc.includes("template") || lc.includes("margin") || lc.includes("font")) {
+        return {
+          criterion,
+          kind: "manual",
+          status: "manual",
+          note: "Confirm you used the venue's official template (sigconf for ACM, IEEEtran for IEEE) without modified margins or fonts.",
+        };
+      }
+      if (lc.includes("dual submission") || lc.includes("concurrent") || lc.includes("plagiarism")) {
+        return {
+          criterion,
+          kind: "manual",
+          status: "manual",
+          note: "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies.",
+        };
+      }
+      if (lc.includes("scope") || lc.includes("out of scope")) {
+        return {
+          criterion,
+          kind: "manual",
+          status: "manual",
+          note: "Confirm the paper falls within the venue's stated scope.",
+        };
+      }
+      return {
+        criterion,
+        kind: "manual",
+        status: "manual",
+        note: "Manual confirmation required.",
+      };
+    });
+
+    const autoFailures = items.filter((i) => i.kind === "auto" && i.status === "fail");
+    const desk_passed = autoFailures.length === 0;
+    const message = desk_passed
+      ? `No automated desk-reject signals detected. Manually confirm the ${items.filter((i) => i.kind === "manual").length} item${items.filter((i) => i.kind === "manual").length === 1 ? "" : "s"} below before submitting to ${venue.name}.`
+      : `Automated desk-reject risk: ${autoFailures.map((i) => i.criterion).join("; ")}. Resolve before submitting.`;
+    checks.push({
+      checkType: "DESK_REJECT_RISK",
+      passed: desk_passed,
+      details: { message, items },
+    });
   }
 
   const timestamp = nowIso();
@@ -2005,6 +2376,132 @@ export function getComplianceChecksByPaper(paperId: string) {
   return readCollection("complianceChecks")
     .filter((check) => check.paperId === paperId)
     .sort((a, b) => b.checkedAt.localeCompare(a.checkedAt));
+}
+
+// Run both AI agents (paper compliance + reference verification) in parallel
+// against a paper that has been uploaded with a venue selected. Stores the
+// results as two new ComplianceCheckRecord rows so they show up alongside the
+// heuristic checks on the paper detail page.
+export async function runAiComplianceAndReferences(paperId: string): Promise<{
+  aiCompliance: ComplianceCheckRecord;
+  aiReferences: ComplianceCheckRecord;
+}> {
+  const paper = getPaperById(paperId);
+  if (!paper) {
+    throw new Error("Paper not found");
+  }
+  if (!paper.venueId) {
+    throw new Error("Paper has no venue selected — pick a venue before running AI compliance.");
+  }
+  const venue = getVenueById(paper.venueId);
+  if (!venue) {
+    throw new Error("Venue not found");
+  }
+
+  const sidecarText = await readTextSidecar(paper.pdfPath);
+  const paperText = sidecarText ?? "";
+  if (!paperText.trim()) {
+    throw new Error(
+      "No extracted text available for this paper. Re-upload the PDF so the AI can read it.",
+    );
+  }
+
+  const { runAiPaperCompliance, runReferenceVerification } = await import(
+    "@/lib/ai-compliance"
+  );
+
+  // Two agents in parallel — Promise.all so they share the wall clock.
+  const [aiCompliance, aiReferences] = await Promise.all([
+    runAiPaperCompliance({
+      paper,
+      venue,
+      paperText,
+      pageCount: paper.pageCount ?? null,
+      extractedSections: paper.extractedSections ?? null,
+      extractedReferences: paper.extractedReferences ?? null,
+    }),
+    runReferenceVerification({
+      paperTitle: paper.title,
+      paperAbstract: paper.abstractText,
+      paperDomain: venue.domain ?? null,
+      references: paper.extractedReferences ?? [],
+      paperText,
+    }),
+  ]);
+
+  const checkedAt = nowIso();
+
+  const compliancePassed =
+    aiCompliance.passed && !aiCompliance.error;
+  const referencesPassed =
+    aiReferences.summary.suspicious === 0 &&
+    aiReferences.summary.malformed === 0 &&
+    !aiReferences.error;
+
+  const aiComplianceRecord: ComplianceCheckRecord = {
+    id: crypto.randomUUID(),
+    paperId: paper.id,
+    checkType: "AI_FULL_REVIEW",
+    passed: compliancePassed,
+    details: {
+      message:
+        aiCompliance.error
+          ? `AI compliance check failed: ${aiCompliance.error}`
+          : aiCompliance.overallSummary ||
+            `AI compliance ${compliancePassed ? "passed" : "found issues"} for ${venue.name}.`,
+      checks: aiCompliance.checks,
+      deskRejectRisk: aiCompliance.deskRejectRisk,
+      failedDimensions: aiCompliance.failedDimensions,
+      warningDimensions: aiCompliance.warningDimensions,
+      modelUsed: aiCompliance.modelUsed,
+      paperTruncated: aiCompliance.paperTruncated,
+      generatedAt: aiCompliance.generatedAt,
+      error: aiCompliance.error,
+    },
+    checkedAt,
+  };
+
+  const aiReferenceRecord: ComplianceCheckRecord = {
+    id: crypto.randomUUID(),
+    paperId: paper.id,
+    checkType: "AI_REFERENCE_CHECK",
+    passed: referencesPassed,
+    details: {
+      message:
+        aiReferences.error === "no-references"
+          ? "No references could be extracted for verification. Re-upload the PDF if you want this check to run."
+          : aiReferences.error
+            ? `AI reference verification encountered errors: ${aiReferences.error}`
+            : aiReferences.summary.overallAssessment,
+      summary: aiReferences.summary,
+      references: aiReferences.references,
+      modelUsed: aiReferences.modelUsed,
+      generatedAt: aiReferences.generatedAt,
+      error: aiReferences.error,
+    },
+    checkedAt,
+  };
+
+  storeComplianceChecks([aiComplianceRecord, aiReferenceRecord]);
+
+  // Notify authors that AI review is ready (single notification covering both).
+  const failures = (compliancePassed ? 0 : 1) + (referencesPassed ? 0 : 1);
+  for (const authorId of paper.authorIds) {
+    createNotification({
+      userId: authorId,
+      type: "COMPLIANCE_RESULT",
+      title: failures === 0 ? "AI review passed" : "AI review found issues",
+      message:
+        failures === 0
+          ? `AI compliance + reference verification passed for "${paper.title}".`
+          : `AI review flagged ${failures} area${failures === 1 ? "" : "s"} for "${paper.title}".`,
+      link: `/papers/${paper.id}`,
+      sentViaEmail: failures > 0,
+      sentViaSlack: false,
+    });
+  }
+
+  return { aiCompliance: aiComplianceRecord, aiReferences: aiReferenceRecord };
 }
 
 export async function generateAiReviewDraft(extractedText: string) {

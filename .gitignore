@@ -38,6 +38,12 @@ yarn-error.log*
 
 # local data
 data/users.json
+data/uploads/*
+!data/uploads/.gitkeep
+data/_backup_test/
+
+# local scratch
+.codex_tmp/
 
 # vercel
 .vercel

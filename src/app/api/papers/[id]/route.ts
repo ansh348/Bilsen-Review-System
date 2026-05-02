@@ -9,6 +9,7 @@ import {
 } from "@/lib/review-service";
 import { handleRouteError, jsonError } from "@/lib/api-route";
 import { updatePaperSchema } from "@/lib/validations/review";
+import { resolveUploadPdfPath } from "@/lib/uploads";
 
 interface RouteParams {
   params: Promise<{ id: string }>;
@@ -60,7 +61,19 @@ export async function PATCH(request: Request, { params }: RouteParams) {
     if (parsed.status && !isCoordinator) {
       return jsonError("Only coordinators can update paper status", 403);
     }
-    const paper = updatePaper(id, parsed);
+
+    const { uploadId, ...rest } = parsed;
+    const updateInput: typeof rest & { pdfPath?: string | null } = { ...rest };
+    if (uploadId) {
+      const pdfPath = await resolveUploadPdfPath(uploadId);
+      if (!pdfPath) {
+        return jsonError("Uploaded file not found — please re-upload", 400);
+      }
+      updateInput.pdfPath = pdfPath;
+      updateInput.pdfUrl = null;
+    }
+
+    const paper = updatePaper(id, updateInput);
     return NextResponse.json({ paper });
   } catch (error) {
     return handleRouteError(error);
