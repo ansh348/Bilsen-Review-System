@@ -9,11 +9,25 @@ import { Label } from "@/components/ui/label";
 interface ProfileFormProps {
   userId: string;
   initialName: string;
+  initialExpertise: string[];
 }
 
-export function ProfileForm({ userId, initialName }: ProfileFormProps) {
+function parseExpertise(raw: string): string[] {
+  return raw
+    .split(",")
+    .map((tag) => tag.trim())
+    .filter((tag) => tag.length > 0)
+    .slice(0, 15);
+}
+
+export function ProfileForm({
+  userId,
+  initialName,
+  initialExpertise,
+}: ProfileFormProps) {
   const router = useRouter();
   const [name, setName] = useState(initialName);
+  const [expertiseRaw, setExpertiseRaw] = useState(initialExpertise.join(", "));
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -27,7 +41,10 @@ export function ProfileForm({ userId, initialName }: ProfileFormProps) {
       const response = await fetch(`/api/users/${userId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name }),
+        body: JSON.stringify({
+          name,
+          expertise: parseExpertise(expertiseRaw),
+        }),
       });
       const payload = await response.json().catch(() => ({}));
       if (!response.ok) {
@@ -64,6 +81,18 @@ export function ProfileForm({ userId, initialName }: ProfileFormProps) {
           onChange={(event) => setName(event.target.value)}
           required
         />
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="profile-expertise">Areas of expertise</Label>
+        <Input
+          id="profile-expertise"
+          value={expertiseRaw}
+          onChange={(event) => setExpertiseRaw(event.target.value)}
+          placeholder="machine learning, software testing, formal methods"
+        />
+        <p className="text-xs text-muted-foreground">
+          Comma-separated tags (max 15). Coordinators use these to match you to relevant papers.
+        </p>
       </div>
       <Button type="submit" disabled={isLoading}>
         {isLoading ? "Saving..." : "Save"}

@@ -207,7 +207,7 @@ export default async function PaperDetailsPage({ params }: PaperDetailsPageProps
             <span className="text-muted-foreground">Authors: </span>
             {details.authors.map((author) => author.name).join(", ")}
           </p>
-          <p>
+          <p className="flex flex-wrap items-center gap-2">
             <span className="text-muted-foreground">PDF: </span>
             {details.paper.pdfUrl ? (
               <a
@@ -229,6 +229,13 @@ export default async function PaperDetailsPage({ params }: PaperDetailsPageProps
               </a>
             ) : (
               <span className="text-muted-foreground">Not available</span>
+            )}
+            {(details.paper.pdfUrl || details.paper.pdfPath) && (
+              <Button variant="outline" size="sm" asChild>
+                <Link href={`/papers/${details.paper.id}/view`}>
+                  Open Viewer
+                </Link>
+              </Button>
             )}
           </p>
           {details.paper.overleafUrl && (

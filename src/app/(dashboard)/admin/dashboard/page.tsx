@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { auth } from "@/auth";
 import { getUserById } from "@/lib/users";
 import {
@@ -6,6 +7,7 @@ import {
   getOverviewAnalytics,
   getWorkloadAnalytics,
   INACTIVITY_THRESHOLD_DAYS,
+  listPapersAwaitingAssignment,
   OVERLOAD_THRESHOLD,
 } from "@/lib/review-service";
 import {
@@ -14,6 +16,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { PeriodSelector } from "@/components/admin/period-selector";
 import { AnalyticsExportButtons } from "@/components/admin/analytics-export-buttons";
 import { ReviewerAttentionCard } from "@/components/admin/reviewer-attention-card";
@@ -41,6 +44,7 @@ export default async function AdminDashboardPage({ searchParams }: AdminDashboar
   const workload = getWorkloadAnalytics(period);
   const inactive = getInactiveAssignments();
   const overloaded = getOverloadedReviewers();
+  const awaitingAssignment = listPapersAwaitingAssignment();
 
   return (
     <div className="mx-auto max-w-6xl space-y-6">
@@ -121,6 +125,41 @@ export default async function AdminDashboardPage({ searchParams }: AdminDashboar
           </CardContent>
         </Card>
       </div>
+
+      <Card className="border">
+        <CardHeader>
+          <CardTitle className="text-base">Awaiting Assignment</CardTitle>
+          <p className="text-xs text-muted-foreground">
+            Papers that passed AI compliance and are ready for reviewer assignment.
+          </p>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          {awaitingAssignment.length === 0 ? (
+            <p className="text-sm text-muted-foreground">No papers awaiting assignment.</p>
+          ) : (
+            awaitingAssignment.map((item) => (
+              <div
+                key={item.paper.id}
+                className="flex items-center justify-between gap-3 rounded-md border border-border p-3 text-sm"
+              >
+                <div className="min-w-0 space-y-1">
+                  <p className="truncate font-medium">{item.paper.title}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {item.venue?.name ?? "No venue"} ·{" "}
+                    {item.authors.map((author) => author.name).join(", ") ||
+                      "Unknown author"}
+                  </p>
+                </div>
+                <Button variant="outline" size="sm" asChild>
+                  <Link href={`/admin/papers/${item.paper.id}/assign`}>
+                    Assign reviewers
+                  </Link>
+                </Button>
+              </div>
+            ))
+          )}
+        </CardContent>
+      </Card>
 
       <ReviewerAttentionCard
         inactive={inactive}

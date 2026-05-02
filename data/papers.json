@@ -9,8 +9,7 @@
     "status": "SUBMITTED_TO_VENUE",
     "paperType": "RESEARCH",
     "authorIds": [
-      "mock_user_1",
-      "mock_user_3"
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
     ],
     "createdAt": "2026-01-20T09:00:00.000Z",
     "updatedAt": "2026-04-18T12:42:54.572Z",
@@ -27,7 +26,7 @@
     "status": "UNDER_REVIEW",
     "paperType": "RESEARCH",
     "authorIds": [
-      "mock_user_2"
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
     ],
     "createdAt": "2026-02-01T10:00:00.000Z",
     "updatedAt": "2026-02-15T12:00:00.000Z"
@@ -42,8 +41,7 @@
     "status": "REVISION_REQUESTED",
     "paperType": "RESEARCH",
     "authorIds": [
-      "mock_user_4",
-      "mock_user_5"
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
     ],
     "createdAt": "2026-01-25T14:00:00.000Z",
     "updatedAt": "2026-02-28T16:00:00.000Z"
@@ -58,7 +56,7 @@
     "status": "UNDER_REVIEW",
     "paperType": "TOOL",
     "authorIds": [
-      "mock_user_6"
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
     ],
     "createdAt": "2026-02-05T11:00:00.000Z",
     "updatedAt": "2026-02-20T09:00:00.000Z"
@@ -73,7 +71,7 @@
     "status": "SUBMITTED",
     "paperType": "EXPERIENCE_REPORT",
     "authorIds": [
-      "mock_user_7"
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
     ],
     "createdAt": "2026-03-01T08:00:00.000Z",
     "updatedAt": "2026-03-01T08:00:00.000Z"
@@ -88,7 +86,7 @@
     "status": "REJECTED",
     "paperType": "RESEARCH",
     "authorIds": [
-      "mock_user_8"
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
     ],
     "createdAt": "2026-01-18T16:00:00.000Z",
     "updatedAt": "2026-02-25T10:00:00.000Z"
@@ -103,8 +101,7 @@
     "status": "UNDER_REVIEW",
     "paperType": "RESEARCH",
     "authorIds": [
-      "mock_user_1",
-      "mock_user_7"
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
     ],
     "createdAt": "2026-02-10T13:00:00.000Z",
     "updatedAt": "2026-02-22T11:00:00.000Z"
@@ -119,7 +116,7 @@
     "status": "SUBMITTED",
     "paperType": "RESEARCH",
     "authorIds": [
-      "mock_user_3"
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
     ],
     "createdAt": "2026-03-03T10:00:00.000Z",
     "updatedAt": "2026-04-18T12:40:48.759Z"
@@ -134,8 +131,7 @@
     "status": "UNDER_REVIEW",
     "paperType": "RESEARCH",
     "authorIds": [
-      "mock_user_5",
-      "mock_user_6"
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
     ],
     "createdAt": "2026-02-08T09:30:00.000Z",
     "updatedAt": "2026-02-18T15:00:00.000Z"
@@ -150,8 +146,7 @@
     "status": "ACCEPTED",
     "paperType": "RESEARCH",
     "authorIds": [
-      "mock_user_2",
-      "mock_user_4"
+      "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
     ],
     "createdAt": "2026-01-22T11:00:00.000Z",
     "updatedAt": "2026-03-02T09:00:00.000Z"
@@ -443,7 +438,7 @@
     "pageCount": 52,
     "overleafUrl": null,
     "venueId": "venue-neurips-2026",
-    "status": "SUBMITTED",
+    "status": "UNDER_REVIEW",
     "paperType": "RESEARCH",
     "authorIds": [
       "cba1a659-ba9e-4b4c-9536-e26cd62885cb"
@@ -477,6 +472,6 @@
     ],
     "extractedAt": "2026-05-02T09:57:38.448Z",
     "createdAt": "2026-05-02T09:57:38.448Z",
-    "updatedAt": "2026-05-02T09:57:38.448Z"
+    "updatedAt": "2026-05-02T11:26:35.336Z"
   }
 ]

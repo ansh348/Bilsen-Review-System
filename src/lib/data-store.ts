@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import {
   AiFinalReportRecord,
+  AnnotationRecord,
   ComplianceCheckRecord,
   NotificationRecord,
   PaperRecord,
@@ -58,6 +59,7 @@ type CollectionMap = {
   complianceChecks: ComplianceCheckRecord[];
   notifications: NotificationRecord[];
   aiReports: AiFinalReportRecord[];
+  annotations: AnnotationRecord[];
 };
 
 const FILES: Record<keyof CollectionMap, string> = {
@@ -71,6 +73,7 @@ const FILES: Record<keyof CollectionMap, string> = {
   complianceChecks: "compliance_checks.json",
   notifications: "notifications.json",
   aiReports: "ai_reports.json",
+  annotations: "annotations.json",
 };
 
 function ensureDataDir() {

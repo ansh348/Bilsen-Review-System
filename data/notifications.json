@@ -1,29 +1,5 @@
 [
   {
-    "id": "mock_notif_1",
-    "userId": "mock_user_2",
-    "type": "ASSIGNMENT_NEW",
-    "title": "New Review Assignment",
-    "message": "You have been assigned to review 'Automated Detection of Code Smells Using Large Language Models' for ICSE 2026.",
-    "link": "/reviews/mock_assign_1",
-    "read": true,
-    "sentViaEmail": true,
-    "sentViaSlack": false,
-    "createdAt": "2026-01-22T10:30:00.000Z"
-  },
-  {
-    "id": "mock_notif_2",
-    "userId": "mock_user_4",
-    "type": "ASSIGNMENT_NEW",
-    "title": "New Review Assignment",
-    "message": "You have been assigned to review 'Automated Detection of Code Smells Using Large Language Models' for ICSE 2026.",
-    "link": "/reviews/mock_assign_2",
-    "read": true,
-    "sentViaEmail": true,
-    "sentViaSlack": false,
-    "createdAt": "2026-01-22T10:30:00.000Z"
-  },
-  {
     "id": "mock_notif_3",
     "userId": "cba1a659-ba9e-4b4c-9536-e26cd62885cb",
     "type": "REVIEW_SUBMITTED",
@@ -46,42 +22,6 @@
     "sentViaEmail": true,
     "sentViaSlack": false,
     "createdAt": "2026-02-08T11:00:00.000Z"
-  },
-  {
-    "id": "mock_notif_5",
-    "userId": "mock_user_5",
-    "type": "ASSIGNMENT_NEW",
-    "title": "New Review Assignment",
-    "message": "You have been assigned to review 'A Systematic Survey of CI/CD Pipeline Optimization Techniques' for FSE 2026.",
-    "link": "/reviews/mock_assign_5",
-    "read": true,
-    "sentViaEmail": true,
-    "sentViaSlack": false,
-    "createdAt": "2026-02-16T11:00:00.000Z"
-  },
-  {
-    "id": "mock_notif_6",
-    "userId": "mock_user_7",
-    "type": "ASSIGNMENT_NEW",
-    "title": "New Review Assignment",
-    "message": "You have been assigned to review 'A Systematic Survey of CI/CD Pipeline Optimization Techniques' for FSE 2026.",
-    "link": "/reviews/mock_assign_6",
-    "read": false,
-    "sentViaEmail": true,
-    "sentViaSlack": false,
-    "createdAt": "2026-02-16T11:00:00.000Z"
-  },
-  {
-    "id": "mock_notif_7",
-    "userId": "mock_user_8",
-    "type": "ASSIGNMENT_NEW",
-    "title": "New Review Assignment",
-    "message": "You have been assigned to review 'A Systematic Survey of CI/CD Pipeline Optimization Techniques' for FSE 2026.",
-    "link": "/reviews/mock_assign_7",
-    "read": false,
-    "sentViaEmail": true,
-    "sentViaSlack": false,
-    "createdAt": "2026-02-16T11:00:00.000Z"
   },
   {
     "id": "mock_notif_8",
@@ -132,66 +72,6 @@
     "createdAt": "2026-03-06T08:00:00.000Z"
   },
   {
-    "id": "mock_notif_12",
-    "userId": "mock_user_1",
-    "type": "ASSIGNMENT_NEW",
-    "title": "New Review Assignment",
-    "message": "You have been assigned to review 'DeepRefactor: Neural Program Repair' (Round 2) for ICSE 2026.",
-    "link": "/reviews/mock_assign_10",
-    "read": true,
-    "sentViaEmail": true,
-    "sentViaSlack": false,
-    "createdAt": "2026-02-20T11:00:00.000Z"
-  },
-  {
-    "id": "mock_notif_13",
-    "userId": "mock_user_1",
-    "type": "DEADLINE_REMINDER",
-    "title": "Deadline Approaching",
-    "message": "Your review for 'DeepRefactor: Neural Program Repair' (Round 2) is due on March 12, 2026. Please complete it soon.",
-    "link": "/reviews/mock_assign_10",
-    "read": false,
-    "sentViaEmail": true,
-    "sentViaSlack": false,
-    "createdAt": "2026-03-05T08:00:00.000Z"
-  },
-  {
-    "id": "mock_notif_14",
-    "userId": "mock_user_2",
-    "type": "DEADLINE_REMINDER",
-    "title": "Deadline Approaching",
-    "message": "Your review for 'Green Software Engineering' is due on March 5, 2026. Please submit your review.",
-    "link": "/reviews/mock_assign_18",
-    "read": true,
-    "sentViaEmail": true,
-    "sentViaSlack": false,
-    "createdAt": "2026-03-02T08:00:00.000Z"
-  },
-  {
-    "id": "mock_notif_15",
-    "userId": "mock_user_2",
-    "type": "RATING_RECEIVED",
-    "title": "Rating Received",
-    "message": "You received a rating for your review of 'Automated Detection of Code Smells Using Large Language Models'.",
-    "link": "/reviews/mock_assign_1",
-    "read": false,
-    "sentViaEmail": false,
-    "sentViaSlack": false,
-    "createdAt": "2026-02-06T10:00:00.000Z"
-  },
-  {
-    "id": "mock_notif_16",
-    "userId": "mock_user_1",
-    "type": "RATING_RECEIVED",
-    "title": "Rating Received",
-    "message": "You received a rating for your review of 'Flaky Test Mitigation: A Machine Learning Approach'.",
-    "link": "/reviews/mock_assign_20",
-    "read": true,
-    "sentViaEmail": false,
-    "sentViaSlack": false,
-    "createdAt": "2026-02-11T10:00:00.000Z"
-  },
-  {
     "id": "mock_notif_17",
     "userId": "cba1a659-ba9e-4b4c-9536-e26cd62885cb",
     "type": "REVIEW_SUBMITTED",
@@ -240,42 +120,6 @@
     "createdAt": "2026-01-25T14:35:00.000Z"
   },
   {
-    "id": "mock_notif_21",
-    "userId": "mock_user_3",
-    "type": "ASSIGNMENT_NEW",
-    "title": "New Review Assignment",
-    "message": "You have been assigned to review 'MicroLint: A Static Analysis Tool' for ICSE 2026.",
-    "link": "/reviews/mock_assign_11",
-    "read": true,
-    "sentViaEmail": true,
-    "sentViaSlack": false,
-    "createdAt": "2026-02-21T11:00:00.000Z"
-  },
-  {
-    "id": "mock_notif_22",
-    "userId": "mock_user_4",
-    "type": "ASSIGNMENT_NEW",
-    "title": "New Review Assignment",
-    "message": "You have been assigned to review 'Privacy-Preserving Log Analysis for Distributed Systems' for FSE 2026.",
-    "link": "/reviews/mock_assign_16",
-    "read": true,
-    "sentViaEmail": true,
-    "sentViaSlack": false,
-    "createdAt": "2026-02-23T11:00:00.000Z"
-  },
-  {
-    "id": "mock_notif_23",
-    "userId": "mock_user_4",
-    "type": "DEADLINE_REMINDER",
-    "title": "Deadline Approaching",
-    "message": "Your review for 'Privacy-Preserving Log Analysis' is due on March 14, 2026.",
-    "link": "/reviews/mock_assign_16",
-    "read": false,
-    "sentViaEmail": true,
-    "sentViaSlack": false,
-    "createdAt": "2026-03-07T08:00:00.000Z"
-  },
-  {
     "id": "mock_notif_24",
     "userId": "cba1a659-ba9e-4b4c-9536-e26cd62885cb",
     "type": "ROUND_COMPLETE",
@@ -298,19 +142,6 @@
     "sentViaEmail": true,
     "sentViaSlack": false,
     "createdAt": "2026-02-28T15:00:00.000Z"
-  },
-  {
-    "id": "f82fe014-8206-4b1c-b22a-3bc8c266aa2a",
-    "userId": "mock_user_3",
-    "type": "COMPLIANCE_RESULT",
-    "title": "Compliance issues found",
-    "message": "6 compliance check(s) failed for \"Quantum Computing Approaches for Combinatorial Software Testing\".",
-    "link": "/papers/mock_paper_8",
-    "overleafUrl": null,
-    "read": false,
-    "sentViaEmail": true,
-    "sentViaSlack": true,
-    "createdAt": "2026-04-18T12:36:04.350Z"
   },
   {
     "id": "6723d592-622c-40cf-b5c5-8a278b51095d",
@@ -352,32 +183,6 @@
     "createdAt": "2026-04-18T12:37:21.711Z"
   },
   {
-    "id": "46933df5-6101-46af-a0d0-12e847d37547",
-    "userId": "mock_user_7",
-    "type": "EXTENSION_APPROVED",
-    "title": "Extension approved",
-    "message": "Your extension request for \"DeepRefactor: Neural Program Repair for Complex Refactoring Operations\" was approved.",
-    "link": "/reviews/mock_assign_23",
-    "overleafUrl": null,
-    "read": false,
-    "sentViaEmail": true,
-    "sentViaSlack": false,
-    "createdAt": "2026-04-18T12:37:31.792Z"
-  },
-  {
-    "id": "fbca4884-f2a4-4af0-94e4-dbf1c58b5129",
-    "userId": "mock_user_8",
-    "type": "DEADLINE_OVERDUE",
-    "title": "Assignment overdue",
-    "message": "Your review for \"MicroLint: A Static Analysis Tool for Microservice Anti-Pattern Detection\" is past due.",
-    "link": "/reviews/mock_assign_12",
-    "overleafUrl": null,
-    "read": false,
-    "sentViaEmail": true,
-    "sentViaSlack": false,
-    "createdAt": "2026-04-18T12:38:45.034Z"
-  },
-  {
     "id": "f3fc80ab-dd2b-4fc4-9869-da2bd8be3ed5",
     "userId": "cba1a659-ba9e-4b4c-9536-e26cd62885cb",
     "type": "DEADLINE_OVERDUE",
@@ -389,45 +194,6 @@
     "sentViaEmail": true,
     "sentViaSlack": false,
     "createdAt": "2026-04-18T12:38:45.036Z"
-  },
-  {
-    "id": "6670f6d8-02da-4951-a2f0-3329b5111a2a",
-    "userId": "mock_user_3",
-    "type": "COMPLIANCE_RESULT",
-    "title": "Compliance issues found",
-    "message": "3 compliance check(s) failed for \"Quantum Computing Approaches for Combinatorial Software Testing\".",
-    "link": "/papers/mock_paper_8",
-    "overleafUrl": null,
-    "read": false,
-    "sentViaEmail": true,
-    "sentViaSlack": true,
-    "createdAt": "2026-04-18T12:40:48.807Z"
-  },
-  {
-    "id": "699b115f-6adc-4ceb-b86f-97552bb8f1f5",
-    "userId": "mock_user_3",
-    "type": "COMPLIANCE_RESULT",
-    "title": "Compliance issues found",
-    "message": "7 compliance check(s) failed for \"Quantum Computing Approaches for Combinatorial Software Testing\".",
-    "link": "/papers/mock_paper_8",
-    "overleafUrl": null,
-    "read": false,
-    "sentViaEmail": true,
-    "sentViaSlack": true,
-    "createdAt": "2026-04-18T12:40:49.493Z"
-  },
-  {
-    "id": "add350df-e8dc-4af9-bf41-1e03282cbb43",
-    "userId": "mock_user_2",
-    "type": "RATING_RECEIVED",
-    "title": "New reviewer rating",
-    "message": "You received a new rating for \"Automated Detection of Code Smells Using Large Language Models\".",
-    "link": "/admin/reviewers/mock_user_2",
-    "overleafUrl": null,
-    "read": false,
-    "sentViaEmail": false,
-    "sentViaSlack": true,
-    "createdAt": "2026-04-18T12:41:44.696Z"
   },
   {
     "id": "97ad7682-0cc3-4ab6-8235-3f9064fd5f6a",
@@ -740,5 +506,122 @@
     "sentViaEmail": true,
     "sentViaSlack": false,
     "createdAt": "2026-05-02T10:00:01.034Z"
+  },
+  {
+    "id": "55528050-02cc-4565-8ad7-d3f471766621",
+    "userId": "cba1a659-ba9e-4b4c-9536-e26cd62885cb",
+    "type": "COMPLIANCE_RESULT",
+    "title": "Compliance issues found",
+    "message": "3 compliance check(s) failed for \"Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs\".",
+    "link": "/papers/b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "overleafUrl": null,
+    "read": false,
+    "sentViaEmail": true,
+    "sentViaSlack": true,
+    "createdAt": "2026-05-02T11:13:10.141Z"
+  },
+  {
+    "id": "1596c630-e806-4be7-ae64-1a0d7a72ebc0",
+    "userId": "bilsen_furkan_akyol",
+    "type": "ASSIGNMENT_NEW",
+    "title": "New review assignment",
+    "message": "You were assigned to review \"Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs\" (round 1).",
+    "link": "/reviews/76e0574d-92d5-4d38-9acc-b680f0e2e870",
+    "overleafUrl": null,
+    "read": false,
+    "sentViaEmail": true,
+    "sentViaSlack": false,
+    "createdAt": "2026-05-02T11:26:35.310Z"
+  },
+  {
+    "id": "e1751bd6-6807-4662-b3c1-91f7e85fce28",
+    "userId": "bilsen_can_biyik",
+    "type": "ASSIGNMENT_NEW",
+    "title": "New review assignment",
+    "message": "You were assigned to review \"Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs\" (round 1).",
+    "link": "/reviews/b5eefaa4-7232-4d5b-84e5-bd1f5c709d3e",
+    "overleafUrl": null,
+    "read": false,
+    "sentViaEmail": true,
+    "sentViaSlack": false,
+    "createdAt": "2026-05-02T11:26:35.314Z"
+  },
+  {
+    "id": "e4fd443b-945a-4774-a8b6-2755059abd11",
+    "userId": "bilsen_begum_oz",
+    "type": "ASSIGNMENT_NEW",
+    "title": "New review assignment",
+    "message": "You were assigned to review \"Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs\" (round 1).",
+    "link": "/reviews/1d08cbcd-e71a-48df-86b1-20b18624f995",
+    "overleafUrl": null,
+    "read": false,
+    "sentViaEmail": true,
+    "sentViaSlack": false,
+    "createdAt": "2026-05-02T11:26:35.319Z"
+  },
+  {
+    "id": "b566e0f5-8fa0-4b59-b207-c3babd85d530",
+    "userId": "bilsen_berke_ardic",
+    "type": "ASSIGNMENT_NEW",
+    "title": "New review assignment",
+    "message": "You were assigned to review \"Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs\" (round 1).",
+    "link": "/reviews/646a7a8f-abbe-4610-bab2-6713f4191ddc",
+    "overleafUrl": null,
+    "read": false,
+    "sentViaEmail": true,
+    "sentViaSlack": false,
+    "createdAt": "2026-05-02T11:26:35.323Z"
+  },
+  {
+    "id": "f8798d37-d971-44e0-8e98-3cbed353c440",
+    "userId": "bilsen_veli_karakaya",
+    "type": "ASSIGNMENT_NEW",
+    "title": "New review assignment",
+    "message": "You were assigned to review \"Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs\" (round 1).",
+    "link": "/reviews/9ffc090e-2219-4612-9795-cffd1fc77554",
+    "overleafUrl": null,
+    "read": false,
+    "sentViaEmail": true,
+    "sentViaSlack": false,
+    "createdAt": "2026-05-02T11:26:35.328Z"
+  },
+  {
+    "id": "bc7864fb-167b-4e49-9345-9df3e594468d",
+    "userId": "cba1a659-ba9e-4b4c-9536-e26cd62885cb",
+    "type": "ASSIGNMENT_NEW",
+    "title": "Reviewers assigned",
+    "message": "5 reviewer(s) assigned for \"Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs\".",
+    "link": "/papers/b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "overleafUrl": null,
+    "read": true,
+    "sentViaEmail": true,
+    "sentViaSlack": false,
+    "createdAt": "2026-05-02T11:26:35.349Z"
+  },
+  {
+    "id": "9bb82de8-1c5a-47eb-9366-c7762550d036",
+    "userId": "bilsen_eray_tuzun",
+    "type": "ASSIGNMENT_NEW",
+    "title": "Reviewers assigned",
+    "message": "5 reviewer(s) assigned for \"Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs\".",
+    "link": "/papers/b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "overleafUrl": null,
+    "read": false,
+    "sentViaEmail": true,
+    "sentViaSlack": false,
+    "createdAt": "2026-05-02T11:26:35.354Z"
+  },
+  {
+    "id": "c12e6e29-d4ad-41b7-a16b-24d3aeaebf7d",
+    "userId": "cba1a659-ba9e-4b4c-9536-e26cd62885cb",
+    "type": "COMPLIANCE_RESULT",
+    "title": "Compliance issues found",
+    "message": "3 compliance check(s) failed for \"Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs\".",
+    "link": "/papers/b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "overleafUrl": null,
+    "read": false,
+    "sentViaEmail": true,
+    "sentViaSlack": true,
+    "createdAt": "2026-05-02T11:26:35.812Z"
   }
 ]

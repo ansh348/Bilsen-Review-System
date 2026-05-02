@@ -102,7 +102,10 @@ export function PaperStatusActions({ paperId, currentStatus }: PaperStatusAction
         Begin Review
       </Button>
     );
-  } else if (currentStatus === "UNDER_REVIEW") {
+  } else if (
+    currentStatus === "UNDER_REVIEW" ||
+    currentStatus === "REVIEW_COMPLETE"
+  ) {
     buttons.push(
       <Button
         key="accept"

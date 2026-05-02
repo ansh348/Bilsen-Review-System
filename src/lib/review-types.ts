@@ -3,6 +3,7 @@ export type Role = "COORDINATOR" | "MEMBER";
 export type PaperStatus =
   | "SUBMITTED"
   | "UNDER_REVIEW"
+  | "REVIEW_COMPLETE"
   | "REVISION_REQUESTED"
   | "ACCEPTED"
   | "REJECTED"
@@ -67,6 +68,7 @@ export interface UserRecord {
   password: string;
   slackId: string | null;
   role: Role;
+  expertise?: string[];
   createdAt: string;
   updatedAt: string;
 }
@@ -351,4 +353,52 @@ export interface AssignmentWithContext {
   paper: PaperRecord;
   reviewer: UserRecord | null;
   review: ReviewRecord | null;
+}
+
+export type AnnotationKind = "HIGHLIGHT" | "DOODLE" | "COMMENT";
+export type AnnotationVisibility = "PRIVATE" | "SHARED";
+
+export interface AnnotationRect {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
+export interface AnnotationStroke {
+  points: number[][];
+  color: string;
+  size: number;
+}
+
+export interface AnnotationHighlight {
+  rects: AnnotationRect[];
+  text: string;
+  color: string;
+}
+
+export interface AnnotationDoodle {
+  strokes: AnnotationStroke[];
+}
+
+export interface AnnotationComment {
+  anchor: { x: number; y: number };
+  text: string;
+  parentId?: string | null;
+}
+
+export interface AnnotationRecord {
+  id: string;
+  paperId: string;
+  authorId: string;
+  assignmentId?: string | null;
+  reviewId?: string | null;
+  kind: AnnotationKind;
+  pageNumber: number;
+  highlight?: AnnotationHighlight;
+  doodle?: AnnotationDoodle;
+  comment?: AnnotationComment;
+  visibility: AnnotationVisibility;
+  createdAt: string;
+  updatedAt: string;
 }

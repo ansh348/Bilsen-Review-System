@@ -12,6 +12,13 @@ interface ReviewerOption {
   priorReviewer?: boolean;
 }
 
+interface ReviewerSuggestion {
+  reviewerId: string;
+  rank: number;
+  rationale: string;
+  matchedExpertise: string[];
+}
+
 interface AssignReviewersFormProps {
   paperId: string;
   reviewers: ReviewerOption[];
@@ -32,6 +39,16 @@ export function AssignReviewersForm({
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
 
+  const [suggestions, setSuggestions] = useState<ReviewerSuggestion[] | null>(null);
+  const [suggestionsMessage, setSuggestionsMessage] = useState<string | null>(null);
+  const [isSuggesting, setIsSuggesting] = useState(false);
+  const [suggestError, setSuggestError] = useState<string | null>(null);
+
+  const reviewerLookup = useMemo(
+    () => new Map(reviewers.map((r) => [r.id, r])),
+    [reviewers]
+  );
+
   const sortedReviewers = useMemo(
     () =>
       [...reviewers].sort((a, b) => {
@@ -49,6 +66,36 @@ export function AssignReviewersForm({
         ? current.filter((id) => id !== reviewerId)
         : [...current, reviewerId]
     );
+  }
+
+  async function onSuggest() {
+    setSuggestError(null);
+    setSuggestions(null);
+    setSuggestionsMessage(null);
+    setIsSuggesting(true);
+    try {
+      const response = await fetch(
+        `/api/papers/${paperId}/suggest-reviewers`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ excludePriorReviewers: true }),
+        }
+      );
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        setSuggestError(payload.error ?? "Failed to fetch suggestions");
+        return;
+      }
+      setSuggestions(payload.suggestions ?? []);
+      if (payload.message) {
+        setSuggestionsMessage(payload.message);
+      }
+    } catch {
+      setSuggestError("Failed to fetch suggestions");
+    } finally {
+      setIsSuggesting(false);
+    }
   }
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -133,6 +180,90 @@ export function AssignReviewersForm({
           {message}
         </p>
       )}
+
+      <div className="space-y-3 rounded-md border border-border p-3">
+        <div className="flex items-center justify-between gap-2">
+          <div>
+            <p className="text-sm font-medium">AI reviewer suggestions</p>
+            <p className="text-xs text-muted-foreground">
+              Match this paper against members&apos; declared expertise.
+            </p>
+          </div>
+          <Button
+            type="button"
+            variant="outline"
+            onClick={onSuggest}
+            disabled={isSuggesting}
+          >
+            {isSuggesting ? "Thinking..." : "Suggest reviewers (AI)"}
+          </Button>
+        </div>
+
+        {suggestError && (
+          <p className="rounded-md bg-destructive/10 px-3 py-2 text-xs text-destructive">
+            {suggestError}
+          </p>
+        )}
+
+        {suggestions !== null && suggestions.length === 0 && (
+          <p className="text-xs text-muted-foreground">
+            {suggestionsMessage ??
+              "No reviewers matched. Make sure members have filled in expertise tags on their profile."}
+          </p>
+        )}
+
+        {suggestions && suggestions.length > 0 && (
+          <ul className="space-y-2">
+            {suggestions.map((suggestion) => {
+              const reviewer = reviewerLookup.get(suggestion.reviewerId);
+              if (!reviewer) return null;
+              const isSelected = selectedReviewerIds.includes(reviewer.id);
+              return (
+                <li
+                  key={suggestion.reviewerId}
+                  className="rounded-md border border-border bg-accent/20 p-3"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2 text-sm font-medium">
+                        <span className="rounded-sm bg-primary/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
+                          #{suggestion.rank}
+                        </span>
+                        <span>{reviewer.name}</span>
+                        <span className="text-xs text-muted-foreground">
+                          ({reviewer.email})
+                        </span>
+                      </div>
+                      <p className="text-xs text-muted-foreground">
+                        {suggestion.rationale}
+                      </p>
+                      {suggestion.matchedExpertise.length > 0 && (
+                        <div className="flex flex-wrap gap-1">
+                          {suggestion.matchedExpertise.map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-sm border border-border bg-background px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    <Button
+                      type="button"
+                      variant={isSelected ? "default" : "outline"}
+                      onClick={() => toggleReviewer(reviewer.id)}
+                    >
+                      {isSelected ? "Selected" : "Add"}
+                    </Button>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </div>
 
       <div className="space-y-2">
         <p className="text-sm font-medium">Select reviewers</p>

@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { ReviewWorkspacePanel } from "@/components/reviews/review-workspace-panel";
 
 interface ReviewWorkspacePageProps {
@@ -77,7 +78,7 @@ export default async function ReviewWorkspacePage({
               Open paper detail
             </Link>
           </p>
-          <p>
+          <p className="flex flex-wrap items-center gap-2">
             <span className="text-muted-foreground">PDF:</span>{" "}
             {assignmentDetails.paper.pdfUrl ? (
               <a
@@ -99,6 +100,16 @@ export default async function ReviewWorkspacePage({
               </a>
             ) : (
               <span className="text-muted-foreground">Not available</span>
+            )}
+            {(assignmentDetails.paper.pdfUrl ||
+              assignmentDetails.paper.pdfPath) && (
+              <Button variant="outline" size="sm" asChild>
+                <Link
+                  href={`/papers/${assignmentDetails.paper.id}/view?assignmentId=${assignmentDetails.assignment.id}`}
+                >
+                  Open Annotated Viewer
+                </Link>
+              </Button>
             )}
           </p>
           {assignmentDetails.paper.overleafUrl && (

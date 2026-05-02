@@ -34,11 +34,13 @@ function normalizeUsers(users: UserRecord[]) {
   const normalized = users.map((user) => {
     const role = normalizeRole(user.role);
     const now = new Date().toISOString();
+    const expertise = Array.isArray(user.expertise) ? user.expertise : [];
     const next: UserRecord = {
       ...user,
       email: user.email.toLowerCase(),
       role,
       slackId: user.slackId ?? null,
+      expertise,
       createdAt: user.createdAt ?? now,
       updatedAt: user.updatedAt ?? user.createdAt ?? now,
     };
@@ -47,6 +49,7 @@ function normalizeUsers(users: UserRecord[]) {
       next.role !== user.role ||
       next.email !== user.email ||
       next.slackId !== user.slackId ||
+      next.expertise !== user.expertise ||
       next.createdAt !== user.createdAt ||
       next.updatedAt !== user.updatedAt
     ) {
@@ -137,6 +140,7 @@ interface UpdateUserInput {
   name?: string;
   role?: Role;
   slackId?: string | null;
+  expertise?: string[];
 }
 
 export function updateUser(
@@ -156,6 +160,12 @@ export function updateUser(
       name: input.name?.trim() ?? user.name,
       role: input.role ?? user.role,
       slackId: input.slackId === undefined ? user.slackId : input.slackId,
+      expertise:
+        input.expertise === undefined
+          ? user.expertise ?? []
+          : input.expertise
+              .map((tag) => tag.trim())
+              .filter((tag) => tag.length > 0),
       updatedAt: new Date().toISOString(),
     };
     return updatedUser;

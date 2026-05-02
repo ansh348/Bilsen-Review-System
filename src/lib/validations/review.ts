@@ -3,6 +3,7 @@ import { z } from "zod";
 const paperStatuses = [
   "SUBMITTED",
   "UNDER_REVIEW",
+  "REVIEW_COMPLETE",
   "REVISION_REQUESTED",
   "ACCEPTED",
   "REJECTED",
@@ -109,6 +110,7 @@ export const userUpdateSchema = z.object({
   name: z.string().min(2).optional(),
   role: z.enum(roles).optional(),
   slackId: z.string().optional().nullable(),
+  expertise: z.array(z.string().min(1).max(60)).max(15).optional(),
 });
 
 export const linkSlackSchema = z.object({

@@ -68,6 +68,7 @@ export default async function PapersPage({ searchParams }: PapersPageProps) {
                 <option value="">All</option>
                 <option value="SUBMITTED">Submitted</option>
                 <option value="UNDER_REVIEW">Under Review</option>
+                <option value="REVIEW_COMPLETE">Review Complete</option>
                 <option value="REVISION_REQUESTED">Revision Requested</option>
                 <option value="ACCEPTED">Accepted</option>
                 <option value="REJECTED">Rejected</option>

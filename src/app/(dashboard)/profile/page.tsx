@@ -50,7 +50,11 @@ export default async function ProfilePage() {
               {user.slackId ?? "Not linked"}
             </p>
           </div>
-          <ProfileForm userId={user.id} initialName={user.name} />
+          <ProfileForm
+            userId={user.id}
+            initialName={user.name}
+            initialExpertise={user.expertise ?? []}
+          />
         </CardContent>
       </Card>
 

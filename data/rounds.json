@@ -64,5 +64,13 @@
     "paperId": "mock_paper_10",
     "roundNumber": 2,
     "createdAt": "2026-02-18T10:00:00.000Z"
+  },
+  {
+    "id": "96b90b04-1d71-49b2-b595-54e4b02ffba9",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "roundNumber": 1,
+    "createdAt": "2026-05-02T11:26:34.102Z",
+    "revisionNote": null,
+    "priorReviewerIds": []
   }
 ]

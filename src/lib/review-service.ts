@@ -27,6 +27,7 @@ import {
 } from "@/lib/review-types";
 import { listAllUsers, getUserById } from "@/lib/users";
 import { sendNotificationEmail } from "@/lib/email";
+import { promoteReviewerAnnotationsToShared } from "@/lib/annotation-service";
 
 interface PaperFilters {
   status?: string | null;
@@ -380,6 +381,32 @@ export function listPapers(filters: PaperFilters = {}) {
   });
 
   return filtered
+    .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+    .map(materializePaperListItem);
+}
+
+// Papers that have passed AI compliance but haven't had reviewers assigned yet.
+// Coordinator-facing helper for the "Awaiting Assignment" panel on the admin
+// dashboard — the same papers that triggered the auto-round + nudge in
+// runAiComplianceAndReferences.
+export function listPapersAwaitingAssignment() {
+  const papers = readCollection("papers").filter(
+    (paper) => paper.status === "SUBMITTED"
+  );
+  if (papers.length === 0) {
+    return [];
+  }
+
+  const passingPaperIds = new Set(
+    readCollection("complianceChecks")
+      .filter(
+        (check) => check.checkType === "AI_FULL_REVIEW" && check.passed
+      )
+      .map((check) => check.paperId)
+  );
+
+  return papers
+    .filter((paper) => passingPaperIds.has(paper.id))
     .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
     .map(materializePaperListItem);
 }
@@ -740,7 +767,8 @@ export function createReviewRound(paperId: string) {
       (assignment) => assignment.reviewRoundId === latestRound.id
     );
     if (latestRoundAssignments.length === 0) {
-      updatePaper(paperId, { status: "UNDER_REVIEW" });
+      // Empty round already exists; reuse it. Status only flips to
+      // UNDER_REVIEW when a real assignment is added (see assignReviewers).
       return latestRound;
     }
   }
@@ -776,7 +804,7 @@ export function createReviewRound(paperId: string) {
   allRounds.push(round);
   writeCollection("rounds", allRounds);
 
-  updatePaper(paperId, { status: "UNDER_REVIEW" });
+  // Status flip happens in assignReviewers once the round actually has work.
   return round;
 }
 
@@ -1259,6 +1287,7 @@ export function submitReviewForAssignment(
   }
 
   const review = createOrUpdateReview(assignmentId, input);
+  promoteReviewerAnnotationsToShared(assignmentId, review.id);
   const completedAssignment = updateAssignment(assignmentId, (assignment) => ({
     ...assignment,
     status: "COMPLETED",
@@ -1285,6 +1314,8 @@ export function submitReviewForAssignment(
       assignment.status === "COMPLETED" || assignment.status === "DECLINED"
   );
   if (allDone) {
+    updatePaper(materialized.paper.id, { status: "REVIEW_COMPLETE" });
+
     const recipientIds = ensureUnique([
       ...materialized.paper.authorIds,
       ...getCoordinators().map((coordinator) => coordinator.id),
@@ -1598,7 +1629,10 @@ export function getOverviewAnalytics() {
 
   return {
     totalPapers: papers.length,
-    activePapers: papers.filter((paper) => paper.status === "UNDER_REVIEW").length,
+    activePapers: papers.filter(
+      (paper) =>
+        paper.status === "UNDER_REVIEW" || paper.status === "REVIEW_COMPLETE"
+    ).length,
     pendingReviews: assignments.filter((assignment) =>
       isActiveAssignmentStatus(assignment.status)
     ).length,
@@ -2499,6 +2533,33 @@ export async function runAiComplianceAndReferences(paperId: string): Promise<{
       sentViaEmail: failures > 0,
       sentViaSlack: false,
     });
+  }
+
+  // When the paper is clearly assignable, pre-create an empty review round
+  // and nudge coordinators so reviewer assignment doesn't sit waiting for
+  // someone to notice the new submission.
+  const readyForAssignment =
+    compliancePassed &&
+    referencesPassed &&
+    aiCompliance.deskRejectRisk !== "high";
+
+  if (readyForAssignment) {
+    const existingRounds = listRoundsForPaper(paper.id);
+    if (existingRounds.length === 0) {
+      createReviewRound(paper.id);
+    }
+
+    for (const coordinator of getCoordinators()) {
+      createNotification({
+        userId: coordinator.id,
+        type: "COMPLIANCE_RESULT",
+        title: "Paper ready for reviewer assignment",
+        message: `"${paper.title}" passed AI compliance. Assign reviewers to start the review round.`,
+        link: `/admin/papers/${paper.id}/assign`,
+        sentViaEmail: true,
+        sentViaSlack: false,
+      });
+    }
   }
 
   return { aiCompliance: aiComplianceRecord, aiReferences: aiReferenceRecord };
