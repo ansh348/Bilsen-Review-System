@@ -5858,5 +5858,473 @@
       ]
     },
     "checkedAt": "2026-05-03T09:25:52.455Z"
+  },
+  {
+    "id": "3343fe48-9a78-4217-826b-57b7ce1e3055",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "message": "Paper is 5 pages, within SIGIR 2026's 4 pages (references don't count) limit.",
+      "pageCount": 5,
+      "pageLimit": 4,
+      "effectiveLimit": 4,
+      "referencesCountTowardLimit": false,
+      "extraRefPages": null,
+      "estimatedReferencePages": 1
+    },
+    "checkedAt": "2026-05-03T10:27:00.261Z"
+  },
+  {
+    "id": "9f786714-5d40-4cef-a36f-c8a74c27a823",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "SIGIR 2026 does not specify an abstract word limit. Abstract is 207 words.",
+      "abstractWordCount": 207,
+      "abstractWordLimit": null
+    },
+    "checkedAt": "2026-05-03T10:27:00.261Z"
+  },
+  {
+    "id": "e3a0d6f5-257d-477c-891d-1315f0252eb9",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Method. SIGIR 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction and Related Work, Ontology-Driven Legal Reasoning Graph Extraction, Experimental Setup, Results, Discussion and Limitations, Conclusion). Suggested but not enforced: ACM CCS concepts and keywords.",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "ACM CCS concepts and keywords",
+          "placement": "after abstract",
+          "countsTowardLimit": true,
+          "deskRejectIfMissing": false
+        }
+      ],
+      "conventionalSections": [],
+      "warnings": [
+        "ACM CCS concepts and keywords"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction and Related Work",
+        "Ontology-Driven Legal Reasoning Graph Extraction",
+        "Experimental Setup",
+        "Results",
+        "Discussion and Limitations",
+        "Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction and related work",
+        "Related Work": "introduction and related work",
+        "Experiments": "results",
+        "Conclusion": "conclusion"
+      }
+    },
+    "checkedAt": "2026-05-03T10:27:00.261Z"
+  },
+  {
+    "id": "94ca75e5-45df-4d9b-864c-1f6da15de2be",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Short Papers",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-03T10:27:00.261Z"
+  },
+  {
+    "id": "f1bb4fce-e349-4f90-a453-8112c9ed4ac7",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-03T10:27:00.261Z"
+  },
+  {
+    "id": "b62438df-03e3-49a2-888b-6ed8960e085d",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T10:27:00.261Z"
+  },
+  {
+    "id": "0ae5f7fe-2ab5-472c-bac7-9deca5db91d3",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-03T10:27:00.261Z"
+  },
+  {
+    "id": "f018a4ec-8ae1-4ffa-957a-3a8ab493d045",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": false,
+    "details": {
+      "message": "Expected ACM format but no citations matching either author-year or numbered styles found. Use \\citep{} (natbib) so citations render as '(Smith et al., 2024)'.",
+      "expectedFormat": "ACM",
+      "hasReferencesSection": true,
+      "detectedHint": "no citations matching either author-year or numbered styles found",
+      "source": "structured-extraction"
+    },
+    "checkedAt": "2026-05-03T10:27:00.261Z"
+  },
+  {
+    "id": "d02e9256-ebb1-46ae-9d0a-05aed717d16d",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": null,
+      "producer": null,
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T10:27:00.261Z"
+  },
+  {
+    "id": "edbbecf6-2373-416a-9542-712b2901840c",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "DESK_REJECT_RISK",
+    "passed": true,
+    "details": {
+      "message": "No automated desk-reject signals detected. Manually confirm the 7 items below before submitting to SIGIR 2026.",
+      "items": [
+        {
+          "criterion": "Content past page 9 (figures, tables, appendices)",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Formatting non-compliant",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Author addition after abstract deadline",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Plagiarism / academic dishonesty",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies."
+        },
+        {
+          "criterion": "Lack of topical fit",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Pre-print policy violations",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Placeholder abstracts",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        }
+      ]
+    },
+    "checkedAt": "2026-05-03T10:27:00.261Z"
+  },
+  {
+    "id": "800c59cb-556b-40c0-976e-369a0bf46b77",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "message": "Paper is 5 pages, within SIGIR 2026's 4 pages (references don't count) limit.",
+      "pageCount": 5,
+      "pageLimit": 4,
+      "effectiveLimit": 4,
+      "referencesCountTowardLimit": false,
+      "extraRefPages": null,
+      "estimatedReferencePages": 1
+    },
+    "checkedAt": "2026-05-03T10:28:46.716Z"
+  },
+  {
+    "id": "6b0e9742-beaa-4c08-a7b8-8147617a490e",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "SIGIR 2026 does not specify an abstract word limit. Abstract is 207 words.",
+      "abstractWordCount": 207,
+      "abstractWordLimit": null
+    },
+    "checkedAt": "2026-05-03T10:28:46.716Z"
+  },
+  {
+    "id": "27cfdfb3-dfc7-4f70-9f91-3ff04ba65d42",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Method. SIGIR 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction and Related Work, Ontology-Driven Legal Reasoning Graph Extraction, Experimental Setup, Results, Discussion and Limitations, Conclusion). Suggested but not enforced: ACM CCS concepts and keywords.",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "ACM CCS concepts and keywords",
+          "placement": "after abstract",
+          "countsTowardLimit": true,
+          "deskRejectIfMissing": false
+        }
+      ],
+      "conventionalSections": [],
+      "warnings": [
+        "ACM CCS concepts and keywords"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction and Related Work",
+        "Ontology-Driven Legal Reasoning Graph Extraction",
+        "Experimental Setup",
+        "Results",
+        "Discussion and Limitations",
+        "Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction and related work",
+        "Related Work": "introduction and related work",
+        "Experiments": "results",
+        "Conclusion": "conclusion"
+      }
+    },
+    "checkedAt": "2026-05-03T10:28:46.716Z"
+  },
+  {
+    "id": "209a85e5-f3c8-42ab-883b-199abb2de60e",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Short Papers",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-03T10:28:46.716Z"
+  },
+  {
+    "id": "f7cba087-ddf3-4753-a9e0-916b61c27a97",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-03T10:28:46.716Z"
+  },
+  {
+    "id": "c85a1c58-a2f1-43ae-af80-fd9a813dbc11",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T10:28:46.716Z"
+  },
+  {
+    "id": "b6d945f4-5fe3-43ba-afaa-f2806071d589",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-03T10:28:46.716Z"
+  },
+  {
+    "id": "3628ec6f-46c1-49a3-9b57-10b38a60bde0",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": false,
+    "details": {
+      "message": "Expected ACM format but no citations matching either author-year or numbered styles found. Use \\citep{} (natbib) so citations render as '(Smith et al., 2024)'.",
+      "expectedFormat": "ACM",
+      "hasReferencesSection": true,
+      "detectedHint": "no citations matching either author-year or numbered styles found",
+      "source": "structured-extraction"
+    },
+    "checkedAt": "2026-05-03T10:28:46.716Z"
+  },
+  {
+    "id": "af7daeb1-038f-40b3-9e70-0c69dbd0a9f4",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": null,
+      "producer": null,
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T10:28:46.716Z"
+  },
+  {
+    "id": "52863acf-b1ea-4d13-8efb-a710c77aaec8",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "checkType": "DESK_REJECT_RISK",
+    "passed": true,
+    "details": {
+      "message": "No automated desk-reject signals detected. Manually confirm the 7 items below before submitting to SIGIR 2026.",
+      "items": [
+        {
+          "criterion": "Content past page 9 (figures, tables, appendices)",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Formatting non-compliant",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Author addition after abstract deadline",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Plagiarism / academic dishonesty",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies."
+        },
+        {
+          "criterion": "Lack of topical fit",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Pre-print policy violations",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Placeholder abstracts",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        }
+      ]
+    },
+    "checkedAt": "2026-05-03T10:28:46.716Z"
   }
 ]

@@ -80,5 +80,13 @@
     "createdAt": "2026-05-03T09:25:07.461Z",
     "revisionNote": null,
     "priorReviewerIds": []
+  },
+  {
+    "id": "607cdd75-585b-4a5a-8fda-d765488fe6f3",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "roundNumber": 1,
+    "createdAt": "2026-05-03T10:28:45.928Z",
+    "revisionNote": null,
+    "priorReviewerIds": []
   }
 ]

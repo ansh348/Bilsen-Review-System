@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": "b9d1b943-e346-4811-be78-0fab0e53fad3",
+    "reviewId": "5f48c020-16b7-47c8-9d5c-6bb0673352a7",
+    "raterId": "bilsen_vahid_haratian",
+    "reviewerId": "bilsen_veli_karakaya",
+    "qualityScore": 5,
+    "quantityScore": 3,
+    "timelinessScore": 3,
+    "comment": null,
+    "createdAt": "2026-05-03T11:30:27.538Z"
+  }
+]

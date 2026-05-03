@@ -409,6 +409,7 @@ export function PdfViewer({
         </div>
 
         <AnnotationsSidebar
+          paperId={paperId}
           annotations={annotations}
           authorNames={authorNames}
           currentUserId={currentUserId}

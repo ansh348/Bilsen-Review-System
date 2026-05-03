@@ -9962,5 +9962,26 @@
       "severity": "QUESTION",
       "parentId": null
     }
+  },
+  {
+    "id": "8f9f2fbd-f28d-4cf2-a10c-74c11371a121",
+    "paperId": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "authorId": "bilsen_veli_karakaya",
+    "assignmentId": null,
+    "reviewId": null,
+    "kind": "COMMENT",
+    "pageNumber": 5,
+    "visibility": "PRIVATE",
+    "createdAt": "2026-05-03T11:25:55.562Z",
+    "updatedAt": "2026-05-03T11:25:58.544Z",
+    "comment": {
+      "anchor": {
+        "x": 0.275,
+        "y": 0.7458937198067633
+      },
+      "text": "all good! ",
+      "severity": "MINOR",
+      "parentId": null
+    }
   }
 ]

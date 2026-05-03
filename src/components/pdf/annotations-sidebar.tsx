@@ -1,13 +1,14 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Highlighter, Pencil, MessageSquare, Trash2 } from "lucide-react";
+import { Highlighter, Pencil, MessageSquare, Trash2, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AnnotationKind, AnnotationRecord } from "@/lib/review-types";
 import { severityMeta } from "@/components/pdf/utils";
 
 interface AnnotationsSidebarProps {
+  paperId: string;
   annotations: AnnotationRecord[];
   authorNames: Record<string, string>;
   currentUserId: string;
@@ -24,6 +25,7 @@ const KIND_FILTERS: Array<{ key: "ALL" | AnnotationKind; label: string }> = [
 ];
 
 export function AnnotationsSidebar({
+  paperId,
   annotations,
   authorNames,
   currentUserId,
@@ -45,10 +47,19 @@ export function AnnotationsSidebar({
   return (
     <aside className="flex h-full w-80 flex-col border-l border-border bg-background">
       <div className="border-b border-border p-3">
-        <h2 className="text-sm font-semibold">Annotations</h2>
-        <p className="text-xs text-muted-foreground">
-          {annotations.length} total
-        </p>
+        <div className="flex items-start justify-between gap-2">
+          <div>
+            <h2 className="text-sm font-semibold">Annotations</h2>
+            <p className="text-xs text-muted-foreground">
+              {annotations.length} total
+            </p>
+          </div>
+          <Button variant="outline" size="sm" asChild>
+            <a href={`/api/papers/${paperId}/export-pdf`} download>
+              <Download className="h-3 w-3" /> Export
+            </a>
+          </Button>
+        </div>
         <div className="mt-2 flex flex-wrap gap-1">
           {KIND_FILTERS.map(({ key, label }) => (
             <button

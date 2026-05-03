@@ -505,5 +505,45 @@
     "extractedAt": "2026-05-02T19:43:39.025Z",
     "createdAt": "2026-05-02T19:43:39.025Z",
     "updatedAt": "2026-05-03T09:25:52.425Z"
+  },
+  {
+    "id": "228c0408-edac-4c19-b834-d18dccd32db9",
+    "title": "Ontology-Driven Clustering for Extracting Legal Reasoning Graphs",
+    "abstractText": "Structured representations of court decisions are essential for legal case retrieval, judgment prediction, and explainability, yet existing approaches struggle to capture concept-level reasoning from long, multi-issue judgments. We present LexCGraph, an ontology-driven pipeline that extracts legal reasoning graphs from full-length court decisions. Extracted nodes are clustered around canonical legal concepts defined in a compiled ontology; within each cluster, an LLM infers edges under ontology-provided constraints (definitions, AND/OR requirements, defeaters, relation whitelist), while all cross-cluster structure is constructed deterministically. On concept retrieval over 2,517 Indian Supreme Court cases from IL-TUR (CJPE) with independently constructed relevance judgments, ontology-normalized annotations outperform BM25 by +0.100 nDCG@10 and +0.129 P@10 (𝑝 < 0.05). Dense retrieval baselines spanning bi-encoders and late interaction all fall short of even BM25. Using extracted graphs as the sole input to zero-shot outcome prediction improves accuracy by +0.116 on Grok-4.1 and +0.111 on Claude Sonnet 4.5 (McNemar 𝑝 < 0.05), with substantially better calibration (ECE: 0.109→0.026 and 0.091→0.010). An ablation on both models confirms that the gains are driven by ontology-constrained relational structure, rather than clean node extraction alone. The AND/OR justification structure further enables counterfactual impact analysis—removing a concept node and tracing which holdings lose support—providing a form of domain-grounded explainability absent from existing legal NLP systems.",
+    "pdfUrl": null,
+    "pdfPath": "data/uploads/f485827d-86c5-44af-83ff-9e7899a0e5fb.pdf",
+    "pageCount": 5,
+    "overleafUrl": null,
+    "venueId": "venue-sigir-2026-short-papers",
+    "status": "UNDER_REVIEW",
+    "paperType": "RESEARCH",
+    "authorIds": [
+      "bilsen_vahid_haratian"
+    ],
+    "extractedSections": [
+      "Introduction and Related Work",
+      "Ontology-Driven Legal Reasoning Graph Extraction",
+      "Experimental Setup",
+      "Results",
+      "Discussion and Limitations",
+      "Conclusion"
+    ],
+    "extractedReferences": [
+      "Ilias Chalkidis, Abhik Jana, Dirk Hartung, Michael Bommarito, Ion Androutsopoulos, Daniel Katz, and Nikolaos Aletras. 2022. LexGLUE: A Benchmark Dataset for Legal Language Understanding in English. In Proceedings of ACL 2022 (Volume 1: Long Papers). 4310–4330.",
+      "Neel Guha, Julian Nyarko, Daniel E. Ho, Christopher Ré, Adam Chilton, et al. 2023. LegalBench: A Collaboratively Built Benchmark for Measuring Legal Reasoning in Large Language Models. arXiv preprint arXiv:2308.11462.",
+      "Abhinav Joshi, Shounak Paul, Akshat Sharma, Pawan Goyal, Saptarshi Ghosh, and Ashutosh Modi. 2024. IL-TUR: Benchmark for Indian Legal Text Understanding and Reasoning. In Proceedings of ACL 2024 (Volume 1: Long Papers). 11460–11499.",
+      "Vijit Malik, Rishabh Sanjay, Shubham Kumar Nigam, Kripabandhu Ghosh, Shouvik Kumar Guha, Arnab Bhattacharya, and Ashutosh Modi. 2021. ILDC for CJPE: Indian Legal Documents Corpus for Court Judgment Prediction and Explanation. In Proceedings of ACL-IJCNLP 2021 (Volume 1: Long Papers). 4046–4062.",
+      "Juliano Rabelo, Mi-Young Kim, Randy Goebel, Masaharu Yoshioka, Yoshinobu Kano, and Ken Satoh. 2022. COLIEE 2022 Summary: Methods for Legal Document Retrieval and Entailment. In New Frontiers in Artificial Intelligence (JSAI 2022). Springer, 51–67.",
+      "Stephen E. Toulmin. 1958. The Uses of Argument. Cambridge University Press, Cambridge, UK.",
+      "Ilias Chalkidis, Ion Androutsopoulos, and Nikolaos Aletras. 2019. Neural Legal Judgment Prediction in English. In Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics. 4317–4323.",
+      "Jyoti Sarika, Ashutosh Modi, et al. 2022. Constructing a Knowledge Graph from Indian Legal Domain Corpus. In Proceedings of Text2KG Workshop at ESWC 2022. CEUR-WS.org.",
+      "Aditya Dhani, et al. 2024. Similar Cases Recommendation using Legal Knowledge Graphs. arXiv preprint arXiv:2107.04771.",
+      "Erwin Filtz, Sabrina Kirrane, and Axel Polleres. 2017. Building and Processing a Knowledge-Graph for Legal Data. In The Semantic Web: ESWC 2017. Springer, 184–194."
+    ],
+    "extractedAuthors": [],
+    "extractedAffiliations": [],
+    "extractedAt": "2026-05-03T10:27:00.207Z",
+    "createdAt": "2026-05-03T10:27:00.207Z",
+    "updatedAt": "2026-05-03T10:28:46.680Z"
   }
 ]

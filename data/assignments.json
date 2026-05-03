@@ -106,5 +106,53 @@
     "assignedAt": "2026-05-03T09:25:08.260Z",
     "respondedAt": null,
     "completedAt": null
+  },
+  {
+    "id": "b9ae630a-ca5a-47d3-b1d8-b0cffb1c6287",
+    "reviewRoundId": "607cdd75-585b-4a5a-8fda-d765488fe6f3",
+    "reviewerId": "bilsen_veli_karakaya",
+    "deadline": "2026-05-27",
+    "status": "COMPLETED",
+    "declineReason": null,
+    "extensionRequestedTo": null,
+    "assignedAt": "2026-05-03T10:28:46.670Z",
+    "respondedAt": "2026-05-03T10:30:17.068Z",
+    "completedAt": "2026-05-03T11:27:31.840Z"
+  },
+  {
+    "id": "a940e7bf-7902-4350-a6c7-5d78fc640769",
+    "reviewRoundId": "607cdd75-585b-4a5a-8fda-d765488fe6f3",
+    "reviewerId": "bilsen_begum_oz",
+    "deadline": "2026-05-27",
+    "status": "PENDING",
+    "declineReason": null,
+    "extensionRequestedTo": null,
+    "assignedAt": "2026-05-03T10:28:46.670Z",
+    "respondedAt": null,
+    "completedAt": null
+  },
+  {
+    "id": "58a81932-a3cc-4f6d-8b18-122da0d9e5e6",
+    "reviewRoundId": "607cdd75-585b-4a5a-8fda-d765488fe6f3",
+    "reviewerId": "bilsen_can_biyik",
+    "deadline": "2026-05-27",
+    "status": "PENDING",
+    "declineReason": null,
+    "extensionRequestedTo": null,
+    "assignedAt": "2026-05-03T10:28:46.670Z",
+    "respondedAt": null,
+    "completedAt": null
+  },
+  {
+    "id": "3dcb9aaa-ed94-4c62-933f-d19148f5694d",
+    "reviewRoundId": "607cdd75-585b-4a5a-8fda-d765488fe6f3",
+    "reviewerId": "bilsen_atakan_akar",
+    "deadline": "2026-05-27",
+    "status": "PENDING",
+    "declineReason": null,
+    "extensionRequestedTo": null,
+    "assignedAt": "2026-05-03T10:28:46.670Z",
+    "respondedAt": null,
+    "completedAt": null
   }
 ]
