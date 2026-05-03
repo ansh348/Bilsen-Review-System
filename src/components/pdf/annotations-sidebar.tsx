@@ -5,6 +5,7 @@ import { Highlighter, Pencil, MessageSquare, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AnnotationKind, AnnotationRecord } from "@/lib/review-types";
+import { severityMeta } from "@/components/pdf/utils";
 
 interface AnnotationsSidebarProps {
   annotations: AnnotationRecord[];
@@ -84,7 +85,7 @@ export function AnnotationsSidebar({
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-2">
+                      <div className="flex flex-wrap items-center gap-2">
                         <KindIcon kind={a.kind} />
                         <span className="text-xs font-medium">
                           Page {a.pageNumber}
@@ -94,6 +95,16 @@ export function AnnotationsSidebar({
                             draft
                           </Badge>
                         )}
+                        {a.kind === "COMMENT" && (() => {
+                          const meta = severityMeta(a.comment?.severity);
+                          return (
+                            <span
+                              className={`rounded-full border px-1.5 py-0.5 text-[10px] font-semibold uppercase ${meta.pillClass}`}
+                            >
+                              {meta.label}
+                            </span>
+                          );
+                        })()}
                       </div>
                       <p className="mt-1 text-xs text-muted-foreground">
                         {authorNames[a.authorId] ?? "Unknown"}

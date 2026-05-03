@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import {
   AnnotationRecord,
   AnnotationStroke,
+  CommentSeverity,
   Role,
 } from "@/lib/review-types";
 import {
@@ -18,6 +19,7 @@ import {
 import { PdfToolbar } from "@/components/pdf/pdf-toolbar";
 import { PdfPage } from "@/components/pdf/pdf-page";
 import { AnnotationsSidebar } from "@/components/pdf/annotations-sidebar";
+import { useSetTopbarLeft } from "@/components/dashboard/topbar-slot-context";
 
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
@@ -35,6 +37,29 @@ interface PdfViewerProps {
 
 const BASE_PAGE_WIDTH = 800;
 const DOODLE_SIZE = 0.005;
+
+type CreateBody = {
+  kind: AnnotationRecord["kind"];
+  pageNumber: number;
+  highlight?: AnnotationRecord["highlight"];
+  doodle?: AnnotationRecord["doodle"];
+  comment?: AnnotationRecord["comment"];
+};
+
+type HistoryOp =
+  | { type: "create"; record: AnnotationRecord; body: CreateBody }
+  | { type: "delete"; record: AnnotationRecord; body: CreateBody };
+
+function recordToBody(r: AnnotationRecord): CreateBody {
+  switch (r.kind) {
+    case "HIGHLIGHT":
+      return { kind: "HIGHLIGHT", pageNumber: r.pageNumber, highlight: r.highlight };
+    case "DOODLE":
+      return { kind: "DOODLE", pageNumber: r.pageNumber, doodle: r.doodle };
+    case "COMMENT":
+      return { kind: "COMMENT", pageNumber: r.pageNumber, comment: r.comment };
+  }
+}
 
 export function PdfViewer({
   paperId,
@@ -58,11 +83,29 @@ export function PdfViewer({
   const [totalPages, setTotalPages] = useState<number>(0);
   const [error, setError] = useState<string | null>(null);
   const [openPinId, setOpenPinId] = useState<string | null>(null);
+  const [undoStack, setUndoStack] = useState<HistoryOp[]>([]);
+  const [redoStack, setRedoStack] = useState<HistoryOp[]>([]);
 
   const handlePinOpenChange = (id: string | null) => setOpenPinId(id);
 
   const pageRefs = useRef<Map<number, HTMLDivElement | null>>(new Map());
   const isCoordinator = currentUserRole === "COORDINATOR";
+
+  const topbarLeft = useMemo(
+    () => (
+      <div className="flex min-w-0 items-center gap-2">
+        <Button variant="outline" size="sm" asChild>
+          <Link href={`/papers/${paperId}`}>
+            <ArrowLeft className="h-4 w-4" /> Back
+          </Link>
+        </Button>
+        <span className="hidden h-5 w-px bg-border sm:block" />
+        <h1 className="truncate text-sm font-semibold">{paperTitle}</h1>
+      </div>
+    ),
+    [paperId, paperTitle]
+  );
+  useSetTopbarLeft(topbarLeft);
 
   const activeColor = tool === "doodle" ? doodleColor : highlightColor;
 
@@ -146,39 +189,54 @@ export function PdfViewer({
     }
   }
 
+  const pushUndo = (op: HistoryOp) => {
+    setUndoStack((prev) => [...prev, op]);
+    setRedoStack([]);
+  };
+
   const handleCreateHighlight: React.ComponentProps<
     typeof PdfPage
   >["onCreateHighlight"] = async (pageNumber, payload) => {
-    const created = await postAnnotation({
+    const body: CreateBody = {
       kind: "HIGHLIGHT",
       pageNumber,
       highlight: payload,
-    });
-    if (created) setAnnotations((prev) => [...prev, created]);
+    };
+    const created = await postAnnotation(body);
+    if (created) {
+      setAnnotations((prev) => [...prev, created]);
+      pushUndo({ type: "create", record: created, body });
+    }
   };
 
   const handleCreateDoodle: React.ComponentProps<
     typeof PdfPage
   >["onCreateDoodle"] = async (pageNumber, stroke: AnnotationStroke) => {
-    const created = await postAnnotation({
+    const body: CreateBody = {
       kind: "DOODLE",
       pageNumber,
       doodle: { strokes: [stroke] },
-    });
-    if (created) setAnnotations((prev) => [...prev, created]);
+    };
+    const created = await postAnnotation(body);
+    if (created) {
+      setAnnotations((prev) => [...prev, created]);
+      pushUndo({ type: "create", record: created, body });
+    }
   };
 
   const handleCreateComment: React.ComponentProps<
     typeof PdfPage
   >["onCreateComment"] = async (pageNumber, anchor) => {
-    const created = await postAnnotation({
+    const body: CreateBody = {
       kind: "COMMENT",
       pageNumber,
-      comment: { anchor, text: "New comment" },
-    });
+      comment: { anchor, text: "" },
+    };
+    const created = await postAnnotation(body);
     if (created) {
       setAnnotations((prev) => [...prev, created]);
       setOpenPinId(created.id);
+      pushUndo({ type: "create", record: created, body });
     }
   };
 
@@ -191,11 +249,71 @@ export function PdfViewer({
     }
   };
 
+  const handleUpdateCommentSeverity = async (
+    id: string,
+    severity: CommentSeverity
+  ) => {
+    const updated = await patchAnnotation(id, { comment: { severity } });
+    if (updated) {
+      setAnnotations((prev) =>
+        prev.map((a) => (a.id === id ? updated : a))
+      );
+    }
+  };
+
   const handleDeleteAnnotation = async (id: string) => {
+    const target = annotations.find((a) => a.id === id);
     const ok = await deleteAnnotationApi(id);
     if (ok) {
       setAnnotations((prev) => prev.filter((a) => a.id !== id));
       if (openPinId === id) setOpenPinId(null);
+      if (target) {
+        pushUndo({ type: "delete", record: target, body: recordToBody(target) });
+      }
+    }
+  };
+
+  const handleUndo = async () => {
+    if (undoStack.length === 0) return;
+    const op = undoStack[undoStack.length - 1];
+    if (op.type === "create") {
+      const ok = await deleteAnnotationApi(op.record.id);
+      if (!ok) return;
+      setAnnotations((prev) => prev.filter((a) => a.id !== op.record.id));
+      if (openPinId === op.record.id) setOpenPinId(null);
+      setUndoStack((prev) => prev.slice(0, -1));
+      setRedoStack((prev) => [...prev, op]);
+    } else {
+      const recreated = await postAnnotation(op.body);
+      if (!recreated) return;
+      setAnnotations((prev) => [...prev, recreated]);
+      setUndoStack((prev) => prev.slice(0, -1));
+      setRedoStack((prev) => [
+        ...prev,
+        { type: "delete", record: recreated, body: op.body },
+      ]);
+    }
+  };
+
+  const handleRedo = async () => {
+    if (redoStack.length === 0) return;
+    const op = redoStack[redoStack.length - 1];
+    if (op.type === "create") {
+      const recreated = await postAnnotation(op.body);
+      if (!recreated) return;
+      setAnnotations((prev) => [...prev, recreated]);
+      setRedoStack((prev) => prev.slice(0, -1));
+      setUndoStack((prev) => [
+        ...prev,
+        { type: "create", record: recreated, body: op.body },
+      ]);
+    } else {
+      const ok = await deleteAnnotationApi(op.record.id);
+      if (!ok) return;
+      setAnnotations((prev) => prev.filter((a) => a.id !== op.record.id));
+      if (openPinId === op.record.id) setOpenPinId(null);
+      setRedoStack((prev) => prev.slice(0, -1));
+      setUndoStack((prev) => [...prev, op]);
     }
   };
 
@@ -210,81 +328,84 @@ export function PdfViewer({
 
   return (
     <div className="flex h-[calc(100vh-4rem)] flex-col">
-      <div className="flex items-center justify-between border-b border-border px-4 py-2">
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" asChild>
-            <Link href={`/papers/${paperId}`}>
-              <ArrowLeft className="h-4 w-4" /> Back
-            </Link>
-          </Button>
-          <h1 className="truncate text-sm font-semibold">{paperTitle}</h1>
-        </div>
-        {error && (
-          <p className="text-xs text-destructive" role="alert">
-            {error}
-          </p>
-        )}
-      </div>
-
-      <PdfToolbar
-        tool={tool}
-        onToolChange={setTool}
-        color={activeColor}
-        onColorChange={onColorChange}
-        zoom={zoom}
-        onZoomChange={setZoom}
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={(p) => {
-          setCurrentPage(p);
-          const node = pageRefs.current.get(p);
-          if (node) node.scrollIntoView({ behavior: "smooth", block: "start" });
-        }}
-      />
+      {error && (
+        <p
+          role="alert"
+          className="border-b border-destructive/40 bg-destructive/10 px-4 py-1 text-xs text-destructive"
+        >
+          {error}
+        </p>
+      )}
 
       <div className="flex flex-1 overflow-hidden">
-        <div className="flex-1 overflow-auto bg-muted/20 p-4">
-          <Document
-            file={pdfUrl}
-            onLoadSuccess={(info) => setTotalPages(info.numPages)}
-            onLoadError={(e) =>
-              setError(`Failed to load PDF: ${e.message}`)
-            }
-            loading={<p className="text-sm text-muted-foreground">Loading PDF…</p>}
-            error={
-              <p className="text-sm text-destructive">
-                Failed to load PDF. Try downloading it instead.
-              </p>
-            }
-          >
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
-              <PdfPage
-                key={n}
-                pageNumber={n}
-                scale={zoom}
-                baseWidth={BASE_PAGE_WIDTH}
+        <div className="relative flex-1 overflow-hidden">
+          <div className="pointer-events-none absolute inset-x-0 top-3 z-10 flex justify-center px-4">
+            <div className="pointer-events-auto">
+              <PdfToolbar
                 tool={tool}
+                onToolChange={setTool}
                 color={activeColor}
-                doodleSize={DOODLE_SIZE}
-                annotations={annotationsByPage.get(n) ?? []}
-                authorNames={authorNames}
-                currentUserId={currentUserId}
-                isCoordinator={isCoordinator}
-                openPinId={openPinId}
-                onPinOpenChange={handlePinOpenChange}
-                registerPageRef={registerPageRef}
-                onCreateHighlight={handleCreateHighlight}
-                onCreateDoodle={handleCreateDoodle}
-                onCreateComment={handleCreateComment}
-                onUpdateComment={handleUpdateComment}
-                onDeleteAnnotation={handleDeleteAnnotation}
-                onSelectAnnotation={(id) => {
-                  const found = annotations.find((a) => a.id === id);
-                  if (found) scrollToAnnotation(found);
+                onColorChange={onColorChange}
+                zoom={zoom}
+                onZoomChange={setZoom}
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={(p) => {
+                  setCurrentPage(p);
+                  const node = pageRefs.current.get(p);
+                  if (node) node.scrollIntoView({ behavior: "smooth", block: "start" });
                 }}
+                canUndo={undoStack.length > 0}
+                canRedo={redoStack.length > 0}
+                onUndo={handleUndo}
+                onRedo={handleRedo}
               />
-            ))}
-          </Document>
+            </div>
+          </div>
+          <div className="h-full overflow-auto bg-muted/20 px-4 pb-4 pt-16">
+            <Document
+              file={pdfUrl}
+              onLoadSuccess={(info) => setTotalPages(info.numPages)}
+              onLoadError={(e) =>
+                setError(`Failed to load PDF: ${e.message}`)
+              }
+              loading={<p className="text-sm text-muted-foreground">Loading PDF…</p>}
+              error={
+                <p className="text-sm text-destructive">
+                  Failed to load PDF. Try downloading it instead.
+                </p>
+              }
+            >
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
+                <PdfPage
+                  key={n}
+                  pageNumber={n}
+                  scale={zoom}
+                  baseWidth={BASE_PAGE_WIDTH}
+                  tool={tool}
+                  color={activeColor}
+                  doodleSize={DOODLE_SIZE}
+                  annotations={annotationsByPage.get(n) ?? []}
+                  authorNames={authorNames}
+                  currentUserId={currentUserId}
+                  isCoordinator={isCoordinator}
+                  openPinId={openPinId}
+                  onPinOpenChange={handlePinOpenChange}
+                  registerPageRef={registerPageRef}
+                  onCreateHighlight={handleCreateHighlight}
+                  onCreateDoodle={handleCreateDoodle}
+                  onCreateComment={handleCreateComment}
+                  onUpdateComment={handleUpdateComment}
+                  onUpdateCommentSeverity={handleUpdateCommentSeverity}
+                  onDeleteAnnotation={handleDeleteAnnotation}
+                  onSelectAnnotation={(id) => {
+                    const found = annotations.find((a) => a.id === id);
+                    if (found) scrollToAnnotation(found);
+                  }}
+                />
+              ))}
+            </Document>
+          </div>
         </div>
 
         <AnnotationsSidebar

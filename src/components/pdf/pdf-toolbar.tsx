@@ -9,6 +9,8 @@ import {
   ZoomOut,
   ChevronLeft,
   ChevronRight,
+  Undo2,
+  Redo2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -27,6 +29,10 @@ interface PdfToolbarProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
+  canUndo: boolean;
+  canRedo: boolean;
+  onUndo: () => void;
+  onRedo: () => void;
 }
 
 export function PdfToolbar({
@@ -39,11 +45,15 @@ export function PdfToolbar({
   currentPage,
   totalPages,
   onPageChange,
+  canUndo,
+  canRedo,
+  onUndo,
+  onRedo,
 }: PdfToolbarProps) {
   const palette = tool === "doodle" ? DOODLE_COLORS : HIGHLIGHT_COLORS;
 
   return (
-    <div className="flex flex-wrap items-center gap-2 border-b border-border bg-background px-3 py-2">
+    <div className="flex flex-wrap items-center gap-2 rounded-xl border border-border/70 bg-card/85 px-2 py-1.5 shadow-lg backdrop-blur-md">
       <div className="flex items-center gap-1">
         <ToolButton
           active={tool === "cursor"}
@@ -73,6 +83,32 @@ export function PdfToolbar({
         >
           <MessageSquare className="h-4 w-4" />
         </ToolButton>
+      </div>
+
+      <div className="mx-1 h-6 w-px bg-border" />
+      <div className="flex items-center gap-1">
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          onClick={onUndo}
+          disabled={!canUndo}
+          title="Undo"
+          aria-label="Undo"
+        >
+          <Undo2 className="h-4 w-4" />
+        </Button>
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          onClick={onRedo}
+          disabled={!canRedo}
+          title="Redo"
+          aria-label="Redo"
+        >
+          <Redo2 className="h-4 w-4" />
+        </Button>
       </div>
 
       {(tool === "highlight" || tool === "doodle") && (

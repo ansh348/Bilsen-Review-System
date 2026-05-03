@@ -12,6 +12,7 @@ import {
   suggestReviewers,
   type ReviewerCandidate,
 } from "@/lib/ai-reviewer-suggester";
+import { detectConflicts } from "@/lib/coi-detection";
 
 interface RouteParams {
   params: Promise<{ id: string }>;
@@ -66,6 +67,7 @@ export async function POST(request: Request, { params }: RouteParams) {
       .filter((u) => u.role === "MEMBER")
       .filter((u) => !priorReviewerIds.has(u.id))
       .filter((u) => Array.isArray(u.expertise) && u.expertise.length > 0)
+      .filter((u) => detectConflicts(paper, u).length === 0)
       .map((u) => ({
         id: u.id,
         name: u.name,

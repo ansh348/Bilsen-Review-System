@@ -15,6 +15,7 @@ import {
   PaperListItem,
   PaperRecord,
   PaperType,
+  PaperVersionRecord,
   Recommendation,
   Role,
   ReviewAssignmentRecord,
@@ -28,6 +29,7 @@ import {
 import { listAllUsers, getUserById } from "@/lib/users";
 import { sendNotificationEmail } from "@/lib/email";
 import { promoteReviewerAnnotationsToShared } from "@/lib/annotation-service";
+import { detectConflicts, summarizeConflicts } from "@/lib/coi-detection";
 
 interface PaperFilters {
   status?: string | null;
@@ -573,6 +575,10 @@ export function getPaperDetails(paperId: string): PaperDetails | null {
     .filter((check) => check.paperId === paperId)
     .sort((a, b) => b.checkedAt.localeCompare(a.checkedAt));
 
+  const versions = readCollection("paperVersions")
+    .filter((version) => version.paperId === paperId)
+    .sort((a, b) => b.versionNumber - a.versionNumber);
+
   return {
     paper,
     authors: users.filter((user) => paper.authorIds.includes(user.id)),
@@ -592,7 +598,60 @@ export function getPaperDetails(paperId: string): PaperDetails | null {
       };
     }),
     complianceChecks,
+    versions,
   };
+}
+
+export function listPaperVersionsForPaper(paperId: string): PaperVersionRecord[] {
+  return readCollection("paperVersions")
+    .filter((version) => version.paperId === paperId)
+    .sort((a, b) => b.versionNumber - a.versionNumber);
+}
+
+export function getPaperVersionById(
+  paperId: string,
+  versionId: string
+): PaperVersionRecord | null {
+  return (
+    readCollection("paperVersions").find(
+      (version) => version.id === versionId && version.paperId === paperId
+    ) ?? null
+  );
+}
+
+export function snapshotPaperVersion(
+  paperId: string,
+  reason: PaperVersionRecord["reason"] = "REVISION"
+): PaperVersionRecord | null {
+  const paper = getPaperById(paperId);
+  if (!paper) return null;
+  if (!paper.pdfPath && !paper.pdfUrl) return null;
+
+  const existing = readCollection("paperVersions").filter(
+    (version) => version.paperId === paperId
+  );
+  const nextVersionNumber =
+    existing.reduce((max, v) => Math.max(max, v.versionNumber), 0) + 1;
+
+  const snapshot: PaperVersionRecord = {
+    id: crypto.randomUUID(),
+    paperId,
+    versionNumber: nextVersionNumber,
+    title: paper.title,
+    abstractText: paper.abstractText,
+    pdfPath: paper.pdfPath ?? null,
+    pdfUrl: paper.pdfUrl ?? null,
+    pageCount: paper.pageCount ?? null,
+    extractedSections: paper.extractedSections,
+    extractedReferences: paper.extractedReferences,
+    extractedAuthors: paper.extractedAuthors,
+    extractedAffiliations: paper.extractedAffiliations,
+    supersededAt: nowIso(),
+    reason,
+  };
+
+  upsertCollection("paperVersions", (versions) => [...versions, snapshot]);
+  return snapshot;
 }
 
 export function updatePaper(paperId: string, input: PaperUpdateInput) {
@@ -928,6 +987,13 @@ export function assignReviewers(roundId: string, reviewers: AssignReviewerInput[
     if (alreadyAssignedInPaper) {
       throw new Error(
         `Reviewer ${reviewer.name} was already assigned in another round for this paper`
+      );
+    }
+
+    const conflicts = detectConflicts(paper, reviewer);
+    if (conflicts.length > 0) {
+      throw new Error(
+        `Cannot assign ${reviewer.name}: conflict of interest. ${summarizeConflicts(conflicts)}`
       );
     }
 

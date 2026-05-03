@@ -76,6 +76,7 @@ export function createAnnotation(
       comment: {
         anchor: input.comment.anchor,
         text: input.comment.text,
+        severity: input.comment.severity ?? "MINOR",
         parentId: input.comment.parentId ?? null,
       },
     };
@@ -101,7 +102,10 @@ export function updateAnnotation(
 
   let next: AnnotationRecord = { ...existing, updatedAt: nowIso() };
   if (input.comment && existing.comment) {
-    next = { ...next, comment: { ...existing.comment, text: input.comment.text } };
+    const merged = { ...existing.comment };
+    if (input.comment.text !== undefined) merged.text = input.comment.text;
+    if (input.comment.severity !== undefined) merged.severity = input.comment.severity;
+    next = { ...next, comment: merged };
   }
   if (input.highlight && existing.highlight) {
     next = {

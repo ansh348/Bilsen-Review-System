@@ -111,6 +111,7 @@ export const userUpdateSchema = z.object({
   role: z.enum(roles).optional(),
   slackId: z.string().optional().nullable(),
   expertise: z.array(z.string().min(1).max(60)).max(15).optional(),
+  affiliation: z.string().max(200).optional().nullable(),
 });
 
 export const linkSlackSchema = z.object({

@@ -4620,5 +4620,1243 @@
       ]
     },
     "checkedAt": "2026-05-02T11:26:35.806Z"
+  },
+  {
+    "id": "f2ea0d4b-d7da-4dd4-a2c9-cb31e01ef323",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "PAGE_LIMIT",
+    "passed": false,
+    "details": {
+      "message": "Paper is 52 pages. NeurIPS 2026 limit is 9 pages (references don't count). Remove 43 pages of content (or move material to appendix if the venue allows).",
+      "pageCount": 52,
+      "pageLimit": 9,
+      "effectiveLimit": 9,
+      "referencesCountTowardLimit": false,
+      "extraRefPages": null,
+      "estimatedReferencePages": 1
+    },
+    "checkedAt": "2026-05-02T12:42:16.003Z"
+  },
+  {
+    "id": "9fa600a8-dba6-467d-b3c4-0c3f1d080769",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "NeurIPS 2026 does not specify an abstract word limit. Abstract is 213 words.",
+      "abstractWordCount": 213,
+      "abstractWordLimit": null
+    },
+    "checkedAt": "2026-05-02T12:42:16.003Z"
+  },
+  {
+    "id": "b85ac71a-bc49-45c6-8bc8-2df2576a43dc",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Method, NeurIPS Paper Checklist. NeurIPS 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction, Related Work and Gap Analysis, Fortunate Recall, Theoretical Foundations, LifeMemBench, Experiments, Discussion and Conclusion). Suggested but not enforced: Broader Impact, Limitations.",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion",
+        "NeurIPS Paper Checklist"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method",
+        "NeurIPS Paper Checklist"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "NeurIPS Paper Checklist",
+          "placement": "in main PDF, after references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "conventionalSections": [
+        "Broader Impact",
+        "Limitations"
+      ],
+      "warnings": [
+        "Broader Impact",
+        "Limitations"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction",
+        "Related Work and Gap Analysis",
+        "Fortunate Recall",
+        "Theoretical Foundations",
+        "LifeMemBench",
+        "Experiments",
+        "Discussion and Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction",
+        "Related Work": "related work and gap analysis",
+        "Experiments": "experiments",
+        "Conclusion": "discussion and conclusion"
+      }
+    },
+    "checkedAt": "2026-05-02T12:42:16.003Z"
+  },
+  {
+    "id": "c7fdcb71-540d-4991-802c-1cbc5043aa78",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Main (Research)",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-02T12:42:16.003Z"
+  },
+  {
+    "id": "50096b4e-7af4-41a2-bee0-3459effa6912",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-02T12:42:16.003Z"
+  },
+  {
+    "id": "8a098c4d-0528-404f-a56c-b1cb8297be3e",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-02T12:42:16.003Z"
+  },
+  {
+    "id": "59259907-1122-4dac-8393-326b3feecbde",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-02T12:42:16.003Z"
+  },
+  {
+    "id": "5209d6b3-831c-47c0-ab95-d40633ab8f49",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": true,
+    "details": {
+      "message": "References use Any consistent style format as expected by NeurIPS 2026 (references section present).",
+      "expectedFormat": "Any consistent style",
+      "hasReferencesSection": true,
+      "detectedHint": "references section present",
+      "source": "structured-extraction"
+    },
+    "checkedAt": "2026-05-02T12:42:16.003Z"
+  },
+  {
+    "id": "3b3e83d9-4a49-4a7b-89d5-7b1136e3ef44",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": "LaTeX with hyperref",
+      "producer": "MiKTeX pdfTeX-1.40.27",
+      "flags": []
+    },
+    "checkedAt": "2026-05-02T12:42:16.003Z"
+  },
+  {
+    "id": "aa0f625c-59a0-4d27-96cf-30fb09b9b2ca",
+    "paperId": "b0aa7320-22d4-4f7c-a8ce-7c5f6e0f8833",
+    "checkType": "DESK_REJECT_RISK",
+    "passed": false,
+    "details": {
+      "message": "Automated desk-reject risk: Page limit exceeded / margin or font tampering. Resolve before submitting.",
+      "items": [
+        {
+          "criterion": "Page limit exceeded / margin or font tampering",
+          "kind": "auto",
+          "status": "fail",
+          "relatedCheck": "PAGE_LIMIT"
+        },
+        {
+          "criterion": "Wrong style file",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Non-anonymous submission",
+          "kind": "auto",
+          "status": "pass",
+          "relatedCheck": "ANONYMITY_CHECK"
+        },
+        {
+          "criterion": "Placeholder abstract",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Failure to file paper checklist",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Concurrent submission to another archival venue",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies."
+        }
+      ]
+    },
+    "checkedAt": "2026-05-02T12:42:16.003Z"
+  },
+  {
+    "id": "7556caaf-1fcc-4f89-bc81-cbb75f3ecacb",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "message": "Paper is 7 pages, within EMNLP 2026's 8 pages (references don't count) limit.",
+      "pageCount": 7,
+      "pageLimit": 8,
+      "effectiveLimit": 8,
+      "referencesCountTowardLimit": false,
+      "extraRefPages": null,
+      "estimatedReferencePages": 0
+    },
+    "checkedAt": "2026-05-02T19:43:39.099Z"
+  },
+  {
+    "id": "88d58145-6a4e-44fe-802b-c823e3d122f2",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "EMNLP 2026 does not specify an abstract word limit. Abstract is 286 words.",
+      "abstractWordCount": 286,
+      "abstractWordLimit": null
+    },
+    "checkedAt": "2026-05-02T19:43:39.099Z"
+  },
+  {
+    "id": "d131e1ae-5cb1-45f1-8935-03c61102d4f2",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Responsible NLP Checklist. EMNLP 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction, Related Work, Method, Experimental Setup, Results, Counterfactual Impact Analysis, Discussion, Limitations, Conclusion). Suggested but not enforced: Ethical Considerations.",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion",
+        "Limitations",
+        "Responsible NLP Checklist"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Responsible NLP Checklist"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "Limitations",
+          "placement": "after main, before references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        },
+        {
+          "name": "Responsible NLP Checklist",
+          "placement": "submitted with paper",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "conventionalSections": [
+        "Ethical Considerations"
+      ],
+      "warnings": [
+        "Ethical Considerations"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experimental Setup",
+        "Results",
+        "Counterfactual Impact Analysis",
+        "Discussion",
+        "Limitations",
+        "Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction",
+        "Related Work": "related work",
+        "Method": "method",
+        "Experiments": "results",
+        "Conclusion": "conclusion",
+        "Limitations": "limitations"
+      }
+    },
+    "checkedAt": "2026-05-02T19:43:39.099Z"
+  },
+  {
+    "id": "91326086-5036-4d35-a9ef-4771778f1b55",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Long Papers",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-02T19:43:39.099Z"
+  },
+  {
+    "id": "e8ef999b-1de0-4529-940c-cd25d31a2561",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-02T19:43:39.099Z"
+  },
+  {
+    "id": "71c1614d-f2cf-4b73-b028-554b6efa7003",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-02T19:43:39.099Z"
+  },
+  {
+    "id": "d6a3970d-6165-40bd-9452-c5e429e6a09f",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-02T19:43:39.099Z"
+  },
+  {
+    "id": "5cc1d18e-aa42-4da3-8ee9-6f9a7ddbb72d",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": false,
+    "details": {
+      "message": "Expected ACL format but no author-year citations found. Update the bibliography style accordingly.",
+      "expectedFormat": "ACL",
+      "hasReferencesSection": true,
+      "detectedHint": "no author-year citations found",
+      "source": "text-heuristic"
+    },
+    "checkedAt": "2026-05-02T19:43:39.099Z"
+  },
+  {
+    "id": "c3da66ad-b32a-4773-b9a9-2a49fa9ef98c",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": null,
+      "producer": null,
+      "flags": []
+    },
+    "checkedAt": "2026-05-02T19:43:39.099Z"
+  },
+  {
+    "id": "176f9b53-bc07-4533-9812-540768463481",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "DESK_REJECT_RISK",
+    "passed": true,
+    "details": {
+      "message": "No automated desk-reject signals detected. Manually confirm the 7 items below before submitting to EMNLP 2026.",
+      "items": [
+        {
+          "criterion": "Missing 'Limitations' section",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Format/page violations",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Anonymity violations",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Dual submission (>25% overlap → reject)",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies."
+        },
+        {
+          "criterion": "Incorrect Responsible NLP Checklist",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Resubmissions without revision/justification",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Appendix not in double-column format",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        }
+      ]
+    },
+    "checkedAt": "2026-05-02T19:43:39.099Z"
+  },
+  {
+    "id": "f3800aa0-88ad-45c8-9d15-56bc62f7fd02",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "AI_FULL_REVIEW",
+    "passed": false,
+    "details": {
+      "message": "The paper presents strong, well-scoped research with a clear novel contribution and thorough multi-dimensional evaluation, making it scientifically competitive for EMNLP 2026. However, it has at least three critical submission compliance failures that pose immediate desk-rejection risk: (1) all bibliography entries are broken ('?' placeholders with 0 references extracted), which would render the submission incomplete; (2) the mandatory 'Limitations' section is placed before the Conclusion rather than after it, violating EMNLP's explicit placement requirement and desk-reject criterion; and (3) no GenAI/AI writing assistance disclosure section is present despite the venue's mandatory requirement. Additionally, the absence of an Ethical Considerations section and the unverifiable status of the Responsible NLP Checklist require attention before submission.",
+      "checks": [
+        {
+          "dimension": "PAGE_LIMIT",
+          "verdict": "pass",
+          "summary": "The paper is 7 pages of main content, well within the 8-page limit; references and appendix do not count toward the limit.",
+          "evidence": [
+            "PDF page count: 7 pages total.",
+            "Appendix (pages A–B) begins on page 7 with 'A Ontology Concept Example' and 'B Quality Tier Distribution'; appendix does not count toward page limit per venue rules.",
+            "References section occupies lines 546–574 on page 7 and does not count toward the limit.",
+            "Main body ends at Conclusion (Section 9) on page 7, well under the 8-page cap."
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.9
+        },
+        {
+          "dimension": "ABSTRACT",
+          "verdict": "pass",
+          "summary": "Abstract is present, no word limit or structured abstract is required by the venue.",
+          "evidence": [
+            "Abstract is present beginning at line 001 with 'Extracting structured reasoning from long court judgments...'",
+            "Venue specifies abstractWordLimit: null and abstractStructuredRequired: false."
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.99
+        },
+        {
+          "dimension": "REQUIRED_SECTIONS",
+          "verdict": "pass",
+          "summary": "All six required sections are present, with 'Experimental Setup' satisfying the 'Experiments' requirement as an accepted synonym.",
+          "evidence": [
+            "Section 1: 'Introduction' — present.",
+            "Section 2: 'Related Work' — present.",
+            "Section 3: 'Method' — present.",
+            "Section 4: 'Experimental Setup' — satisfies 'Experiments' (synonym).",
+            "Section 9: 'Conclusion' — present.",
+            "Abstract block present at lines 001–054."
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.97
+        },
+        {
+          "dimension": "CONVENTIONAL_SECTIONS",
+          "verdict": "warning",
+          "summary": "No 'Ethical Considerations' section is present; this is a conventional (non-mandatory) section but is strongly encouraged at ACL/EMNLP venues.",
+          "evidence": [
+            "Scanned all section headings extracted: Introduction, Related Work, Method, Experimental Setup, Results, Counterfactual Impact Analysis, Discussion, Limitations, Conclusion — no 'Ethical Considerations' heading found.",
+            "Venue lists 'Ethical Considerations' under conventionalSections.",
+            "The paper involves legal NLP and deals with Indian court cases and proprietary models — potential ethical considerations exist but are not addressed in a dedicated section."
+          ],
+          "recommendation": "Add an 'Ethical Considerations' section after the Conclusion and before References. Address: use of proprietary models (Grok-4.1, Claude Sonnet 4.5), potential for legal NLP tools to affect judicial fairness, privacy considerations around court case data, and limits of ontology coverage for marginalized legal contexts.",
+          "confidence": 0.92
+        },
+        {
+          "dimension": "SPECIAL_REQUIRED_SECTIONS",
+          "verdict": "fail",
+          "summary": "The 'Limitations' section exists but is misplaced (before Conclusion, not after it); the 'Responsible NLP Checklist' cannot be verified from the paper text alone and must be confirmed as a separate submitted document.",
+          "evidence": [
+            "Section 8 'Limitations' appears at line 482, followed by Section 9 'Conclusion' at line 517 — Limitations is placed BEFORE Conclusion.",
+            "EMNLP/ARR policy (confirmed from official sources) specifies Limitations must appear 'at the end of the paper, after the discussion/conclusions section and before the references'.",
+            "ACL pubcheck guidelines (January 2025 update) specify: 'The limitations section...should be included in the pdf for the paper (not counting towards the page limit)' after the main body.",
+            "No 'Responsible NLP Checklist' is visible or referenced within the paper text; this is a separate submission artifact that cannot be confirmed from the PDF alone."
+          ],
+          "recommendation": "Move the 'Limitations' section to AFTER Section 9 (Conclusion) and before the References section — this is the required placement per EMNLP/ARR policy and is a desk-reject criterion if violated. Separately, ensure the ARR Responsible NLP Checklist is completed and submitted alongside the paper on OpenReview.",
+          "confidence": 0.95
+        },
+        {
+          "dimension": "REFERENCE_FORMAT",
+          "verdict": "fail",
+          "summary": "All in-text citations appear as '(?)' placeholders and the references section is empty — reference format cannot be verified and the paper appears to have broken/missing bibliography entries.",
+          "evidence": [
+            "In-text citations throughout appear as '(?)' e.g., 'LexGLUE (?) and LegalBench (?) standardize legal NLP evaluation' (line 150).",
+            "References section (lines 546–574) contains no actual reference entries — 0 references extracted per metadata.",
+            "Venue requires ACL author-year style (e.g., '(Smith et al., 2024)') — impossible to verify compliance.",
+            "Footnote 1 at line 054 reads 'Code: https://anonymous.4open.science/r/lexcgraph' — this is legitimate anonymous URL, not a reference format issue."
+          ],
+          "recommendation": "Populate all references in ACL author-year format using the acl_natbib BibTeX style. Replace all '(?)' placeholder citations with proper '(Author, Year)' formatted citations. Run ACL pubcheck to verify bibliography compliance before submission.",
+          "confidence": 0.98
+        },
+        {
+          "dimension": "ANONYMITY",
+          "verdict": "pass",
+          "summary": "The paper correctly uses 'Anonymous ACL submission' as the author block, uses an anonymous code repository link, and contains no identifiable author or institutional information.",
+          "evidence": [
+            "Header reads: 'Anonymous ACL submission'.",
+            "Code link uses anonymous service: 'Code: https://anonymous.4open.science/r/lexcgraph' (line 083 footnote).",
+            "No author names, affiliations, acknowledgments, or institutional email addresses found in the paper text.",
+            "Self-references (if any) cannot be verified as all citations are '(?)' placeholders, but no first-person institutional references were found in the prose.",
+            "Venue policy (double-blind, acknowledgmentsAllowed: false) appears satisfied — no acknowledgments section present."
+          ],
+          "recommendation": "Before final submission, verify that no identifying metadata exists in the PDF file itself (author fields in PDF document properties). Also confirm all self-citations (once bibliography is populated) use third-person phrasing per ARR policy.",
+          "confidence": 0.9
+        },
+        {
+          "dimension": "TEMPLATE_FORMAT",
+          "verdict": "manual",
+          "summary": "The paper appears to use the ACL/ARR LaTeX template (line numbers visible, two-column format, 'Anonymous ACL submission' header) but template compliance cannot be fully verified from extracted text alone.",
+          "evidence": [
+            "Line numbers visible in extracted text (001, 002... 586) consistent with ACL review-mode template.",
+            "'Anonymous ACL submission' header is consistent with the ACL/ARR template's [review] mode.",
+            "Two-column format referenced in paper tables and structure; appendix appears within the same PDF.",
+            "Cannot verify font size (10pt body), margin compliance, or exact style file version from text extraction alone."
+          ],
+          "recommendation": "Run the ACL pubcheck tool (available at https://github.com/acl-org/aclpubcheck) on the submitted PDF to verify font sizes, margins, column widths, and that the [review] flag is set. Ensure appendices are in double-column format per the January 2025 ACLPUB guideline update.",
+          "confidence": 0.8
+        },
+        {
+          "dimension": "AI_DISCLOSURE",
+          "verdict": "fail",
+          "summary": "No dedicated GenAI/AI writing assistance disclosure section is present, despite the venue's mandatory requirement (mandatoryGenAIDisclosure: true) and the paper's extensive use of LLMs in the pipeline.",
+          "evidence": [
+            "No section titled 'AI Disclosure', 'Use of AI Writing Tools', or equivalent found in the paper.",
+            "The paper describes using Grok-4.1 and Claude Sonnet 4.5 as experimental models but does not include a disclosure about AI tool use in paper writing/preparation.",
+            "Venue JSON: specialRequirements.mandatoryGenAIDisclosure: true.",
+            "ARR policy (from aclrollingreview.org/cfp): 'EMNLP 2026 Industry Track adheres to the ACL policy on using writing assistants (including AI-based writing assistants and other AI tools)'."
+          ],
+          "recommendation": "Add a brief disclosure statement (can be included within the Ethical Considerations section or as a standalone paragraph before References) explicitly stating whether any AI writing/coding assistance tools (e.g., ChatGPT, Copilot) were used in preparing the manuscript, and if so, in what capacity. Note: describing LLMs used as experimental components does not satisfy this requirement.",
+          "confidence": 0.88
+        },
+        {
+          "dimension": "BROADER_IMPACT",
+          "verdict": "skipped",
+          "summary": "Broader impact section is not mandatory at EMNLP 2026 (mandatoryBroaderImpact: false).",
+          "evidence": [
+            "Venue JSON: specialRequirements.mandatoryBroaderImpact: false."
+          ],
+          "recommendation": "No action needed, though broader impact discussion would strengthen the paper given its legal NLP application domain.",
+          "confidence": 0.99
+        },
+        {
+          "dimension": "DATA_AVAILABILITY",
+          "verdict": "skipped",
+          "summary": "Data availability statement is not mandatory at EMNLP 2026 (mandatoryDataAvailability: false).",
+          "evidence": [
+            "Venue JSON: specialRequirements.mandatoryDataAvailability: false.",
+            "The paper does mention resource release: 'We release the ontology, extraction code, and evaluation scripts' (abstract, line 053)."
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.99
+        },
+        {
+          "dimension": "LIMITATIONS",
+          "verdict": "fail",
+          "summary": "A 'Limitations' section exists and is substantive, but it is incorrectly placed before the Conclusion rather than after it, violating EMNLP/ARR placement requirements.",
+          "evidence": [
+            "Section 8 'Limitations' is present at line 482 with six distinct subsections covering: ontology coverage, information access, concept matching, relevance judgments, proprietary models, and ontology verification.",
+            "Section 9 'Conclusion' follows at line 517, meaning Limitations precedes Conclusion.",
+            "EMNLP/ACL policy (confirmed from multiple official sources): Limitations 'should appear at the end of the paper, after the discussion/conclusions section and before the references'.",
+            "Current structure: ...Discussion (§7) → Limitations (§8) → Conclusion (§9) → References. Required structure: ...Discussion (§7) → Conclusion (§8) → Limitations (§9) → References."
+          ],
+          "recommendation": "Reorder the sections so that Conclusion precedes Limitations. The correct ordering is: Discussion → Conclusion → [Ethical Considerations] → Limitations → References. This is a potential desk-reject criterion.",
+          "confidence": 0.97
+        },
+        {
+          "dimension": "REPRODUCIBILITY",
+          "verdict": "warning",
+          "summary": "The paper releases code and ontology via an anonymous link and reports thorough experimental details, but reliance on proprietary models (Grok-4.1, Claude Sonnet 4.5) and 10,068 API calls limits full reproducibility.",
+          "evidence": [
+            "Anonymous code link provided: 'https://anonymous.4open.science/r/lexcgraph' (footnote 1).",
+            "Abstract states: 'We release the ontology, extraction code, and evaluation scripts.'",
+            "Limitations section explicitly acknowledges: 'The pipeline relies on proprietary frontier models (Grok-4.1 for extraction, both Grok and Sonnet for evaluation), limiting practical reproducibility despite deterministic design.' (lines 503–508).",
+            "Experimental setup reports: 'Our evaluation across 10,068 model runs produced zero parse or API errors.' (lines 296–297).",
+            "Venue specialRequirements.reproducibilityChecklist: false — no formal reproducibility checklist required."
+          ],
+          "recommendation": "Consider reporting model API versions/snapshot dates used (as these can drift), seed values, and approximate API cost to help reproducers. Consider adding open-weight model results as a supplement to mitigate proprietary model concerns for reviewers.",
+          "confidence": 0.85
+        },
+        {
+          "dimension": "ETHICS_STATEMENT",
+          "verdict": "warning",
+          "summary": "No Ethical Considerations section is present; while not strictly mandatory, the paper's use of Indian court judgment data, proprietary LLMs, and potential implications for legal decision-support systems warrants explicit ethical discussion.",
+          "evidence": [
+            "No 'Ethical Considerations' heading found in section list or paper body.",
+            "Paper uses 2,517 Indian Supreme Court cases from IL-TUR — data provenance and privacy not discussed.",
+            "Ontology verification notes: 'Verification by a practicing Indian legal expert would strengthen confidence' (lines 514–516), suggesting potential for harm from misrepresentation of legal doctrine.",
+            "ARR Responsible NLP Checklist explicitly asks about 'any potential positive or negative societal impacts' (aclrollingreview.org/responsibleNLPresearch)."
+          ],
+          "recommendation": "Add an 'Ethical Considerations' section after Conclusion, addressing: (1) data licensing and privacy for IL-TUR/ILDC court data, (2) risks of deploying ontology-driven legal graphs in actual legal practice without expert oversight, (3) geographic/jurisdictional bias of the 54-concept Indian-law ontology, and (4) use of proprietary models with unknown training data.",
+          "confidence": 0.9
+        },
+        {
+          "dimension": "PAPER_TYPE_FIT",
+          "verdict": "pass",
+          "summary": "The paper is a well-scoped empirical research paper with novel methodology, multi-dimensional evaluation, and ablations — fitting EMNLP Long Paper RESEARCH type.",
+          "evidence": [
+            "Author-declared type: RESEARCH.",
+            "Paper presents LEXCGRAPH pipeline with novel ontology-driven clustering methodology (§3).",
+            "Comprehensive evaluation: outcome prediction, retrieval (nDCG@10), calibration, ablations, leakage audit, counterfactual analysis, and cross-jurisdictional generalization (ECHR).",
+            "Releases artifacts: ontology (54 concepts), extraction code, evaluation scripts.",
+            "7 pages of substantive content with 5 result tables — appropriate scope for a long paper."
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.95
+        },
+        {
+          "dimension": "DESK_REJECT_RISK",
+          "verdict": "fail",
+          "summary": "Multiple issues elevate desk-reject risk: Limitations section is misplaced (before Conclusion), all bibliography entries are broken/missing ('?' placeholders), no AI disclosure section, and Responsible NLP Checklist submission cannot be verified.",
+          "evidence": [
+            "Limitations section before Conclusion — placement violation is an explicit EMNLP desk-reject criterion.",
+            "All 0 references extracted; all in-text citations rendered as '(?)' — submission with empty bibliography would be desk-rejected.",
+            "No GenAI disclosure section despite mandatory requirement.",
+            "No Ethical Considerations section (conventional but strongly expected for legal NLP work).",
+            "Responsible NLP Checklist not visible/confirmable from paper."
+          ],
+          "recommendation": "Before submission: (1) Fix bibliography — populate all references in ACL author-year format; (2) Move Limitations after Conclusion; (3) Add GenAI disclosure statement; (4) Add Ethical Considerations section; (5) Complete and attach Responsible NLP Checklist on OpenReview; (6) Run ACL pubcheck tool.",
+          "confidence": 0.95
+        }
+      ],
+      "deskRejectRisk": "high",
+      "failedDimensions": [
+        "SPECIAL_REQUIRED_SECTIONS",
+        "REFERENCE_FORMAT",
+        "AI_DISCLOSURE",
+        "LIMITATIONS",
+        "DESK_REJECT_RISK"
+      ],
+      "warningDimensions": [
+        "CONVENTIONAL_SECTIONS",
+        "REPRODUCIBILITY",
+        "ETHICS_STATEMENT"
+      ],
+      "modelUsed": "claude-sonnet-4-6",
+      "paperTruncated": false,
+      "generatedAt": "2026-05-02T19:43:47.890Z"
+    },
+    "checkedAt": "2026-05-02T19:45:47.235Z"
+  },
+  {
+    "id": "23625ddc-db54-4bc9-994a-309046992085",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "AI_REFERENCE_CHECK",
+    "passed": false,
+    "details": {
+      "message": "No references could be extracted for verification. Re-upload the PDF if you want this check to run.",
+      "summary": {
+        "total": 0,
+        "likelyReal": 0,
+        "uncertain": 0,
+        "suspicious": 0,
+        "malformed": 0,
+        "overallAssessment": "No references could be extracted from the paper for verification."
+      },
+      "references": [],
+      "modelUsed": "claude-sonnet-4-6",
+      "generatedAt": "2026-05-02T19:43:47.891Z",
+      "error": "no-references"
+    },
+    "checkedAt": "2026-05-02T19:45:47.235Z"
+  },
+  {
+    "id": "45f2b252-3051-41f1-bfee-70d77e9c6a35",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "message": "Paper is 7 pages, within EMNLP 2026's 8 pages (references don't count) limit.",
+      "pageCount": 7,
+      "pageLimit": 8,
+      "effectiveLimit": 8,
+      "referencesCountTowardLimit": false,
+      "extraRefPages": null,
+      "estimatedReferencePages": 0
+    },
+    "checkedAt": "2026-05-03T09:25:08.407Z"
+  },
+  {
+    "id": "ad8345d3-864a-4d63-91dd-4e314bbe89bc",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "EMNLP 2026 does not specify an abstract word limit. Abstract is 286 words.",
+      "abstractWordCount": 286,
+      "abstractWordLimit": null
+    },
+    "checkedAt": "2026-05-03T09:25:08.407Z"
+  },
+  {
+    "id": "bb20206c-7ea1-4b43-81eb-a5cb2dbc7f7b",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Responsible NLP Checklist. EMNLP 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction, Related Work, Method, Experimental Setup, Results, Counterfactual Impact Analysis, Discussion, Limitations, Conclusion). Suggested but not enforced: Ethical Considerations.",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion",
+        "Limitations",
+        "Responsible NLP Checklist"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Responsible NLP Checklist"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "Limitations",
+          "placement": "after main, before references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        },
+        {
+          "name": "Responsible NLP Checklist",
+          "placement": "submitted with paper",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "conventionalSections": [
+        "Ethical Considerations"
+      ],
+      "warnings": [
+        "Ethical Considerations"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experimental Setup",
+        "Results",
+        "Counterfactual Impact Analysis",
+        "Discussion",
+        "Limitations",
+        "Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction",
+        "Related Work": "related work",
+        "Method": "method",
+        "Experiments": "results",
+        "Conclusion": "conclusion",
+        "Limitations": "limitations"
+      }
+    },
+    "checkedAt": "2026-05-03T09:25:08.407Z"
+  },
+  {
+    "id": "13dbabec-1974-428b-9e9b-e3751b0af098",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Long Papers",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-03T09:25:08.407Z"
+  },
+  {
+    "id": "cd32a261-1bc2-47e0-b256-61f6a8b1c0e1",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-03T09:25:08.407Z"
+  },
+  {
+    "id": "f2580caa-c6de-4959-a0d7-edcfbda59070",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T09:25:08.407Z"
+  },
+  {
+    "id": "98d4391f-cc2e-4b4d-873a-d6cbc22b3325",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-03T09:25:08.407Z"
+  },
+  {
+    "id": "3864a47d-67d7-476a-b3bd-fe0d200329dd",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": false,
+    "details": {
+      "message": "Expected ACL format but no author-year citations found. Update the bibliography style accordingly.",
+      "expectedFormat": "ACL",
+      "hasReferencesSection": true,
+      "detectedHint": "no author-year citations found",
+      "source": "text-heuristic"
+    },
+    "checkedAt": "2026-05-03T09:25:08.407Z"
+  },
+  {
+    "id": "c6e330aa-9a2d-4b3e-9f7a-a6e45e08982b",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": null,
+      "producer": null,
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T09:25:08.407Z"
+  },
+  {
+    "id": "5f2251e3-2be8-4de7-bc91-01018fffbbac",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "DESK_REJECT_RISK",
+    "passed": true,
+    "details": {
+      "message": "No automated desk-reject signals detected. Manually confirm the 7 items below before submitting to EMNLP 2026.",
+      "items": [
+        {
+          "criterion": "Missing 'Limitations' section",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Format/page violations",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Anonymity violations",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Dual submission (>25% overlap → reject)",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies."
+        },
+        {
+          "criterion": "Incorrect Responsible NLP Checklist",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Resubmissions without revision/justification",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Appendix not in double-column format",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        }
+      ]
+    },
+    "checkedAt": "2026-05-03T09:25:08.407Z"
+  },
+  {
+    "id": "1068279b-51b8-4e6c-b562-1bc71f598f2a",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "message": "Paper is 7 pages, within EMNLP 2026's 8 pages (references don't count) limit.",
+      "pageCount": 7,
+      "pageLimit": 8,
+      "effectiveLimit": 8,
+      "referencesCountTowardLimit": false,
+      "extraRefPages": null,
+      "estimatedReferencePages": 0
+    },
+    "checkedAt": "2026-05-03T09:25:52.455Z"
+  },
+  {
+    "id": "3e9ac86a-f2e5-4570-9c85-ee6a8c4c3f97",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "EMNLP 2026 does not specify an abstract word limit. Abstract is 286 words.",
+      "abstractWordCount": 286,
+      "abstractWordLimit": null
+    },
+    "checkedAt": "2026-05-03T09:25:52.455Z"
+  },
+  {
+    "id": "d67c3854-98e7-4969-8d2b-0b49a3a994c5",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Responsible NLP Checklist. EMNLP 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction, Related Work, Method, Experimental Setup, Results, Counterfactual Impact Analysis, Discussion, Limitations, Conclusion). Suggested but not enforced: Ethical Considerations.",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion",
+        "Limitations",
+        "Responsible NLP Checklist"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Responsible NLP Checklist"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "Limitations",
+          "placement": "after main, before references",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        },
+        {
+          "name": "Responsible NLP Checklist",
+          "placement": "submitted with paper",
+          "countsTowardLimit": false,
+          "deskRejectIfMissing": true
+        }
+      ],
+      "conventionalSections": [
+        "Ethical Considerations"
+      ],
+      "warnings": [
+        "Ethical Considerations"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experimental Setup",
+        "Results",
+        "Counterfactual Impact Analysis",
+        "Discussion",
+        "Limitations",
+        "Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction",
+        "Related Work": "related work",
+        "Method": "method",
+        "Experiments": "results",
+        "Conclusion": "conclusion",
+        "Limitations": "limitations"
+      }
+    },
+    "checkedAt": "2026-05-03T09:25:52.455Z"
+  },
+  {
+    "id": "f6e196bc-73e5-40cc-aa57-d8cce3073af4",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Long Papers",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-03T09:25:52.455Z"
+  },
+  {
+    "id": "047e7d98-5241-485f-bc5f-68bd95823dda",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-03T09:25:52.455Z"
+  },
+  {
+    "id": "f027c158-41f4-4e5a-a4a8-6761b1eb65e7",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T09:25:52.455Z"
+  },
+  {
+    "id": "423a8d44-2c4d-48c6-89bf-2a6e791428f5",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-03T09:25:52.455Z"
+  },
+  {
+    "id": "e162434b-fb80-45ff-8824-96baa0817fca",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": false,
+    "details": {
+      "message": "Expected ACL format but no author-year citations found. Update the bibliography style accordingly.",
+      "expectedFormat": "ACL",
+      "hasReferencesSection": true,
+      "detectedHint": "no author-year citations found",
+      "source": "text-heuristic"
+    },
+    "checkedAt": "2026-05-03T09:25:52.455Z"
+  },
+  {
+    "id": "2945f18f-dc7d-4a1d-a0e1-2de343b97e6a",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": null,
+      "producer": null,
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T09:25:52.455Z"
+  },
+  {
+    "id": "c88952d3-03db-4aae-a5df-5bf0147b8cad",
+    "paperId": "739c9533-fabf-4642-a2d1-7c7e88c7c849",
+    "checkType": "DESK_REJECT_RISK",
+    "passed": true,
+    "details": {
+      "message": "No automated desk-reject signals detected. Manually confirm the 7 items below before submitting to EMNLP 2026.",
+      "items": [
+        {
+          "criterion": "Missing 'Limitations' section",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Format/page violations",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Anonymity violations",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Dual submission (>25% overlap → reject)",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies."
+        },
+        {
+          "criterion": "Incorrect Responsible NLP Checklist",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Resubmissions without revision/justification",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Appendix not in double-column format",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        }
+      ]
+    },
+    "checkedAt": "2026-05-03T09:25:52.455Z"
   }
 ]

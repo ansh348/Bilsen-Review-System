@@ -35,12 +35,15 @@ function normalizeUsers(users: UserRecord[]) {
     const role = normalizeRole(user.role);
     const now = new Date().toISOString();
     const expertise = Array.isArray(user.expertise) ? user.expertise : [];
+    const affiliation =
+      user.affiliation === undefined ? null : user.affiliation;
     const next: UserRecord = {
       ...user,
       email: user.email.toLowerCase(),
       role,
       slackId: user.slackId ?? null,
       expertise,
+      affiliation,
       createdAt: user.createdAt ?? now,
       updatedAt: user.updatedAt ?? user.createdAt ?? now,
     };
@@ -50,6 +53,7 @@ function normalizeUsers(users: UserRecord[]) {
       next.email !== user.email ||
       next.slackId !== user.slackId ||
       next.expertise !== user.expertise ||
+      next.affiliation !== user.affiliation ||
       next.createdAt !== user.createdAt ||
       next.updatedAt !== user.updatedAt
     ) {
@@ -141,6 +145,7 @@ interface UpdateUserInput {
   role?: Role;
   slackId?: string | null;
   expertise?: string[];
+  affiliation?: string | null;
 }
 
 export function updateUser(
@@ -155,6 +160,13 @@ export function updateUser(
       return user;
     }
 
+    const nextAffiliation =
+      input.affiliation === undefined
+        ? user.affiliation ?? null
+        : input.affiliation === null || input.affiliation.trim() === ""
+          ? null
+          : input.affiliation.trim();
+
     updatedUser = {
       ...user,
       name: input.name?.trim() ?? user.name,
@@ -166,6 +178,7 @@ export function updateUser(
           : input.expertise
               .map((tag) => tag.trim())
               .filter((tag) => tag.length > 0),
+      affiliation: nextAffiliation,
       updatedAt: new Date().toISOString(),
     };
     return updatedUser;

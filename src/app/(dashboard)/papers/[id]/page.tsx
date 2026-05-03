@@ -257,6 +257,51 @@ export default async function PaperDetailsPage({ params }: PaperDetailsPageProps
         </CardContent>
       </Card>
 
+      {details.versions.length > 0 && (
+        <Card className="border">
+          <CardHeader>
+            <CardTitle className="text-base">Version History</CardTitle>
+            <p className="text-xs text-muted-foreground">
+              Earlier PDFs from prior revision rounds. The current version is shown above.
+            </p>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            {details.versions.map((version) => (
+              <div
+                key={version.id}
+                className="flex items-center justify-between rounded-md border border-border p-3 text-sm"
+              >
+                <div className="space-y-1">
+                  <p className="font-medium">
+                    Version {version.versionNumber}
+                    <span className="ml-2 text-xs font-normal text-muted-foreground">
+                      ({version.reason === "REVISION" ? "revision" : "re-upload"})
+                    </span>
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    Superseded {version.supersededAt.slice(0, 10)} ·{" "}
+                    {version.title}
+                  </p>
+                </div>
+                {(version.pdfPath || version.pdfUrl) ? (
+                  <Button variant="outline" size="sm" asChild>
+                    <a
+                      href={`/api/papers/${details.paper.id}/versions/${version.id}/pdf`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Download PDF
+                    </a>
+                  </Button>
+                ) : (
+                  <span className="text-xs text-muted-foreground">No PDF</span>
+                )}
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      )}
+
       <Card className="border">
         <CardHeader className="flex flex-row items-center justify-between">
           <CardTitle className="text-base">Compliance Checks</CardTitle>

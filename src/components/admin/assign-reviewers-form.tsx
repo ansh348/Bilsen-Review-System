@@ -10,6 +10,7 @@ interface ReviewerOption {
   email: string;
   activeAssignments: number;
   priorReviewer?: boolean;
+  coiReasons?: string[];
 }
 
 interface ReviewerSuggestion {
@@ -52,6 +53,9 @@ export function AssignReviewersForm({
   const sortedReviewers = useMemo(
     () =>
       [...reviewers].sort((a, b) => {
+        const coiA = (a.coiReasons?.length ?? 0) > 0 ? 1 : 0;
+        const coiB = (b.coiReasons?.length ?? 0) > 0 ? 1 : 0;
+        if (coiA !== coiB) return coiA - coiB;
         const priorA = a.priorReviewer ? 1 : 0;
         const priorB = b.priorReviewer ? 1 : 0;
         if (priorA !== priorB) return priorA - priorB;
@@ -61,6 +65,10 @@ export function AssignReviewersForm({
   );
 
   function toggleReviewer(reviewerId: string) {
+    const reviewer = reviewerLookup.get(reviewerId);
+    if (reviewer && (reviewer.coiReasons?.length ?? 0) > 0) {
+      return;
+    }
     setSelectedReviewerIds((current) =>
       current.includes(reviewerId)
         ? current.filter((id) => id !== reviewerId)
@@ -273,38 +281,55 @@ export function AssignReviewersForm({
           </p>
         )}
         <div className="space-y-2">
-          {sortedReviewers.map((reviewer) => (
-            <label
-              key={reviewer.id}
-              className={`flex items-center justify-between rounded-md border border-border px-3 py-2 text-sm ${
-                reviewer.priorReviewer ? "opacity-60" : ""
-              }`}
-            >
-              <span className="flex items-center gap-2">
-                <span>
-                  {reviewer.name} ({reviewer.email})
-                </span>
-                {reviewer.priorReviewer && (
-                  <span
-                    className="rounded-sm border border-amber-500/50 bg-amber-500/10 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-amber-600"
-                    title="This reviewer reviewed a prior round for this paper"
-                  >
-                    Prior
+          {sortedReviewers.map((reviewer) => {
+            const hasConflict = (reviewer.coiReasons?.length ?? 0) > 0;
+            const conflictTitle = reviewer.coiReasons?.join(" ") ?? "";
+            return (
+              <label
+                key={reviewer.id}
+                className={`flex items-center justify-between rounded-md border px-3 py-2 text-sm ${
+                  hasConflict
+                    ? "border-destructive/40 bg-destructive/5 opacity-70"
+                    : reviewer.priorReviewer
+                      ? "border-border opacity-60"
+                      : "border-border"
+                }`}
+              >
+                <span className="flex items-center gap-2">
+                  <span>
+                    {reviewer.name} ({reviewer.email})
                   </span>
-                )}
-              </span>
-              <span className="flex items-center gap-4">
-                <span className="text-xs text-muted-foreground">
-                  Active: {reviewer.activeAssignments}
+                  {hasConflict && (
+                    <span
+                      className="rounded-sm border border-destructive/50 bg-destructive/10 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-destructive"
+                      title={conflictTitle}
+                    >
+                      Conflict
+                    </span>
+                  )}
+                  {reviewer.priorReviewer && (
+                    <span
+                      className="rounded-sm border border-amber-500/50 bg-amber-500/10 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-amber-600"
+                      title="This reviewer reviewed a prior round for this paper"
+                    >
+                      Prior
+                    </span>
+                  )}
                 </span>
-                <input
-                  type="checkbox"
-                  checked={selectedReviewerIds.includes(reviewer.id)}
-                  onChange={() => toggleReviewer(reviewer.id)}
-                />
-              </span>
-            </label>
-          ))}
+                <span className="flex items-center gap-4">
+                  <span className="text-xs text-muted-foreground">
+                    Active: {reviewer.activeAssignments}
+                  </span>
+                  <input
+                    type="checkbox"
+                    disabled={hasConflict}
+                    checked={selectedReviewerIds.includes(reviewer.id)}
+                    onChange={() => toggleReviewer(reviewer.id)}
+                  />
+                </span>
+              </label>
+            );
+          })}
         </div>
       </div>
 

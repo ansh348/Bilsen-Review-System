@@ -27,6 +27,8 @@ const SUBJECT_MAP: Record<NotificationType, string> = {
   EXTENSION_DENIED: "Extension Denied",
   ROUND_COMPLETE: "Review Round Complete",
   REVISION_REQUESTED: "Revision Requested",
+  PAPER_ACCEPTED: "Paper Accepted",
+  PAPER_REJECTED: "Paper Rejected",
 };
 
 interface SendEmailInput {

@@ -36,6 +36,10 @@ interface PdfPageProps {
     anchor: { x: number; y: number }
   ) => void;
   onUpdateComment: (id: string, text: string) => Promise<void> | void;
+  onUpdateCommentSeverity: (
+    id: string,
+    severity: import("@/lib/review-types").CommentSeverity
+  ) => Promise<void> | void;
   onDeleteAnnotation: (id: string) => Promise<void> | void;
   onSelectAnnotation: (id: string) => void;
 }
@@ -58,6 +62,7 @@ export function PdfPage({
   onCreateDoodle,
   onCreateComment,
   onUpdateComment,
+  onUpdateCommentSeverity,
   onDeleteAnnotation,
   onSelectAnnotation,
 }: PdfPageProps) {
@@ -95,7 +100,7 @@ export function PdfPage({
         }}
         className="relative shadow"
         data-page-number={pageNumber}
-        onClick={handleCommentPlace}
+        onDoubleClick={handleCommentPlace}
         style={
           {
             width: renderedWidth,
@@ -149,6 +154,7 @@ export function PdfPage({
               open={c.id === openPinId}
               onOpenChange={(o) => onPinOpenChange(o ? c.id : null)}
               onUpdateText={onUpdateComment}
+              onUpdateSeverity={onUpdateCommentSeverity}
               onDelete={onDeleteAnnotation}
             />
           </div>

@@ -54,6 +54,7 @@ export default async function ProfilePage() {
             userId={user.id}
             initialName={user.name}
             initialExpertise={user.expertise ?? []}
+            initialAffiliation={user.affiliation ?? null}
           />
         </CardContent>
       </Card>

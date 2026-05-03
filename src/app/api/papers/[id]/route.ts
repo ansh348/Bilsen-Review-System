@@ -3,8 +3,10 @@ import { getAuthenticatedUser, requireCoordinatorUser } from "@/lib/auth-helpers
 import {
   canUserAccessPaper,
   canUserManagePaper,
+  createNotification,
   deletePaper,
   getPaperDetails,
+  snapshotPaperVersion,
   updatePaper,
 } from "@/lib/review-service";
 import { handleRouteError, jsonError } from "@/lib/api-route";
@@ -69,11 +71,43 @@ export async function PATCH(request: Request, { params }: RouteParams) {
       if (!pdfPath) {
         return jsonError("Uploaded file not found — please re-upload", 400);
       }
+      const previous = details.paper;
+      const isReplacingExisting = Boolean(
+        (previous.pdfPath || previous.pdfUrl) && pdfPath !== previous.pdfPath
+      );
+      if (isReplacingExisting) {
+        snapshotPaperVersion(
+          id,
+          previous.status === "REVISION_REQUESTED" ? "REVISION" : "MANUAL_REUPLOAD"
+        );
+      }
       updateInput.pdfPath = pdfPath;
       updateInput.pdfUrl = null;
     }
 
+    const previousStatus = details.paper.status;
     const paper = updatePaper(id, updateInput);
+
+    if (
+      paper.status !== previousStatus &&
+      (paper.status === "ACCEPTED" || paper.status === "REJECTED")
+    ) {
+      const accepted = paper.status === "ACCEPTED";
+      for (const authorId of paper.authorIds) {
+        createNotification({
+          userId: authorId,
+          type: accepted ? "PAPER_ACCEPTED" : "PAPER_REJECTED",
+          title: accepted ? "Paper accepted" : "Paper rejected",
+          message: accepted
+            ? `Your paper "${paper.title}" has been accepted.`
+            : `Your paper "${paper.title}" was not accepted. See the paper page for reviewer feedback.`,
+          link: `/papers/${paper.id}`,
+          sentViaEmail: true,
+          sentViaSlack: false,
+        });
+      }
+    }
+
     return NextResponse.json({ paper });
   } catch (error) {
     return handleRouteError(error);

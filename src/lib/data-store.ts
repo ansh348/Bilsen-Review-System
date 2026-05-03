@@ -6,6 +6,7 @@ import {
   ComplianceCheckRecord,
   NotificationRecord,
   PaperRecord,
+  PaperVersionRecord,
   ReviewAssignmentRecord,
   ReviewerRatingRecord,
   ReviewRecord,
@@ -60,6 +61,7 @@ type CollectionMap = {
   notifications: NotificationRecord[];
   aiReports: AiFinalReportRecord[];
   annotations: AnnotationRecord[];
+  paperVersions: PaperVersionRecord[];
 };
 
 const FILES: Record<keyof CollectionMap, string> = {
@@ -74,6 +76,7 @@ const FILES: Record<keyof CollectionMap, string> = {
   notifications: "notifications.json",
   aiReports: "ai_reports.json",
   annotations: "annotations.json",
+  paperVersions: "paper_versions.json",
 };
 
 function ensureDataDir() {

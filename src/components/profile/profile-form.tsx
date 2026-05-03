@@ -10,6 +10,7 @@ interface ProfileFormProps {
   userId: string;
   initialName: string;
   initialExpertise: string[];
+  initialAffiliation: string | null;
 }
 
 function parseExpertise(raw: string): string[] {
@@ -24,10 +25,12 @@ export function ProfileForm({
   userId,
   initialName,
   initialExpertise,
+  initialAffiliation,
 }: ProfileFormProps) {
   const router = useRouter();
   const [name, setName] = useState(initialName);
   const [expertiseRaw, setExpertiseRaw] = useState(initialExpertise.join(", "));
+  const [affiliation, setAffiliation] = useState(initialAffiliation ?? "");
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -44,6 +47,7 @@ export function ProfileForm({
         body: JSON.stringify({
           name,
           expertise: parseExpertise(expertiseRaw),
+          affiliation: affiliation.trim() === "" ? null : affiliation.trim(),
         }),
       });
       const payload = await response.json().catch(() => ({}));
@@ -92,6 +96,18 @@ export function ProfileForm({
         />
         <p className="text-xs text-muted-foreground">
           Comma-separated tags (max 15). Coordinators use these to match you to relevant papers.
+        </p>
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="profile-affiliation">Affiliation</Label>
+        <Input
+          id="profile-affiliation"
+          value={affiliation}
+          onChange={(event) => setAffiliation(event.target.value)}
+          placeholder="Bilkent University"
+        />
+        <p className="text-xs text-muted-foreground">
+          Your primary institution. Used to flag conflicts of interest when assigning reviewers.
         </p>
       </div>
       <Button type="submit" disabled={isLoading}>

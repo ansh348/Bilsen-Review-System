@@ -7,6 +7,8 @@ import {
   FileText,
   Star,
   Shield,
+  Award,
+  XCircle,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MarkAsReadButton } from "@/components/dashboard/mark-as-read-button";
@@ -26,6 +28,8 @@ const iconMap: Record<NotificationType, typeof Bell> = {
   EXTENSION_DENIED: AlertTriangle,
   ROUND_COMPLETE: CheckCircle,
   REVISION_REQUESTED: FileText,
+  PAPER_ACCEPTED: Award,
+  PAPER_REJECTED: XCircle,
 };
 
 function timeAgo(iso: string): string {

@@ -1,10 +1,68 @@
 import { pdfjs } from "react-pdf";
+import type { CommentSeverity } from "@/lib/review-types";
 
 if (typeof window !== "undefined") {
   pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
 }
 
 export type Tool = "cursor" | "highlight" | "doodle" | "comment";
+
+export const COMMENT_SEVERITIES: ReadonlyArray<{
+  value: CommentSeverity;
+  label: string;
+  pillClass: string;
+  pinBg: string;
+  pinBorder: string;
+  pinText: string;
+}> = [
+  {
+    value: "CRITICAL",
+    label: "Critical",
+    pillClass: "border-red-600 bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-200",
+    pinBg: "bg-red-300",
+    pinBorder: "border-red-700",
+    pinText: "text-red-900",
+  },
+  {
+    value: "MAJOR",
+    label: "Major",
+    pillClass: "border-orange-600 bg-orange-100 text-orange-800 dark:bg-orange-950 dark:text-orange-200",
+    pinBg: "bg-orange-300",
+    pinBorder: "border-orange-700",
+    pinText: "text-orange-900",
+  },
+  {
+    value: "MINOR",
+    label: "Minor",
+    pillClass: "border-amber-600 bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-200",
+    pinBg: "bg-amber-300",
+    pinBorder: "border-amber-700",
+    pinText: "text-amber-900",
+  },
+  {
+    value: "SUGGESTION",
+    label: "Suggestion",
+    pillClass: "border-sky-600 bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-200",
+    pinBg: "bg-sky-300",
+    pinBorder: "border-sky-700",
+    pinText: "text-sky-900",
+  },
+  {
+    value: "QUESTION",
+    label: "Question",
+    pillClass: "border-violet-600 bg-violet-100 text-violet-800 dark:bg-violet-950 dark:text-violet-200",
+    pinBg: "bg-violet-300",
+    pinBorder: "border-violet-700",
+    pinText: "text-violet-900",
+  },
+];
+
+export function severityMeta(severity: CommentSeverity | undefined) {
+  return (
+    COMMENT_SEVERITIES.find((s) => s.value === (severity ?? "MINOR")) ??
+    COMMENT_SEVERITIES[2]
+  );
+}
 
 export const HIGHLIGHT_COLORS = [
   "#ffe066",

@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { MessageCircle, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { AnnotationRecord } from "@/lib/review-types";
-import { Tool } from "@/components/pdf/utils";
+import { AnnotationRecord, CommentSeverity } from "@/lib/review-types";
+import { Tool, COMMENT_SEVERITIES, severityMeta } from "@/components/pdf/utils";
 
 interface CommentPinProps {
   annotation: AnnotationRecord;
@@ -16,6 +16,10 @@ interface CommentPinProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onUpdateText: (id: string, text: string) => Promise<void> | void;
+  onUpdateSeverity: (
+    id: string,
+    severity: CommentSeverity
+  ) => Promise<void> | void;
   onDelete: (id: string) => Promise<void> | void;
 }
 
@@ -28,6 +32,7 @@ export function CommentPin({
   open,
   onOpenChange,
   onUpdateText,
+  onUpdateSeverity,
   onDelete,
 }: CommentPinProps) {
   const comment = annotation.comment;
@@ -36,6 +41,7 @@ export function CommentPin({
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const pinClickable = tool === "cursor" || tool === "comment";
+  const severity = severityMeta(comment?.severity);
 
   useEffect(() => {
     if (!open) return;
@@ -86,9 +92,9 @@ export function CommentPin({
           e.stopPropagation();
           onOpenChange(!open);
         }}
-        aria-label="Open comment"
+        aria-label={`Open comment (${severity.label})`}
         disabled={!pinClickable}
-        className="flex h-7 w-7 items-center justify-center rounded-full border border-amber-700 bg-amber-300 text-amber-900 shadow hover:bg-amber-200 disabled:opacity-70"
+        className={`flex h-7 w-7 items-center justify-center rounded-full border shadow disabled:opacity-70 ${severity.pinBorder} ${severity.pinBg} ${severity.pinText}`}
         style={{
           pointerEvents: pinClickable ? "auto" : "none",
           cursor: pinClickable ? "pointer" : "default",
@@ -104,14 +110,44 @@ export function CommentPin({
           onClick={(e) => e.stopPropagation()}
           onMouseDown={(e) => e.stopPropagation()}
         >
-          <p className="mb-1 text-xs font-medium text-muted-foreground">
-            {authorName}
-            {annotation.visibility === "PRIVATE" && (
-              <span className="ml-1 rounded bg-muted px-1 text-[10px] uppercase">
-                draft
+          <div className="mb-2 flex items-center justify-between gap-2">
+            <p className="text-xs font-medium text-muted-foreground">
+              {authorName}
+              {annotation.visibility === "PRIVATE" && (
+                <span className="ml-1 rounded bg-muted px-1 text-[10px] uppercase">
+                  draft
+                </span>
+              )}
+            </p>
+            {!canEdit && (
+              <span
+                className={`rounded-full border px-1.5 py-0.5 text-[10px] font-semibold uppercase ${severity.pillClass}`}
+              >
+                {severity.label}
               </span>
             )}
-          </p>
+          </div>
+          {canEdit && (
+            <div className="mb-2 flex flex-wrap gap-1">
+              {COMMENT_SEVERITIES.map((opt) => {
+                const selected = (comment.severity ?? "MINOR") === opt.value;
+                return (
+                  <button
+                    key={opt.value}
+                    type="button"
+                    onClick={() => onUpdateSeverity(annotation.id, opt.value)}
+                    className={`rounded-full border px-1.5 py-0.5 text-[10px] font-semibold uppercase transition ${
+                      selected
+                        ? opt.pillClass
+                        : "border-border bg-background text-muted-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                );
+              })}
+            </div>
+          )}
           {canEdit ? (
             <Textarea
               value={text}

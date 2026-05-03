@@ -17,6 +17,13 @@ const strokeSchema = z.object({
 
 const colorSchema = z.string().regex(/^#[0-9a-fA-F]{6}$/);
 const pageNumberSchema = z.number().int().min(1).max(2000);
+const severitySchema = z.enum([
+  "CRITICAL",
+  "MAJOR",
+  "MINOR",
+  "SUGGESTION",
+  "QUESTION",
+]);
 
 const baseFields = {
   pageNumber: pageNumberSchema,
@@ -46,7 +53,8 @@ const commentCreateSchema = z.object({
   kind: z.literal("COMMENT"),
   comment: z.object({
     anchor: z.object({ x: normalized, y: normalized }),
-    text: z.string().min(1).max(5000),
+    text: z.string().max(5000),
+    severity: severitySchema.optional(),
     parentId: z.string().min(1).optional().nullable(),
   }),
 });
@@ -60,7 +68,11 @@ export const createAnnotationSchema = z.discriminatedUnion("kind", [
 export const updateAnnotationSchema = z.object({
   comment: z
     .object({
-      text: z.string().min(1).max(5000),
+      text: z.string().max(5000).optional(),
+      severity: severitySchema.optional(),
+    })
+    .refine((v) => v.text !== undefined || v.severity !== undefined, {
+      message: "Provide text or severity",
     })
     .optional(),
   highlight: z

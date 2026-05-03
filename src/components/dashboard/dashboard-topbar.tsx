@@ -17,6 +17,7 @@ import {
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { MockModeToggle } from "@/components/dashboard/mock-mode-toggle";
+import { useTopbarSlot } from "@/components/dashboard/topbar-slot-context";
 
 interface DashboardTopbarProps {
   user: {
@@ -52,17 +53,20 @@ export function DashboardTopbar({
     () => notifications.slice(0, 5),
     [notifications]
   );
+  const { left } = useTopbarSlot();
 
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border/70 bg-card/85 px-4 backdrop-blur-md">
-      <div className="flex items-center gap-3">
+      <div className="flex min-w-0 flex-1 items-center gap-3">
         <SidebarTrigger />
-        <div className="hidden sm:block">
-          <p className="text-sm font-semibold tracking-tight">Reviewer Workspace</p>
-          <p className="text-xs text-muted-foreground">
-            AI-assisted review flow
-          </p>
-        </div>
+        {left ?? (
+          <div className="hidden sm:block">
+            <p className="text-sm font-semibold tracking-tight">Reviewer Workspace</p>
+            <p className="text-xs text-muted-foreground">
+              AI-assisted review flow
+            </p>
+          </div>
+        )}
       </div>
       <div className="flex items-center gap-2">
         <MockModeToggle />

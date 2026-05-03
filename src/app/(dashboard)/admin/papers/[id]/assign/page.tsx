@@ -13,6 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { AssignReviewersForm } from "@/components/admin/assign-reviewers-form";
 import { ExtensionDecisionForm } from "@/components/admin/extension-decision-form";
+import { detectConflicts } from "@/lib/coi-detection";
 
 interface AssignReviewersPageProps {
   params: Promise<{ id: string }>;
@@ -55,13 +56,17 @@ export default async function AssignReviewersPage({
 
   const reviewers = users
     .filter((user) => user.role === "MEMBER")
-    .map((user) => ({
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      activeAssignments: workloadMap.get(user.id) ?? 0,
-      priorReviewer: priorReviewerIds.has(user.id),
-    }));
+    .map((user) => {
+      const conflicts = detectConflicts(details.paper, user);
+      return {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        activeAssignments: workloadMap.get(user.id) ?? 0,
+        priorReviewer: priorReviewerIds.has(user.id),
+        coiReasons: conflicts.map((c) => c.detail),
+      };
+    });
 
   const priorRoundHistory = details.rounds.flatMap((roundData) =>
     roundData.assignments.map((assignment) => {

@@ -59,7 +59,9 @@ export type NotificationType =
   | "EXTENSION_APPROVED"
   | "EXTENSION_DENIED"
   | "ROUND_COMPLETE"
-  | "REVISION_REQUESTED";
+  | "REVISION_REQUESTED"
+  | "PAPER_ACCEPTED"
+  | "PAPER_REJECTED";
 
 export interface UserRecord {
   id: string;
@@ -69,6 +71,7 @@ export interface UserRecord {
   slackId: string | null;
   role: Role;
   expertise?: string[];
+  affiliation?: string | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -307,6 +310,23 @@ export interface NotificationRecord {
   createdAt: string;
 }
 
+export interface PaperVersionRecord {
+  id: string;
+  paperId: string;
+  versionNumber: number;
+  title: string;
+  abstractText: string | null;
+  pdfPath: string | null;
+  pdfUrl: string | null;
+  pageCount: number | null;
+  extractedSections?: string[];
+  extractedReferences?: string[];
+  extractedAuthors?: string[];
+  extractedAffiliations?: string[];
+  supersededAt: string;
+  reason: "REVISION" | "MANUAL_REUPLOAD";
+}
+
 export interface PaperDetails {
   paper: PaperRecord;
   authors: UserRecord[];
@@ -317,6 +337,7 @@ export interface PaperDetails {
     reviews: ReviewRecord[];
   }>;
   complianceChecks: ComplianceCheckRecord[];
+  versions: PaperVersionRecord[];
 }
 
 export interface ReviewerStats {
@@ -381,9 +402,17 @@ export interface AnnotationDoodle {
   strokes: AnnotationStroke[];
 }
 
+export type CommentSeverity =
+  | "CRITICAL"
+  | "MAJOR"
+  | "MINOR"
+  | "SUGGESTION"
+  | "QUESTION";
+
 export interface AnnotationComment {
   anchor: { x: number; y: number };
   text: string;
+  severity?: CommentSeverity;
   parentId?: string | null;
 }
 
