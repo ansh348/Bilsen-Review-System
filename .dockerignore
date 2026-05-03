@@ -5,4 +5,6 @@ node_modules
 .env*
 *.md
 *.pptx
-data/users.json
+data/uploads/*
+!data/uploads/.gitkeep
+data/_backup_test
