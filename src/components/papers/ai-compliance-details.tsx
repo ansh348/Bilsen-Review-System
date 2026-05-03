@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
+import { StackedBar, StatTile } from "@/components/papers/compliance-stats";
 
 interface AiDimensionResult {
   dimension: string;
@@ -60,6 +61,53 @@ function deskRejectBadgeVariant(risk?: string) {
   }
 }
 
+const DIMENSION_LABELS: Record<string, string> = {
+  PAGE_LIMIT: "Page limit",
+  ABSTRACT: "Abstract",
+  REQUIRED_SECTIONS: "Required sections",
+  CONVENTIONAL_SECTIONS: "Conventional sections",
+  SPECIAL_REQUIRED_SECTIONS: "Special required sections",
+  REFERENCE_FORMAT: "Reference format",
+  ANONYMITY: "Anonymity",
+  TEMPLATE_FORMAT: "Template format",
+  AI_DISCLOSURE: "AI disclosure",
+  BROADER_IMPACT: "Broader impact",
+  DATA_AVAILABILITY: "Data availability",
+  LIMITATIONS: "Limitations",
+  REPRODUCIBILITY: "Reproducibility",
+  ETHICS_STATEMENT: "Ethics statement",
+  PAPER_TYPE_FIT: "Paper type fit",
+  DESK_REJECT_RISK: "Desk-reject risk",
+};
+
+function dimensionLabel(code: string) {
+  return (
+    DIMENSION_LABELS[code] ??
+    code
+      .toLowerCase()
+      .replace(/_/g, " ")
+      .replace(/^./, (c) => c.toUpperCase())
+  );
+}
+
+function verdictAccentClass(v: AiDimensionResult["verdict"]) {
+  switch (v) {
+    case "fail":
+      return "border-l-4 border-l-destructive";
+    case "warning":
+      return "border-l-4 border-l-amber-500";
+    case "manual":
+      return "border-l-4 border-l-blue-500";
+    default:
+      return "";
+  }
+}
+
+function isConfigToken(s: string) {
+  if (s.length > 80) return false;
+  return /^[A-Za-z][A-Za-z0-9_]*\s*[:=]/.test(s.trim());
+}
+
 export function AiComplianceDetails({ details }: AiComplianceDetailsProps) {
   const checks = (details.checks ?? []).slice().sort(
     (a, b) =>
@@ -75,24 +123,56 @@ export function AiComplianceDetails({ details }: AiComplianceDetailsProps) {
     );
   }
 
+  const passCount = checks.filter((c) => c.verdict === "pass").length;
+  const warnCount = checks.filter((c) => c.verdict === "warning").length;
+  const failCount = checks.filter((c) => c.verdict === "fail").length;
+  const manualCount = checks.filter((c) => c.verdict === "manual").length;
+  const skippedCount = checks.filter((c) => c.verdict === "skipped").length;
+
   return (
-    <div className="space-y-3">
-      <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+    <div className="space-y-4">
+      <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
         {details.deskRejectRisk && (
           <Badge variant={deskRejectBadgeVariant(details.deskRejectRisk)}>
             Desk-reject risk: {details.deskRejectRisk}
           </Badge>
         )}
-        {details.modelUsed && <span>Model: {details.modelUsed}</span>}
-        {details.paperTruncated && (
-          <span className="text-amber-600">
-            Paper text truncated (very long manuscript) — head + tail evaluated.
-          </span>
-        )}
-        {details.generatedAt && (
-          <span>Generated: {details.generatedAt.slice(0, 19).replace("T", " ")}</span>
-        )}
+        <div className="flex flex-wrap items-center gap-3">
+          {details.modelUsed && <span>Model: {details.modelUsed}</span>}
+          {details.generatedAt && (
+            <span>Generated: {details.generatedAt.slice(0, 19).replace("T", " ")}</span>
+          )}
+        </div>
       </div>
+      {details.paperTruncated && (
+        <p className="text-xs text-amber-600">
+          Paper text truncated (very long manuscript) — head + tail evaluated.
+        </p>
+      )}
+
+      {checks.length > 0 && (
+        <div className="space-y-2">
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
+            <StatTile label="Dimensions" value={checks.length} tone="muted" />
+            <StatTile label="Passed" value={passCount} tone="emerald" />
+            <StatTile label="Warnings" value={warnCount} tone="amber" />
+            <StatTile label="Failed" value={failCount} tone="red" />
+            <StatTile label="Manual" value={manualCount + skippedCount} tone="blue" />
+          </div>
+          <StackedBar
+            segments={[
+              { value: passCount, className: "bg-emerald-500", label: "Pass" },
+              { value: warnCount, className: "bg-amber-500", label: "Warning" },
+              { value: failCount, className: "bg-destructive", label: "Fail" },
+              {
+                value: manualCount + skippedCount,
+                className: "bg-blue-500",
+                label: "Manual / skipped",
+              },
+            ]}
+          />
+        </div>
+      )}
 
       <ul className="space-y-2">
         {checks.map((c) => (
@@ -104,61 +184,69 @@ export function AiComplianceDetails({ details }: AiComplianceDetailsProps) {
 }
 
 function DimensionCard({ check }: { check: AiDimensionResult }) {
-  const [open, setOpen] = useState(check.verdict === "fail" || check.verdict === "warning");
+  const [open, setOpen] = useState(false);
   const hasDetail =
     (check.evidence && check.evidence.length > 0) ||
     (check.recommendation && check.recommendation !== "No action needed.");
+  const accent = verdictAccentClass(check.verdict);
 
   return (
-    <li className="rounded-md border border-border/60 bg-input/15">
+    <li className={`rounded-md border border-border/60 bg-input/15 ${accent}`}>
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex w-full items-start justify-between gap-3 px-3 py-2 text-left"
+        className="flex w-full items-start justify-between gap-3 px-4 py-3 text-left"
         disabled={!hasDetail}
       >
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="font-mono text-xs">{check.dimension}</span>
-            <Badge variant={verdictBadgeVariant(check.verdict)} className="text-[10px]">
-              {check.verdict}
-            </Badge>
-            <span className="text-[10px] text-muted-foreground">
+            <span className="text-sm font-semibold">{dimensionLabel(check.dimension)}</span>
+            <Badge variant={verdictBadgeVariant(check.verdict)}>{check.verdict}</Badge>
+            <span className="text-xs text-muted-foreground">
               {Math.round(check.confidence * 100)}% confidence
             </span>
           </div>
-          <p className="mt-1 text-sm">{check.summary}</p>
+          <p className="mt-2 text-sm leading-relaxed">{check.summary}</p>
         </div>
         {hasDetail && (
-          <span className="shrink-0 text-xs text-muted-foreground">{open ? "−" : "+"}</span>
+          <span className="shrink-0 text-base text-muted-foreground">{open ? "−" : "+"}</span>
         )}
       </button>
 
       {open && hasDetail && (
-        <div className="space-y-2 border-t border-border/60 px-3 py-2 text-sm">
+        <div className="space-y-4 border-t border-border/60 px-4 py-3 text-sm">
           {check.evidence.length > 0 && (
             <div>
-              <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 Evidence
               </p>
-              <ul className="space-y-1">
-                {check.evidence.map((e, i) => (
-                  <li
-                    key={i}
-                    className="rounded border border-border/40 bg-input/30 px-2 py-1 font-mono text-xs"
-                  >
-                    {e}
-                  </li>
-                ))}
+              <ul className="space-y-2">
+                {check.evidence.map((e, i) => {
+                  const looksLikeToken = isConfigToken(e);
+                  return (
+                    <li
+                      key={i}
+                      className="border-l-2 border-border/50 pl-3 text-sm leading-relaxed"
+                    >
+                      {looksLikeToken ? (
+                        <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">
+                          {e}
+                        </code>
+                      ) : (
+                        e
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}
           {check.recommendation && check.recommendation !== "No action needed." && (
             <div>
-              <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 Recommendation
               </p>
-              <p className="text-sm">{check.recommendation}</p>
+              <p className="text-sm leading-relaxed">{check.recommendation}</p>
             </div>
           )}
         </div>
@@ -226,6 +314,32 @@ function statusBadgeVariant(s: AiReferenceItem["status"]) {
   }
 }
 
+function statusAccentClass(s: AiReferenceItem["status"]) {
+  switch (s) {
+    case "suspicious":
+      return "border-l-4 border-l-destructive";
+    case "malformed":
+      return "border-l-4 border-l-amber-500";
+    case "uncertain":
+      return "border-l-4 border-l-blue-500";
+    default:
+      return "";
+  }
+}
+
+function statusLabel(s: AiReferenceItem["status"]) {
+  switch (s) {
+    case "suspicious":
+      return "suspicious";
+    case "malformed":
+      return "malformed";
+    case "uncertain":
+      return "uncertain";
+    case "likely_real":
+      return "likely real";
+  }
+}
+
 export function AiReferenceDetails({ details }: AiReferenceDetailsProps) {
   const refs = (details.references ?? []).slice().sort(
     (a, b) => (STATUS_ORDER[a.status] ?? 99) - (STATUS_ORDER[b.status] ?? 99),
@@ -240,29 +354,40 @@ export function AiReferenceDetails({ details }: AiReferenceDetailsProps) {
     );
   }
 
-  return (
-    <div className="space-y-3">
-      <div className="flex flex-wrap items-center gap-2 text-xs">
-        <Badge variant="outline">{summary.total ?? 0} total</Badge>
-        {(summary.suspicious ?? 0) > 0 && (
-          <Badge variant="destructive">{summary.suspicious} suspicious</Badge>
-        )}
-        {(summary.malformed ?? 0) > 0 && (
-          <Badge variant="secondary">{summary.malformed} malformed</Badge>
-        )}
-        {(summary.uncertain ?? 0) > 0 && (
-          <Badge variant="outline">{summary.uncertain} uncertain</Badge>
-        )}
-        {(summary.likelyReal ?? 0) > 0 && (
-          <Badge variant="default">{summary.likelyReal} likely real</Badge>
-        )}
-        {details.modelUsed && (
-          <span className="text-muted-foreground">Model: {details.modelUsed}</span>
-        )}
-      </div>
+  const total = summary.total ?? refs.length;
+  const likelyReal = summary.likelyReal ?? 0;
+  const uncertain = summary.uncertain ?? 0;
+  const suspicious = summary.suspicious ?? 0;
+  const malformed = summary.malformed ?? 0;
 
-      {summary.overallAssessment && (
-        <p className="text-sm">{summary.overallAssessment}</p>
+  return (
+    <div className="space-y-4">
+      {total > 0 && (
+        <div className="space-y-2">
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
+            <StatTile label="Total refs" value={total} tone="muted" />
+            <StatTile label="Likely real" value={likelyReal} tone="emerald" />
+            <StatTile label="Uncertain" value={uncertain} tone="muted" />
+            <StatTile label="Suspicious" value={suspicious} tone="red" />
+            <StatTile label="Malformed" value={malformed} tone="amber" />
+          </div>
+          <StackedBar
+            segments={[
+              { value: likelyReal, className: "bg-emerald-500", label: "Likely real" },
+              { value: uncertain, className: "bg-muted-foreground/40", label: "Uncertain" },
+              { value: suspicious, className: "bg-destructive", label: "Suspicious" },
+              { value: malformed, className: "bg-amber-500", label: "Malformed" },
+            ]}
+          />
+        </div>
+      )}
+
+      {details.modelUsed && (
+        <p className="text-xs text-muted-foreground">Model: {details.modelUsed}</p>
+      )}
+
+      {summary.overallAssessment && summary.overallAssessment !== details.message && (
+        <p className="text-sm leading-relaxed">{summary.overallAssessment}</p>
       )}
 
       <ul className="space-y-2">
@@ -275,41 +400,45 @@ export function AiReferenceDetails({ details }: AiReferenceDetailsProps) {
 }
 
 function ReferenceCard({ ref_ }: { ref_: AiReferenceItem }) {
-  const expandByDefault = ref_.status === "suspicious" || ref_.status === "malformed";
-  const [open, setOpen] = useState(expandByDefault);
+  const [open, setOpen] = useState(false);
   const parsed = ref_.parsed;
   const hasParsed = parsed.title || (parsed.authors && parsed.authors.length > 0) || parsed.year;
+  const accent = statusAccentClass(ref_.status);
 
   return (
-    <li className="rounded-md border border-border/60 bg-input/15">
+    <li className={`rounded-md border border-border/60 bg-input/15 ${accent}`}>
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex w-full items-start justify-between gap-3 px-3 py-2 text-left"
+        className="flex w-full items-start justify-between gap-3 px-4 py-3 text-left"
       >
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs text-muted-foreground">[{ref_.index}]</span>
-            <Badge variant={statusBadgeVariant(ref_.status)} className="text-[10px]">
-              {ref_.status.replace("_", " ")}
-            </Badge>
-            <span className="text-[10px] text-muted-foreground">
+            <span className="text-sm font-semibold">Reference [{ref_.index}]</span>
+            <Badge variant={statusBadgeVariant(ref_.status)}>{statusLabel(ref_.status)}</Badge>
+            <span className="text-xs text-muted-foreground">
               {Math.round(ref_.confidence * 100)}% confidence
             </span>
           </div>
-          <p className="mt-1 truncate font-mono text-xs">{ref_.raw}</p>
+          <p className="mt-2 truncate text-sm text-muted-foreground">{ref_.raw}</p>
         </div>
-        <span className="shrink-0 text-xs text-muted-foreground">{open ? "−" : "+"}</span>
+        <span className="shrink-0 text-base text-muted-foreground">{open ? "−" : "+"}</span>
       </button>
 
       {open && (
-        <div className="space-y-2 border-t border-border/60 px-3 py-2 text-sm">
+        <div className="space-y-4 border-t border-border/60 px-4 py-3 text-sm">
+          <div>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Raw citation
+            </p>
+            <p className="text-sm leading-relaxed">{ref_.raw}</p>
+          </div>
           {hasParsed && (
             <div>
-              <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 Parsed
               </p>
-              <ul className="space-y-0.5 text-xs">
+              <ul className="space-y-1 text-sm leading-relaxed">
                 {parsed.title && (
                   <li>
                     <span className="text-muted-foreground">Title: </span>
@@ -343,13 +472,13 @@ function ReferenceCard({ ref_ }: { ref_: AiReferenceItem }) {
                 {parsed.doi && (
                   <li>
                     <span className="text-muted-foreground">DOI: </span>
-                    <span className="font-mono">{parsed.doi}</span>
+                    <span className="font-mono text-xs">{parsed.doi}</span>
                   </li>
                 )}
                 {parsed.arxivId && (
                   <li>
                     <span className="text-muted-foreground">arXiv: </span>
-                    <span className="font-mono">{parsed.arxivId}</span>
+                    <span className="font-mono text-xs">{parsed.arxivId}</span>
                   </li>
                 )}
               </ul>
@@ -357,12 +486,17 @@ function ReferenceCard({ ref_ }: { ref_: AiReferenceItem }) {
           )}
           {ref_.concerns.length > 0 && (
             <div>
-              <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 Concerns
               </p>
-              <ul className="ml-4 list-disc space-y-0.5 text-xs">
+              <ul className="space-y-2">
                 {ref_.concerns.map((c, i) => (
-                  <li key={i}>{c}</li>
+                  <li
+                    key={i}
+                    className="border-l-2 border-border/50 pl-3 text-sm leading-relaxed"
+                  >
+                    {c}
+                  </li>
                 ))}
               </ul>
             </div>

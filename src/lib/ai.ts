@@ -1,4 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
+import type { CommentSeverity } from "@/lib/review-types";
 
 const MAX_TEXT_LENGTH = 15000;
 const MAX_EXTRACTION_TEXT_LENGTH = 60000;
@@ -342,4 +343,116 @@ ${reviewsBlock}`;
       overallRecommendation: "MINOR_REVISION",
     };
   }
+}
+
+export interface CommentForExtraction {
+  id: string;
+  text: string;
+  severity: CommentSeverity | null;
+  pageNumber: number;
+  authorName: string;
+}
+
+export interface ExtractedActionItem {
+  text: string;
+  severity: CommentSeverity | null;
+  sourceCommentIds: string[];
+}
+
+const SEVERITY_VALUES: ReadonlyArray<CommentSeverity> = [
+  "CRITICAL",
+  "MAJOR",
+  "MINOR",
+  "SUGGESTION",
+  "QUESTION",
+];
+
+function coerceSeverity(value: unknown): CommentSeverity | null {
+  if (typeof value !== "string") return null;
+  const upper = value.toUpperCase();
+  return (SEVERITY_VALUES as readonly string[]).includes(upper)
+    ? (upper as CommentSeverity)
+    : null;
+}
+
+export async function extractActionItemsFromComments(
+  comments: CommentForExtraction[]
+): Promise<ExtractedActionItem[]> {
+  if (!process.env.ANTHROPIC_API_KEY) {
+    return [];
+  }
+  if (comments.length === 0) {
+    return [];
+  }
+
+  const validIds = new Set(comments.map((c) => c.id));
+
+  const commentsBlock = comments
+    .map((c, i) => {
+      const sev = c.severity ?? "MINOR";
+      return `[${i + 1}] id=${c.id} | page=${c.pageNumber} | severity=${sev} | reviewer=${c.authorName}
+${c.text.trim() || "(empty)"}`;
+    })
+    .join("\n\n");
+
+  const prompt = `You are a research-paper editorial assistant. The reviewers below left comments on a paper. Convert their feedback into a deduplicated checklist of revision actions the author can tick off.
+
+Return ONLY valid JSON, no markdown fences or extra text, in this exact shape:
+
+{
+  "items": [
+    {
+      "text": "imperative-mood instruction the author can act on, e.g. 'Add a limitations subsection discussing dataset bias.'",
+      "severity": "CRITICAL" | "MAJOR" | "MINOR" | "SUGGESTION" | "QUESTION",
+      "sourceCommentIds": ["<id from a comment below>", ...]
+    }
+  ]
+}
+
+Rules:
+- Each item should be a concrete, actionable revision step.
+- Merge duplicate or overlapping comments into a single item; reflect that by listing every contributing id in sourceCommentIds.
+- Split a single compound comment into multiple items if it raises distinct issues.
+- Use the highest severity among the contributing comments.
+- Do NOT invent ids — every id you return must appear verbatim in the comments below.
+- Aim for 3–20 items. Skip items that are pure questions with no actionable revision.
+
+Comments:
+
+${commentsBlock}`;
+
+  const client = getClient();
+  const response = await client.messages.create({
+    model: MODEL,
+    max_tokens: 1500,
+    messages: [{ role: "user", content: prompt }],
+  });
+
+  const raw = response.content[0]?.type === "text" ? response.content[0].text : "";
+  let parsed: Record<string, unknown> = {};
+  try {
+    const cleaned = raw.replace(/```json\s*|```\s*/g, "").trim();
+    parsed = JSON.parse(cleaned) as Record<string, unknown>;
+  } catch {
+    return [];
+  }
+
+  const rawItems = Array.isArray(parsed.items) ? parsed.items : [];
+  const items: ExtractedActionItem[] = [];
+  for (const item of rawItems) {
+    if (!item || typeof item !== "object") continue;
+    const obj = item as Record<string, unknown>;
+    const text = typeof obj.text === "string" ? obj.text.trim() : "";
+    if (!text) continue;
+    const severity = coerceSeverity(obj.severity);
+    const ids = Array.isArray(obj.sourceCommentIds)
+      ? obj.sourceCommentIds
+          .filter((id): id is string => typeof id === "string")
+          .filter((id) => validIds.has(id))
+      : [];
+    if (ids.length === 0) continue;
+    items.push({ text, severity, sourceCommentIds: Array.from(new Set(ids)) });
+    if (items.length >= 30) break;
+  }
+  return items;
 }

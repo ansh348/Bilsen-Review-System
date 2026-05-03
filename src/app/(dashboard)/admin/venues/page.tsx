@@ -44,9 +44,10 @@ export default async function AdminVenuesPage() {
         </CardHeader>
         <CardContent className="space-y-3">
           {venues.map((venue) => (
-            <div
+            <Link
               key={venue.id}
-              className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-border p-4"
+              href={`/admin/venues/${venue.id}`}
+              className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-border p-4 transition hover:bg-accent/30"
             >
               <div>
                 <p className="text-sm font-medium">{venue.name}</p>
@@ -59,7 +60,7 @@ export default async function AdminVenuesPage() {
               <Badge variant={venue.anonymityRequired ? "default" : "outline"}>
                 {venue.anonymityRequired ? "Anonymous" : "Non-anonymous"}
               </Badge>
-            </div>
+            </Link>
           ))}
         </CardContent>
       </Card>

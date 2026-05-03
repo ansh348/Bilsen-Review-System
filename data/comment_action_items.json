@@ -1,0 +1,74 @@
+[
+  {
+    "id": "59ec83f4-3343-4e2b-b46b-1a4d1365dd46",
+    "paperId": "c935f649-a615-42c9-b791-89629c487376",
+    "runId": "a71259ab-955c-4892-91a3-33d73d615b93",
+    "text": "Change the benchmark name to avoid confusion with the withdrawn ICLR 2026 submission.",
+    "severity": "MINOR",
+    "sourceCommentIds": [
+      "f9af65b5-7388-4f7e-a2fd-7690c2354b98"
+    ],
+    "sourcePages": [
+      2
+    ],
+    "completed": false,
+    "completedBy": null,
+    "completedAt": null,
+    "createdAt": "2026-05-03T18:07:03.480Z",
+    "updatedAt": "2026-05-03T18:07:03.480Z"
+  },
+  {
+    "id": "102e6c9a-fa2a-45cc-9046-6660c1f75a25",
+    "paperId": "c935f649-a615-42c9-b791-89629c487376",
+    "runId": "a71259ab-955c-4892-91a3-33d73d615b93",
+    "text": "Provide strong justification for the choice of categories and days, supported by analysis of conversations (e.g., 'we analyzed 1k conversations and reached this...') or an ablation study.",
+    "severity": "CRITICAL",
+    "sourceCommentIds": [
+      "0d67bd98-24b2-4b2e-b153-fc13083e8e45"
+    ],
+    "sourcePages": [
+      4
+    ],
+    "completed": false,
+    "completedBy": null,
+    "completedAt": null,
+    "createdAt": "2026-05-03T18:07:03.480Z",
+    "updatedAt": "2026-05-03T18:07:15.814Z"
+  },
+  {
+    "id": "8333bd09-4bce-4365-b212-839c8353c633",
+    "paperId": "c935f649-a615-42c9-b791-89629c487376",
+    "runId": "a71259ab-955c-4892-91a3-33d73d615b93",
+    "text": "Extend the ablation study to include higher K values (e.g., K=13, K=15) beyond K=11.",
+    "severity": "MAJOR",
+    "sourceCommentIds": [
+      "a7b9675c-c2f4-4177-bd85-cc51615fd0e3"
+    ],
+    "sourcePages": [
+      7
+    ],
+    "completed": false,
+    "completedBy": null,
+    "completedAt": null,
+    "createdAt": "2026-05-03T18:07:03.480Z",
+    "updatedAt": "2026-05-03T18:07:03.480Z"
+  },
+  {
+    "id": "715b2165-2b1a-4652-8d6e-50144eaa3697",
+    "paperId": "c935f649-a615-42c9-b791-89629c487376",
+    "runId": "a71259ab-955c-4892-91a3-33d73d615b93",
+    "text": "Analyze and report how much of the score increase can be attributed to the category-forced top 20 versus the natural retrieval of more facts at higher K values.",
+    "severity": "MAJOR",
+    "sourceCommentIds": [
+      "a7b9675c-c2f4-4177-bd85-cc51615fd0e3"
+    ],
+    "sourcePages": [
+      7
+    ],
+    "completed": false,
+    "completedBy": null,
+    "completedAt": null,
+    "createdAt": "2026-05-03T18:07:03.480Z",
+    "updatedAt": "2026-05-03T18:07:03.480Z"
+  }
+]

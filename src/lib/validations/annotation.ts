@@ -84,3 +84,11 @@ export const updateAnnotationSchema = z.object({
 
 export type CreateAnnotationInput = z.infer<typeof createAnnotationSchema>;
 export type UpdateAnnotationInput = z.infer<typeof updateAnnotationSchema>;
+
+export const commentActionItemPatchSchema = z.object({
+  completed: z.boolean(),
+});
+
+export type CommentActionItemPatchInput = z.infer<
+  typeof commentActionItemPatchSchema
+>;

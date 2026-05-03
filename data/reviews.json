@@ -8,5 +8,15 @@
     "recommendation": "MINOR_REVISION",
     "submittedAt": "2026-05-03T11:27:31.833Z",
     "updatedAt": "2026-05-03T11:27:31.833Z"
+  },
+  {
+    "id": "52b6d5cd-06c2-4506-b40c-edf308f98bc7",
+    "assignmentId": "c1aa60b2-6a30-49c3-b547-a52ce9489bf8",
+    "comments": "good paper",
+    "structuredFeedback": null,
+    "overallScore": 5,
+    "recommendation": "MINOR_REVISION",
+    "submittedAt": "2026-05-03T15:55:51.181Z",
+    "updatedAt": "2026-05-03T15:55:51.181Z"
   }
 ]

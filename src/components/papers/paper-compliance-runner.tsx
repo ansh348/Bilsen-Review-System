@@ -7,9 +7,14 @@ import { Button } from "@/components/ui/button";
 interface PaperComplianceRunnerProps {
   paperId: string;
   hasAiKey?: boolean;
+  show?: "both" | "fast" | "ai";
 }
 
-export function PaperComplianceRunner({ paperId, hasAiKey = false }: PaperComplianceRunnerProps) {
+export function PaperComplianceRunner({
+  paperId,
+  hasAiKey = false,
+  show = "both",
+}: PaperComplianceRunnerProps) {
   const router = useRouter();
   const [isRunning, setIsRunning] = useState<"none" | "fast" | "ai">("none");
   const [error, setError] = useState<string | null>(null);
@@ -63,21 +68,28 @@ export function PaperComplianceRunner({ paperId, hasAiKey = false }: PaperCompli
     }
   }
 
+  const showFast = show === "both" || show === "fast";
+  const showAi = show === "both" || show === "ai";
+
   return (
     <div className="space-y-2">
       <div className="flex flex-wrap gap-2">
-        <Button type="button" onClick={runFast} disabled={isRunning !== "none"}>
-          {isRunning === "fast" ? "Running checks..." : "Run Compliance Checks"}
-        </Button>
-        <Button
-          type="button"
-          variant="outline"
-          onClick={runAi}
-          disabled={isRunning !== "none" || !hasAiKey}
-          title={hasAiKey ? "AI reads the full paper + verifies references" : "ANTHROPIC_API_KEY not configured"}
-        >
-          {isRunning === "ai" ? "AI is reviewing..." : "Run AI Review (paper + references)"}
-        </Button>
+        {showFast && (
+          <Button type="button" onClick={runFast} disabled={isRunning !== "none"}>
+            {isRunning === "fast" ? "Running checks..." : "Run Compliance Checks"}
+          </Button>
+        )}
+        {showAi && (
+          <Button
+            type="button"
+            variant="outline"
+            onClick={runAi}
+            disabled={isRunning !== "none" || !hasAiKey}
+            title={hasAiKey ? "AI reads the full paper + verifies references" : "ANTHROPIC_API_KEY not configured"}
+          >
+            {isRunning === "ai" ? "AI is reviewing..." : "Run AI Review (paper + references)"}
+          </Button>
+        )}
       </div>
       {info && <p className="text-xs text-muted-foreground">{info}</p>}
       {error && <p className="text-sm text-destructive">{error}</p>}

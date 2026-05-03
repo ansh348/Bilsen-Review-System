@@ -3,6 +3,7 @@ import path from "path";
 import {
   AiFinalReportRecord,
   AnnotationRecord,
+  CommentActionItemRecord,
   ComplianceCheckRecord,
   NotificationRecord,
   PaperRecord,
@@ -62,6 +63,7 @@ type CollectionMap = {
   aiReports: AiFinalReportRecord[];
   annotations: AnnotationRecord[];
   paperVersions: PaperVersionRecord[];
+  commentActionItems: CommentActionItemRecord[];
 };
 
 const FILES: Record<keyof CollectionMap, string> = {
@@ -77,6 +79,7 @@ const FILES: Record<keyof CollectionMap, string> = {
   aiReports: "ai_reports.json",
   annotations: "annotations.json",
   paperVersions: "paper_versions.json",
+  commentActionItems: "comment_action_items.json",
 };
 
 function ensureDataDir() {

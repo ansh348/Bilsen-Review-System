@@ -431,3 +431,18 @@ export interface AnnotationRecord {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface CommentActionItemRecord {
+  id: string;
+  paperId: string;
+  runId: string;
+  text: string;
+  severity: CommentSeverity | null;
+  sourceCommentIds: string[];
+  sourcePages: number[];
+  completed: boolean;
+  completedBy: string | null;
+  completedAt: string | null;
+  createdAt: string;
+  updatedAt: string;
+}

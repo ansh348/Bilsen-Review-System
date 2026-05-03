@@ -6326,5 +6326,2116 @@
       ]
     },
     "checkedAt": "2026-05-03T10:28:46.716Z"
+  },
+  {
+    "id": "e23e9f4c-a9b2-4e82-b3a3-d164a231b5ac",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "message": "Paper is 5 pages, within SIGIR 2026's 4 pages (references don't count) limit.",
+      "pageCount": 5,
+      "pageLimit": 4,
+      "effectiveLimit": 4,
+      "referencesCountTowardLimit": false,
+      "extraRefPages": null,
+      "estimatedReferencePages": 1
+    },
+    "checkedAt": "2026-05-03T14:40:51.438Z"
+  },
+  {
+    "id": "20332c57-f7e0-427e-bef6-4da23077ef06",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "SIGIR 2026 does not specify an abstract word limit. Abstract is 207 words.",
+      "abstractWordCount": 207,
+      "abstractWordLimit": null
+    },
+    "checkedAt": "2026-05-03T14:40:51.438Z"
+  },
+  {
+    "id": "7b63dbb2-7548-4f3f-96db-cfe57b76b064",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Method. SIGIR 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction and Related Work, Ontology-Driven Legal Reasoning Graph Extraction, Experimental Setup, Results, Discussion and Limitations, Conclusion). Suggested but not enforced: ACM CCS concepts and keywords.",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "ACM CCS concepts and keywords",
+          "placement": "after abstract",
+          "countsTowardLimit": true,
+          "deskRejectIfMissing": false
+        }
+      ],
+      "conventionalSections": [],
+      "warnings": [
+        "ACM CCS concepts and keywords"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction and Related Work",
+        "Ontology-Driven Legal Reasoning Graph Extraction",
+        "Experimental Setup",
+        "Results",
+        "Discussion and Limitations",
+        "Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction and related work",
+        "Related Work": "introduction and related work",
+        "Experiments": "results",
+        "Conclusion": "conclusion"
+      }
+    },
+    "checkedAt": "2026-05-03T14:40:51.438Z"
+  },
+  {
+    "id": "a09dbec0-fbe9-46b2-9690-e8130f2ef252",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Short Papers",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-03T14:40:51.438Z"
+  },
+  {
+    "id": "1b62584a-3b31-4266-b0d4-722fc28f2bdc",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-03T14:40:51.438Z"
+  },
+  {
+    "id": "3924cb5c-abb7-4561-b265-9e8b5ad7eba6",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T14:40:51.438Z"
+  },
+  {
+    "id": "9bee538a-9e3b-4828-897c-2d0a68b3eeaf",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-03T14:40:51.438Z"
+  },
+  {
+    "id": "c013f326-3414-476c-8a40-c1d8d714cf1b",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": true,
+    "details": {
+      "message": "References use ACM format as expected by SIGIR 2026 (numbered citations found (either accepted)).",
+      "expectedFormat": "ACM",
+      "hasReferencesSection": true,
+      "detectedHint": "numbered citations found (either accepted)",
+      "source": "structured-extraction"
+    },
+    "checkedAt": "2026-05-03T14:40:51.438Z"
+  },
+  {
+    "id": "540a73fe-f3f2-48da-bd17-1158fbb19aa0",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": null,
+      "producer": null,
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T14:40:51.438Z"
+  },
+  {
+    "id": "5943a4af-6825-4c9d-aa27-217ccded144d",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "DESK_REJECT_RISK",
+    "passed": true,
+    "details": {
+      "message": "No automated desk-reject signals detected. Manually confirm the 7 items below before submitting to SIGIR 2026.",
+      "items": [
+        {
+          "criterion": "Content past page 9 (figures, tables, appendices)",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Formatting non-compliant",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Author addition after abstract deadline",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Plagiarism / academic dishonesty",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies."
+        },
+        {
+          "criterion": "Lack of topical fit",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Pre-print policy violations",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Placeholder abstracts",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        }
+      ]
+    },
+    "checkedAt": "2026-05-03T14:40:51.438Z"
+  },
+  {
+    "id": "faa0fce8-fe8a-4a95-b3ac-2e2d19595ac7",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "AI_FULL_REVIEW",
+    "passed": false,
+    "details": {
+      "message": "The paper is well-structured, falls within the 4-page content limit, and includes all required sections and ACM CCS/keywords. However, a live non-anonymized Zenodo DOI in footnote 1 is a meaningful anonymity violation under SIGIR's double-blind policy and represents the primary desk-rejection risk. Secondary issues include a missing AI use disclosure (required by ACM/SIGIR authorship policy) and the absence of any ethics statement despite the venue's ethics review requirement; these are unlikely to trigger desk rejection on their own but should be addressed before submission.",
+      "checks": [
+        {
+          "dimension": "PAGE_LIMIT",
+          "verdict": "pass",
+          "summary": "The paper has 4 pages of main content (pages 1–4) and 1 page of references (page 5); since references do not count toward the 4-page Short Papers limit, the paper is exactly at the limit.",
+          "evidence": [
+            "PDF page count: 5; references occupy page 5 entirely",
+            "referencesCountTowardLimit: false in venue JSON",
+            "Main content (Introduction through Conclusion) ends at page 4"
+          ],
+          "recommendation": "No action needed. Confirm that no appendix material appears after page 4, as appendices count toward the limit.",
+          "confidence": 0.92
+        },
+        {
+          "dimension": "ABSTRACT",
+          "verdict": "pass",
+          "summary": "An abstract is present; no word limit or structured-abstract requirement applies.",
+          "evidence": [
+            "Abstract is present and begins: 'Structured representations of court decisions are essential for legal case retrieval...'",
+            "abstractWordLimit: null; abstractStructuredRequired: false"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.99
+        },
+        {
+          "dimension": "REQUIRED_SECTIONS",
+          "verdict": "pass",
+          "summary": "All six required sections are present, though Introduction and Related Work are merged and Method uses a descriptive title; both are acceptable synonyms.",
+          "evidence": [
+            "Section heading: '1 Introduction and Related Work' — covers both Introduction and Related Work requirements",
+            "Section heading: '2 Ontology-Driven Legal Reasoning Graph Extraction' — serves as the Method section",
+            "Section heading: '3 Experimental Setup' and '4 Results' — together cover Experiments",
+            "Section heading: '6 Conclusion' — present",
+            "Abstract present before section 1"
+          ],
+          "recommendation": "No action needed. The merged 'Introduction and Related Work' and the descriptive method title are common in short papers and satisfy the venue's requirements by content.",
+          "confidence": 0.95
+        },
+        {
+          "dimension": "CONVENTIONAL_SECTIONS",
+          "verdict": "skipped",
+          "summary": "No conventional (non-required) sections are specified in the venue JSON.",
+          "evidence": [
+            "conventionalSections: [] in venue JSON"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "SPECIAL_REQUIRED_SECTIONS",
+          "verdict": "pass",
+          "summary": "ACM CCS Concepts and Keywords are present immediately after the abstract, satisfying the placement requirement.",
+          "evidence": [
+            "Section 'CCS Concepts' appears directly after the abstract: '• Information systems → Information extraction; • Computing methodologies → Natural language processing.'",
+            "Keywords section follows: 'Computational law, legal reasoning graphs, ontology-driven extraction, legal information retrieval, knowledge graphs, structured document representation'",
+            "deskRejectIfMissing: false for this special section"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.98
+        },
+        {
+          "dimension": "REFERENCE_FORMAT",
+          "verdict": "pass",
+          "summary": "References use ACM-style numbered format (e.g., [1], [2]) with author–year–title–venue structure, consistent with ACM Reference Format.",
+          "evidence": [
+            "In-text citations: '[3]', '[28]', '[15]', '[16]' — numbered bracket style",
+            "Reference list entry example: '[1] Ilias Chalkidis, Abhik Jana, Dirk Hartung, Michael Bommarito, Ion Androutsopoulos, Daniel Katz, and Nikolaos Aletras. 2022. LexGLUE...'",
+            "referenceFormat: 'ACM'; type: 'either' (numbered or author-year both acceptable)"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.97
+        },
+        {
+          "dimension": "ANONYMITY",
+          "verdict": "fail",
+          "summary": "The paper includes a live, non-anonymized Zenodo artifact URL in footnote 1 that may allow reviewers to trace the authors' identity, directly violating SIGIR's double-blind policy and the venue's anonymizeToolLinks requirement.",
+          "evidence": [
+            "Footnote 1: 'Code and data: https://doi.org/10.5281/zenodo.18629907' — a public Zenodo DOI associated with a named deposit that likely exposes author metadata",
+            "anonymityRequired: true; anonymizeToolLinks: true in venue JSON",
+            "Author field correctly anonymized: 'Anonymous Author(s)'",
+            "SIGIR 2025 CFP (consistent with 2026 policy): 'Links to source code repositories that reveal author identities...are subject to desk rejection'",
+            "No acknowledgments section present — compliant with acknowledgmentsAllowed: false",
+            "No first-person institutional mentions detected in the text"
+          ],
+          "recommendation": "Replace the Zenodo DOI with an anonymized repository link (e.g., via https://anonymous.4open.science/ or a blinded Zenodo sandbox URL) before submission. The current live DOI is a significant anonymity risk that could trigger desk rejection.",
+          "confidence": 0.93
+        },
+        {
+          "dimension": "TEMPLATE_FORMAT",
+          "verdict": "manual",
+          "summary": "Template and formatting compliance (two-column ACM sigconf layout, font size, margins) cannot be verified from extracted plain text alone.",
+          "evidence": [
+            "Venue requires: 'ACM Primary Article Template (sigconf for LaTeX) — two-column'",
+            "Text extraction does not preserve column layout, font metrics, or margin information"
+          ],
+          "recommendation": "Verify that the PDF uses the ACM sigconf LaTeX template (or ACM Interim Word template) in two-column format with standard fonts and margins. Check that no content (figures, tables, appendices) appears after page 4.",
+          "confidence": 0.85
+        },
+        {
+          "dimension": "AI_DISCLOSURE",
+          "verdict": "warning",
+          "summary": "The venue's authorship policy requires AI use disclosure (aiUseDisclosureRequired: true), but the paper contains no explicit statement about whether generative AI was used in writing or preparing the manuscript.",
+          "evidence": [
+            "aiUseDisclosureRequired: true in venue JSON; mandatoryGenAIDisclosure: false (no dedicated section required)",
+            "Grok-4.1 and Claude Sonnet 4.5 are used as evaluation tools and are disclosed in Section 3.2 — but this describes experimental use, not authorship assistance",
+            "No statement such as 'We did not use generative AI for writing' or 'AI tools were used for X' appears anywhere in the paper",
+            "acknowledgmentsAllowed: false, so a disclosure note cannot go in an acknowledgments section"
+          ],
+          "recommendation": "Add a brief AI use disclosure statement in a permitted location (e.g., as a footnote or within the Conclusion/Discussion). If no generative AI was used in writing, explicitly state this. If AI writing assistance was used, disclose it per ACM policy. Since acknowledgments are not allowed, consider a footnote on the first page or a short inline note.",
+          "confidence": 0.88
+        },
+        {
+          "dimension": "BROADER_IMPACT",
+          "verdict": "skipped",
+          "summary": "The venue does not mandate a broader impact section (mandatoryBroaderImpact: false).",
+          "evidence": [
+            "mandatoryBroaderImpact: false in venue JSON"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "DATA_AVAILABILITY",
+          "verdict": "skipped",
+          "summary": "The venue does not mandate a data availability statement (mandatoryDataAvailability: false).",
+          "evidence": [
+            "mandatoryDataAvailability: false in venue JSON",
+            "Paper does mention an artifact release in footnote 1 (though that link needs anonymization)"
+          ],
+          "recommendation": "No action needed for the data availability dimension itself; however, see ANONYMITY recommendation for the artifact URL.",
+          "confidence": 1
+        },
+        {
+          "dimension": "LIMITATIONS",
+          "verdict": "pass",
+          "summary": "A Limitations subsection is present within Section 5; the venue does not mandate it, but its presence is a quality indicator.",
+          "evidence": [
+            "Section heading: '5 Discussion and Limitations' contains an explicit 'Limitations.' paragraph",
+            "mandatoryLimitationsSection: false in venue JSON"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.99
+        },
+        {
+          "dimension": "REPRODUCIBILITY",
+          "verdict": "skipped",
+          "summary": "The venue does not require a reproducibility checklist (reproducibilityChecklist: false).",
+          "evidence": [
+            "reproducibilityChecklist: false in venue JSON"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "ETHICS_STATEMENT",
+          "verdict": "warning",
+          "summary": "The venue requires ethics review (ethicsReviewRequired: true), but no ethics statement or discussion of ethical considerations appears in the paper.",
+          "evidence": [
+            "ethicsReviewRequired: true in venue JSON",
+            "No section or paragraph addressing ethics, privacy, or societal impact found in the full text",
+            "The paper processes court judgments (public legal records) and uses LLMs; potential ethical concerns around automated legal reasoning are not addressed"
+          ],
+          "recommendation": "Add a short ethics note (inline, footnote, or brief paragraph in Discussion) addressing ethical considerations such as the use of public court records, potential impacts of automated legal reasoning tools, and any IRB/data use considerations. This is standard practice for ACM venues with ethics review.",
+          "confidence": 0.82
+        },
+        {
+          "dimension": "PAPER_TYPE_FIT",
+          "verdict": "pass",
+          "summary": "The paper is a research contribution presenting a novel method (LexCGraph) with experiments and evaluation, fitting SIGIR's Short Papers RESEARCH track.",
+          "evidence": [
+            "Author-declared paper type: RESEARCH",
+            "Paper presents a novel ontology-driven pipeline, quantitative experiments on 2,517 cases, ablation studies, and statistical significance testing",
+            "Content addresses legal information retrieval and structured document representation — topics within SIGIR's scope",
+            "paperTypes: ['RESEARCH'] in venue JSON"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.95
+        },
+        {
+          "dimension": "DESK_REJECT_RISK",
+          "verdict": "warning",
+          "summary": "The non-anonymized Zenodo DOI in footnote 1 is the primary desk-rejection risk; all other dimensions pass or represent minor warnings.",
+          "evidence": [
+            "FAIL on ANONYMITY: 'Code and data: https://doi.org/10.5281/zenodo.18629907' is a public, named artifact link that violates double-blind policy",
+            "SIGIR's stated desk-reject criteria include 'Formatting non-compliant' and implicitly anonymity violations ('Breaking anonymity or pre-print/ArXiv policy puts the submission at risk of being desk rejected')",
+            "Page limit: compliant at 4 content pages",
+            "CCS/Keywords: present",
+            "Template: cannot be verified (manual check required)",
+            "AI disclosure and ethics: missing but not listed as hard desk-reject criteria"
+          ],
+          "recommendation": "Immediately replace the Zenodo DOI with an anonymized artifact link. Verify ACM sigconf template compliance. Add an AI use disclosure note and ethics statement before submission.",
+          "confidence": 0.9
+        }
+      ],
+      "deskRejectRisk": "medium",
+      "failedDimensions": [
+        "ANONYMITY"
+      ],
+      "warningDimensions": [
+        "AI_DISCLOSURE",
+        "ETHICS_STATEMENT",
+        "DESK_REJECT_RISK"
+      ],
+      "modelUsed": "claude-sonnet-4-6",
+      "paperTruncated": false,
+      "generatedAt": "2026-05-03T14:44:32.664Z"
+    },
+    "checkedAt": "2026-05-03T14:46:02.658Z"
+  },
+  {
+    "id": "164d70f1-4c56-4117-8f0b-d918cb4fd858",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "AI_REFERENCE_CHECK",
+    "passed": false,
+    "details": {
+      "message": "4 references flagged as suspicious — investigate before submission.",
+      "summary": {
+        "total": 10,
+        "likelyReal": 6,
+        "uncertain": 0,
+        "suspicious": 4,
+        "malformed": 0,
+        "overallAssessment": "4 references flagged as suspicious — investigate before submission."
+      },
+      "references": [
+        {
+          "index": 1,
+          "raw": "Ilias Chalkidis, Abhik Jana, Dirk Hartung, Michael Bommarito, Ion Androutsopoulos, Daniel Katz, and Nikolaos Aletras. 2022. LexGLUE: A Benchmark Dataset for Legal Language Understanding in English. In Proceedings of ACL 2022 (Volume 1: Long Papers). 4310–4330.",
+          "parsed": {
+            "title": "LexGLUE: A Benchmark Dataset for Legal Language Understanding in English",
+            "authors": [
+              "Ilias Chalkidis",
+              "Abhik Jana",
+              "Dirk Hartung",
+              "Michael Bommarito",
+              "Ion Androutsopoulos",
+              "Daniel Katz",
+              "Nikolaos Aletras"
+            ],
+            "year": 2022,
+            "venue": "Proceedings of ACL 2022 (Volume 1: Long Papers)",
+            "type": "conference",
+            "doi": null,
+            "arxivId": "2110.00976"
+          },
+          "status": "likely_real",
+          "concerns": [],
+          "confidence": 0.99
+        },
+        {
+          "index": 2,
+          "raw": "Neel Guha, Julian Nyarko, Daniel E. Ho, Christopher Ré, Adam Chilton, et al. 2023. LegalBench: A Collaboratively Built Benchmark for Measuring Legal Reasoning in Large Language Models. arXiv preprint arXiv:2308.11462.",
+          "parsed": {
+            "title": "LegalBench: A Collaboratively Built Benchmark for Measuring Legal Reasoning in Large Language Models",
+            "authors": [
+              "Neel Guha",
+              "Julian Nyarko",
+              "Daniel E. Ho",
+              "Christopher Ré",
+              "Adam Chilton",
+              "et al."
+            ],
+            "year": 2023,
+            "venue": "arXiv preprint",
+            "type": "preprint",
+            "doi": null,
+            "arxivId": "2308.11462"
+          },
+          "status": "likely_real",
+          "concerns": [
+            "Described as arXiv preprint but also published at NeurIPS 2023 Datasets and Benchmarks Track; minor venue imprecision but not a fabrication concern"
+          ],
+          "confidence": 0.98
+        },
+        {
+          "index": 3,
+          "raw": "Abhinav Joshi, Shounak Paul, Akshat Sharma, Pawan Goyal, Saptarshi Ghosh, and Ashutosh Modi. 2024. IL-TUR: Benchmark for Indian Legal Text Understanding and Reasoning. In Proceedings of ACL 2024 (Volume 1: Long Papers). 11460–11499.",
+          "parsed": {
+            "title": "IL-TUR: Benchmark for Indian Legal Text Understanding and Reasoning",
+            "authors": [
+              "Abhinav Joshi",
+              "Shounak Paul",
+              "Akshat Sharma",
+              "Pawan Goyal",
+              "Saptarshi Ghosh",
+              "Ashutosh Modi"
+            ],
+            "year": 2024,
+            "venue": "Proceedings of ACL 2024 (Volume 1: Long Papers)",
+            "type": "conference",
+            "doi": "10.18653/v1/2024.acl-long.618",
+            "arxivId": "2407.05399"
+          },
+          "status": "likely_real",
+          "concerns": [],
+          "confidence": 0.99
+        },
+        {
+          "index": 4,
+          "raw": "Vijit Malik, Rishabh Sanjay, Shubham Kumar Nigam, Kripabandhu Ghosh, Shouvik Kumar Guha, Arnab Bhattacharya, and Ashutosh Modi. 2021. ILDC for CJPE: Indian Legal Documents Corpus for Court Judgment Prediction and Explanation. In Proceedings of ACL-IJCNLP 2021 (Volume 1: Long Papers). 4046–4062.",
+          "parsed": {
+            "title": "ILDC for CJPE: Indian Legal Documents Corpus for Court Judgment Prediction and Explanation",
+            "authors": [
+              "Vijit Malik",
+              "Rishabh Sanjay",
+              "Shubham Kumar Nigam",
+              "Kripabandhu Ghosh",
+              "Shouvik Kumar Guha",
+              "Arnab Bhattacharya",
+              "Ashutosh Modi"
+            ],
+            "year": 2021,
+            "venue": "Proceedings of ACL-IJCNLP 2021 (Volume 1: Long Papers)",
+            "type": "conference",
+            "doi": "10.18653/v1/2021.acl-long.313",
+            "arxivId": "2105.13562"
+          },
+          "status": "likely_real",
+          "concerns": [],
+          "confidence": 0.99
+        },
+        {
+          "index": 5,
+          "raw": "Juliano Rabelo, Mi-Young Kim, Randy Goebel, Masaharu Yoshioka, Yoshinobu Kano, and Ken Satoh. 2022. COLIEE 2022 Summary: Methods for Legal Document Retrieval and Entailment. In New Frontiers in Artificial Intelligence (JSAI 2022). Springer, 51–67.",
+          "parsed": {
+            "title": "COLIEE 2022 Summary: Methods for Legal Document Retrieval and Entailment",
+            "authors": [
+              "Juliano Rabelo",
+              "Mi-Young Kim",
+              "Randy Goebel",
+              "Masaharu Yoshioka",
+              "Yoshinobu Kano",
+              "Ken Satoh"
+            ],
+            "year": 2022,
+            "venue": "New Frontiers in Artificial Intelligence (JSAI 2022). Springer",
+            "type": "conference",
+            "doi": "10.1007/978-3-031-29168-5_4",
+            "arxivId": null
+          },
+          "status": "suspicious",
+          "concerns": [
+            "Author order is wrong: the actual paper lists Mi-Young Kim as first author, not Juliano Rabelo",
+            "Publication year listed as 2022 but the book/proceedings was published by Springer in 2023 (JSAI-isAI 2022 revised selected papers)"
+          ],
+          "confidence": 0.72
+        },
+        {
+          "index": 6,
+          "raw": "Stephen E. Toulmin. 1958. The Uses of Argument. Cambridge University Press, Cambridge, UK.",
+          "parsed": {
+            "title": "The Uses of Argument",
+            "authors": [
+              "Stephen E. Toulmin"
+            ],
+            "year": 1958,
+            "venue": "Cambridge University Press",
+            "type": "book",
+            "doi": null,
+            "arxivId": null
+          },
+          "status": "likely_real",
+          "concerns": [],
+          "confidence": 0.99
+        },
+        {
+          "index": 7,
+          "raw": "Ilias Chalkidis, Ion Androutsopoulos, and Nikolaos Aletras. 2019. Neural Legal Judgment Prediction in English. In Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics. 4317–4323.",
+          "parsed": {
+            "title": "Neural Legal Judgment Prediction in English",
+            "authors": [
+              "Ilias Chalkidis",
+              "Ion Androutsopoulos",
+              "Nikolaos Aletras"
+            ],
+            "year": 2019,
+            "venue": "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics",
+            "type": "conference",
+            "doi": "10.18653/v1/P19-1424",
+            "arxivId": "1906.02059"
+          },
+          "status": "likely_real",
+          "concerns": [],
+          "confidence": 0.99
+        },
+        {
+          "index": 8,
+          "raw": "Jyoti Sarika, Ashutosh Modi, et al. 2022. Constructing a Knowledge Graph from Indian Legal Domain Corpus. In Proceedings of Text2KG Workshop at ESWC 2022. CEUR-WS.org.",
+          "parsed": {
+            "title": "Constructing a Knowledge Graph from Indian Legal Domain Corpus",
+            "authors": [
+              "Jyoti Sarika",
+              "Ashutosh Modi",
+              "et al."
+            ],
+            "year": 2022,
+            "venue": "Text2KG Workshop at ESWC 2022, CEUR-WS.org",
+            "type": "conference",
+            "doi": null,
+            "arxivId": null
+          },
+          "status": "suspicious",
+          "concerns": [
+            "First author name is wrong: actual first author is 'Sarika Jain', not 'Jyoti Sarika'",
+            "'Ashutosh Modi' does not appear among the actual authors (Sarika Jain, Pooja Harde, Nandana Mihindukulasooriya, Sudipto Ghosh, Ankush Bisht, Abhinav Dubey)",
+            "Use of 'et al.' obscures the incorrect author attribution"
+          ],
+          "confidence": 0.52
+        },
+        {
+          "index": 9,
+          "raw": "Aditya Dhani, et al. 2024. Similar Cases Recommendation using Legal Knowledge Graphs. arXiv preprint arXiv:2107.04771.",
+          "parsed": {
+            "title": "Similar Cases Recommendation using Legal Knowledge Graphs",
+            "authors": [
+              "Aditya Dhani",
+              "et al."
+            ],
+            "year": 2024,
+            "venue": "arXiv preprint",
+            "type": "preprint",
+            "doi": null,
+            "arxivId": "2107.04771"
+          },
+          "status": "suspicious",
+          "concerns": [
+            "First author name is wrong: actual first author is 'Jaspreet Singh Dhani', not 'Aditya Dhani'",
+            "Year listed as 2024 but arXiv submission was July 2021 (v1); the arXiv ID 2107.04771 confirms a 2021 submission date",
+            "The paper was presented at SAIL 2023, not merely as a 2024 preprint"
+          ],
+          "confidence": 0.5
+        },
+        {
+          "index": 10,
+          "raw": "Erwin Filtz, Sabrina Kirrane, and Axel Polleres. 2017. Building and Processing a Knowledge-Graph for Legal Data. In The Semantic Web: ESWC 2017. Springer, 184–194.",
+          "parsed": {
+            "title": "Building and Processing a Knowledge-Graph for Legal Data",
+            "authors": [
+              "Erwin Filtz",
+              "Sabrina Kirrane",
+              "Axel Polleres"
+            ],
+            "year": 2017,
+            "venue": "The Semantic Web: ESWC 2017. Springer",
+            "type": "conference",
+            "doi": "10.1007/978-3-319-58451-5_13",
+            "arxivId": null
+          },
+          "status": "suspicious",
+          "concerns": [
+            "The actual paper has only one author: 'Erwin Filtz'. Sabrina Kirrane and Axel Polleres are listed as supervisors/funders in the acknowledgments but are NOT co-authors",
+            "Title, year, venue (ESWC 2017), and pages (184–194) are correct"
+          ],
+          "confidence": 0.65
+        }
+      ],
+      "modelUsed": "claude-sonnet-4-6",
+      "generatedAt": "2026-05-03T14:44:32.664Z"
+    },
+    "checkedAt": "2026-05-03T14:46:02.658Z"
+  },
+  {
+    "id": "d090cea5-7ce5-4cfd-a5dc-7e998708b995",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "message": "Paper is 5 pages, within SIGIR 2026's 4 pages (references don't count) limit.",
+      "pageCount": 5,
+      "pageLimit": 4,
+      "effectiveLimit": 4,
+      "referencesCountTowardLimit": false,
+      "extraRefPages": null,
+      "estimatedReferencePages": 1
+    },
+    "checkedAt": "2026-05-03T15:41:46.165Z"
+  },
+  {
+    "id": "c8a64550-4c52-4046-a467-d917dfabf8b4",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "SIGIR 2026 does not specify an abstract word limit. Abstract is 207 words.",
+      "abstractWordCount": 207,
+      "abstractWordLimit": null
+    },
+    "checkedAt": "2026-05-03T15:41:46.165Z"
+  },
+  {
+    "id": "9d4e6ca1-c8f7-48da-a429-8f075c6850db",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Method. SIGIR 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction and Related Work, Ontology-Driven Legal Reasoning Graph Extraction, Experimental Setup, Results, Discussion and Limitations, Conclusion). Suggested but not enforced: ACM CCS concepts and keywords.",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "ACM CCS concepts and keywords",
+          "placement": "after abstract",
+          "countsTowardLimit": true,
+          "deskRejectIfMissing": false
+        }
+      ],
+      "conventionalSections": [],
+      "warnings": [
+        "ACM CCS concepts and keywords"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction and Related Work",
+        "Ontology-Driven Legal Reasoning Graph Extraction",
+        "Experimental Setup",
+        "Results",
+        "Discussion and Limitations",
+        "Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction and related work",
+        "Related Work": "introduction and related work",
+        "Experiments": "results",
+        "Conclusion": "conclusion"
+      }
+    },
+    "checkedAt": "2026-05-03T15:41:46.165Z"
+  },
+  {
+    "id": "c8027830-dad4-435d-988a-c2d19265359e",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Short Papers",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-03T15:41:46.165Z"
+  },
+  {
+    "id": "89789723-9f14-4505-a422-766ffe161a6c",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-03T15:41:46.165Z"
+  },
+  {
+    "id": "a1408932-7ddb-47de-87b5-54c3a5a36e27",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T15:41:46.165Z"
+  },
+  {
+    "id": "10f6362a-fe3d-491c-bb1f-d5165882533d",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-03T15:41:46.165Z"
+  },
+  {
+    "id": "4688a3e1-9ab9-4141-bc27-ae47aa27acb4",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": false,
+    "details": {
+      "message": "Expected ACM format but no citations matching either author-year or numbered styles found. Use \\citep{} (natbib) so citations render as '(Smith et al., 2024)'.",
+      "expectedFormat": "ACM",
+      "hasReferencesSection": true,
+      "detectedHint": "no citations matching either author-year or numbered styles found",
+      "source": "structured-extraction"
+    },
+    "checkedAt": "2026-05-03T15:41:46.165Z"
+  },
+  {
+    "id": "dc7b1053-5a36-40be-88f3-db45850dc184",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": null,
+      "producer": null,
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T15:41:46.165Z"
+  },
+  {
+    "id": "62808383-77cc-4e5d-9508-e4390b32decb",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "DESK_REJECT_RISK",
+    "passed": true,
+    "details": {
+      "message": "No automated desk-reject signals detected. Manually confirm the 7 items below before submitting to SIGIR 2026.",
+      "items": [
+        {
+          "criterion": "Content past page 9 (figures, tables, appendices)",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Formatting non-compliant",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Author addition after abstract deadline",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Plagiarism / academic dishonesty",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies."
+        },
+        {
+          "criterion": "Lack of topical fit",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Pre-print policy violations",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Placeholder abstracts",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        }
+      ]
+    },
+    "checkedAt": "2026-05-03T15:41:46.165Z"
+  },
+  {
+    "id": "cb7e0cb5-f5dc-4b79-b396-5aa0c01a2262",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "AI_FULL_REVIEW",
+    "passed": false,
+    "details": {
+      "message": "The paper is well-structured and meets most SIGIR 2026 Short Paper requirements: it fits within 4 content pages (references correctly excluded), contains all required sections with accepted synonyms, and includes properly formatted CCS/Keywords. The primary risk is the inclusion of a live, non-anonymized Zenodo DOI (footnote 1) in a double-blind submission — SIGIR policy treats such identity-revealing artifact links as a potential desk-reject trigger, and this must be replaced with an anonymized repository link before submission. Secondary issues are the absence of an AI-use disclosure statement (required by ACM/SIGIR policy) and no ethics note (required per authorshipPolicy), both of which should be addressed; template and PDF metadata compliance also require manual verification.",
+      "checks": [
+        {
+          "dimension": "PAGE_LIMIT",
+          "verdict": "pass",
+          "summary": "Main content occupies exactly 4 pages; the 5th page is entirely references, which do not count toward the 4-page limit.",
+          "evidence": [
+            "PDF page count: 5; pages 1–4 contain all main content (Introduction through Conclusion); page 5 is entirely the reference list.",
+            "Venue rule: referencesCountTowardLimit = false; pageLimit = 4.",
+            "No appendix is present, so the appendixCountsTowardLimit rule is not triggered."
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.95
+        },
+        {
+          "dimension": "ABSTRACT",
+          "verdict": "pass",
+          "summary": "Abstract is present, no word limit is defined by the venue, and no structured format is required.",
+          "evidence": [
+            "Abstract begins: 'Structured representations of court decisions are essential for legal case retrieval, judgment prediction, and explainability...'",
+            "Venue: abstractWordLimit = null, abstractStructuredRequired = false."
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "REQUIRED_SECTIONS",
+          "verdict": "pass",
+          "summary": "All six required sections are present, with two covered by a merged heading and one by a domain-specific synonym.",
+          "evidence": [
+            "Abstract: present before Section 1.",
+            "Introduction + Related Work: merged as '1 Introduction and Related Work' — covers both required 'Introduction' and 'Related Work'.",
+            "Method: covered by '2 Ontology-Driven Legal Reasoning Graph Extraction' — a domain-specific synonym for 'Method'.",
+            "Experiments: covered by '3 Experimental Setup' and '4 Results' — collectively equivalent to 'Experiments'.",
+            "Conclusion: '6 Conclusion' is present."
+          ],
+          "recommendation": "No action needed. The merged Introduction/Related Work section and the domain-named Method section are standard in short papers and should not be penalized.",
+          "confidence": 0.95
+        },
+        {
+          "dimension": "CONVENTIONAL_SECTIONS",
+          "verdict": "skipped",
+          "summary": "No conventional sections are listed in the venue JSON for SIGIR 2026.",
+          "evidence": [
+            "Venue JSON: conventionalSections = []"
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "SPECIAL_REQUIRED_SECTIONS",
+          "verdict": "pass",
+          "summary": "ACM CCS Concepts and Keywords appear immediately after the abstract, satisfying the special placement requirement.",
+          "evidence": [
+            "CCS Concepts block: '• Information systems → Information extraction; • Computing methodologies → Natural language processing.'",
+            "Keywords block: 'Computational law, legal reasoning graphs, ontology-driven extraction, legal information retrieval, knowledge graphs, structured document representation'",
+            "Both appear on page 1 directly after the abstract and before Section 1.",
+            "Venue: deskRejectIfMissing = false for this section, but the section is present."
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "REFERENCE_FORMAT",
+          "verdict": "pass",
+          "summary": "References use numbered ACM format ([1], [2], …) with full ACM-style bibliographic entries, consistent with the venue's ACM Reference Format requirement.",
+          "evidence": [
+            "In-text citations use bracketed numbers, e.g., 'IL-TUR extends this to Indian law with CJPE [3]', 'BM25 [28]'.",
+            "Reference list entries follow ACM format: author names, year, title, venue/journal — e.g., '[1] Ilias Chalkidis, Abhik Jana… 2022. LexGLUE… In Proceedings of ACL 2022…'",
+            "Venue: referenceFormat = 'ACM', type = 'either' (numbered or author-year); numbered style is acceptable."
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.97
+        },
+        {
+          "dimension": "ANONYMITY",
+          "verdict": "fail",
+          "summary": "The paper includes a live, non-anonymized artifact DOI (Zenodo) in a footnote that may allow reviewers to identify the authors.",
+          "evidence": [
+            "Footnote 1 in Section 1: 'Code and data: https://doi.org/10.5281/zenodo.18629907' — a public Zenodo deposit whose metadata (owner account, description, files) can expose author identities.",
+            "Venue rule: anonymityRequired = true (double-blind), anonymizeToolLinks = true.",
+            "SIGIR precedent (2024/2025 CFPs): 'Links to source code repositories that reveal author identities… are subject to desk rejection.'",
+            "Author byline reads 'Anonymous Author(s)' — correct; no named affiliations or email addresses detected.",
+            "No acknowledgments section present — correct (acknowledgmentsAllowed = false).",
+            "No obvious self-citation in first person found; the system 'LexCGraph' is referred to consistently without naming authors."
+          ],
+          "recommendation": "Replace the Zenodo DOI with an anonymized repository link (e.g., via anonymous.4open.science or a blinded Zenodo draft with no owner metadata visible) before submission. Remove or placeholder the link entirely if anonymous hosting is not possible prior to the deadline.",
+          "confidence": 0.97
+        },
+        {
+          "dimension": "TEMPLATE_FORMAT",
+          "verdict": "manual",
+          "summary": "Template compliance (ACM sigconf two-column, correct fonts/margins) cannot be verified from extracted text alone.",
+          "evidence": [
+            "Venue requires: 'ACM Primary Article Template (sigconf for LaTeX) — two-column'.",
+            "The paper structure, CCS block, and reference style are all consistent with sigconf, but font size, column width, margin dimensions, and header/footer formatting require visual PDF inspection.",
+            "No acknowledgments section present — consistent with anonymized sigconf template.",
+            "The paper does not appear to contain a copyright/permission block (expected to be stripped in review versions)."
+          ],
+          "recommendation": "Verify in the compiled PDF that (1) you are using the sigconf LaTeX class, (2) no font or margin overrides have been applied, (3) the ACM rights block is suppressed for review, and (4) PDF metadata contains no author names (clearPdfMetadata = true).",
+          "confidence": 0.75
+        },
+        {
+          "dimension": "AI_DISCLOSURE",
+          "verdict": "warning",
+          "summary": "The venue's authorshipPolicy sets aiUseDisclosureRequired = true, but no AI-use disclosure statement appears in the paper.",
+          "evidence": [
+            "Venue JSON: authorshipPolicy.aiUseDisclosureRequired = true; specialRequirements.mandatoryGenAIDisclosure = false (no dedicated section required).",
+            "The paper uses LLMs (Grok-4.1, Claude Sonnet 4.5) as experimental tools in the methodology, but this is part of the research contribution, not AI-assisted writing.",
+            "No sentence such as 'AI tools were/were not used in the preparation of this manuscript' appears anywhere in the paper.",
+            "SIGIR 2025 precedent: 'All submissions must comply with the ACM policy on the use of Artificial Intelligence.'"
+          ],
+          "recommendation": "Add a brief AI-use statement (e.g., in a non-acknowledgment footnote or as part of the experimental setup disclosure) clarifying whether generative AI was used to assist in drafting text, figures, or other non-experimental content. If AI was only used as an experimental subject (not for writing), state that explicitly to satisfy ACM's disclosure policy.",
+          "confidence": 0.82
+        },
+        {
+          "dimension": "BROADER_IMPACT",
+          "verdict": "skipped",
+          "summary": "Venue does not mandate a Broader Impact section (mandatoryBroaderImpact = false).",
+          "evidence": [
+            "Venue JSON: specialRequirements.mandatoryBroaderImpact = false."
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "DATA_AVAILABILITY",
+          "verdict": "skipped",
+          "summary": "Venue does not mandate a Data Availability statement (mandatoryDataAvailability = false).",
+          "evidence": [
+            "Venue JSON: specialRequirements.mandatoryDataAvailability = false."
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "LIMITATIONS",
+          "verdict": "pass",
+          "summary": "A Limitations subsection is present within Section 5, even though the venue does not mandate one.",
+          "evidence": [
+            "Section '5 Discussion and Limitations' contains an explicit 'Limitations.' paragraph: 'Our approach depends on ontology coverage; out-of-ontology concepts fall back to pseudo-clusters…'",
+            "Venue JSON: specialRequirements.mandatoryLimitationsSection = false."
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "REPRODUCIBILITY",
+          "verdict": "skipped",
+          "summary": "Venue does not require a reproducibility checklist (reproducibilityChecklist = false).",
+          "evidence": [
+            "Venue JSON: specialRequirements.reproducibilityChecklist = false."
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 1
+        },
+        {
+          "dimension": "ETHICS_STATEMENT",
+          "verdict": "warning",
+          "summary": "The venue's authorshipPolicy flags ethicsReviewRequired = true, but no ethics statement is present in the paper.",
+          "evidence": [
+            "Venue JSON: authorshipPolicy.ethicsReviewRequired = true.",
+            "No ethics statement, IRB approval notice, or research ethics discussion found anywhere in the paper text.",
+            "The paper processes 2,517 Indian Supreme Court case documents (likely public domain legal records), and uses commercial LLM APIs; these aspects may require an ethics note.",
+            "No section heading or inline statement mentioning 'ethics', 'IRB', 'informed consent', or 'privacy' is present."
+          ],
+          "recommendation": "Add a short ethics note (can be a sentence or two, e.g., inline in the Experimental Setup section) addressing: (1) that court decisions used are publicly available; (2) that no personal data beyond public legal records was processed; (3) compliance with ACM's ethics review requirements. Check whether SIGIR 2026 requires an online ethics form at submission time.",
+          "confidence": 0.78
+        },
+        {
+          "dimension": "PAPER_TYPE_FIT",
+          "verdict": "pass",
+          "summary": "The paper is a complete research contribution with novel system, experiments, and quantitative evaluation, fitting SIGIR's RESEARCH paper type and IR topical scope.",
+          "evidence": [
+            "Author-declared type: RESEARCH; venue accepts: ['RESEARCH'].",
+            "Core topic is legal case retrieval and structured document representation — squarely within SIGIR's IR scope.",
+            "Paper presents a novel pipeline (LexCGraph), concept retrieval evaluation (nDCG@10, P@10), outcome prediction experiments on 2,517 cases, and ablation studies — meeting the bar for a short research paper.",
+            "Multiple SIGIR-published works are cited as related work (SAILER [22], CaseLink [24], Trippas et al. [25]), indicating community fit."
+          ],
+          "recommendation": "No action needed.",
+          "confidence": 0.97
+        },
+        {
+          "dimension": "DESK_REJECT_RISK",
+          "verdict": "warning",
+          "summary": "The non-anonymized Zenodo DOI is the primary desk-reject risk; all other dimensions pass or require only minor fixes.",
+          "evidence": [
+            "Anonymity fail: 'Code and data: https://doi.org/10.5281/zenodo.18629907' — a traceable artifact link in a double-blind submission.",
+            "Page limit: pass (4 content pages + 1 reference page).",
+            "Required sections: pass.",
+            "CCS/Keywords: pass.",
+            "Reference format: pass.",
+            "No acknowledgments section (correctly absent).",
+            "AI disclosure and ethics statement absent — warnings but not listed as explicit desk-reject criteria in the venue JSON."
+          ],
+          "recommendation": "Anonymize or remove the Zenodo artifact link before submission; address AI disclosure and ethics note to avoid policy flags during review.",
+          "confidence": 0.9
+        }
+      ],
+      "deskRejectRisk": "medium",
+      "failedDimensions": [
+        "ANONYMITY"
+      ],
+      "warningDimensions": [
+        "AI_DISCLOSURE",
+        "ETHICS_STATEMENT",
+        "DESK_REJECT_RISK"
+      ],
+      "modelUsed": "claude-sonnet-4-6",
+      "paperTruncated": false,
+      "generatedAt": "2026-05-03T15:43:04.913Z"
+    },
+    "checkedAt": "2026-05-03T15:44:52.174Z"
+  },
+  {
+    "id": "39d5b19b-8360-4e4c-a4b1-0815e38a0dd6",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "AI_REFERENCE_CHECK",
+    "passed": false,
+    "details": {
+      "message": "4 references flagged as suspicious — investigate before submission.",
+      "summary": {
+        "total": 10,
+        "likelyReal": 6,
+        "uncertain": 0,
+        "suspicious": 4,
+        "malformed": 0,
+        "overallAssessment": "4 references flagged as suspicious — investigate before submission."
+      },
+      "references": [
+        {
+          "index": 1,
+          "raw": "Ilias Chalkidis, Abhik Jana, Dirk Hartung, Michael Bommarito, Ion Androutsopoulos, Daniel Katz, and Nikolaos Aletras. 2022. LexGLUE: A Benchmark Dataset for Legal Language Understanding in English. In Proceedings of ACL 2022 (Volume 1: Long Papers). 4310–4330.",
+          "parsed": {
+            "title": "LexGLUE: A Benchmark Dataset for Legal Language Understanding in English",
+            "authors": [
+              "Ilias Chalkidis",
+              "Abhik Jana",
+              "Dirk Hartung",
+              "Michael Bommarito",
+              "Ion Androutsopoulos",
+              "Daniel Katz",
+              "Nikolaos Aletras"
+            ],
+            "year": 2022,
+            "venue": "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+            "type": "conference",
+            "doi": "10.18653/v1/2022.acl-long.297",
+            "arxivId": "2110.00976"
+          },
+          "status": "likely_real",
+          "concerns": [],
+          "confidence": 0.99
+        },
+        {
+          "index": 2,
+          "raw": "Neel Guha, Julian Nyarko, Daniel E. Ho, Christopher Ré, Adam Chilton, et al. 2023. LegalBench: A Collaboratively Built Benchmark for Measuring Legal Reasoning in Large Language Models. arXiv preprint arXiv:2308.11462.",
+          "parsed": {
+            "title": "LegalBench: A Collaboratively Built Benchmark for Measuring Legal Reasoning in Large Language Models",
+            "authors": [
+              "Neel Guha",
+              "Julian Nyarko",
+              "Daniel E. Ho",
+              "Christopher Ré",
+              "Adam Chilton",
+              "et al."
+            ],
+            "year": 2023,
+            "venue": "arXiv preprint",
+            "type": "preprint",
+            "doi": "10.48550/arXiv.2308.11462",
+            "arxivId": "2308.11462"
+          },
+          "status": "likely_real",
+          "concerns": [
+            "Paper was also published at NeurIPS 2023 Datasets and Benchmarks track, not merely a preprint; citing as arXiv preprint is acceptable but undersells the venue."
+          ],
+          "confidence": 0.99
+        },
+        {
+          "index": 3,
+          "raw": "Abhinav Joshi, Shounak Paul, Akshat Sharma, Pawan Goyal, Saptarshi Ghosh, and Ashutosh Modi. 2024. IL-TUR: Benchmark for Indian Legal Text Understanding and Reasoning. In Proceedings of ACL 2024 (Volume 1: Long Papers). 11460–11499.",
+          "parsed": {
+            "title": "IL-TUR: Benchmark for Indian Legal Text Understanding and Reasoning",
+            "authors": [
+              "Abhinav Joshi",
+              "Shounak Paul",
+              "Akshat Sharma",
+              "Pawan Goyal",
+              "Saptarshi Ghosh",
+              "Ashutosh Modi"
+            ],
+            "year": 2024,
+            "venue": "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+            "type": "conference",
+            "doi": "10.18653/v1/2024.acl-long.618",
+            "arxivId": "2407.05399"
+          },
+          "status": "likely_real",
+          "concerns": [],
+          "confidence": 0.99
+        },
+        {
+          "index": 4,
+          "raw": "Vijit Malik, Rishabh Sanjay, Shubham Kumar Nigam, Kripabandhu Ghosh, Shouvik Kumar Guha, Arnab Bhattacharya, and Ashutosh Modi. 2021. ILDC for CJPE: Indian Legal Documents Corpus for Court Judgment Prediction and Explanation. In Proceedings of ACL-IJCNLP 2021 (Volume 1: Long Papers). 4046–4062.",
+          "parsed": {
+            "title": "ILDC for CJPE: Indian Legal Documents Corpus for Court Judgment Prediction and Explanation",
+            "authors": [
+              "Vijit Malik",
+              "Rishabh Sanjay",
+              "Shubham Kumar Nigam",
+              "Kripabandhu Ghosh",
+              "Shouvik Kumar Guha",
+              "Arnab Bhattacharya",
+              "Ashutosh Modi"
+            ],
+            "year": 2021,
+            "venue": "Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)",
+            "type": "conference",
+            "doi": "10.18653/v1/2021.acl-long.313",
+            "arxivId": "2105.13562"
+          },
+          "status": "likely_real",
+          "concerns": [],
+          "confidence": 0.99
+        },
+        {
+          "index": 5,
+          "raw": "Juliano Rabelo, Mi-Young Kim, Randy Goebel, Masaharu Yoshioka, Yoshinobu Kano, and Ken Satoh. 2022. COLIEE 2022 Summary: Methods for Legal Document Retrieval and Entailment. In New Frontiers in Artificial Intelligence (JSAI 2022). Springer, 51–67.",
+          "parsed": {
+            "title": "COLIEE 2022 Summary: Methods for Legal Document Retrieval and Entailment",
+            "authors": [
+              "Juliano Rabelo",
+              "Mi-Young Kim",
+              "Randy Goebel",
+              "Masaharu Yoshioka",
+              "Yoshinobu Kano",
+              "Ken Satoh"
+            ],
+            "year": 2022,
+            "venue": "New Frontiers in Artificial Intelligence (JSAI-isAI 2022), Springer",
+            "type": "conference",
+            "doi": "10.1007/978-3-031-29168-5_4",
+            "arxivId": null
+          },
+          "status": "suspicious",
+          "concerns": [
+            "Author order is reversed: the actual first author is Mi-Young Kim, not Juliano Rabelo. Verified author order from multiple sources is Kim, Rabelo, Goebel, Yoshioka, Kano, Satoh.",
+            "The volume was published in 2023 (as revised selected papers), not 2022 as cited.",
+            "Venue abbreviated as 'JSAI 2022' whereas official name is 'JSAI-isAI 2022' (JSAI International Symposium on Artificial Intelligence)."
+          ],
+          "confidence": 0.72
+        },
+        {
+          "index": 6,
+          "raw": "Stephen E. Toulmin. 1958. The Uses of Argument. Cambridge University Press, Cambridge, UK.",
+          "parsed": {
+            "title": "The Uses of Argument",
+            "authors": [
+              "Stephen E. Toulmin"
+            ],
+            "year": 1958,
+            "venue": "Cambridge University Press",
+            "type": "book",
+            "doi": null,
+            "arxivId": null
+          },
+          "status": "likely_real",
+          "concerns": [],
+          "confidence": 0.99
+        },
+        {
+          "index": 7,
+          "raw": "Ilias Chalkidis, Ion Androutsopoulos, and Nikolaos Aletras. 2019. Neural Legal Judgment Prediction in English. In Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics. 4317–4323.",
+          "parsed": {
+            "title": "Neural Legal Judgment Prediction in English",
+            "authors": [
+              "Ilias Chalkidis",
+              "Ion Androutsopoulos",
+              "Nikolaos Aletras"
+            ],
+            "year": 2019,
+            "venue": "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics",
+            "type": "conference",
+            "doi": "10.18653/v1/P19-1424",
+            "arxivId": "1906.02059"
+          },
+          "status": "likely_real",
+          "concerns": [],
+          "confidence": 0.99
+        },
+        {
+          "index": 8,
+          "raw": "Jyoti Sarika, Ashutosh Modi, et al. 2022. Constructing a Knowledge Graph from Indian Legal Domain Corpus. In Proceedings of Text2KG Workshop at ESWC 2022. CEUR-WS.org.",
+          "parsed": {
+            "title": "Constructing a Knowledge Graph from Indian Legal Domain Corpus",
+            "authors": [
+              "Jyoti Sarika",
+              "Ashutosh Modi",
+              "et al."
+            ],
+            "year": 2022,
+            "venue": "Text2KG Workshop at ESWC 2022, CEUR-WS.org",
+            "type": "conference",
+            "doi": null,
+            "arxivId": null
+          },
+          "status": "suspicious",
+          "concerns": [
+            "First author name is incorrect: actual first author is 'Sarika Jain', not 'Jyoti Sarika' — first and last name appear swapped.",
+            "'Ashutosh Modi' is listed as second author but does not appear among the actual authors (Sarika Jain, Pooja Harde, Nandana Mihindukulasooriya, Sudipto Ghosh, Ankush Bisht, Abhinav Dubey).",
+            "Actual CEUR-WS volume is 3184 (pages 80–93), which is not cited."
+          ],
+          "confidence": 0.45
+        },
+        {
+          "index": 9,
+          "raw": "Aditya Dhani, et al. 2024. Similar Cases Recommendation using Legal Knowledge Graphs. arXiv preprint arXiv:2107.04771.",
+          "parsed": {
+            "title": "Similar Cases Recommendation using Legal Knowledge Graphs",
+            "authors": [
+              "Aditya Dhani",
+              "et al."
+            ],
+            "year": 2024,
+            "venue": "arXiv preprint",
+            "type": "preprint",
+            "doi": "10.48550/arXiv.2107.04771",
+            "arxivId": "2107.04771"
+          },
+          "status": "suspicious",
+          "concerns": [
+            "First author name is incorrect: actual first author is 'Jaspreet Singh Dhani', not 'Aditya Dhani'.",
+            "Year cited as 2024, but the arXiv preprint was first submitted July 2021 (v1). A v2 revision appeared in March 2024 but the paper was originally a 2021 preprint.",
+            "Full author list is Jaspreet Singh Dhani, Ruchika Bhatt, Balaji Ganesan, Parikshet Sirohi, Vasudha Bhatnagar — none named 'Aditya Dhani'."
+          ],
+          "confidence": 0.45
+        },
+        {
+          "index": 10,
+          "raw": "Erwin Filtz, Sabrina Kirrane, and Axel Polleres. 2017. Building and Processing a Knowledge-Graph for Legal Data. In The Semantic Web: ESWC 2017. Springer, 184–194.",
+          "parsed": {
+            "title": "Building and Processing a Knowledge-Graph for Legal Data",
+            "authors": [
+              "Erwin Filtz",
+              "Sabrina Kirrane",
+              "Axel Polleres"
+            ],
+            "year": 2017,
+            "venue": "The Semantic Web: ESWC 2017, Springer",
+            "type": "conference",
+            "doi": "10.1007/978-3-319-58451-5_13",
+            "arxivId": null
+          },
+          "status": "suspicious",
+          "concerns": [
+            "Author list is incorrect: the actual paper has only one author, Erwin Filtz. Sabrina Kirrane and Axel Polleres are not listed as co-authors on this paper in any source found.",
+            "Year, venue, and page numbers (184–194) are confirmed correct."
+          ],
+          "confidence": 0.6
+        }
+      ],
+      "modelUsed": "claude-sonnet-4-6",
+      "generatedAt": "2026-05-03T15:43:04.914Z"
+    },
+    "checkedAt": "2026-05-03T15:44:52.174Z"
+  },
+  {
+    "id": "6877c637-0fea-4f98-8a92-997e6d5f14fe",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "message": "Paper is 5 pages, within SIGIR 2026's 4 pages (references don't count) limit.",
+      "pageCount": 5,
+      "pageLimit": 4,
+      "effectiveLimit": 4,
+      "referencesCountTowardLimit": false,
+      "extraRefPages": null,
+      "estimatedReferencePages": 1
+    },
+    "checkedAt": "2026-05-03T15:45:35.988Z"
+  },
+  {
+    "id": "2a4b286f-06b5-40b7-b6ed-bfb9d86eae70",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "SIGIR 2026 does not specify an abstract word limit. Abstract is 207 words.",
+      "abstractWordCount": 207,
+      "abstractWordLimit": null
+    },
+    "checkedAt": "2026-05-03T15:45:35.988Z"
+  },
+  {
+    "id": "37dae313-06f7-4a1d-921a-a638d7015a95",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Method. SIGIR 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction and Related Work, Ontology-Driven Legal Reasoning Graph Extraction, Experimental Setup, Results, Discussion and Limitations, Conclusion). Suggested but not enforced: ACM CCS concepts and keywords.",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "ACM CCS concepts and keywords",
+          "placement": "after abstract",
+          "countsTowardLimit": true,
+          "deskRejectIfMissing": false
+        }
+      ],
+      "conventionalSections": [],
+      "warnings": [
+        "ACM CCS concepts and keywords"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction and Related Work",
+        "Ontology-Driven Legal Reasoning Graph Extraction",
+        "Experimental Setup",
+        "Results",
+        "Discussion and Limitations",
+        "Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction and related work",
+        "Related Work": "introduction and related work",
+        "Experiments": "results",
+        "Conclusion": "conclusion"
+      }
+    },
+    "checkedAt": "2026-05-03T15:45:35.988Z"
+  },
+  {
+    "id": "6ed2e741-0ed9-4c7f-8f40-2b4216e98d00",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Short Papers",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-03T15:45:35.988Z"
+  },
+  {
+    "id": "b49e9373-4aa5-4db7-9310-25cfb7462344",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-03T15:45:35.988Z"
+  },
+  {
+    "id": "7d03b51d-275f-4ce1-a0e8-59155037a5a8",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T15:45:35.988Z"
+  },
+  {
+    "id": "8ac5e11a-41b4-42e8-95f1-3cf0e48801e9",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-03T15:45:35.988Z"
+  },
+  {
+    "id": "ec09bcc5-2344-4004-a643-b1a5e10dc4f5",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": false,
+    "details": {
+      "message": "Expected ACM format but no citations matching either author-year or numbered styles found. Use \\citep{} (natbib) so citations render as '(Smith et al., 2024)'.",
+      "expectedFormat": "ACM",
+      "hasReferencesSection": true,
+      "detectedHint": "no citations matching either author-year or numbered styles found",
+      "source": "structured-extraction"
+    },
+    "checkedAt": "2026-05-03T15:45:35.988Z"
+  },
+  {
+    "id": "bc923b3f-060c-4a1f-93ca-0b89dc208ff1",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": null,
+      "producer": null,
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T15:45:35.988Z"
+  },
+  {
+    "id": "1434c088-5872-4587-acf6-21c03ad19bb1",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "DESK_REJECT_RISK",
+    "passed": true,
+    "details": {
+      "message": "No automated desk-reject signals detected. Manually confirm the 7 items below before submitting to SIGIR 2026.",
+      "items": [
+        {
+          "criterion": "Content past page 9 (figures, tables, appendices)",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Formatting non-compliant",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Author addition after abstract deadline",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Plagiarism / academic dishonesty",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies."
+        },
+        {
+          "criterion": "Lack of topical fit",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Pre-print policy violations",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Placeholder abstracts",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        }
+      ]
+    },
+    "checkedAt": "2026-05-03T15:45:35.988Z"
+  },
+  {
+    "id": "63e4ad27-d9fd-4bff-9bcd-6e57b9f909f2",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "message": "Paper is 5 pages, within SIGIR 2026's 4 pages (references don't count) limit.",
+      "pageCount": 5,
+      "pageLimit": 4,
+      "effectiveLimit": 4,
+      "referencesCountTowardLimit": false,
+      "extraRefPages": null,
+      "estimatedReferencePages": 1
+    },
+    "checkedAt": "2026-05-03T15:57:47.903Z"
+  },
+  {
+    "id": "d34e1d2a-3d37-4827-8819-d269e5755a50",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "SIGIR 2026 does not specify an abstract word limit. Abstract is 207 words.",
+      "abstractWordCount": 207,
+      "abstractWordLimit": null
+    },
+    "checkedAt": "2026-05-03T15:57:47.903Z"
+  },
+  {
+    "id": "8a3ed078-e7d7-484d-9480-8bc4457bb76a",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Method. SIGIR 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction and Related Work, Ontology-Driven Legal Reasoning Graph Extraction, Experimental Setup, Results, Discussion and Limitations, Conclusion). Suggested but not enforced: ACM CCS concepts and keywords.",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "ACM CCS concepts and keywords",
+          "placement": "after abstract",
+          "countsTowardLimit": true,
+          "deskRejectIfMissing": false
+        }
+      ],
+      "conventionalSections": [],
+      "warnings": [
+        "ACM CCS concepts and keywords"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction and Related Work",
+        "Ontology-Driven Legal Reasoning Graph Extraction",
+        "Experimental Setup",
+        "Results",
+        "Discussion and Limitations",
+        "Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction and related work",
+        "Related Work": "introduction and related work",
+        "Experiments": "results",
+        "Conclusion": "conclusion"
+      }
+    },
+    "checkedAt": "2026-05-03T15:57:47.903Z"
+  },
+  {
+    "id": "18962c4e-b600-4fa0-9276-b08ddc34f425",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Short Papers",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-03T15:57:47.903Z"
+  },
+  {
+    "id": "e810e562-693a-47df-b357-692020fe0e10",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-03T15:57:47.903Z"
+  },
+  {
+    "id": "0aa72afd-d69b-4f8b-851a-28d71c560ec9",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T15:57:47.903Z"
+  },
+  {
+    "id": "391307fa-da8a-4763-8352-02d037e974c5",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-03T15:57:47.903Z"
+  },
+  {
+    "id": "dfeaacac-3870-4d34-8a07-a1d06363bb9e",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": false,
+    "details": {
+      "message": "Expected ACM format but no citations matching either author-year or numbered styles found. Use \\citep{} (natbib) so citations render as '(Smith et al., 2024)'.",
+      "expectedFormat": "ACM",
+      "hasReferencesSection": true,
+      "detectedHint": "no citations matching either author-year or numbered styles found",
+      "source": "structured-extraction"
+    },
+    "checkedAt": "2026-05-03T15:57:47.903Z"
+  },
+  {
+    "id": "a18b81f7-c2b2-4ff6-ac8a-a3ff26b6f364",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": null,
+      "producer": null,
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T15:57:47.903Z"
+  },
+  {
+    "id": "52bc1a15-1b3d-4265-a332-389c090a3239",
+    "paperId": "62e59fde-ea27-4281-bf55-3cfc739753eb",
+    "checkType": "DESK_REJECT_RISK",
+    "passed": true,
+    "details": {
+      "message": "No automated desk-reject signals detected. Manually confirm the 7 items below before submitting to SIGIR 2026.",
+      "items": [
+        {
+          "criterion": "Content past page 9 (figures, tables, appendices)",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Formatting non-compliant",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Author addition after abstract deadline",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Plagiarism / academic dishonesty",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies."
+        },
+        {
+          "criterion": "Lack of topical fit",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Pre-print policy violations",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Placeholder abstracts",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        }
+      ]
+    },
+    "checkedAt": "2026-05-03T15:57:47.903Z"
+  },
+  {
+    "id": "df689599-5c91-4b60-a30c-1c558d679b73",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "PAGE_LIMIT",
+    "passed": true,
+    "details": {
+      "message": "Paper is 5 pages, within SIGIR 2026's 4 pages (references don't count) limit.",
+      "pageCount": 5,
+      "pageLimit": 4,
+      "effectiveLimit": 4,
+      "referencesCountTowardLimit": false,
+      "extraRefPages": null,
+      "estimatedReferencePages": 1
+    },
+    "checkedAt": "2026-05-03T18:31:29.351Z"
+  },
+  {
+    "id": "eded131c-1508-4632-932d-8839d3a159bf",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "ABSTRACT_WORD_COUNT",
+    "passed": true,
+    "details": {
+      "message": "SIGIR 2026 does not specify an abstract word limit. Abstract is 207 words.",
+      "abstractWordCount": 207,
+      "abstractWordLimit": null
+    },
+    "checkedAt": "2026-05-03T18:31:29.351Z"
+  },
+  {
+    "id": "8ddc34a2-52f4-4a41-9373-85c974a9f8c0",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "REQUIRED_SECTIONS",
+    "passed": false,
+    "details": {
+      "message": "Missing sections: Abstract, Method. SIGIR 2026 expects these sections. Add the missing sections to the paper (the PDF currently has: Introduction and Related Work, Ontology-Driven Legal Reasoning Graph Extraction, Experimental Setup, Results, Discussion and Limitations, Conclusion). Suggested but not enforced: ACM CCS concepts and keywords.",
+      "requiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "missingSections": [
+        "Abstract",
+        "Method"
+      ],
+      "venueRequiredSections": [
+        "Abstract",
+        "Introduction",
+        "Related Work",
+        "Method",
+        "Experiments",
+        "Conclusion"
+      ],
+      "profileRequiredSections": [],
+      "specialRequiredSections": [
+        {
+          "name": "ACM CCS concepts and keywords",
+          "placement": "after abstract",
+          "countsTowardLimit": true,
+          "deskRejectIfMissing": false
+        }
+      ],
+      "conventionalSections": [],
+      "warnings": [
+        "ACM CCS concepts and keywords"
+      ],
+      "source": "structured-extraction",
+      "extractedSections": [
+        "Introduction and Related Work",
+        "Ontology-Driven Legal Reasoning Graph Extraction",
+        "Experimental Setup",
+        "Results",
+        "Discussion and Limitations",
+        "Conclusion"
+      ],
+      "matchedAs": {
+        "Introduction": "introduction and related work",
+        "Related Work": "introduction and related work",
+        "Experiments": "results",
+        "Conclusion": "conclusion"
+      }
+    },
+    "checkedAt": "2026-05-03T18:31:29.351Z"
+  },
+  {
+    "id": "7d9544c9-a901-43c7-9339-bdab44027113",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "DYNAMIC_CHECKLIST",
+    "passed": true,
+    "details": {
+      "message": "All research checklist items present.",
+      "paperType": "RESEARCH",
+      "track": "Short Papers",
+      "items": [
+        {
+          "phrase": "evaluation",
+          "description": "Empirical evaluation discussed",
+          "present": true
+        },
+        {
+          "phrase": "baseline",
+          "description": "Comparison to baseline(s)",
+          "present": true
+        }
+      ],
+      "missing": []
+    },
+    "checkedAt": "2026-05-03T18:31:29.351Z"
+  },
+  {
+    "id": "4bda4481-d344-472c-b57b-38f2114fc3bb",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "METADATA_CHECK",
+    "passed": true,
+    "details": {
+      "message": "PDF metadata fields supplied via the compliance request are clear of identifying info.",
+      "anonymityRequired": true,
+      "metadataAuthor": "",
+      "metadataCompany": ""
+    },
+    "checkedAt": "2026-05-03T18:31:29.351Z"
+  },
+  {
+    "id": "80899ce0-0cb4-4a06-bd14-8562a89aff57",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "ANONYMITY_CHECK",
+    "passed": true,
+    "details": {
+      "message": "No identifying author or institution mentions detected in the manuscript text.",
+      "anonymityRequired": true,
+      "keywordFlags": [],
+      "patternFlags": [],
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T18:31:29.351Z"
+  },
+  {
+    "id": "9837af38-14d7-4e64-96b7-61eae641c5df",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "TOOL_LINK_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "No identity-revealing tool/dataset links detected.",
+      "anonymityRequired": true,
+      "suspectLinks": [],
+      "note": "No identity-revealing tool/dataset links detected."
+    },
+    "checkedAt": "2026-05-03T18:31:29.351Z"
+  },
+  {
+    "id": "0f411d34-1bef-45d9-8229-537688821c91",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "REFERENCE_FORMAT",
+    "passed": true,
+    "details": {
+      "message": "References use ACM format as expected by SIGIR 2026 (numbered citations found (either accepted)).",
+      "expectedFormat": "ACM",
+      "hasReferencesSection": true,
+      "detectedHint": "numbered citations found (either accepted)",
+      "source": "structured-extraction"
+    },
+    "checkedAt": "2026-05-03T18:31:29.351Z"
+  },
+  {
+    "id": "0a0d08d1-e538-46c7-b36d-e402af12036c",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "PDF_METADATA_ANONYMITY",
+    "passed": true,
+    "details": {
+      "message": "PDF embedded metadata does not reveal author identity.",
+      "anonymityRequired": true,
+      "author": null,
+      "creator": null,
+      "producer": null,
+      "flags": []
+    },
+    "checkedAt": "2026-05-03T18:31:29.351Z"
+  },
+  {
+    "id": "7115b806-a790-4f3a-bcba-79208bb651f1",
+    "paperId": "e23be89d-b792-419e-bdbd-93ba921999f6",
+    "checkType": "DESK_REJECT_RISK",
+    "passed": true,
+    "details": {
+      "message": "No automated desk-reject signals detected. Manually confirm the 7 items below before submitting to SIGIR 2026.",
+      "items": [
+        {
+          "criterion": "Content past page 9 (figures, tables, appendices)",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Formatting non-compliant",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Author addition after abstract deadline",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Plagiarism / academic dishonesty",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Confirm this paper is not under review elsewhere; ACM/IEEE plagiarism policy applies."
+        },
+        {
+          "criterion": "Lack of topical fit",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Pre-print policy violations",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        },
+        {
+          "criterion": "Placeholder abstracts",
+          "kind": "manual",
+          "status": "manual",
+          "note": "Manual confirmation required."
+        }
+      ]
+    },
+    "checkedAt": "2026-05-03T18:31:29.351Z"
   }
 ]

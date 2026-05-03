@@ -7,6 +7,7 @@ import {
   PDFArray,
   PDFRef,
   PDFPage,
+  PDFHexString,
 } from "pdf-lib";
 import type { AnnotationRecord, CommentSeverity } from "@/lib/review-types";
 
@@ -29,6 +30,16 @@ function sanitize(text: string): string {
   return text.replace(/[^\x00-\x7F]/g, "?");
 }
 
+function appendAnnot(doc: PDFDocument, page: PDFPage, ref: PDFRef) {
+  const annotsKey = PDFName.of("Annots");
+  const existing = page.node.lookupMaybe(annotsKey, PDFArray);
+  if (existing) {
+    existing.push(ref);
+  } else {
+    page.node.set(annotsKey, doc.context.obj([ref]));
+  }
+}
+
 function addLinkAnnotation(
   doc: PDFDocument,
   page: PDFPage,
@@ -44,14 +55,36 @@ function addLinkAnnotation(
     Border: [0, 0, 0],
     Dest: [destPageRef, "XYZ", null, destY, null],
   });
-  const linkRef = ctx.register(linkDict);
-  const annotsKey = PDFName.of("Annots");
-  const existing = page.node.lookupMaybe(annotsKey, PDFArray);
-  if (existing) {
-    existing.push(linkRef);
-  } else {
-    page.node.set(annotsKey, ctx.obj([linkRef]));
-  }
+  appendAnnot(doc, page, ctx.register(linkDict));
+}
+
+function addTextAnnotation(
+  doc: PDFDocument,
+  page: PDFPage,
+  rect: [number, number, number, number],
+  contents: string,
+  title: string,
+  subj: string,
+  color: { r: number; g: number; b: number }
+) {
+  const ctx = doc.context;
+  // ctx.obj() coerces every JS string to a PDFName, so structural fields only.
+  // Text-content fields (/Contents, /T, /Subj) are added below as PDFHexStrings
+  // so non-ASCII (curly quotes, accents, em-dashes) survives.
+  const dict = ctx.obj({
+    Type: "Annot",
+    Subtype: "Text",
+    Rect: rect,
+    Open: false,
+    Name: "Comment",
+    C: [color.r, color.g, color.b],
+    CA: 0.95,
+    F: 4,
+  });
+  dict.set(PDFName.of("Contents"), PDFHexString.fromText(contents));
+  dict.set(PDFName.of("T"), PDFHexString.fromText(title));
+  dict.set(PDFName.of("Subj"), PDFHexString.fromText(subj));
+  appendAnnot(doc, page, ctx.register(dict));
 }
 
 function wrapText(text: string, font: PDFFont, size: number, maxWidth: number): string[] {
@@ -167,6 +200,19 @@ export async function buildExportPdf(
         cy,
         pageHeight: height,
       });
+
+      const author = authorNames[a.authorId] ?? "Reviewer";
+      const body = a.comment.text.trim() || "(empty comment)";
+      const popupBody = `${body}\n\n— ${author} · Page ${a.pageNumber} · ${sev}`;
+      addTextAnnotation(
+        doc,
+        page,
+        [cx - 11, cy - 11, cx + 11, cy + 11],
+        popupBody,
+        author,
+        num ? `${sev} (#${num})` : sev,
+        c
+      );
     }
   }
 

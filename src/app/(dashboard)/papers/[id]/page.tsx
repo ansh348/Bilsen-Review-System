@@ -15,11 +15,15 @@ import { PaperComplianceRunner } from "@/components/papers/paper-compliance-runn
 import { RateReviewForm } from "@/components/reviews/rate-review-form";
 import { PaperStatusActions } from "@/components/papers/paper-status-actions";
 import { AiReportActions } from "@/components/papers/ai-report-actions";
+import { CommentActionItemsPanel } from "@/components/papers/comment-action-items-panel";
+import { listAnnotationsForPaper } from "@/lib/annotation-service";
+import { listCommentActionItemsForPaper } from "@/lib/comment-action-service";
 import { VenueSubmissionCard } from "@/components/papers/venue-submission-card";
 import {
   AiComplianceDetails,
   AiReferenceDetails,
 } from "@/components/papers/ai-compliance-details";
+import { StackedBar, StatTile } from "@/components/papers/compliance-stats";
 import { listVenues } from "@/lib/review-service";
 
 function renderComplianceMessage(check: { details: Record<string, unknown> }): string | null {
@@ -302,71 +306,182 @@ export default async function PaperDetailsPage({ params }: PaperDetailsPageProps
         </Card>
       )}
 
-      <Card className="border">
-        <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle className="text-base">Compliance Checks</CardTitle>
-          <PaperComplianceRunner
-            paperId={details.paper.id}
-            hasAiKey={Boolean(process.env.ANTHROPIC_API_KEY)}
-          />
-        </CardHeader>
-        <CardContent className="space-y-3">
-          {details.complianceChecks.length === 0 ? (
-            <p className="text-sm text-muted-foreground">
-              No compliance checks have been run.
-            </p>
-          ) : (
-            details.complianceChecks.map((check) => {
-              const message = renderComplianceMessage(check);
-              const technical = renderComplianceTechnical(check);
-              const isAiCompliance = check.checkType === "AI_FULL_REVIEW";
-              const isAiReferences = check.checkType === "AI_REFERENCE_CHECK";
-              return (
-                <div
-                  key={check.id}
-                  className="rounded-md border border-border p-3"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-baseline gap-2">
-                        <p className="text-sm font-medium">{check.checkType}</p>
+      {(() => {
+        const ruleBasedChecks = details.complianceChecks.filter(
+          (c) => c.checkType !== "AI_FULL_REVIEW" && c.checkType !== "AI_REFERENCE_CHECK",
+        );
+        const aiReviewChecks = details.complianceChecks.filter(
+          (c) => c.checkType === "AI_FULL_REVIEW",
+        );
+        const citationsChecks = details.complianceChecks.filter(
+          (c) => c.checkType === "AI_REFERENCE_CHECK",
+        );
+        const latestAiReview = aiReviewChecks
+          .slice()
+          .sort((a, b) => b.checkedAt.localeCompare(a.checkedAt))[0];
+        const latestCitations = citationsChecks
+          .slice()
+          .sort((a, b) => b.checkedAt.localeCompare(a.checkedAt))[0];
+        const hasAiKey = Boolean(process.env.ANTHROPIC_API_KEY);
+
+        return (
+          <>
+            <Card className="border">
+              <CardHeader className="flex flex-row items-center justify-between">
+                <CardTitle className="text-base">Compliance Checks</CardTitle>
+                <PaperComplianceRunner
+                  paperId={details.paper.id}
+                  hasAiKey={hasAiKey}
+                  show="fast"
+                />
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {ruleBasedChecks.length === 0 ? (
+                  <p className="text-sm text-muted-foreground">
+                    No compliance checks have been run.
+                  </p>
+                ) : (
+                  <>
+                    {(() => {
+                      const passed = ruleBasedChecks.filter((c) => c.passed).length;
+                      const failed = ruleBasedChecks.length - passed;
+                      return (
+                        <div className="space-y-2">
+                          <div className="grid grid-cols-3 gap-2">
+                            <StatTile label="Total" value={ruleBasedChecks.length} tone="muted" />
+                            <StatTile label="Passed" value={passed} tone="emerald" />
+                            <StatTile label="Failed" value={failed} tone="red" />
+                          </div>
+                          <StackedBar
+                            segments={[
+                              { value: passed, className: "bg-emerald-500", label: "Passed" },
+                              { value: failed, className: "bg-destructive", label: "Failed" },
+                            ]}
+                          />
+                        </div>
+                      );
+                    })()}
+                    {ruleBasedChecks.map((check) => {
+                      const message = renderComplianceMessage(check);
+                      const technical = renderComplianceTechnical(check);
+                      return (
+                        <div
+                          key={check.id}
+                          className="rounded-md border border-border p-3"
+                        >
+                          <div className="flex items-start justify-between gap-4">
+                            <div className="min-w-0 flex-1">
+                              <div className="flex items-baseline gap-2">
+                                <p className="text-sm font-medium">{check.checkType}</p>
+                                <p className="text-xs text-muted-foreground">
+                                  {check.checkedAt.slice(0, 10)}
+                                </p>
+                              </div>
+                              {message && (
+                                <p className={`text-sm leading-relaxed mt-1 ${check.passed ? "text-muted-foreground" : "text-foreground"}`}>
+                                  {message}
+                                </p>
+                              )}
+                              {technical && (
+                                <p className="text-xs text-muted-foreground mt-1">{technical}</p>
+                              )}
+                            </div>
+                            <Badge variant={check.passed ? "default" : "destructive"} className="shrink-0">
+                              {check.passed ? "Passed" : "Failed"}
+                            </Badge>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </>
+                )}
+              </CardContent>
+            </Card>
+
+            <Card className="border">
+              <CardHeader className="flex flex-row items-center justify-between">
+                <CardTitle className="text-base">AI Review</CardTitle>
+                <PaperComplianceRunner
+                  paperId={details.paper.id}
+                  hasAiKey={hasAiKey}
+                  show="ai"
+                />
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {!latestAiReview ? (
+                  <p className="text-sm text-muted-foreground">
+                    No AI review has been run yet.
+                  </p>
+                ) : (
+                  <div className="rounded-md border border-border p-3">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="min-w-0 flex-1">
                         <p className="text-xs text-muted-foreground">
-                          {check.checkedAt.slice(0, 10)}
+                          Run on {latestAiReview.checkedAt.slice(0, 10)}
                         </p>
+                        {renderComplianceMessage(latestAiReview) && (
+                          <p className={`text-sm leading-relaxed mt-1 ${latestAiReview.passed ? "text-muted-foreground" : "text-foreground"}`}>
+                            {renderComplianceMessage(latestAiReview)}
+                          </p>
+                        )}
                       </div>
-                      {message && (
-                        <p className={`text-sm mt-1 ${check.passed ? "text-muted-foreground" : "text-foreground"}`}>
-                          {message}
-                        </p>
-                      )}
-                      {technical && !isAiCompliance && !isAiReferences && (
-                        <p className="text-xs text-muted-foreground mt-1">{technical}</p>
-                      )}
+                      <Badge variant={latestAiReview.passed ? "default" : "destructive"} className="shrink-0">
+                        {latestAiReview.passed ? "Passed" : "Failed"}
+                      </Badge>
                     </div>
-                    <Badge variant={check.passed ? "default" : "destructive"} className="shrink-0">
-                      {check.passed ? "Passed" : "Failed"}
-                    </Badge>
-                  </div>
-                  {isAiCompliance && (
                     <div className="mt-3 border-t border-border/60 pt-3">
                       <AiComplianceDetails
-                        details={check.details as Parameters<typeof AiComplianceDetails>[0]["details"]}
+                        details={latestAiReview.details as Parameters<typeof AiComplianceDetails>[0]["details"]}
                       />
                     </div>
-                  )}
-                  {isAiReferences && (
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
+            <Card className="border">
+              <CardHeader className="flex flex-row items-center justify-between">
+                <CardTitle className="text-base">Citations Check</CardTitle>
+                <PaperComplianceRunner
+                  paperId={details.paper.id}
+                  hasAiKey={hasAiKey}
+                  show="ai"
+                />
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {!latestCitations ? (
+                  <p className="text-sm text-muted-foreground">
+                    No citations check has been run yet.
+                  </p>
+                ) : (
+                  <div className="rounded-md border border-border p-3">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs text-muted-foreground">
+                          Run on {latestCitations.checkedAt.slice(0, 10)}
+                        </p>
+                        {renderComplianceMessage(latestCitations) && (
+                          <p className={`text-sm leading-relaxed mt-1 ${latestCitations.passed ? "text-muted-foreground" : "text-foreground"}`}>
+                            {renderComplianceMessage(latestCitations)}
+                          </p>
+                        )}
+                      </div>
+                      <Badge variant={latestCitations.passed ? "default" : "destructive"} className="shrink-0">
+                        {latestCitations.passed ? "Passed" : "Failed"}
+                      </Badge>
+                    </div>
                     <div className="mt-3 border-t border-border/60 pt-3">
                       <AiReferenceDetails
-                        details={check.details as Parameters<typeof AiReferenceDetails>[0]["details"]}
+                        details={latestCitations.details as Parameters<typeof AiReferenceDetails>[0]["details"]}
                       />
                     </div>
-                  )}
-                </div>
-              );
-            })
-          )}
-        </CardContent>
-      </Card>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </>
+        );
+      })()}
 
       {showVenueCard && (
         <Card className="border">
@@ -430,6 +545,26 @@ export default async function PaperDetailsPage({ params }: PaperDetailsPageProps
           </CardContent>
         </Card>
       )}
+
+      <Card className="border">
+        <CardHeader>
+          <CardTitle className="text-base">Reviewer Action Items</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <CommentActionItemsPanel
+            paperId={details.paper.id}
+            initialItems={listCommentActionItemsForPaper(details.paper.id)}
+            hasComments={
+              listAnnotationsForPaper(
+                details.paper.id,
+                currentUser.id,
+                currentUser.role,
+                { kind: "COMMENT" }
+              ).length > 0
+            }
+          />
+        </CardContent>
+      </Card>
 
       <Card className="border">
         <CardHeader>
