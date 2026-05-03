@@ -37,7 +37,6 @@ yarn-error.log*
 .env*
 
 # local data
-data/users.json
 data/uploads/*
 !data/uploads/.gitkeep
 data/_backup_test/

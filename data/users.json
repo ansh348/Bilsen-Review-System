@@ -1,0 +1,554 @@
+[
+  {
+    "id": "cba1a659-ba9e-4b4c-9536-e26cd62885cb",
+    "name": "Ansuman Mullick",
+    "email": "anshumanmullick7@gmail.com",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "COORDINATOR",
+    "slackId": null,
+    "createdAt": "2026-02-14T10:15:17.789Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_eray_tuzun",
+    "name": "Eray Tüzün",
+    "email": "eray.tuzun@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "COORDINATOR",
+    "slackId": null,
+    "createdAt": "2026-02-15T09:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_vahid_haratian",
+    "name": "Vahid Haratian",
+    "email": "vahid.haratian@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-15T10:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "software analytics",
+      "mining software repositories",
+      "empirical software engineering"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_fereshteh_vedadi",
+    "name": "Fereshteh Vedadi",
+    "email": "fereshteh.vedadi@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-15T11:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "software analytics",
+      "mining software repositories",
+      "empirical software engineering"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_giray_akyol",
+    "name": "Giray Akyol",
+    "email": "giray.akyol@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-15T12:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "software analytics",
+      "mining software repositories",
+      "empirical software engineering"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_utku_torun",
+    "name": "Utku Boran Torun",
+    "email": "utku.torun@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-15T13:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "software analytics",
+      "machine learning for software engineering",
+      "mining software repositories"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_furkan_gon",
+    "name": "Furkan Gön",
+    "email": "furkan.gon@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-15T14:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "software analytics",
+      "mining software repositories",
+      "empirical software engineering"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_taha_demircan",
+    "name": "Mehmet Taha Demircan",
+    "email": "taha.demircan@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-15T15:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "software analytics",
+      "mining software repositories",
+      "empirical software engineering"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_emre_sungur",
+    "name": "Tevfik Emre Sungur",
+    "email": "emre.sungur@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-15T16:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "software analytics",
+      "mining software repositories",
+      "empirical software engineering"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_can_biyik",
+    "name": "Mehmet Can Bıyık",
+    "email": "can.biyik@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-16T09:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "legacy code refactoring",
+      "large language models",
+      "automated refactoring"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_ilke_latifoglu",
+    "name": "İlke Latifoğlu",
+    "email": "ilke.latifoglu@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-16T10:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "code review smells",
+      "code review",
+      "software process improvement"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_atakan_akar",
+    "name": "Atakan Akar",
+    "email": "atakan.akar@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-16T11:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "test generation",
+      "large language models",
+      "automated testing"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_semih_caglar",
+    "name": "Semih Çağlar",
+    "email": "semih.caglar@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-16T12:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "code comment smells",
+      "documentation analysis",
+      "code quality"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_emre_dinc",
+    "name": "Emre Dinç",
+    "email": "emre.dinc@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-16T13:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "software analytics",
+      "mining software repositories",
+      "empirical software engineering"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_furkan_akyol",
+    "name": "Emre Furkan Akyol",
+    "email": "furkan.akyol@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-16T14:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "bug report optimization",
+      "large language models",
+      "issue tracking"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_mustafa_ir",
+    "name": "Mustafa Özkan İr",
+    "email": "mustafa.ir@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-16T15:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "bug fix verification",
+      "program repair",
+      "automated testing"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_veli_karakaya",
+    "name": "Veli Karakaya",
+    "email": "veli.karakaya@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-16T16:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "LLM evaluation",
+      "large language models",
+      "benchmarking"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_ozgur_kamali",
+    "name": "Hüseyin Özgür Kamalı",
+    "email": "ozgur.kamali@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-16T17:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "software analytics",
+      "mining software repositories",
+      "empirical software engineering"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_mehmet_dedeler",
+    "name": "Mehmet Dedeler",
+    "email": "mehmet.dedeler@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-17T09:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "bug analysis",
+      "AI for software engineering",
+      "issue tracking"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_begum_oz",
+    "name": "Begüm Filiz Öz",
+    "email": "begum.oz@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-17T10:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "software analytics",
+      "large language models",
+      "mining software repositories"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_berke_ardic",
+    "name": "Berke Kuzey Ardıç",
+    "email": "berke.ardic@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-17T11:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "LLM agents",
+      "automated bug fixing",
+      "program repair"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_emre_kosus",
+    "name": "Akif Emre Köşüş",
+    "email": "emre.kosus@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-17T12:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "chatbots",
+      "bug reporting",
+      "human-AI interaction"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_eren_gokirmak",
+    "name": "Şükrü Eren Gökırmak",
+    "email": "eren.gokirmak@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-17T13:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "code review smells",
+      "code review",
+      "software process improvement"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_ugurcan_dogrucam",
+    "name": "Uğurcan Doğruçam",
+    "email": "ugurcan.dogrucam@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-17T14:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "AI-assisted development",
+      "bug reporting",
+      "issue validity analysis"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_abdullah_koc",
+    "name": "Muhammet Abdullah Koç",
+    "email": "abdullah.koc@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-18T09:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "code review smells",
+      "bug tracking smells",
+      "software process improvement"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_eylul_caglar",
+    "name": "Eylül Çağlar",
+    "email": "eylul.caglar@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-18T10:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "code review smells",
+      "bug tracking smells",
+      "software process improvement"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_emre_acikgoz",
+    "name": "Emre Açıkgöz",
+    "email": "emre.acikgoz@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-18T11:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "software process smells",
+      "process improvement",
+      "empirical software engineering"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_berkay_calmaz",
+    "name": "Berkay Çalmaz",
+    "email": "berkay.calmaz@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-18T12:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "software process smells",
+      "process improvement",
+      "empirical software engineering"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_can_yilmaz",
+    "name": "Can Yılmaz",
+    "email": "can.yilmaz@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-18T13:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "software process smells",
+      "process improvement",
+      "empirical software engineering"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_ugur_altun",
+    "name": "Uğur Can Altun",
+    "email": "ugur.altun@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-18T14:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "software process smells",
+      "process improvement",
+      "empirical software engineering"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_sergen_gocmen",
+    "name": "İsmail Sergen Göçmen",
+    "email": "sergen.gocmen@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-18T15:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "software process smells",
+      "process improvement",
+      "empirical software engineering"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_sevban_uyanik",
+    "name": "Fatih Sevban Uyanık",
+    "email": "sevban.uyanik@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-19T09:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "mining software repositories",
+      "empirical software engineering",
+      "software analytics"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_busra_buyukgebiz",
+    "name": "Büşra Büyükgebiz",
+    "email": "busra.buyukgebiz@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-19T10:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "code review smells",
+      "code review",
+      "software process improvement"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_ozan_aydin",
+    "name": "Ozan Aydın",
+    "email": "ozan.aydin@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-19T11:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "code review smells",
+      "code review",
+      "software process improvement"
+    ],
+    "affiliation": null
+  },
+  {
+    "id": "bilsen_yusuf_avci",
+    "name": "Yusuf Avcı",
+    "email": "yusuf.avci@bilkent.edu.tr",
+    "password": "$2b$10$0sbL6SWd1zjtA.YVj1PAHuL37BMtlKN/qRrDs2huilVSe2vIhyVAK",
+    "role": "MEMBER",
+    "slackId": null,
+    "createdAt": "2026-02-19T12:00:00.000Z",
+    "updatedAt": "2026-05-03T14:00:51.800Z",
+    "expertise": [
+      "software engineering education",
+      "serious games",
+      "gamification"
+    ],
+    "affiliation": null
+  }
+]
